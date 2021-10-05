@@ -58,7 +58,7 @@ public struct SingleLineTextEditor: View {
         .foregroundColor(Color.defaultText)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .strokeBorder(Color("CardBorder"), lineWidth: 0.4)
+                .strokeBorder(Color.defaultBorder, lineWidth: 0.4)
         )
         .onChange(of: text) { value in
             if(characterLimit != 0){

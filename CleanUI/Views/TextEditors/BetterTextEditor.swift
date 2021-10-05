@@ -116,17 +116,17 @@ struct UTextViewOverlay: UIViewRepresentable {
         
         // Find Links and mark
         for (_, range) in links {
-            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(Color.link), range: range)
+            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
         }
         
         // Find Hashtags and mark
         for (_, range) in hashtags {
-            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(Color.link), range: range)
+            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
         }
         
         // Find Mentions and mark
         for (_, range) in mentions {
-            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(Color.link), range: range)
+            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
         }
         
         uiView.attributedText = attributedText

@@ -52,4 +52,52 @@ public extension UIColor {
     var htmlRGBaColor:String {
         return String(format: "#%02x%02x%02x%02x", Int(rgbComponents.red * 255), Int(rgbComponents.green * 255),Int(rgbComponents.blue * 255),Int(rgbComponents.alpha * 255) )
     }
+    
+    static var accent: UIColor {
+        ColorProvider.uiColor("Accent")
+    }
+    
+    static var accent2: UIColor {
+        ColorProvider.uiColor("Accent2")
+    }
+    
+    static var accent3: UIColor {
+        ColorProvider.uiColor("Accent3")
+    }
+    
+    static var accent4: UIColor {
+        ColorProvider.uiColor("Accent4")
+    }
+    
+    static var defaultText: UIColor {
+        ColorProvider.uiColor("DefaultText")
+    }
+    
+    static var grayText: UIColor {
+        ColorProvider.uiColor("GrayText")
+    }
+    
+    static var link: UIColor {
+        ColorProvider.uiColor("Link")
+    }
+    
+    static var defaultRed: UIColor {
+        ColorProvider.uiColor("DefaultRed")
+    }
+    
+    static var background: UIColor {
+        ColorProvider.uiColor("Background")
+    }
+    
+    static var primaryColor: UIColor {
+        ColorProvider.uiColor("Primary")
+    }
+    
+    static var accentStaticDark: UIColor {
+        ColorProvider.uiColor("AccentStaticDark")
+    }
+    
+    static var defaultBorder: UIColor {
+        ColorProvider.uiColor("DefaultBorder")
+    }
 }
