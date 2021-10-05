@@ -37,7 +37,7 @@
 		756C012D270BD6D100136DF8 /* OnRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C012C270BD6D100136DF8 /* OnRotate.swift */; };
 		756C0131270BD85D00136DF8 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0130270BD85D00136DF8 /* SearchBar.swift */; };
 		756C0133270BD95100136DF8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0132270BD95100136DF8 /* BlurView.swift */; };
-		756C0135270BD9CB00136DF8 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0134270BD9CB00136DF8 /* WebView.swift */; };
+		756C0135270BD9CB00136DF8 /* Webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0134270BD9CB00136DF8 /* Webview.swift */; };
 		756C0137270BDA8900136DF8 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0136270BDA8900136DF8 /* NavigationBar.swift */; };
 		756C0139270BDB0F00136DF8 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0138270BDB0F00136DF8 /* Language.swift */; };
 		756C013B270BDD0700136DF8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C013A270BDD0700136DF8 /* UIApplication.swift */; };
@@ -119,7 +119,7 @@
 		756C012C270BD6D100136DF8 /* OnRotate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnRotate.swift; sourceTree = "<group>"; };
 		756C0130270BD85D00136DF8 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		756C0132270BD95100136DF8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		756C0134270BD9CB00136DF8 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		756C0134270BD9CB00136DF8 /* Webview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webview.swift; sourceTree = "<group>"; };
 		756C0136270BDA8900136DF8 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		756C0138270BDB0F00136DF8 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		756C013A270BDD0700136DF8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 				756C0116270BC05F00136DF8 /* NewBadge.swift */,
 				756C0130270BD85D00136DF8 /* SearchBar.swift */,
 				756C0132270BD95100136DF8 /* BlurView.swift */,
-				756C0134270BD9CB00136DF8 /* WebView.swift */,
+				756C0134270BD9CB00136DF8 /* Webview.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -550,7 +550,7 @@
 				751360B4270BB653002E74AF /* String.swift in Sources */,
 				756C010D270BB74A00136DF8 /* Attribute.swift in Sources */,
 				756C0117270BC05F00136DF8 /* NewBadge.swift in Sources */,
-				756C0135270BD9CB00136DF8 /* WebView.swift in Sources */,
+				756C0135270BD9CB00136DF8 /* Webview.swift in Sources */,
 				756C011F270BC8AD00136DF8 /* ThreadHelper.swift in Sources */,
 				751360B2270BB5D0002E74AF /* BetterTextEditor.swift in Sources */,
 			);
