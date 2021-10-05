@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The OnLoad ViewModifier allows to add a .onLoad { action() } to a view,
+/// The ``OnLoad`` ViewModifier allows to add a .onLoad { action() } to a view,
 /// The action() never gets called twice
 public struct OnLoad: ViewModifier {
     

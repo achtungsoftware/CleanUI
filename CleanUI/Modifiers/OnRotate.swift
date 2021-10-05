@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The OnRotate modifier gives you the ability to react to device rotations
+/// The ``OnRotate`` modifier gives you the ability to react to device rotations
 public struct OnRotate: ViewModifier {
     
     let action: (UIDeviceOrientation) -> Void
