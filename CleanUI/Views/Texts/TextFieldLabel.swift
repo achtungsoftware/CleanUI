@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns a TextFieldLabel
+/// Returns a ``TextFieldLabel``
 public struct TextFieldLabel: View {
     
     var label: String

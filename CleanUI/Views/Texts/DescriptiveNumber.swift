@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns a DescriptiveNumber with a number and an description, aligned vertically
+/// Returns a ``DescriptiveNumber`` with a number and an description, aligned vertically
 public struct DescriptiveNumber: View {
     
     public enum Size {

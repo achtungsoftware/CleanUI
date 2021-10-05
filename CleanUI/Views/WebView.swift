@@ -8,7 +8,7 @@
 import SwiftUI
 import WebKit
 
-/// Webview is a UIViewRepresentable for an WKWebView
+/// ``Webview`` is a UIViewRepresentable for an WKWebView
 struct Webview: UIViewRepresentable {
     
     var url: URL

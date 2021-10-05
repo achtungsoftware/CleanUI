@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns a SingleLineTextEditor. The editor is first single line and expands on line break
+/// Returns a ``SingleLineTextEditor``. The editor is first single line and expands on line break
 struct SingleLineTextEditor: View {
     
     @Binding var text: String

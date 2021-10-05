@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns a TextWithNewBadge (Text with optional NewBadge)
+/// Returns a ``TextWithNewBadge`` (Text with optional NewBadge)
 public struct TextWithNewBadge: View {
     
     var string: String
@@ -15,7 +15,7 @@ public struct TextWithNewBadge: View {
     
     /// - Parameters:
     ///   - string: The text String
-    ///   - newBadge: Should a NewBadge be applied?
+    ///   - newBadge: Should a ``NewBadge`` be applied?
     public init(_ string: String, newBadge: Bool) {
         self.string = string
         self.newBadge = newBadge

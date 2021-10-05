@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns a very dynamic and customizable Icon
+/// Returns a very dynamic and customizable ``Icon``
 public struct Icon: View {
     
     public enum Size {
@@ -31,7 +31,7 @@ public struct Icon: View {
     ///   - image: Image name from asset catalog
     ///   - systemImage: System image name
     ///   - size: The Icon size, default is .medium
-    ///   - newBadge: Should a NewBadge overlay the Icon?
+    ///   - newBadge: Should a ``NewBadge`` overlay the Icon?
     ///   - isImageOverlay: If true the Icon gets a shadow for better readability
     ///   - offset: Define an offset for the Icon, default is none
     public init(_ image: String = "", systemImage: String = "", size: Icon.Size = .medium, newBadge: Bool? = nil, isImageOverlay: Bool = false, offset: Icon.Offset = .leading(0)){

@@ -42,6 +42,14 @@
 		756C0139270BDB0F00136DF8 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0138270BDB0F00136DF8 /* Language.swift */; };
 		756C013B270BDD0700136DF8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C013A270BDD0700136DF8 /* UIApplication.swift */; };
 		756C013E270BDFE900136DF8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 756C0140270BDFE900136DF8 /* Localizable.strings */; };
+		756C0145270BE9FE00136DF8 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0144270BE9FE00136DF8 /* PrimaryButtonStyle.swift */; };
+		756C0147270BEA8200136DF8 /* PrimaryTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0146270BEA8200136DF8 /* PrimaryTextFieldStyle.swift */; };
+		756C0149270BEAE700136DF8 /* SecondaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0148270BEAE700136DF8 /* SecondaryButtonStyle.swift */; };
+		756C014B270BEB2C00136DF8 /* ChatTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C014A270BEB2C00136DF8 /* ChatTextFieldStyle.swift */; };
+		756C014D270BEB8100136DF8 /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C014C270BEB8100136DF8 /* RoundedButtonStyle.swift */; };
+		756C014F270BEC4500136DF8 /* SecondaryAltButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C014E270BEC4500136DF8 /* SecondaryAltButtonStyle.swift */; };
+		756C0151270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0150270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift */; };
+		756C0153270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0152270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift */; };
 		758C627A2708BC2A008CF28A /* CleanUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 758C62792708BC2A008CF28A /* CleanUI.docc */; };
 		758C62802708BC2A008CF28A /* CleanUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758C62752708BC2A008CF28A /* CleanUI.framework */; };
 		758C62852708BC2A008CF28A /* CleanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758C62842708BC2A008CF28A /* CleanUITests.swift */; };
@@ -118,6 +126,14 @@
 		756C013F270BDFE900136DF8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		756C0141270BE00D00136DF8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		756C0142270BE02200136DF8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		756C0144270BE9FE00136DF8 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		756C0146270BEA8200136DF8 /* PrimaryTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextFieldStyle.swift; sourceTree = "<group>"; };
+		756C0148270BEAE700136DF8 /* SecondaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonStyle.swift; sourceTree = "<group>"; };
+		756C014A270BEB2C00136DF8 /* ChatTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextFieldStyle.swift; sourceTree = "<group>"; };
+		756C014C270BEB8100136DF8 /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
+		756C014E270BEC4500136DF8 /* SecondaryAltButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryAltButtonStyle.swift; sourceTree = "<group>"; };
+		756C0150270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRoundOverImageButtonStyle.swift; sourceTree = "<group>"; };
+		756C0152270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayButtonStyle.swift; sourceTree = "<group>"; };
 		758C62752708BC2A008CF28A /* CleanUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		758C62782708BC2A008CF28A /* CleanUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleanUI.h; sourceTree = "<group>"; };
 		758C62792708BC2A008CF28A /* CleanUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CleanUI.docc; sourceTree = "<group>"; };
@@ -263,6 +279,21 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		756C0143270BE9E700136DF8 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				756C0144270BE9FE00136DF8 /* PrimaryButtonStyle.swift */,
+				756C0146270BEA8200136DF8 /* PrimaryTextFieldStyle.swift */,
+				756C0148270BEAE700136DF8 /* SecondaryButtonStyle.swift */,
+				756C014A270BEB2C00136DF8 /* ChatTextFieldStyle.swift */,
+				756C014C270BEB8100136DF8 /* RoundedButtonStyle.swift */,
+				756C014E270BEC4500136DF8 /* SecondaryAltButtonStyle.swift */,
+				756C0150270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift */,
+				756C0152270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		758C626B2708BC2A008CF28A = {
 			isa = PBXGroup;
 			children = (
@@ -287,10 +318,11 @@
 		758C62772708BC2A008CF28A /* CleanUI */ = {
 			isa = PBXGroup;
 			children = (
-				756C0118270BC09500136DF8 /* Modifiers */,
 				751360A6270BAB38002E74AF /* Main */,
 				7513608A270BA406002E74AF /* Extensions */,
-				758C62BD2708BC6E008CF28A /* Framework */,
+				756C0118270BC09500136DF8 /* Modifiers */,
+				756C0143270BE9E700136DF8 /* Styles */,
+				758C62BD2708BC6E008CF28A /* Views */,
 				758C62782708BC2A008CF28A /* CleanUI.h */,
 				758C62792708BC2A008CF28A /* CleanUI.docc */,
 				7513608B270BA493002E74AF /* Assets.xcassets */,
@@ -307,7 +339,7 @@
 			path = CleanUITests;
 			sourceTree = "<group>";
 		};
-		758C62BD2708BC6E008CF28A /* Framework */ = {
+		758C62BD2708BC6E008CF28A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				751360B0270BB425002E74AF /* TextEditors */,
@@ -319,7 +351,7 @@
 				756C0132270BD95100136DF8 /* BlurView.swift */,
 				756C0134270BD9CB00136DF8 /* WebView.swift */,
 			);
-			path = Framework;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		758C62C02708BCE9008CF28A /* Frameworks */ = {
@@ -492,17 +524,25 @@
 				756C0111270BBB7100136DF8 /* SingleLineTextEditor.swift in Sources */,
 				758C627A2708BC2A008CF28A /* CleanUI.docc in Sources */,
 				756C0131270BD85D00136DF8 /* SearchBar.swift in Sources */,
+				756C0151270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift in Sources */,
 				756C0129270BD1C600136DF8 /* TextWithNewBadge.swift in Sources */,
+				756C014F270BEC4500136DF8 /* SecondaryAltButtonStyle.swift in Sources */,
 				756C0133270BD95100136DF8 /* BlurView.swift in Sources */,
+				756C014B270BEB2C00136DF8 /* ChatTextFieldStyle.swift in Sources */,
+				756C014D270BEB8100136DF8 /* RoundedButtonStyle.swift in Sources */,
 				756C012B270BD62A00136DF8 /* HideNavigationBar.swift in Sources */,
 				756C0137270BDA8900136DF8 /* NavigationBar.swift in Sources */,
+				756C0145270BE9FE00136DF8 /* PrimaryButtonStyle.swift in Sources */,
 				756C011D270BC88A00136DF8 /* Http.swift in Sources */,
 				756C011A270BC0C900136DF8 /* OnLoad.swift in Sources */,
 				758C62BF2708BCAC008CF28A /* Card.swift in Sources */,
 				756C0123270BD0B100136DF8 /* FeedTitle.swift in Sources */,
+				756C0153270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift in Sources */,
 				756C012D270BD6D100136DF8 /* OnRotate.swift in Sources */,
 				756C013B270BDD0700136DF8 /* UIApplication.swift in Sources */,
+				756C0147270BEA8200136DF8 /* PrimaryTextFieldStyle.swift in Sources */,
 				751360B6270BB6A3002E74AF /* Font.swift in Sources */,
+				756C0149270BEAE700136DF8 /* SecondaryButtonStyle.swift in Sources */,
 				756C0113270BBC6700136DF8 /* InfoCard.swift in Sources */,
 				758C62C82708BF0D008CF28A /* Color.swift in Sources */,
 				756C0127270BD17D00136DF8 /* TextFieldLabel.swift in Sources */,

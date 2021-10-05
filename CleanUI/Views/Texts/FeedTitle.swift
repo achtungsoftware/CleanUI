@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns a FeedTitle for implementation in feeds or forms
+/// Returns a ``FeedTitle`` for implementation in feeds or forms
 public struct FeedTitle: View {
     
     var title: String

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Adds a card style to a view without wrapping it inside a container
+/// Adds a ``Card`` style to a view without wrapping it inside a container
 public struct Card<Content: View>: View {
     
     var content: () -> Content

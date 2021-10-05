@@ -22,27 +22,27 @@ public extension View {
         }
     }
     
-    /// Applies the view modifier OnLoad to a view
+    /// Applies the view modifier ``OnLoad`` to a view
     /// - Parameter action: The action gets called only once on appear. Gets not called if already appeared
-    /// - Returns: The view with the OnLoad modifier
+    /// - Returns: The view with the ``OnLoad`` modifier
     func onLoad(perform action: @escaping (() -> Void)) -> some View {
         modifier(OnLoad(perform: action))
     }
     
-    /// Applies the view modifier HideNavigationBar to a view
-    /// - Returns: The view with the HideNavigationBar modifier
+    /// Applies the view modifier ``HideNavigationBar`` to a view
+    /// - Returns: The view with the ``HideNavigationBar`` modifier
     func hideNavigationBar() -> some View {
         modifier(HideNavigationBar())
     }
     
-    /// Applies the view modifier OnRotate to a view
-    /// - Returns: The view with the OnRotate modifier
+    /// Applies the view modifier ``OnRotate`` to a view
+    /// - Returns: The view with the ``OnRotate`` modifier
     func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void) -> some View {
         modifier(OnRotate(action: action))
     }
     
-    /// Applies the view modifier NavigationBar to a view
-    /// - Returns: The view with the NavigationBar modifier
+    /// Applies the view modifier ``NavigationBar`` to a view
+    /// - Returns: The view with the ``NavigationBar`` modifier
     func navigationBar(_ title: String = "", subTitle: String = "", bigTitle: Bool = false, customTitle: AnyView? = nil, buttons: AnyView? = nil, searchBar: NavigationBarSearchField? = nil) -> some View {
         modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchBar: searchBar))
     }

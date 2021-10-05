@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The NavigationBarSearchField is an ObservableObject model for applying to an NavigationBar
+/// The ``NavigationBarSearchField`` is an ObservableObject model for applying to an ``NavigationBar``
 public class NavigationBarSearchField: ObservableObject, Equatable, Identifiable {
     
     public static func == (lhs: NavigationBarSearchField, rhs: NavigationBarSearchField) -> Bool {
@@ -24,15 +24,15 @@ public class NavigationBarSearchField: ObservableObject, Equatable, Identifiable
     var isDiscrete: Bool
     
     /// - Parameters:
-    ///   - hasSearchBar: If false, the NavigationBar acts like it has no search field, default is true
-    ///   - isDiscrete: When this is true, the NavigationBar gets a search button which needs to be pressed for the search bar to unhide, default is false
+    ///   - hasSearchBar: If false, the ``NavigationBar`` acts like it has no search field, default is true
+    ///   - isDiscrete: When this is true, the ``NavigationBar`` gets a search button which needs to be pressed for the search bar to unhide, default is false
     public init(_ hasSearchBar: Bool = true, isDiscrete: Bool = false){
         self.hasSearchBar = hasSearchBar
         self.isDiscrete = isDiscrete
     }
 }
 
-/// The NavigationBar modifier applies a NavigationBar to the view and removes the default UINavigationBar
+/// The ``NavigationBar`` modifier applies a ``NavigationBar`` to the view and removes the default UINavigationBar
 public struct NavigationBar: ViewModifier {
     
     var title: String
@@ -48,7 +48,7 @@ public struct NavigationBar: ViewModifier {
     ///   - bigTitle: Should the navigation bar title be big? default is false
     ///   - customTitle: Lets you apply a custom title view, which replaces the default title
     ///   - buttons: The trailing buttons
-    ///   - searchBar: When a NavigationBarSearchField is applied, the NavigationBar gets a search ability
+    ///   - searchBar: When a ``NavigationBarSearchField`` is applied, the NavigationBar gets a search ability
     public init(title: String, subTitle: String, bigTitle: Bool, customTitle: AnyView?, buttons: AnyView?, searchBar: NavigationBarSearchField?) {
         self.title = title
         self.subTitle = subTitle

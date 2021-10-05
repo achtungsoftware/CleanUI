@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// BlurView is a UIViewRepresentable for an UIVisualEffectView
+/// ``BlurView`` is a UIViewRepresentable for an UIVisualEffectView
 struct BlurView: UIViewRepresentable {
     
     var style: UIBlurEffect.Style

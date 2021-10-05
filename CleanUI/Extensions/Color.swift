@@ -45,4 +45,16 @@ public extension Color {
         ColorProvider.color("Background")
     }
     
+    static var primary: Color {
+        ColorProvider.color("Primary")
+    }
+    
+    static var accentStaticDark: Color {
+        ColorProvider.color("AccentStaticDark")
+    }
+    
+    static var defaultBorder: Color {
+        ColorProvider.color("DefaultBorder")
+    }
+    
 }

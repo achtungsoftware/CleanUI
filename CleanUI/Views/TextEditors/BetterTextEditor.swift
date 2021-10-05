@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns a BetterTextEditor with attributes highlighting, character limit, and placeholder
+/// Returns a ``BetterTextEditor`` with attributes highlighting, character limit, and placeholder
 public struct BetterTextEditor: View {
     
     @Binding var text: String

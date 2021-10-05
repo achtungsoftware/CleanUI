@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// SearchBar is a UIViewRepresentable for an UISearchBar
+/// ``SearchBar`` is a UIViewRepresentable for an UISearchBar
 public struct SearchBar: UIViewRepresentable {
     
     @Binding var text: String

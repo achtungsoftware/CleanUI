@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns a FeedFooter for implementation in feeds or forms
+/// Returns a ``FeedFooter`` for implementation in feeds or forms
 public struct FeedFooter: View {
     
     var title: String

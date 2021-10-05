@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns an animated badge for indicating that something is unseen or new
+/// Returns a ``NewBadge`` for indicating that something is unseen or new
 public struct NewBadge: View {
     
     var withBackground: Bool
@@ -15,7 +15,7 @@ public struct NewBadge: View {
     var defaultSize: CGFloat = 6
     @State private var animationAmount: CGFloat = 1
     
-    /// - Parameter withBackground: Should this NewBadge have a background (color) ?
+    /// - Parameter withBackground: Should this ``NewBadge`` have a background (color) ?
     public init(_ withBackground: Bool = true) {
         self.withBackground = withBackground
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-/// InfoCardManagerModel manages the InfoCardManager
+/// ``InfoCardManagerModel`` manages the ``InfoCardManager``
 public class InfoCardManagerModel: ObservableObject {
     
     @Published var isVisible: Bool = false
@@ -38,12 +38,12 @@ public class InfoCardManagerModel: ObservableObject {
     }
 }
 
-/// Returns a view which is able to decide if and which InfoCard should be displayed based on a InfoCardManagerModel
+/// Returns a view which is able to decide if and which ``InfoCard`` should be displayed based on a ``InfoCardManagerModel``
 public struct InfoCardManager: View {
     
     @ObservedObject var manager: InfoCardManagerModel
     
-    /// - Parameter manager: Needs a InfoCardManagerModel for managing the InfoCard
+    /// - Parameter manager: Needs a ``InfoCardManagerModel`` for managing the InfoCard
     init(_ manager: InfoCardManagerModel) {
         self.manager = manager
     }
@@ -73,7 +73,7 @@ public struct InfoCard: View {
     /// - Parameters:
     ///   - title: The main Text to display inside the card
     ///   - subTitle: The secondary Text to display inside the card
-    ///   - type: The InfoCardType, default is .info
+    ///   - type: The ``InfoCardType``, default is .info
     public init(_ title: String, subTitle: String = "", type: InfoCardType = .info) {
         self.title = title
         self.subTitle = subTitle
