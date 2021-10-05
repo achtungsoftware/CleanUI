@@ -36,9 +36,16 @@ public extension View {
     }
     
     /// Applies the view modifier ``OnRotate`` to a view
+    /// - Parameter action: The on rotate action
     /// - Returns: The view with the ``OnRotate`` modifier
     func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void) -> some View {
         modifier(OnRotate(action: action))
+    }
+    
+    /// Applies the view modifier ``PinchToZoom`` to a view
+    /// - Returns: The view with the ``PinchToZoom`` modifier
+    func pinchToZoom() -> some View {
+        modifier(PinchToZoom())
     }
     
     /// Applies the view modifier ``NavigationBar`` to a view

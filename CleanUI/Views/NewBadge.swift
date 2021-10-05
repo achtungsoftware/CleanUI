@@ -29,11 +29,11 @@ public struct NewBadge: View {
             }
             
             Circle()
-                .fill(Color.primary)
+                .fill(Color.primaryColor)
                 .frame(width: defaultSize, height: defaultSize)
                 .background(
                     Circle()
-                        .stroke(Color.primary)
+                        .stroke(Color.primaryColor)
                         .scaleEffect(animationAmount * 1.2)
                         .opacity(animationAmount == 2 ? 0 : 1)
                         .animation(

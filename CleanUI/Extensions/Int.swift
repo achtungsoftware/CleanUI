@@ -14,9 +14,9 @@ public extension Int {
         typealias Abbrevation = (threshold:Double, divisor:Double, suffix:String)
         let abbreviations:[Abbrevation] = [
             (0, 1, ""),
-            (1000.0, 1000.0, Language.getString("thousandabbreviation")),
-            (1_000_000.0, 1_000_000.0, Language.getString("millionabbreviation")),
-            (100_000_000.0, 1_000_000_000.0, Language.getString("billionabbreviation"))
+            (1000.0, 1000.0, Language.getStringCleanUI("thousandabbreviation")),
+            (1_000_000.0, 1_000_000.0, Language.getStringCleanUI("millionabbreviation")),
+            (100_000_000.0, 1_000_000_000.0, Language.getStringCleanUI("billionabbreviation"))
         ]
         
         let startValue = Double (abs(self))

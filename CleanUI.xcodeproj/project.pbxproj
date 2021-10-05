@@ -20,6 +20,7 @@
 		751360B2270BB5D0002E74AF /* BetterTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751360B1270BB5D0002E74AF /* BetterTextEditor.swift */; };
 		751360B4270BB653002E74AF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751360B3270BB653002E74AF /* String.swift */; };
 		751360B6270BB6A3002E74AF /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751360B5270BB6A3002E74AF /* Font.swift */; };
+		75269A3D270CAC39007898A7 /* PrimaryButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75269A3C270CAC38007898A7 /* PrimaryButtonTheme.swift */; };
 		756C010D270BB74A00136DF8 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C010C270BB74A00136DF8 /* Attribute.swift */; };
 		756C0111270BBB7100136DF8 /* SingleLineTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0110270BBB7100136DF8 /* SingleLineTextEditor.swift */; };
 		756C0113270BBC6700136DF8 /* InfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0112270BBC6700136DF8 /* InfoCard.swift */; };
@@ -57,6 +58,15 @@
 		758C62862708BC2A008CF28A /* CleanUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 758C62782708BC2A008CF28A /* CleanUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		758C62BF2708BCAC008CF28A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758C62BE2708BCAC008CF28A /* Card.swift */; };
 		758C62C82708BF0D008CF28A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758C62C72708BF0D008CF28A /* Color.swift */; };
+		75B1CB87270CCE9E000089F9 /* PinchToZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CB86270CCE9E000089F9 /* PinchToZoom.swift */; };
+		75B1CB89270CCF29000089F9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CB88270CCF29000089F9 /* UIColor.swift */; };
+		75B1CB8B270CCFB0000089F9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CB8A270CCFB0000089F9 /* UIImage.swift */; };
+		75B1CB8D270CCFE6000089F9 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CB8C270CCFE6000089F9 /* Double.swift */; };
+		75B1CB8F270CD195000089F9 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CB8E270CD195000089F9 /* CGFloat.swift */; };
+		75B1CB91270CD206000089F9 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CB90270CD206000089F9 /* UIDevice.swift */; };
+		75B1CB93270CD24D000089F9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CB92270CD24D000089F9 /* Image.swift */; };
+		75B1CB95270CD2A2000089F9 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CB94270CD2A2000089F9 /* UIScrollView.swift */; };
+		75B1CB97270CD2E0000089F9 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CB96270CD2E0000089F9 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +113,7 @@
 		751360B1270BB5D0002E74AF /* BetterTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterTextEditor.swift; sourceTree = "<group>"; };
 		751360B3270BB653002E74AF /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		751360B5270BB6A3002E74AF /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		75269A3C270CAC38007898A7 /* PrimaryButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonTheme.swift; sourceTree = "<group>"; };
 		756C010C270BB74A00136DF8 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		756C0110270BBB7100136DF8 /* SingleLineTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineTextEditor.swift; sourceTree = "<group>"; };
 		756C0112270BBC6700136DF8 /* InfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCard.swift; sourceTree = "<group>"; };
@@ -143,6 +154,15 @@
 		758C62842708BC2A008CF28A /* CleanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanUITests.swift; sourceTree = "<group>"; };
 		758C62BE2708BCAC008CF28A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		758C62C72708BF0D008CF28A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		75B1CB86270CCE9E000089F9 /* PinchToZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchToZoom.swift; sourceTree = "<group>"; };
+		75B1CB88270CCF29000089F9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		75B1CB8A270CCFB0000089F9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		75B1CB8C270CCFE6000089F9 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		75B1CB8E270CD195000089F9 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		75B1CB90270CD206000089F9 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		75B1CB92270CD24D000089F9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		75B1CB94270CD2A2000089F9 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		75B1CB96270CD2E0000089F9 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +201,14 @@
 				751360B5270BB6A3002E74AF /* Font.swift */,
 				756C013A270BDD0700136DF8 /* UIApplication.swift */,
 				75783B1E270C0CEA008A9E66 /* Int.swift */,
+				75B1CB88270CCF29000089F9 /* UIColor.swift */,
+				75B1CB8A270CCFB0000089F9 /* UIImage.swift */,
+				75B1CB8C270CCFE6000089F9 /* Double.swift */,
+				75B1CB8E270CD195000089F9 /* CGFloat.swift */,
+				75B1CB90270CD206000089F9 /* UIDevice.swift */,
+				75B1CB92270CD24D000089F9 /* Image.swift */,
+				75B1CB94270CD2A2000089F9 /* UIScrollView.swift */,
+				75B1CB96270CD2E0000089F9 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -256,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				756C010C270BB74A00136DF8 /* Attribute.swift */,
+				75269A3C270CAC38007898A7 /* PrimaryButtonTheme.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -267,6 +296,7 @@
 				756C012A270BD62A00136DF8 /* HideNavigationBar.swift */,
 				756C012C270BD6D100136DF8 /* OnRotate.swift */,
 				756C0136270BDA8900136DF8 /* NavigationBar.swift */,
+				75B1CB86270CCE9E000089F9 /* PinchToZoom.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -518,7 +548,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B1CB8F270CD195000089F9 /* CGFloat.swift in Sources */,
 				751360AD270BADD6002E74AF /* DescriptiveNumber.swift in Sources */,
+				75B1CB89270CCF29000089F9 /* UIColor.swift in Sources */,
+				75B1CB97270CD2E0000089F9 /* UIView.swift in Sources */,
 				756C0121270BCFC400136DF8 /* Vibrate.swift in Sources */,
 				756C0125270BD12000136DF8 /* FeedFooter.swift in Sources */,
 				756C0139270BDB0F00136DF8 /* Language.swift in Sources */,
@@ -532,22 +565,28 @@
 				756C014F270BEC4500136DF8 /* SecondaryAltButtonStyle.swift in Sources */,
 				756C0133270BD95100136DF8 /* BlurView.swift in Sources */,
 				756C014B270BEB2C00136DF8 /* ChatTextFieldStyle.swift in Sources */,
+				75269A3D270CAC39007898A7 /* PrimaryButtonTheme.swift in Sources */,
 				756C014D270BEB8100136DF8 /* RoundedButtonStyle.swift in Sources */,
 				756C012B270BD62A00136DF8 /* HideNavigationBar.swift in Sources */,
 				756C0137270BDA8900136DF8 /* NavigationBar.swift in Sources */,
 				756C0145270BE9FE00136DF8 /* PrimaryButtonStyle.swift in Sources */,
+				75B1CB95270CD2A2000089F9 /* UIScrollView.swift in Sources */,
 				756C011D270BC88A00136DF8 /* Http.swift in Sources */,
 				756C011A270BC0C900136DF8 /* OnLoad.swift in Sources */,
 				758C62BF2708BCAC008CF28A /* Card.swift in Sources */,
 				756C0123270BD0B100136DF8 /* FeedTitle.swift in Sources */,
+				75B1CB87270CCE9E000089F9 /* PinchToZoom.swift in Sources */,
 				756C0153270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift in Sources */,
 				756C012D270BD6D100136DF8 /* OnRotate.swift in Sources */,
 				756C013B270BDD0700136DF8 /* UIApplication.swift in Sources */,
 				756C0147270BEA8200136DF8 /* PrimaryTextFieldStyle.swift in Sources */,
 				751360B6270BB6A3002E74AF /* Font.swift in Sources */,
+				75B1CB91270CD206000089F9 /* UIDevice.swift in Sources */,
 				75783B1F270C0CEA008A9E66 /* Int.swift in Sources */,
 				756C0149270BEAE700136DF8 /* SecondaryButtonStyle.swift in Sources */,
 				756C0113270BBC6700136DF8 /* InfoCard.swift in Sources */,
+				75B1CB8B270CCFB0000089F9 /* UIImage.swift in Sources */,
+				75B1CB93270CD24D000089F9 /* Image.swift in Sources */,
 				758C62C82708BF0D008CF28A /* Color.swift in Sources */,
 				756C0127270BD17D00136DF8 /* TextFieldLabel.swift in Sources */,
 				756C0115270BC02800136DF8 /* Icon.swift in Sources */,
@@ -556,6 +595,7 @@
 				756C0117270BC05F00136DF8 /* NewBadge.swift in Sources */,
 				756C0135270BD9CB00136DF8 /* Webview.swift in Sources */,
 				756C011F270BC8AD00136DF8 /* ThreadHelper.swift in Sources */,
+				75B1CB8D270CCFE6000089F9 /* Double.swift in Sources */,
 				751360B2270BB5D0002E74AF /* BetterTextEditor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,6 +759,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -777,6 +818,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -805,6 +847,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.knoggl.CleanUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -833,6 +876,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.knoggl.CleanUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

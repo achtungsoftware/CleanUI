@@ -25,7 +25,7 @@ public struct SecondaryButtonStyle: ButtonStyle {
             .foregroundColor(.white)
             .background(
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(Color.primary)
+                    .fill(Color.primaryColor)
             )
             .scaledToFill()
             .scaleEffect(configuration.isPressed ? 0.95: 1)

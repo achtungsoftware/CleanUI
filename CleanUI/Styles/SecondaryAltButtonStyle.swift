@@ -12,6 +12,7 @@ public enum SecondaryButtonSize {
     case normal
 }
 
+/// SecondaryAltButtonStyle: ButtonStyle
 public struct SecondaryAltButtonStyle: ButtonStyle {
     
     var translucent: Bool
