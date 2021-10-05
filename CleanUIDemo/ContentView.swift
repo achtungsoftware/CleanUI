@@ -11,8 +11,19 @@ import CleanUI
 struct ContentView: View {
     @State private var text: String = ""
     var body: some View {
-        ScrollView{}
-            .navigationBar("Test", bigTitle: true, searchBar: NavigationBarSearchField())
+        VStack(spacing: 0) {
+            
+            List {
+                
+            }
+            .listStyle(.plain)
+            
+            SingleLineTextEditor($text, placeholder: "Test")
+                .background(Color.accent3)
+                .cornerRadius(11)
+        }
+        .padding()
+        .navigationBar("Test", bigTitle: true, searchBar: NavigationBarSearchField())
     }
 }
 
