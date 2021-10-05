@@ -16,7 +16,7 @@ public struct FeedTitle: View {
     /// - Parameters:
     ///   - title: The title String
     ///   - withMargin: Should the default padding be applied? Default is true
-    init(_ title: String, withMargin: Bool = true) {
+    public init(_ title: String, withMargin: Bool = true) {
         self.title = title
         self.withMargin = withMargin
     }

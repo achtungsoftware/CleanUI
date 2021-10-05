@@ -13,7 +13,7 @@ public struct FeedFooter: View {
     var title: String
     
     /// - Parameter title: The title String
-    init(_ title: String) {
+    public init(_ title: String) {
         self.title = title
     }
     

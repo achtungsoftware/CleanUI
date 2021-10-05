@@ -50,6 +50,7 @@
 		756C014F270BEC4500136DF8 /* SecondaryAltButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C014E270BEC4500136DF8 /* SecondaryAltButtonStyle.swift */; };
 		756C0151270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0150270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift */; };
 		756C0153270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0152270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift */; };
+		75783B1F270C0CEA008A9E66 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75783B1E270C0CEA008A9E66 /* Int.swift */; };
 		758C627A2708BC2A008CF28A /* CleanUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 758C62792708BC2A008CF28A /* CleanUI.docc */; };
 		758C62802708BC2A008CF28A /* CleanUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758C62752708BC2A008CF28A /* CleanUI.framework */; };
 		758C62852708BC2A008CF28A /* CleanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758C62842708BC2A008CF28A /* CleanUITests.swift */; };
@@ -134,6 +135,7 @@
 		756C014E270BEC4500136DF8 /* SecondaryAltButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryAltButtonStyle.swift; sourceTree = "<group>"; };
 		756C0150270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRoundOverImageButtonStyle.swift; sourceTree = "<group>"; };
 		756C0152270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayButtonStyle.swift; sourceTree = "<group>"; };
+		75783B1E270C0CEA008A9E66 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		758C62752708BC2A008CF28A /* CleanUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		758C62782708BC2A008CF28A /* CleanUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleanUI.h; sourceTree = "<group>"; };
 		758C62792708BC2A008CF28A /* CleanUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CleanUI.docc; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				751360B3270BB653002E74AF /* String.swift */,
 				751360B5270BB6A3002E74AF /* Font.swift */,
 				756C013A270BDD0700136DF8 /* UIApplication.swift */,
+				75783B1E270C0CEA008A9E66 /* Int.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				756C013B270BDD0700136DF8 /* UIApplication.swift in Sources */,
 				756C0147270BEA8200136DF8 /* PrimaryTextFieldStyle.swift in Sources */,
 				751360B6270BB6A3002E74AF /* Font.swift in Sources */,
+				75783B1F270C0CEA008A9E66 /* Int.swift in Sources */,
 				756C0149270BEAE700136DF8 /* SecondaryButtonStyle.swift in Sources */,
 				756C0113270BBC6700136DF8 /* InfoCard.swift in Sources */,
 				758C62C82708BF0D008CF28A /* Color.swift in Sources */,

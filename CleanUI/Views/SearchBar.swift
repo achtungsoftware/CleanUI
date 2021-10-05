@@ -18,7 +18,7 @@ public struct SearchBar: UIViewRepresentable {
     ///   - text: The search text
     ///   - placeholder: The placeholder
     ///   - isEditing: A Binding<Bool> which indicates if the SearchBar is in focus
-    init(text: Binding<String>, placeholder: String, isEditing: Binding<Bool>) {
+    public init(text: Binding<String>, placeholder: String, isEditing: Binding<Bool>) {
         self._text = text
         self.placeholder = placeholder
         self._isEditing = isEditing

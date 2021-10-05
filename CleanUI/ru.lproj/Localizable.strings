@@ -1,2 +1,5 @@
 "cancel" = "Отмена";
 "search" = "Поиск";
+"thousandabbreviation" = "тыс";
+"millionabbreviation" = "млн";
+"billionabbreviation" = "млд";

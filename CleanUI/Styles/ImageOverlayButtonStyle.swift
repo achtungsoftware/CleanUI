@@ -8,8 +8,11 @@
 import SwiftUI
 
 /// ImageOverlayButtonStyle: ButtonStyle
-struct ImageOverlayButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
+public struct ImageOverlayButtonStyle: ButtonStyle {
+    
+    public init() {}
+    
+    public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .font(.subheadline)
             .padding(.vertical, 6)

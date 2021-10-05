@@ -9,6 +9,9 @@ import SwiftUI
 
 /// IconRoundOverImageButtonStyle: ButtonStyle
 public struct IconRoundOverImageButtonStyle: ButtonStyle {
+    
+    public init() {}
+    
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .font(.subheadline)

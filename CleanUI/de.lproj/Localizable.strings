@@ -1,2 +1,5 @@
 "cancel" = "Abbrechen";
 "search" = "Suchen";
+"thousandabbreviation" = "Tsd.";
+"millionabbreviation" = "Mio.";
+"billionabbreviation" = "Mrd.";

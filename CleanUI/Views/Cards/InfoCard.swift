@@ -16,6 +16,8 @@ public class InfoCardManagerModel: ObservableObject {
     @Published var subTitle: String = ""
     @Published var type: InfoCard.InfoCardType = .info
     
+    public init() {}
+    
     /// Shows a new InfoCard or replaces the old one
     /// - Parameters:
     ///   - title: The main Text to display inside the card
@@ -44,7 +46,7 @@ public struct InfoCardManager: View {
     @ObservedObject var manager: InfoCardManagerModel
     
     /// - Parameter manager: Needs a ``InfoCardManagerModel`` for managing the InfoCard
-    init(_ manager: InfoCardManagerModel) {
+    public init(_ manager: InfoCardManagerModel) {
         self.manager = manager
     }
     

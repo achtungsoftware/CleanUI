@@ -16,10 +16,10 @@ public class NavigationBarSearchField: ObservableObject, Equatable, Identifiable
     
     public let id = UUID()
     
-    @Published var isEditing: Bool = false
-    @Published var showSearchResults: Bool = false
-    @Published var query: String = ""
-    @Published var show: Bool = false
+    @Published public var isEditing: Bool = false
+    @Published public var showSearchResults: Bool = false
+    @Published public var query: String = ""
+    @Published public var show: Bool = false
     var hasSearchBar: Bool
     var isDiscrete: Bool
     

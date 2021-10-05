@@ -1,2 +1,5 @@
 "cancel" = "Cancel";
 "search" = "Search";
+"thousandabbreviation" = "K";
+"millionabbreviation" = "M";
+"billionabbreviation" = "B";

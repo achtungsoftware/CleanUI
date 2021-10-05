@@ -14,7 +14,7 @@ public struct DescriptiveNumber: View {
         case normal, small
     }
     
-    var number: Int
+    var number: String
     var description: String
     var size: DescriptiveNumber.Size
     
@@ -22,7 +22,7 @@ public struct DescriptiveNumber: View {
     ///   - number: The number which will be described
     ///   - description: The description for the number
     ///   - size: The size, default is .normal
-    public init(_ number: Int, description: String, size: DescriptiveNumber.Size = .normal) {
+    public init(_ number: String, description: String, size: DescriptiveNumber.Size = .normal) {
         self.number = number
         self.description = description
         self.size = size
@@ -30,7 +30,7 @@ public struct DescriptiveNumber: View {
     
     public var body: some View {
         VStack {
-            Text(String(number))
+            Text(Int(number)!.abbreviate())
                 .font(size == .small ? .subheadline : .body)
                 .fontWeight(.bold)
             
