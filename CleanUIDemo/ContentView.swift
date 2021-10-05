@@ -9,16 +9,15 @@ import SwiftUI
 import CleanUI
 
 struct ContentView: View {
+    @State private var text: String = ""
     var body: some View {
-        Card {
-            Text("Test")
-        }
+        ScrollView{}
+            .navigationBar("Test", bigTitle: true, searchBar: NavigationBarSearchField())
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.dark)
     }
 }

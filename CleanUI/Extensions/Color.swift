@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-extension Color {
+public extension Color {
+    
     static var accent: Color {
         ColorProvider.color("Accent")
     }
@@ -26,6 +27,22 @@ extension Color {
     
     static var defaultText: Color {
         ColorProvider.color("DefaultText")
+    }
+    
+    static var grayText: Color {
+        ColorProvider.color("GrayText")
+    }
+    
+    static var link: Color {
+        ColorProvider.color("Link")
+    }
+    
+    static var defaultRed: Color {
+        ColorProvider.color("DefaultRed")
+    }
+    
+    static var background: Color {
+        ColorProvider.color("Background")
     }
     
 }
