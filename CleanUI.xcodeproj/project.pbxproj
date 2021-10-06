@@ -193,26 +193,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7513608A270BA406002E74AF /* Extensions */ = {
+		75023B54270D1D9200EF4098 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				758C62C72708BF0D008CF28A /* Color.swift */,
 				751360AE270BADF8002E74AF /* View.swift */,
-				751360B3270BB653002E74AF /* String.swift */,
+				75B1CB92270CD24D000089F9 /* Image.swift */,
 				751360B5270BB6A3002E74AF /* Font.swift */,
-				756C013A270BDD0700136DF8 /* UIApplication.swift */,
-				75783B1E270C0CEA008A9E66 /* Int.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		75023B55270D1D9F00EF4098 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
 				75B1CB88270CCF29000089F9 /* UIColor.swift */,
 				75B1CB8A270CCFB0000089F9 /* UIImage.swift */,
-				75B1CB8C270CCFE6000089F9 /* Double.swift */,
-				75B1CB8E270CD195000089F9 /* CGFloat.swift */,
-				75B1CB90270CD206000089F9 /* UIDevice.swift */,
-				75B1CB92270CD24D000089F9 /* Image.swift */,
 				75B1CB94270CD2A2000089F9 /* UIScrollView.swift */,
 				75B1CB96270CD2E0000089F9 /* UIView.swift */,
-				75B1CBA9270CE47C000089F9 /* AVURLAsset.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		75023B56270D1F7B00EF4098 /* CleanUI */ = {
+			isa = PBXGroup;
+			children = (
 				75B1CBAD270CE613000089F9 /* VideoExportQuality.swift */,
 				75B1CBD4270D0002000089F9 /* ImageCache.swift */,
+			);
+			path = CleanUI;
+			sourceTree = "<group>";
+		};
+		7513608A270BA406002E74AF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75023B56270D1F7B00EF4098 /* CleanUI */,
+				75023B55270D1D9F00EF4098 /* UIKit */,
+				75023B54270D1D9200EF4098 /* SwiftUI */,
+				75783B1E270C0CEA008A9E66 /* Int.swift */,
+				756C013A270BDD0700136DF8 /* UIApplication.swift */,
+				751360B3270BB653002E74AF /* String.swift */,
+				75B1CB90270CD206000089F9 /* UIDevice.swift */,
+				75B1CBA9270CE47C000089F9 /* AVURLAsset.swift */,
+				75B1CB8E270CD195000089F9 /* CGFloat.swift */,
+				75B1CB8C270CCFE6000089F9 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

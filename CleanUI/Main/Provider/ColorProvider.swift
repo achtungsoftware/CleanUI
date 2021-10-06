@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Provides colors from the Asset Catalog
+/// Provides colors from the CleanUI frameworks Asset Catalog
 class ColorProvider {
     
     /// Gets a color from the asset catalog

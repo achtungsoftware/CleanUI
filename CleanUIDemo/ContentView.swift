@@ -13,11 +13,18 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             List {
-                
+                Text(35521.abbreviate())
+                Text(554.abbreviate())
+                Text(423546.abbreviate())
+                Text(26546546.abbreviate())
+                Text(9453.abbreviate())
+                Text("Test".md5)
+                Text("Hallo&yeay".urlEncode())
+                Text("Hallo=yeay".urlEncode())
+                Text("Hallo/yeay".urlEncode())
+                Text("Hallo?yeay".urlEncode())
             }
-            .listStyle(.plain)
         }
-        .padding()
         .navigationBar("Test", bigTitle: true, searchBar: NavigationBarSearchField())
     }
 }

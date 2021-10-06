@@ -57,7 +57,9 @@ public class UrlImageModel: ObservableObject {
         guard let cacheImage = imageCache.get(forKey: urlString) else {
             return false
         }
+        
         self.image = cacheImage
+        
         return true
     }
     
@@ -78,9 +80,11 @@ public class UrlImageModel: ObservableObject {
         guard error == nil else {
             return
         }
+        
         guard let data = data else {
             return
         }
+        
         guard let loadedImage = UIImage(data: data) else {
             return
         }
