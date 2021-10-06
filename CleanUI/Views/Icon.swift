@@ -20,6 +20,7 @@ public struct Icon: View {
     
     var image: String
     var systemImage: String
+    var frameworkImage: String
     var newBadge: Bool?
     var size: Icon.Size
     var isImageOverlay: Bool
@@ -30,24 +31,26 @@ public struct Icon: View {
     /// - Parameters:
     ///   - image: Image name from asset catalog
     ///   - systemImage: System image name
+    ///   - frameworkImage: The Image name from the CleanUI frameworks asset catalog
     ///   - size: The Icon size, default is .medium
     ///   - newBadge: Should a ``NewBadge`` overlay the Icon?
     ///   - isImageOverlay: If true the Icon gets a shadow for better readability
     ///   - offset: Define an offset for the Icon, default is none
-    public init(_ image: String = "", systemImage: String = "", size: Icon.Size = .medium, newBadge: Bool? = nil, isImageOverlay: Bool = false, offset: Icon.Offset = .leading(0)){
+    public init(_ image: String = "", systemImage: String = "", frameworkImage: String = "", size: Icon.Size = .medium, newBadge: Bool? = nil, isImageOverlay: Bool = false, offset: Icon.Offset = .leading(0)){
         self.image = image
         self.size = size
         self.systemImage = systemImage
         self.newBadge = newBadge
         self.isImageOverlay = isImageOverlay
         self.offset = offset
+        self.frameworkImage = frameworkImage
         
         self._sideSize = State(initialValue: self.size == .small ? 22 : self.size == .medium ? 26 : self.size == .textSize ? 16 : 30)
     }
     
     public var body: some View {
         ZStack {
-            if(image != ""){
+            if !image.isEmpty {
                 Image(image)
                     .resizable()
                     .frame(width: sideSize, height: sideSize)
@@ -56,7 +59,16 @@ public struct Icon: View {
                         view
                             .defaultShadow()
                     }
-            }else {
+            }else if !frameworkImage.isEmpty {
+                ImageProvider.image(frameworkImage)
+                    .resizable()
+                    .frame(width: sideSize, height: sideSize)
+                    .offset(calcOffset())
+                    .if(isImageOverlay) { view in
+                        view
+                            .defaultShadow()
+                    }
+            } else {
                 Image(systemName: systemImage)
                     .font(.system(size: systemImage != "" ? sideSize - 4 : sideSize))
                     .offset(calcOffset())

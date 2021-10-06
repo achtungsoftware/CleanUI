@@ -78,7 +78,7 @@ public struct NavigationBar: ViewModifier {
                                     Button(action: {
                                         presentationMode.wrappedValue.dismiss()
                                     }){
-                                        Icon("Back_Icon")
+                                        Icon(frameworkImage: "Back_Icon")
                                             .padding(.leading, -8)
                                     }
                                 }
@@ -139,7 +139,7 @@ public struct NavigationBar: ViewModifier {
                                                         searchBar.show.toggle()
                                                     }
                                                 }){
-                                                    Icon("Search_Icon_TabBar_Outline", size: .small)
+                                                    Icon(frameworkImage: "Search_Icon", size: .small)
                                                 }
                                             }
                                             

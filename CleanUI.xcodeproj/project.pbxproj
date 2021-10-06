@@ -11,6 +11,7 @@
 		75023B5A270D3CA200EF4098 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B59270D3CA200EF4098 /* Time.swift */; };
 		75023B5C270D3E7B00EF4098 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B5B270D3E7B00EF4098 /* DateTime.swift */; };
 		75023B62270D46E900EF4098 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B61270D46E900EF4098 /* ScrollView.swift */; };
+		75023B8E270D51A800EF4098 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B8D270D51A800EF4098 /* ImageProvider.swift */; };
 		7513608C270BA493002E74AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7513608B270BA493002E74AF /* Assets.xcassets */; };
 		75136096270BA6E8002E74AF /* CleanUIDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75136095270BA6E8002E74AF /* CleanUIDemoApp.swift */; };
 		75136098270BA6E8002E74AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75136097270BA6E8002E74AF /* ContentView.swift */; };
@@ -110,6 +111,7 @@
 		75023B59270D3CA200EF4098 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		75023B5B270D3E7B00EF4098 /* DateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
 		75023B61270D46E900EF4098 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
+		75023B8D270D51A800EF4098 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		7513608B270BA493002E74AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75136093270BA6E8002E74AF /* CleanUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75136095270BA6E8002E74AF /* CleanUIDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanUIDemoApp.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				751360A7270BAB52002E74AF /* ColorProvider.swift */,
+				75023B8D270D51A800EF4098 /* ImageProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				756C0137270BDA8900136DF8 /* NavigationBar.swift in Sources */,
 				756C0145270BE9FE00136DF8 /* PrimaryButtonStyle.swift in Sources */,
 				75B1CB95270CD2A2000089F9 /* UIScrollView.swift in Sources */,
+				75023B8E270D51A800EF4098 /* ImageProvider.swift in Sources */,
 				75B1CBB7270CE9F5000089F9 /* CircularProgress.swift in Sources */,
 				75B1CBD5270D0002000089F9 /* ImageCache.swift in Sources */,
 				756C011D270BC88A00136DF8 /* Http.swift in Sources */,
