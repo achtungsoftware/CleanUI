@@ -1,0 +1,704 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CleanUI
+import AudioToolbox
+@_exported import CleanUI
+import CryptoKit
+import Swift
+import SwiftUI
+import WebKit
+import _AVKit_SwiftUI
+import _Concurrency
+extension CoreGraphics.CGFloat {
+  public func maxValue(_ max: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  public func minValue(_ min: CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+}
+public struct DescriptiveNumber : SwiftUI.View {
+  public enum Size {
+    case normal, small
+    public static func == (a: CleanUI.DescriptiveNumber.Size, b: CleanUI.DescriptiveNumber.Size) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public init(_ number: Swift.String, description: Swift.String, size: CleanUI.DescriptiveNumber.Size = .normal)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI17DescriptiveNumberV4bodyQrvp", 0) __
+}
+extension UIKit.UIColor {
+  public func imageWithColor(width: Swift.Int, height: Swift.Int) -> UIKit.UIImage
+  public var rgbComponents: (red: CoreGraphics.CGFloat, green: CoreGraphics.CGFloat, blue: CoreGraphics.CGFloat, alpha: CoreGraphics.CGFloat) {
+    get
+  }
+  public var hsbComponents: (hue: CoreGraphics.CGFloat, saturation: CoreGraphics.CGFloat, brightness: CoreGraphics.CGFloat, alpha: CoreGraphics.CGFloat) {
+    get
+  }
+  public var htmlRGBColor: Swift.String {
+    get
+  }
+  public var htmlRGBaColor: Swift.String {
+    get
+  }
+  public static var accent: UIKit.UIColor {
+    get
+  }
+  public static var accent2: UIKit.UIColor {
+    get
+  }
+  public static var accent3: UIKit.UIColor {
+    get
+  }
+  public static var accent4: UIKit.UIColor {
+    get
+  }
+  public static var defaultText: UIKit.UIColor {
+    get
+  }
+  public static var grayText: UIKit.UIColor {
+    get
+  }
+  public static var link: UIKit.UIColor {
+    get
+  }
+  public static var defaultRed: UIKit.UIColor {
+    get
+  }
+  public static var background: UIKit.UIColor {
+    get
+  }
+  public static var primaryColor: UIKit.UIColor {
+    get
+  }
+  public static var accentStaticDark: UIKit.UIColor {
+    get
+  }
+  public static var defaultBorder: UIKit.UIColor {
+    get
+  }
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func screenshot() -> UIKit.UIImage
+  @_Concurrency.MainActor(unsafe) public func isVisible() -> Swift.Bool
+}
+public enum Vibrate {
+  case error
+  case success
+  case warning
+  case light
+  case medium
+  case heavy
+  @available(iOS 13.0, *)
+  case soft
+  @available(iOS 13.0, *)
+  case rigid
+  case selection
+  case oldSchool
+  public func vibrate()
+  public static func == (a: CleanUI.Vibrate, b: CleanUI.Vibrate) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct FeedFooter : SwiftUI.View {
+  public init(_ title: Swift.String)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI10FeedFooterV4bodyQrvp", 0) __
+}
+public struct DateTime : SwiftUI.View {
+  public init(_ timestamp: Swift.String, expandable: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI8DateTimeV4bodyQrvp", 0) __
+}
+public struct BindingDateTime : SwiftUI.View {
+  public init(_ timestamp: SwiftUI.Binding<Swift.String>, expandable: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI15BindingDateTimeV4bodyQrvp", 0) __
+}
+public struct StaticDateTime : SwiftUI.View {
+  public init(_ timestamp: Swift.String, expandable: Swift.Bool = true, fixedFontSize: Swift.Bool = false, foregroundColor: SwiftUI.Color = Color.grayText)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI14StaticDateTimeV4bodyQrvp", 0) __
+}
+@_hasMissingDesignatedInitializers public class Language {
+  public static func getString(_ keyString: Swift.String) -> Swift.String
+  public static func getStringWithReplace(_ keyString: Swift.String, replace: Swift.String, with: Swift.String) -> Swift.String
+  @objc deinit
+}
+public struct ScrollView<Content> : SwiftUI.View where Content : SwiftUI.View {
+  public init(_ axes: SwiftUI.Axis.Set = .vertical, showsIndicators: Swift.Bool = true, offsetChanged: @escaping (CoreGraphics.CGPoint) -> Swift.Void = { _ in }, @SwiftUI.ViewBuilder content: () -> Content)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI10ScrollViewV4bodyQrvp", 0) __<Content>
+}
+extension SwiftUI.View {
+  public func `if`<Content>(_ condition: Swift.Bool, transform: (Self) -> Content) -> some SwiftUI.View where Content : SwiftUI.View
+  
+  public func onLoad(perform action: @escaping (() -> Swift.Void)) -> some SwiftUI.View
+  
+  public func hideNavigationBar() -> some SwiftUI.View
+  
+  public func onRotate(perform action: @escaping (UIKit.UIDeviceOrientation) -> Swift.Void) -> some SwiftUI.View
+  
+  public func pinchToZoom() -> some SwiftUI.View
+  
+  public func navigationBar(_ title: Swift.String = "", subTitle: Swift.String = "", bigTitle: Swift.Bool = false, customTitle: SwiftUI.AnyView? = nil, buttons: SwiftUI.AnyView? = nil, searchBar: CleanUI.NavigationBarSearchField? = nil) -> some SwiftUI.View
+  
+  public func defaultShadow() -> some SwiftUI.View
+  
+}
+@_Concurrency.MainActor(unsafe) public struct SingleLineTextEditor : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public init(_ text: SwiftUI.Binding<Swift.String>, placeholder: Swift.String = "", keyboardType: UIKit.UIKeyboardType = .twitter, characterLimit: Swift.Int = 0, attributes: [CleanUI.Attribute] = [.links, .hashtags, .mentions])
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI20SingleLineTextEditorV4bodyQrvp", 0) __
+}
+public struct TextFieldProgress : SwiftUI.View {
+  public init(_ text: SwiftUI.Binding<Swift.String>, characterLimit: Swift.Int)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI17TextFieldProgressV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor(unsafe) public struct SearchBar : SwiftUI.UIViewRepresentable {
+  @_Concurrency.MainActor(unsafe) public init(text: SwiftUI.Binding<Swift.String>, placeholder: Swift.String, isEditing: SwiftUI.Binding<Swift.Bool>)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: SwiftUI.UIViewRepresentableContext<CleanUI.SearchBar>) -> UIKit.UISearchBar
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: UIKit.UISearchBar, context: SwiftUI.UIViewRepresentableContext<CleanUI.SearchBar>)
+  @_Concurrency.MainActor(unsafe) public func makeCoordinator() -> CleanUI.SearchBar.Coordinator
+  @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class Coordinator : ObjectiveC.NSObject, UIKit.UISearchBarDelegate {
+    @_Concurrency.MainActor(unsafe) @objc public func searchBar(_ searchBar: UIKit.UISearchBar, textDidChange searchText: Swift.String)
+    @_Concurrency.MainActor(unsafe) @objc public func searchBarTextDidBeginEditing(_ searchBar: UIKit.UISearchBar)
+    @_Concurrency.MainActor(unsafe) @objc public func searchBarTextDidEndEditing(_ searchBar: UIKit.UISearchBar)
+    @objc deinit
+  }
+  public typealias Body = Swift.Never
+  public typealias UIViewType = UIKit.UISearchBar
+}
+public struct IconRoundOverImageButtonStyle : SwiftUI.ButtonStyle {
+  public init()
+  public func makeBody(configuration: CleanUI.IconRoundOverImageButtonStyle.Configuration) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI29IconRoundOverImageButtonStyleV8makeBody13configurationQr05SwiftB00gH13ConfigurationV_tF", 0) __
+}
+public enum VideoExportQuality {
+  case low
+  case medium
+  case high
+  case extraHigh
+  case ultra
+  public static func == (a: CleanUI.VideoExportQuality, b: CleanUI.VideoExportQuality) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum VideoOrientation {
+  case up, down, right, left
+  public static func == (a: CleanUI.VideoOrientation, b: CleanUI.VideoOrientation) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class VideoHelper {
+  public static func orientation(for track: AVFoundation.AVAssetTrack) -> CleanUI.VideoOrientation
+  public static func changeQuality(videoUrl: Foundation.URL, callback: @escaping (_ newUrl: Foundation.URL) -> (), quality: CleanUI.VideoExportQuality = .medium)
+  public static func getThumbnail(url: Foundation.URL, completion: @escaping ((_ image: UIKit.UIImage?) -> Swift.Void))
+  public static func getSize(url: Foundation.URL) -> CoreGraphics.CGSize?
+  public static func getOutputPath(_ name: Swift.String) -> Swift.String
+  @objc deinit
+}
+public struct TextWithNewBadge : SwiftUI.View {
+  public init(_ string: Swift.String, newBadge: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI16TextWithNewBadgeV4bodyQrvp", 0) __
+}
+@_hasMissingDesignatedInitializers public class Time {
+  public static func secondsToMinutesAndSecondsString(seconds: Swift.Int) -> Swift.String
+  public static func localToServerTime(dateStr: Swift.String) -> Swift.String?
+  public static func serverToLocalTime(dateStr: Swift.String) -> Swift.String?
+  public static func timestampStringToDate(timestamp: Swift.String) -> Foundation.Date?
+  public static func timestampToHumanReadable(timestamp: Swift.String) -> Swift.String?
+  @objc deinit
+}
+public enum SecondaryButtonSize {
+  case small
+  case normal
+  public static func == (a: CleanUI.SecondaryButtonSize, b: CleanUI.SecondaryButtonSize) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct SecondaryAltButtonStyle : SwiftUI.ButtonStyle {
+  public init(translucent: Swift.Bool = false, size: CleanUI.SecondaryButtonSize = .normal)
+  public func makeBody(configuration: CleanUI.SecondaryAltButtonStyle.Configuration) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI23SecondaryAltButtonStyleV8makeBody13configurationQr05SwiftB00eF13ConfigurationV_tF", 0) __
+}
+@_Concurrency.MainActor(unsafe) public struct BlurView : SwiftUI.UIViewRepresentable {
+  @_Concurrency.MainActor(unsafe) public init(_ style: UIKit.UIBlurEffect.Style)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: CleanUI.BlurView.Context) -> UIKit.UIVisualEffectView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: UIKit.UIVisualEffectView, context: CleanUI.BlurView.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = UIKit.UIVisualEffectView
+}
+public struct ChatTextFieldStyle : SwiftUI.TextFieldStyle {
+  public init(backgroundColor: SwiftUI.Color = Color.background)
+  public func _body(configuration: SwiftUI.TextField<CleanUI.ChatTextFieldStyle._Label>) -> some SwiftUI.View
+  
+  public typealias _Body = @_opaqueReturnTypeOf("$s7CleanUI18ChatTextFieldStyleV5_body13configurationQr05SwiftB00dE0VyAF01_deF5LabelVG_tF", 0) __
+}
+public enum PrimaryButtonTheme {
+  case primary
+  case imageOverlay
+  case staticLight
+  case staticDark
+  case materialDark
+  case materialLight
+  public static func == (a: CleanUI.PrimaryButtonTheme, b: CleanUI.PrimaryButtonTheme) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct RoundedButtonStyle : SwiftUI.ButtonStyle {
+  public init(buttonTheme: CleanUI.PrimaryButtonTheme = .primary, withOpacity: Swift.Bool = false)
+  public func makeBody(configuration: CleanUI.RoundedButtonStyle.Configuration) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI18RoundedButtonStyleV8makeBody13configurationQr05SwiftB00dE13ConfigurationV_tF", 0) __
+}
+public struct HideNavigationBar : SwiftUI.ViewModifier {
+  public init()
+  @_Concurrency.MainActor(unsafe) public func body(content: CleanUI.HideNavigationBar.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI17HideNavigationBarV4body7contentQr05SwiftB021_ViewModifier_ContentVyACG_tF", 0) __
+}
+public class NavigationBarSearchField : Foundation.ObservableObject, Swift.Equatable, Swift.Identifiable {
+  public static func == (lhs: CleanUI.NavigationBarSearchField, rhs: CleanUI.NavigationBarSearchField) -> Swift.Bool
+  final public let id: Foundation.UUID
+  @Combine.Published @_projectedValueProperty($isEditing) public var isEditing: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  public var $isEditing: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($showSearchResults) public var showSearchResults: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  public var $showSearchResults: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($query) public var query: Swift.String {
+    get
+    set
+    _modify
+  }
+  public var $query: Combine.Published<Swift.String>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($show) public var show: Swift.Bool {
+    get
+    set
+    _modify
+  }
+  public var $show: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  public init(_ hasSearchBar: Swift.Bool = true, isDiscrete: Swift.Bool = false)
+  public typealias ID = Foundation.UUID
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_Concurrency.MainActor(unsafe) public struct NavigationBar : SwiftUI.ViewModifier {
+  @_Concurrency.MainActor(unsafe) public init(title: Swift.String, subTitle: Swift.String, bigTitle: Swift.Bool, customTitle: SwiftUI.AnyView?, buttons: SwiftUI.AnyView?, searchBar: CleanUI.NavigationBarSearchField?)
+  @_Concurrency.MainActor(unsafe) public func body(content: CleanUI.NavigationBar.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI13NavigationBarV4body7contentQr05SwiftB021_ViewModifier_ContentVyACG_tF", 0) __
+}
+public struct PrimaryButtonStyle : SwiftUI.ButtonStyle {
+  public init(buttonTheme: CleanUI.PrimaryButtonTheme = .primary, withOpacity: Swift.Bool = false)
+  public func makeBody(configuration: CleanUI.PrimaryButtonStyle.Configuration) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI18PrimaryButtonStyleV8makeBody13configurationQr05SwiftB00dE13ConfigurationV_tF", 0) __
+}
+extension UIKit.UIScrollView {
+  @_Concurrency.MainActor(unsafe) public func scrollToTop()
+}
+public struct CircularProgress : SwiftUI.View {
+  public enum Size {
+    case small, medium, big
+    public static func == (a: CleanUI.CircularProgress.Size, b: CleanUI.CircularProgress.Size) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Tint {
+    case light, dark, auto, knoggl
+    public static func == (a: CleanUI.CircularProgress.Tint, b: CleanUI.CircularProgress.Tint) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public init(_ progress: CoreGraphics.CGFloat, size: CleanUI.CircularProgress.Size = .medium, tint: CleanUI.CircularProgress.Tint = .auto)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI16CircularProgressV4bodyQrvp", 0) __
+}
+@_hasMissingDesignatedInitializers public class Http {
+  public static func upload(_ url: Swift.String, parameters: [Swift.String : Swift.String]? = nil, videos: [Swift.String : Foundation.URL]? = nil, images: [Swift.String : UIKit.UIImage]? = nil, audios: [Swift.String : Foundation.URL]? = nil, thread: CleanUI.ThreadHelper.async = .background, callback: @escaping (Swift.String, Swift.Bool) -> ())
+  public static func postObject<T>(_ url: Swift.String, parameters: [Swift.String : Swift.String]? = nil, type: T.Type, thread: CleanUI.ThreadHelper.async = .utility, callback: @escaping (T?, Swift.String, Swift.Bool) -> ()) where T : Swift.Decodable
+  public static func postObjectArray<T>(_ url: Swift.String, parameters: [Swift.String : Swift.String]? = nil, type: T.Type, thread: CleanUI.ThreadHelper.async = .utility, callback: @escaping ([T]?, Swift.String, Swift.Bool) -> ()) where T : Swift.Decodable
+  public static func post(_ url: Swift.String, parameters: [Swift.String : Swift.String]? = nil, thread: CleanUI.ThreadHelper.async = .utility, callback: @escaping (Swift.String, Swift.Bool) -> ())
+  public static func buildPostDataString(_ parameters: [Swift.String : Swift.String]?) -> Swift.String
+  @objc deinit
+}
+public struct KnogglGradient : SwiftUI.View {
+  public init()
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI14KnogglGradientV4bodyQrvp", 0) __
+}
+public struct OnLoad : SwiftUI.ViewModifier {
+  public init(perform action: @escaping (() -> Swift.Void))
+  @_Concurrency.MainActor(unsafe) public func body(content: CleanUI.OnLoad.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI6OnLoadV4body7contentQr05SwiftB021_ViewModifier_ContentVyACG_tF", 0) __
+}
+public struct Card<Content> : SwiftUI.View where Content : SwiftUI.View {
+  public init(accent2: Swift.Bool = false, @SwiftUI.ViewBuilder content: @escaping () -> Content)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI4CardV4bodyQrvp", 0) __<Content>
+}
+extension Foundation.Date {
+  public func timeAgo() -> Swift.String
+}
+public struct FeedTitle : SwiftUI.View {
+  public init(_ title: Swift.String, withMargin: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI9FeedTitleV4bodyQrvp", 0) __
+}
+public struct PinchToZoom : SwiftUI.ViewModifier {
+  @_Concurrency.MainActor(unsafe) public func body(content: CleanUI.PinchToZoom.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI11PinchToZoomV4body7contentQr05SwiftB021_ViewModifier_ContentVyACG_tF", 0) __
+}
+extension AVFoundation.AVURLAsset {
+  public func deg2rad(_ number: Swift.Double) -> Swift.Double
+  public func cropResizeFixCutAndConvertToMP4(at index: Swift.Int, cropRect: CoreGraphics.CGRect, callback: @escaping (_ newUrl: Foundation.URL) -> (), quality: CleanUI.VideoExportQuality, maxLength: Swift.Double)
+}
+public struct ImageOverlayButtonStyle : SwiftUI.ButtonStyle {
+  public init()
+  public func makeBody(configuration: CleanUI.ImageOverlayButtonStyle.Configuration) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI23ImageOverlayButtonStyleV8makeBody13configurationQr05SwiftB00eF13ConfigurationV_tF", 0) __
+}
+public struct OnRotate : SwiftUI.ViewModifier {
+  public init(action: @escaping (UIKit.UIDeviceOrientation) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) public func body(content: CleanUI.OnRotate.Content) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI8OnRotateV4body7contentQr05SwiftB021_ViewModifier_ContentVyACG_tF", 0) __
+}
+extension UIKit.UIApplication {
+  @_Concurrency.MainActor(unsafe) public func endEditing()
+}
+public struct LoadingIndicator : SwiftUI.View {
+  public enum Style {
+    case standard(_: SwiftUI.Color = Color.defaultText)
+    case knoggl
+  }
+  public init(style: CleanUI.LoadingIndicator.Style = .standard(), withDelay: Swift.Bool = true, isImageOverlay: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI16LoadingIndicatorV4bodyQrvp", 0) __
+}
+public struct PrimaryTextFieldStyle : SwiftUI.TextFieldStyle {
+  public init(isTransparent: Swift.Bool = false)
+  public func _body(configuration: SwiftUI.TextField<CleanUI.PrimaryTextFieldStyle._Label>) -> some SwiftUI.View
+  
+  public typealias _Body = @_opaqueReturnTypeOf("$s7CleanUI21PrimaryTextFieldStyleV5_body13configurationQr05SwiftB00dE0VyAF01_deF5LabelVG_tF", 0) __
+}
+extension SwiftUI.Font {
+  public func toUIFont() -> UIKit.UIFont
+}
+@_Concurrency.MainActor(unsafe) public struct UrlImage : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public init(urlString: Swift.String?, fallbackImage: UIKit.UIImage?, contentMode: SwiftUI.ContentMode = .fill)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI8UrlImageV4bodyQrvp", 0) __
+}
+public class UrlImageModel : Foundation.ObservableObject {
+  @Combine.Published @_projectedValueProperty($image) public var image: UIKit.UIImage? {
+    get
+    set
+    _modify
+  }
+  public var $image: Combine.Published<UIKit.UIImage?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  public init(urlString: Swift.String?)
+  public func loadImage()
+  public func loadImageFromCache() -> Swift.Bool
+  public func loadImageFromUrl()
+  public func getImageFromResponse(data: Foundation.Data?, response: Foundation.URLResponse?, error: Swift.Error?)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor(unsafe) public static var isIPad: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public static var isIPhone: Swift.Bool {
+    get
+  }
+}
+public struct LinearProgress : SwiftUI.View {
+  public init(_ progress: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI14LinearProgressV4bodyQrvp", 0) __
+}
+extension Swift.Int {
+  public func abbreviate() -> Swift.String
+}
+public struct SecondaryButtonStyle : SwiftUI.ButtonStyle {
+  public init(size: CleanUI.SecondaryButtonSize = .normal)
+  public func makeBody(configuration: CleanUI.SecondaryButtonStyle.Configuration) -> some SwiftUI.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI20SecondaryButtonStyleV8makeBody13configurationQr05SwiftB00dE13ConfigurationV_tF", 0) __
+}
+public class InfoCardManagerModel : Foundation.ObservableObject {
+  public init()
+  public func show(_ title: Swift.String, subTitle: Swift.String = "", type: CleanUI.InfoCard.InfoCardType = .info)
+  public func hide()
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_Concurrency.MainActor(unsafe) public struct InfoCardManager : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public init(_ manager: CleanUI.InfoCardManagerModel)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI15InfoCardManagerV4bodyQrvp", 0) __
+}
+public struct InfoCard : SwiftUI.View {
+  public enum InfoCardType {
+    case error, success, info
+    public static func == (a: CleanUI.InfoCard.InfoCardType, b: CleanUI.InfoCard.InfoCardType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public init(_ title: Swift.String, subTitle: Swift.String = "", type: CleanUI.InfoCard.InfoCardType = .info)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI8InfoCardV4bodyQrvp", 0) __
+}
+extension UIKit.UIImage {
+  public func cropCenter(_ size: CoreGraphics.CGSize, withOrientationFix: Swift.Bool = false) -> UIKit.UIImage
+  public func aspectRatio(_ roundTo: Swift.Int = 2) -> Swift.Double
+  public func resize(newWidth: CoreGraphics.CGFloat) -> UIKit.UIImage?
+  public func mergeWith(backgroundImage: UIKit.UIImage) -> UIKit.UIImage
+  public func fixedOrientation() -> UIKit.UIImage
+}
+extension SwiftUI.Image {
+  public init(_ name: Swift.String, defaultImage: Swift.String)
+  public init(_ name: Swift.String, defaultSystemImage: Swift.String)
+}
+extension SwiftUI.Color {
+  public init(hex: Swift.String)
+  public static var accent: SwiftUI.Color {
+    get
+  }
+  public static var accent2: SwiftUI.Color {
+    get
+  }
+  public static var accent3: SwiftUI.Color {
+    get
+  }
+  public static var accent4: SwiftUI.Color {
+    get
+  }
+  public static var defaultText: SwiftUI.Color {
+    get
+  }
+  public static var grayText: SwiftUI.Color {
+    get
+  }
+  public static var link: SwiftUI.Color {
+    get
+  }
+  public static var defaultRed: SwiftUI.Color {
+    get
+  }
+  public static var background: SwiftUI.Color {
+    get
+  }
+  public static var primaryColor: SwiftUI.Color {
+    get
+  }
+  public static var accentStaticDark: SwiftUI.Color {
+    get
+  }
+  public static var defaultBorder: SwiftUI.Color {
+    get
+  }
+}
+public struct TextFieldLabel : SwiftUI.View {
+  public init(_ label: Swift.String)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI14TextFieldLabelV4bodyQrvp", 0) __
+}
+public struct Icon : SwiftUI.View {
+  public enum Size {
+    case textSize, small, medium, large
+    public static func == (a: CleanUI.Icon.Size, b: CleanUI.Icon.Size) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Offset {
+    case leading(CoreGraphics.CGFloat), trailing(CoreGraphics.CGFloat), bottom(CoreGraphics.CGFloat), top(CoreGraphics.CGFloat)
+  }
+  public init(_ image: Swift.String = "", systemImage: Swift.String = "", frameworkImage: Swift.String = "", size: CleanUI.Icon.Size = .medium, newBadge: Swift.Bool? = nil, isImageOverlay: Swift.Bool = false, offset: CleanUI.Icon.Offset = .leading(0))
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI4IconV4bodyQrvp", 0) __
+}
+extension Swift.String {
+  public func trim(_ what: Foundation.CharacterSet = .whitespacesAndNewlines) -> Swift.String
+  public func urlEncode() -> Swift.String
+  public var md5: Swift.String {
+    get
+  }
+  public func getLinks() -> [Swift.String : Foundation.NSRange]
+  public func getHashtags() -> [Swift.String : Foundation.NSRange]
+  public func getMentions() -> [Swift.String : Foundation.NSRange]
+}
+public enum Attribute {
+  case links, hashtags, mentions
+  public static func == (a: CleanUI.Attribute, b: CleanUI.Attribute) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct NewBadge : SwiftUI.View {
+  public init(_ withBackground: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI8NewBadgeV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor(unsafe) public struct Webview : SwiftUI.UIViewRepresentable {
+  @_Concurrency.MainActor(unsafe) public init(_ url: Foundation.URL, title: SwiftUI.Binding<Swift.String>, currentUrl: SwiftUI.Binding<Swift.String>)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: CleanUI.Webview.Context) -> WebKit.WKWebView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ webview: WebKit.WKWebView, context: CleanUI.Webview.Context)
+  @_Concurrency.MainActor(unsafe) public func makeCoordinator() -> CleanUI.Webview.Coordinator
+  @objc @_hasMissingDesignatedInitializers public class Coordinator : ObjectiveC.NSObject, WebKit.WKNavigationDelegate {
+    @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+    @objc deinit
+  }
+  public typealias Body = Swift.Never
+  public typealias UIViewType = WebKit.WKWebView
+}
+@_hasMissingDesignatedInitializers public class ThreadHelper {
+  public enum async {
+    case userInteractive
+    case userInitiated
+    case utility
+    case background
+    case main
+    public func run(_ callback: @escaping () -> Swift.Void)
+    public static func == (a: CleanUI.ThreadHelper.async, b: CleanUI.ThreadHelper.async) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @objc deinit
+}
+extension CleanUI.VideoExportQuality {
+  public func get() -> Swift.String
+}
+extension Swift.Double {
+  public func round(to places: Swift.Int) -> Swift.Double
+}
+@_Concurrency.MainActor(unsafe) public struct BetterTextEditor : SwiftUI.View {
+  @_Concurrency.MainActor(unsafe) public init(_ text: SwiftUI.Binding<Swift.String>, placeholder: Swift.String = "", keyboardType: UIKit.UIKeyboardType = .twitter, minHeight: CoreGraphics.CGFloat = 90, characterLimit: Swift.Int = 0, attributes: [CleanUI.Attribute] = [.links, .hashtags, .mentions])
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s7CleanUI16BetterTextEditorV4bodyQrvp", 0) __
+}
+extension CleanUI.DescriptiveNumber.Size : Swift.Equatable {}
+extension CleanUI.DescriptiveNumber.Size : Swift.Hashable {}
+extension CleanUI.Vibrate : Swift.Equatable {}
+extension CleanUI.Vibrate : Swift.Hashable {}
+extension CleanUI.VideoExportQuality : Swift.Equatable {}
+extension CleanUI.VideoExportQuality : Swift.Hashable {}
+extension CleanUI.VideoOrientation : Swift.Equatable {}
+extension CleanUI.VideoOrientation : Swift.Hashable {}
+extension CleanUI.SecondaryButtonSize : Swift.Equatable {}
+extension CleanUI.SecondaryButtonSize : Swift.Hashable {}
+extension CleanUI.PrimaryButtonTheme : Swift.Equatable {}
+extension CleanUI.PrimaryButtonTheme : Swift.Hashable {}
+extension CleanUI.CircularProgress.Size : Swift.Equatable {}
+extension CleanUI.CircularProgress.Size : Swift.Hashable {}
+extension CleanUI.CircularProgress.Tint : Swift.Equatable {}
+extension CleanUI.CircularProgress.Tint : Swift.Hashable {}
+extension CleanUI.InfoCard.InfoCardType : Swift.Equatable {}
+extension CleanUI.InfoCard.InfoCardType : Swift.Hashable {}
+extension CleanUI.Icon.Size : Swift.Equatable {}
+extension CleanUI.Icon.Size : Swift.Hashable {}
+extension CleanUI.Attribute : Swift.Equatable {}
+extension CleanUI.Attribute : Swift.Hashable {}
+extension CleanUI.ThreadHelper.async : Swift.Equatable {}
+extension CleanUI.ThreadHelper.async : Swift.Hashable {}
