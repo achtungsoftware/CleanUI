@@ -1,7 +1,7 @@
 # CleanUI
 
 ## What is CleanUI
-CleanUI is a SwiftUI & Swift framework for ui and backend creation. CleanUI has everything build in to get you started to build your app. CleanUI is ripped out of the Knoggl iOS app to make a reusable framework, which can be worked on without changing things in the Knoggl app. In other words, CleanUI is the heart of the Knoggl iOS app.
+CleanUI is a SwiftUI & Swift framework for ui and backend creation. CleanUI has everything build in to get you started to build your app. CleanUI is ripped out of the Knoggl iOS app to make a reusable framework, which can be worked on without directly changing things inside of the Knoggl app. In other words, CleanUI is the heart of the Knoggl iOS app.
 
 ## What's inside
 CleanUI has many default views from simple to complex. CleanUI allows to make huge changes in your app with little code as possible. Besides that, CleanUI contains many swift extension and helper classes (for example for networking or video processing).
