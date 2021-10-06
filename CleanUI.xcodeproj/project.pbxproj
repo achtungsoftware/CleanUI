@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75023B58270D3C2800EF4098 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B57270D3C2800EF4098 /* Date.swift */; };
+		75023B5A270D3CA200EF4098 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B59270D3CA200EF4098 /* Time.swift */; };
+		75023B5C270D3E7B00EF4098 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B5B270D3E7B00EF4098 /* DateTime.swift */; };
+		75023B62270D46E900EF4098 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B61270D46E900EF4098 /* ScrollView.swift */; };
 		7513608C270BA493002E74AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7513608B270BA493002E74AF /* Assets.xcassets */; };
 		75136096270BA6E8002E74AF /* CleanUIDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75136095270BA6E8002E74AF /* CleanUIDemoApp.swift */; };
 		75136098270BA6E8002E74AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75136097270BA6E8002E74AF /* ContentView.swift */; };
@@ -102,6 +106,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		75023B57270D3C2800EF4098 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		75023B59270D3CA200EF4098 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		75023B5B270D3E7B00EF4098 /* DateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
+		75023B61270D46E900EF4098 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		7513608B270BA493002E74AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75136093270BA6E8002E74AF /* CleanUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75136095270BA6E8002E74AF /* CleanUIDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanUIDemoApp.swift; sourceTree = "<group>"; };
@@ -237,6 +245,7 @@
 				75B1CBA9270CE47C000089F9 /* AVURLAsset.swift */,
 				75B1CB8E270CD195000089F9 /* CGFloat.swift */,
 				75B1CB8C270CCFE6000089F9 /* Double.swift */,
+				75023B57270D3C2800EF4098 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,6 +346,7 @@
 				756C0120270BCFC400136DF8 /* Vibrate.swift */,
 				756C0138270BDB0F00136DF8 /* Language.swift */,
 				75B1CBA7270CE44D000089F9 /* VideoHelper.swift */,
+				75023B59270D3CA200EF4098 /* Time.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -406,6 +416,7 @@
 				75B1CBB8270CEA27000089F9 /* KnogglGradient.swift */,
 				75B1CBCC270CF932000089F9 /* LoadingIndicator.swift */,
 				75B1CBD2270CFFE3000089F9 /* UrlImage.swift */,
+				75023B61270D46E900EF4098 /* ScrollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,6 +434,7 @@
 				75B1CBB4270CE961000089F9 /* TextFieldProgress.swift */,
 				75B1CBB6270CE9F5000089F9 /* CircularProgress.swift */,
 				75B1CBBA270CEAE7000089F9 /* LinearProgress.swift */,
+				75023B5B270D3E7B00EF4098 /* DateTime.swift */,
 			);
 			path = ProgressViews;
 			sourceTree = "<group>";
@@ -558,7 +570,9 @@
 				75B1CB97270CD2E0000089F9 /* UIView.swift in Sources */,
 				756C0121270BCFC400136DF8 /* Vibrate.swift in Sources */,
 				756C0125270BD12000136DF8 /* FeedFooter.swift in Sources */,
+				75023B5C270D3E7B00EF4098 /* DateTime.swift in Sources */,
 				756C0139270BDB0F00136DF8 /* Language.swift in Sources */,
+				75023B62270D46E900EF4098 /* ScrollView.swift in Sources */,
 				751360A8270BAB52002E74AF /* ColorProvider.swift in Sources */,
 				751360AF270BADF8002E74AF /* View.swift in Sources */,
 				756C0111270BBB7100136DF8 /* SingleLineTextEditor.swift in Sources */,
@@ -568,6 +582,7 @@
 				756C0151270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift in Sources */,
 				75B1CBA8270CE44D000089F9 /* VideoHelper.swift in Sources */,
 				756C0129270BD1C600136DF8 /* TextWithNewBadge.swift in Sources */,
+				75023B5A270D3CA200EF4098 /* Time.swift in Sources */,
 				756C014F270BEC4500136DF8 /* SecondaryAltButtonStyle.swift in Sources */,
 				756C0133270BD95100136DF8 /* BlurView.swift in Sources */,
 				756C014B270BEB2C00136DF8 /* ChatTextFieldStyle.swift in Sources */,
@@ -583,6 +598,7 @@
 				75B1CBB9270CEA27000089F9 /* KnogglGradient.swift in Sources */,
 				756C011A270BC0C900136DF8 /* OnLoad.swift in Sources */,
 				758C62BF2708BCAC008CF28A /* Card.swift in Sources */,
+				75023B58270D3C2800EF4098 /* Date.swift in Sources */,
 				756C0123270BD0B100136DF8 /* FeedTitle.swift in Sources */,
 				75B1CB87270CCE9E000089F9 /* PinchToZoom.swift in Sources */,
 				75B1CBAA270CE47C000089F9 /* AVURLAsset.swift in Sources */,

@@ -20,6 +20,7 @@ public enum VideoOrientation {
     case up, down, right, left
 }
 
+/// This is a video helper class
 public class VideoHelper {
     
     /// Gets the ``VideoOrientation`` for an video (AVAssetTrack)
