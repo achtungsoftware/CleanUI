@@ -5,3 +5,6 @@ CleanUI is a SwiftUI & Swift framework for ui and backend creation. CleanUI has 
 
 ## What's inside
 CleanUI has many default views from simple to complex. CleanUI allows to make huge changes in your app with little code as possible. Besides that, CleanUI contains many swift extension and helper classes (for example for networking or video processing).
+
+## How to use
+CleanUI views have a 'CL' prefix. CleanUI helper classes have a 'CU' prefix.
