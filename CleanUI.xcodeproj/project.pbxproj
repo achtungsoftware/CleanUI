@@ -304,6 +304,7 @@
 		751360AB270BAD9C002E74AF /* Texts */ = {
 			isa = PBXGroup;
 			children = (
+				756C0128270BD1C600136DF8 /* TextWithNewBadge.swift */,
 				751360AC270BADD6002E74AF /* DescriptiveNumber.swift */,
 				756C0122270BD0B100136DF8 /* FeedTitle.swift */,
 				756C0124270BD12000136DF8 /* FeedFooter.swift */,
@@ -317,7 +318,6 @@
 			children = (
 				751360B1270BB5D0002E74AF /* BetterTextEditor.swift */,
 				756C0110270BBB7100136DF8 /* SingleLineTextEditor.swift */,
-				756C0128270BD1C600136DF8 /* TextWithNewBadge.swift */,
 			);
 			path = TextEditors;
 			sourceTree = "<group>";
