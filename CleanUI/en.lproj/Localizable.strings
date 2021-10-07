@@ -3,3 +3,5 @@
 "thousandabbreviation" = "K";
 "millionabbreviation" = "M";
 "billionabbreviation" = "B";
+"showmore" = "Show more";
+"showless" = "Show less";

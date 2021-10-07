@@ -16,7 +16,6 @@ public extension String {
         return self.trimmingCharacters(in: what)
     }
     
-    
     /// Encodes a string for a URL Parameter
     /// - Returns: The encoded String
     func urlEncode() -> String {

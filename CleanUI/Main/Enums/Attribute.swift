@@ -8,5 +8,7 @@
 import SwiftUI
 
 public enum Attribute {
-    case links, hashtags, mentions
+    case links(onTapAction: ((String) -> Void)? = nil)
+    case hashtags(onTapAction: ((String) -> Void)? = nil)
+    case mentions(onTapAction: ((String) -> Void)? = nil)
 }

@@ -1,5 +1,5 @@
 //
-//  CLBetterTextEditor.swift
+//  CLTextEditor.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns a ``CLBetterTextEditor`` with attributes highlighting, character limit, and placeholder
-public struct CLBetterTextEditor: View {
+/// Returns a ``CLTextEditor`` with ``Attribute`` highlighting, character limit, and placeholder
+public struct CLTextEditor: View {
     
     @Binding var text: String
     var placeholder: String
@@ -27,7 +27,7 @@ public struct CLBetterTextEditor: View {
     ///   - minHeight: The minimum height for the TextEditor, default is 90
     ///   - characterLimit: The character limit which the user is allowed to type. 0 means no limit, default is 0
     ///   - attributes: The attributes which should be highlighted, default is [.links, .hashtags, .mentions]
-    public init(_ text: Binding<String>, placeholder: String = "", keyboardType: UIKeyboardType = .twitter, minHeight: CGFloat = 90, characterLimit: Int = 0, attributes: [Attribute] = [.links, .hashtags, .mentions]){
+    public init(_ text: Binding<String>, placeholder: String = "", keyboardType: UIKeyboardType = .twitter, minHeight: CGFloat = 90, characterLimit: Int = 0, attributes: [Attribute] = [.links(), .hashtags(), .mentions()]){
         self._text = text
         self.placeholder = placeholder
         self.keyboardType = keyboardType
@@ -110,23 +110,27 @@ struct UTextViewOverlay: UIViewRepresentable {
         attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(Color.defaultText), range: NSRange(location: 0, length: attributedText.length))
         attributedText.addAttribute(NSAttributedString.Key.font, value: font.toUIFont(), range: NSRange(location: 0, length: attributedText.length))
         
-        let links = attributes.contains(.links) ? text.getLinks() : [:]
-        let mentions = attributes.contains(.mentions) ? text.getMentions() : [:]
-        let hashtags = attributes.contains(.hashtags) ? text.getHashtags() : [:]
-        
-        // Find Links and mark
-        for (_, range) in links {
-            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
-        }
-        
-        // Find Hashtags and mark
-        for (_, range) in hashtags {
-            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
-        }
-        
-        // Find Mentions and mark
-        for (_, range) in mentions {
-            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
+        for attribute in attributes {
+            switch attribute {
+            case .links(_):
+                let links = text.getLinks()
+                
+                for (_, range) in links {
+                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
+                }
+            case .hashtags(_):
+                let mentions = text.getMentions()
+                
+                for (_, range) in mentions {
+                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
+                }
+            case .mentions(_):
+                let hashtags = text.getHashtags()
+                
+                for (_, range) in hashtags {
+                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
+                }
+            }
         }
         
         uiView.attributedText = attributedText

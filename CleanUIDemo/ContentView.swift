@@ -13,6 +13,11 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
+                CLRichText(text, attributes: [.links(onTapAction: { value in
+                    print(value)
+                })])
+                
+                
                 Section(header: CLFeedTitle("TextEditors")) {
                     NavigationLink(destination: {
                         VStack(spacing: 20) {
@@ -20,17 +25,16 @@ struct ContentView: View {
                             CLSingleLineTextEditor($text)
                         }
                         .padding()
-                        .navigationBar("CLSingleLineTextEditor()")
                     }) {
                         Text("CLSingleLineTextEditor()")
                     }
                     
                     NavigationLink(destination: {
-                        CLBetterTextEditor($text)
+                        CLTextEditor($text)
                             .padding()
-                            .navigationBar("CLBetterTextEditor()")
+                            .navigationBar("CLTextEditor()")
                     }) {
-                        Text("CLBetterTextEditor()")
+                        Text("CLTextEditor()")
                     }
                 }
             }

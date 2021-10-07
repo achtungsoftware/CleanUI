@@ -9,7 +9,6 @@ import SwiftUI
 
 public extension Double {
     
-    
     /// Rounds a Double
     /// - Parameter places: To how many places after the comma should be rounded?
     /// - Returns: The rounded Double

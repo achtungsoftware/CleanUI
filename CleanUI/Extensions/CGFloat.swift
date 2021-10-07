@@ -9,7 +9,6 @@ import SwiftUI
 
 public extension CGFloat {
     
-    
     /// Clamps a CGFloat to a max value
     /// - Parameter max: The maximal allowed value for this CGFloat
     /// - Returns: The CGFloat with the specified maximum value
