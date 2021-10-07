@@ -1,5 +1,5 @@
 //
-//  FeedTitle.swift
+//  CLFeedTitle.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns a ``FeedTitle`` for implementation in feeds or forms
-public struct FeedTitle: View {
+/// Returns a ``CLFeedTitle`` for implementation in feeds or forms
+public struct CLFeedTitle: View {
     
     var title: String
     var withMargin: Bool

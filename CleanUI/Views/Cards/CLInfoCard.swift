@@ -1,5 +1,5 @@
 //
-//  InfoCard.swift
+//  CLInfoCard.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -8,22 +8,22 @@
 import SwiftUI
 
 
-/// ``InfoCardManagerModel`` manages the ``InfoCardManager``
+/// ``InfoCardManagerModel`` manages the ``CLInfoCardManager``
 public class InfoCardManagerModel: ObservableObject {
     
     @Published var isVisible: Bool = false
     @Published var title: String = ""
     @Published var subTitle: String = ""
-    @Published var type: InfoCard.InfoCardType = .info
+    @Published var type: CLInfoCard.InfoCardType = .info
     
     public init() {}
     
-    /// Shows a new InfoCard or replaces the old one
+    /// Shows a new CLInfoCard or replaces the old one
     /// - Parameters:
     ///   - title: The main Text to display inside the card
     ///   - subTitle: The secondary Text to display inside the card
     ///   - type: The InfoCardType, default is .info
-    public func show(_ title: String, subTitle: String = "", type: InfoCard.InfoCardType = .info) {
+    public func show(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info) {
         withAnimation {
             self.title = title
             self.subTitle = subTitle
@@ -40,12 +40,12 @@ public class InfoCardManagerModel: ObservableObject {
     }
 }
 
-/// Returns a view which is able to decide if and which ``InfoCard`` should be displayed based on a ``InfoCardManagerModel``
-public struct InfoCardManager: View {
+/// Returns a view which is able to decide if and which ``CLInfoCard`` should be displayed based on a ``InfoCardManagerModel``
+public struct CLInfoCardManager: View {
     
     @ObservedObject var manager: InfoCardManagerModel
     
-    /// - Parameter manager: Needs a ``InfoCardManagerModel`` for managing the InfoCard
+    /// - Parameter manager: Needs a ``InfoCardManagerModel`` for managing the CLInfoCard
     public init(_ manager: InfoCardManagerModel) {
         self.manager = manager
     }
@@ -53,7 +53,7 @@ public struct InfoCardManager: View {
     public var body: some View {
         Group {
             if manager.isVisible {
-                InfoCard(manager.title, subTitle: manager.subTitle, type: manager.type)
+                CLInfoCard(manager.title, subTitle: manager.subTitle, type: manager.type)
             }else {
                 EmptyView()
             }
@@ -62,7 +62,7 @@ public struct InfoCardManager: View {
 }
 
 /// Returns a view, in style of a card with text for information
-public struct InfoCard: View {
+public struct CLInfoCard: View {
     
     public enum InfoCardType {
         case error, success, info

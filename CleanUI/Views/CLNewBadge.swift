@@ -1,5 +1,5 @@
 //
-//  NewBadge.swift
+//  CLNewBadge.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-/// Returns a ``NewBadge`` for indicating that something is unseen or new
-public struct NewBadge: View {
+/// Returns a ``CLNewBadge`` for indicating that something is unseen or new
+public struct CLNewBadge: View {
     
     var withBackground: Bool
     
     var defaultSize: CGFloat = 6
     @State private var animationAmount: CGFloat = 1
     
-    /// - Parameter withBackground: Should this ``NewBadge`` have a background (color) ?
+    /// - Parameter withBackground: Should this ``CLNewBadge`` have a background (color) ?
     public init(_ withBackground: Bool = true) {
         self.withBackground = withBackground
     }

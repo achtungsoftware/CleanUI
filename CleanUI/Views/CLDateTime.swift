@@ -1,5 +1,5 @@
 //
-//  DateTime.swift
+//  CLDateTime.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 06.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// ``DateTime`` is an expandable date and time object which updates automatically
-public struct DateTime: View {
+/// ``CLDateTime`` is an expandable date and time object which updates automatically
+public struct CLDateTime: View {
     
     var timestamp: String
     var expandable: Bool
@@ -41,9 +41,9 @@ public struct DateTime: View {
     }
 }
 
-/// ``BindingDateTime`` is the same as an ``DateTime`` except ``BindingDateTime`` uses a
+/// ``CLBindingDateTime`` is the same as an ``CLDateTime`` except ``CLBindingDateTime`` uses a
 /// Binding timestamp input for easy updates
-public struct BindingDateTime: View {
+public struct CLBindingDateTime: View {
     
     @Binding var timestamp: String
     var expandable: Bool
@@ -76,9 +76,9 @@ public struct BindingDateTime: View {
     }
 }
 
-/// ``StaticDateTime`` is the same as an ``DateTime`` except ``StaticDateTime`` does not update
+/// ``CLStaticDateTime`` is the same as an ``CLDateTime`` except ``CLStaticDateTime`` does not update
 /// automatically
-public struct StaticDateTime: View {
+public struct CLStaticDateTime: View {
     
     var timestamp: String
     var expandable: Bool

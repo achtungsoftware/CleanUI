@@ -1,5 +1,5 @@
 //
-//  DescriptiveNumber.swift
+//  CLDescriptiveNumber.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 04.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns a ``DescriptiveNumber`` with a number and an description, aligned vertically
-public struct DescriptiveNumber: View {
+/// Returns a ``CLDescriptiveNumber`` with a number and an description, aligned vertically
+public struct CLDescriptiveNumber: View {
     
     public enum Size {
         case normal, small
@@ -16,13 +16,13 @@ public struct DescriptiveNumber: View {
     
     var number: String
     var description: String
-    var size: DescriptiveNumber.Size
+    var size: CLDescriptiveNumber.Size
     
     /// - Parameters:
     ///   - number: The number which will be described
     ///   - description: The description for the number
     ///   - size: The size, default is .normal
-    public init(_ number: String, description: String, size: DescriptiveNumber.Size = .normal) {
+    public init(_ number: String, description: String, size: CLDescriptiveNumber.Size = .normal) {
         self.number = number
         self.description = description
         self.size = size

@@ -1,5 +1,5 @@
 //
-//  Card.swift
+//  CLCard.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 02.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Adds a ``Card`` style to a view without wrapping it inside a container
-public struct Card<Content: View>: View {
+/// Adds a ``CLCard`` style to a view without wrapping it inside a container
+public struct CLCard<Content: View>: View {
     
     var content: () -> Content
     var accent2: Bool

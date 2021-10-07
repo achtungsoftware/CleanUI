@@ -1,5 +1,5 @@
 //
-//  SearchBar.swift
+//  CLSearchBar.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// ``SearchBar`` is a UIViewRepresentable for an UISearchBar
-public struct SearchBar: UIViewRepresentable {
+/// ``CLSearchBar`` is a UIViewRepresentable for an UISearchBar
+public struct CLSearchBar: UIViewRepresentable {
     
     @Binding var text: String
     var placeholder: String
@@ -17,14 +17,14 @@ public struct SearchBar: UIViewRepresentable {
     /// - Parameters:
     ///   - text: The search text
     ///   - placeholder: The placeholder
-    ///   - isEditing: A Binding<Bool> which indicates if the ``SearchBar`` is in focus
+    ///   - isEditing: A Binding<Bool> which indicates if the ``CLSearchBar`` is in focus
     public init(text: Binding<String>, placeholder: String, isEditing: Binding<Bool>) {
         self._text = text
         self.placeholder = placeholder
         self._isEditing = isEditing
     }
     
-    public func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
+    public func makeUIView(context: UIViewRepresentableContext<CLSearchBar>) -> UISearchBar {
         let searchBar = UISearchBar(frame: .zero)
         searchBar.delegate = context.coordinator
         searchBar.placeholder = placeholder
@@ -33,11 +33,11 @@ public struct SearchBar: UIViewRepresentable {
         return searchBar
     }
     
-    public func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
+    public func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<CLSearchBar>) {
         uiView.text = text
     }
     
-    public func makeCoordinator() -> SearchBar.Coordinator {
+    public func makeCoordinator() -> CLSearchBar.Coordinator {
         return Coordinator(text: $text, isEditing: $isEditing)
     }
     

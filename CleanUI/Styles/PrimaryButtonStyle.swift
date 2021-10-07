@@ -46,7 +46,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
             .if(buttonTheme == .materialDark || buttonTheme == .materialLight){ view in
                 view
                     .background(
-                        BlurView(buttonTheme == .materialDark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight)
+                        CLBlurView(buttonTheme == .materialDark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight)
                             .cornerRadius(11)
                             .opacity(withOpacity ? 0.6 : 1)
                     )

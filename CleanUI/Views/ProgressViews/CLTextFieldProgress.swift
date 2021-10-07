@@ -1,5 +1,5 @@
 //
-//  TextFieldProgress.swift
+//  CLTextFieldProgress.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns a ``TextFieldProgress`` view for indication how much the user is allowed to type inside a TextField or TextEditor
-public struct TextFieldProgress: View {
+/// Returns a ``CLTextFieldProgress`` view for indication how much the user is allowed to type inside a TextField or TextEditor
+public struct CLTextFieldProgress: View {
     
     @Binding var text: String
     var characterLimit: Int

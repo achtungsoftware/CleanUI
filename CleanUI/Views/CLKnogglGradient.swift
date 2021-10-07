@@ -1,5 +1,5 @@
 //
-//  KnogglGradient.swift
+//  CLKnogglGradient.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns the ``KnogglGradient`` a linear gradient in Knoggl style
-public struct KnogglGradient: View {
+/// Returns the ``CLKnogglGradient`` a linear gradient in Knoggl style
+public struct CLKnogglGradient: View {
     
     public init() {}
     

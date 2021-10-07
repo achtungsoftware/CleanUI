@@ -12,9 +12,9 @@ private struct ScrollOffsetPreferenceKey: PreferenceKey {
     static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {}
 }
 
-/// This is a ``ScrollView`` which is mainly an SwiftUI.ScrollView. In contrast to SwiftUI.ScrollView, ``ScrollView``
+/// This is a ``CLScrollView`` which is mainly an SwiftUI.ScrollView. In contrast to SwiftUI.CLScrollView, ``CLScrollView``
 /// is able to return the scroll offset
-public struct ScrollView<Content: View>: View {
+public struct CLScrollView<Content: View>: View {
     
     let axes: Axis.Set
     let showsIndicators: Bool
@@ -38,7 +38,7 @@ public struct ScrollView<Content: View>: View {
     }
     
     public var body: some View {
-        SwiftUI.ScrollView(axes, showsIndicators: showsIndicators) {
+        ScrollView(axes, showsIndicators: showsIndicators) {
             VStack(spacing: 0) {
                 GeometryReader { geometry in
                     Color.clear.preference(

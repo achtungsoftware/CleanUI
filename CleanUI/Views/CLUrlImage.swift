@@ -1,5 +1,5 @@
 //
-//  UrlImage.swift
+//  CLUrlImage.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns an ``UrlImage`` which fetches a image from an url, displays and caches it, if needed
-public struct UrlImage: View {
+/// Returns an ``CLUrlImage`` which fetches a image from an url, displays and caches it, if needed
+public struct CLUrlImage: View {
     
     @ObservedObject var urlImageModel: UrlImageModel
     var fallbackImage: UIImage?

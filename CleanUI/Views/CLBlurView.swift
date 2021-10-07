@@ -1,5 +1,5 @@
 //
-//  BlurView.swift
+//  CLBlurView.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// ``BlurView`` is a UIViewRepresentable for an UIVisualEffectView
-public struct BlurView: UIViewRepresentable {
+/// ``CLBlurView`` is a UIViewRepresentable for an UIVisualEffectView
+public struct CLBlurView: UIViewRepresentable {
     
     var style: UIBlurEffect.Style
     

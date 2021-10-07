@@ -1,5 +1,5 @@
 //
-//  CircularProgress.swift
+//  CLCircularProgress.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// A ``CircularProgress`` for indacting any type of progress
-public struct CircularProgress: View {
+/// A ``CLCircularProgress`` for indacting any type of progress
+public struct CLCircularProgress: View {
     
     public enum Size {
         case small, medium, big
@@ -19,14 +19,14 @@ public struct CircularProgress: View {
     }
     
     var progress: CGFloat
-    var size: CircularProgress.Size
-    var tint: CircularProgress.Tint
+    var size: CLCircularProgress.Size
+    var tint: CLCircularProgress.Tint
     
     /// - Parameters:
     ///   - progress: The progress CGFloat 0 -> 0%, 1 -> 100%
-    ///   - size: The size ``CircularProgress/Size`` for the ``CircularProgress``
-    ///   - tint: The tint ``CircularProgress/Tint`` for the ``CircularProgress``
-    public init(_ progress: CGFloat, size: CircularProgress.Size = .medium, tint: CircularProgress.Tint = .auto) {
+    ///   - size: The size ``CLCircularProgress/Size`` for the ``CLCircularProgress``
+    ///   - tint: The tint ``CLCircularProgress/Tint`` for the ``CLCircularProgress``
+    public init(_ progress: CGFloat, size: CLCircularProgress.Size = .medium, tint: CLCircularProgress.Tint = .auto) {
         self.progress = progress
         self.size = size
         self.tint = tint
@@ -43,7 +43,7 @@ public struct CircularProgress: View {
                 case .auto:
                     Color.defaultText
                 case .knoggl:
-                    KnogglGradient()
+                    CLKnogglGradient()
                 }
             }
             .mask(

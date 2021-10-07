@@ -1,5 +1,5 @@
 //
-//  Icon.swift
+//  CLIcon.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns a very dynamic and customizable ``Icon``
-public struct Icon: View {
+/// Returns a very dynamic and customizable ``CLIcon``
+public struct CLIcon: View {
     
     public enum Size {
         case textSize, small, medium, large
@@ -22,9 +22,9 @@ public struct Icon: View {
     var systemImage: String
     var frameworkImage: String
     var newBadge: Bool?
-    var size: Icon.Size
+    var size: CLIcon.Size
     var isImageOverlay: Bool
-    var offset: Icon.Offset
+    var offset: CLIcon.Offset
     
     @State var sideSize: CGFloat = 0
     
@@ -32,11 +32,11 @@ public struct Icon: View {
     ///   - image: Image name from asset catalog
     ///   - systemImage: System image name
     ///   - frameworkImage: The Image name from the CleanUI frameworks asset catalog
-    ///   - size: The Icon size, default is .medium
-    ///   - newBadge: Should a ``NewBadge`` overlay the Icon?
-    ///   - isImageOverlay: If true the Icon gets a shadow for better readability
-    ///   - offset: Define an offset for the Icon, default is none
-    public init(_ image: String = "", systemImage: String = "", frameworkImage: String = "", size: Icon.Size = .medium, newBadge: Bool? = nil, isImageOverlay: Bool = false, offset: Icon.Offset = .leading(0)){
+    ///   - size: The ``CLIcon`` size, default is .medium
+    ///   - newBadge: Should a ``CLNewBadge`` overlay the Icon?
+    ///   - isImageOverlay: If true the ``CLIcon`` gets a shadow for better readability
+    ///   - offset: Define an offset for the ``CLIcon``, default is none
+    public init(_ image: String = "", systemImage: String = "", frameworkImage: String = "", size: CLIcon.Size = .medium, newBadge: Bool? = nil, isImageOverlay: Bool = false, offset: CLIcon.Offset = .leading(0)){
         self.image = image
         self.size = size
         self.systemImage = systemImage
@@ -49,7 +49,7 @@ public struct Icon: View {
     }
     
     public var body: some View {
-        ZStack {
+        ZStack { 
             if !image.isEmpty {
                 Image(image)
                     .resizable()
@@ -79,7 +79,7 @@ public struct Icon: View {
             }
             
             if(newBadge != nil && newBadge!){
-                NewBadge()
+                CLNewBadge()
                     .offset(x: sideSize / 3, y: -sideSize / 3)
             }
         }

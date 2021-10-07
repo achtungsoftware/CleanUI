@@ -45,7 +45,7 @@ public struct RoundedButtonStyle: ButtonStyle {
             .if(buttonTheme == .materialDark || buttonTheme == .materialLight){ view in
                 view
                     .background(
-                        BlurView(buttonTheme == .materialDark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight)
+                        CLBlurView(buttonTheme == .materialDark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight)
                             .cornerRadius(26)
                             .opacity(withOpacity ? 0.6 : 1)
                     )

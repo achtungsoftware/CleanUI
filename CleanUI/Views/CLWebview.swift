@@ -1,5 +1,5 @@
 //
-//  WebView.swift
+//  CLWebview.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -8,8 +8,8 @@
 import SwiftUI
 import WebKit
 
-/// ``Webview`` is a UIViewRepresentable for an WKWebView
-public struct Webview: UIViewRepresentable {
+/// ``CLWebview`` is a UIViewRepresentable for an WKWebView
+public struct CLWebview: UIViewRepresentable {
     
     var url: URL
     @Binding var title: String
@@ -54,9 +54,9 @@ public struct Webview: UIViewRepresentable {
     }
     
     public class Coordinator: NSObject, WKNavigationDelegate {
-        var parent: Webview
+        var parent: CLWebview
         
-        init(_ webView: Webview) {
+        init(_ webView: CLWebview) {
             self.parent = webView
         }
         

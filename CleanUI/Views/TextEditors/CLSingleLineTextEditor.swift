@@ -1,5 +1,5 @@
 //
-//  SingleLineTextEditor.swift
+//  CLSingleLineTextEditor.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns a ``SingleLineTextEditor``. The editor is first single line and expands on line break
-public struct SingleLineTextEditor: View {
+/// Returns a ``CLSingleLineTextEditor``. The editor is first single line and expands on line break
+public struct CLSingleLineTextEditor: View {
     
     @Binding var text: String
     var placeholder: String

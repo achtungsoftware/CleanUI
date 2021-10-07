@@ -1,5 +1,5 @@
 //
-//  BetterTextEditor.swift
+//  CLBetterTextEditor.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns a ``BetterTextEditor`` with attributes highlighting, character limit, and placeholder
-public struct BetterTextEditor: View {
+/// Returns a ``CLBetterTextEditor`` with attributes highlighting, character limit, and placeholder
+public struct CLBetterTextEditor: View {
     
     @Binding var text: String
     var placeholder: String

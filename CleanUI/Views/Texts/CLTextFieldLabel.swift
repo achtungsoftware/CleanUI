@@ -1,5 +1,5 @@
 //
-//  TextFieldLabel.swift
+//  CLTextFieldLabel.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns a ``TextFieldLabel``
-public struct TextFieldLabel: View {
+/// Returns a ``CLTextFieldLabel``
+public struct CLTextFieldLabel: View {
     
     var label: String
     

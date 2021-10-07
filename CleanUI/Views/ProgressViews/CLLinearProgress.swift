@@ -1,5 +1,5 @@
 //
-//  LinearProgress.swift
+//  CLLinearProgress.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// A ``LinearProgress``  for indacting any type of progress
-public struct LinearProgress: View {
+/// A ``CLLinearProgress``  for indacting any type of progress
+public struct CLLinearProgress: View {
     
     var progress: CGFloat
     
@@ -18,7 +18,7 @@ public struct LinearProgress: View {
     }
     
     public var body: some View {
-        KnogglGradient()
+        CLKnogglGradient()
             .frame(height: 4)
             .mask(
                 ProgressView(value: progress, total: 100)

@@ -78,7 +78,7 @@ public struct NavigationBar: ViewModifier {
                                     Button(action: {
                                         presentationMode.wrappedValue.dismiss()
                                     }){
-                                        Icon(frameworkImage: "Back_Icon")
+                                        CLIcon(frameworkImage: "Back_Icon")
                                             .padding(.leading, -8)
                                     }
                                 }
@@ -139,7 +139,7 @@ public struct NavigationBar: ViewModifier {
                                                         searchBar.show.toggle()
                                                     }
                                                 }){
-                                                    Icon(frameworkImage: "Search_Icon", size: .small)
+                                                    CLIcon(frameworkImage: "Search_Icon", size: .small)
                                                 }
                                             }
                                             
@@ -161,7 +161,7 @@ public struct NavigationBar: ViewModifier {
                     
                     if(searchBar.hasSearchBar && !searchBar.isDiscrete || searchBar.isDiscrete && searchBar.show){
                         HStack(spacing: 0) {
-                            SearchBar(text: $searchBar.query, placeholder: Language.getStringCleanUI("search"), isEditing: $searchBar.isEditing)
+                            CLSearchBar(text: $searchBar.query, placeholder: Language.getStringCleanUI("search"), isEditing: $searchBar.isEditing)
                             
                             if(searchBarShowSearchResultsWithAnimation){
                                 Button(action: {

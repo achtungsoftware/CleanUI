@@ -1,5 +1,5 @@
 //
-//  FeedFooter.swift
+//  CLFeedFooter.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Returns a ``FeedFooter`` for implementation in feeds or forms
-public struct FeedFooter: View {
+/// Returns a ``CLFeedFooter`` for implementation in feeds or forms
+public struct CLFeedFooter: View {
     
     var title: String
     

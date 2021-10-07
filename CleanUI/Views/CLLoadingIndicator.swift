@@ -1,5 +1,5 @@
 //
-//  LoadingIndicator.swift
+//  CLLoadingIndicator.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-/// A ``LoadingIndicator`` for indicating unknown progress
-public struct LoadingIndicator: View {
+/// A ``CLLoadingIndicator`` for indicating unknown progress
+public struct CLLoadingIndicator: View {
     
     public enum Style {
         case standard(_ tint: Color = Color.defaultText)
         case knoggl
     }
     
-    var style: LoadingIndicator.Style
+    var style: CLLoadingIndicator.Style
     var withDelay: Bool
     var isImageOverlay: Bool
     
     /// - Parameters:
-    ///   - style: The ``LoadingIndicator`` style ``LoadingIndicator/Style``
-    ///   - withDelay: Should the ``LoadingIndicator`` have a delay before showing?
-    ///   - isImageOverlay: If true, the visibility gets improved if the ``LoadingIndicator`` overlays an image
-    public init(style: LoadingIndicator.Style = .standard(), withDelay: Bool = true, isImageOverlay: Bool = false){
+    ///   - style: The ``CLLoadingIndicator`` style ``CLLoadingIndicator/Style``
+    ///   - withDelay: Should the ``CLLoadingIndicator`` have a delay before showing?
+    ///   - isImageOverlay: If true, the visibility gets improved if the ``CLLoadingIndicator`` overlays an image
+    public init(style: CLLoadingIndicator.Style = .standard(), withDelay: Bool = true, isImageOverlay: Bool = false){
         self.withDelay = withDelay
         self.style = style
         self.isImageOverlay = isImageOverlay
@@ -45,7 +45,7 @@ public struct LoadingIndicator: View {
                     ProgressView()
                         .foregroundColor(tint)
                 case .knoggl:
-                    KnogglGradient()
+                    CLKnogglGradient()
                         .frame(width: 20, height: 20, alignment: .center)
                         .mask(ProgressView().padding(-10))
                 }
