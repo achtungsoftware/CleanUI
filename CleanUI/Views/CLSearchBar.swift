@@ -56,13 +56,13 @@ public struct CLSearchBar: UIViewRepresentable {
         }
         
         public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            ThreadHelper.async.main.run {
+            CUThreadHelper.async.main.run {
                 self.isEditing = true
             }
         }
         
         public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-            ThreadHelper.async.main.run {
+            CUThreadHelper.async.main.run {
                 self.isEditing = false
             }
         }

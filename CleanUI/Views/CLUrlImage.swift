@@ -91,7 +91,7 @@ public class UrlImageModel: ObservableObject {
         
         self.imageCache.set(forKey: self.urlString!, image: loadedImage)
         
-        ThreadHelper.async.main.run {
+        CUThreadHelper.async.main.run {
             self.image = loadedImage
         }
     }

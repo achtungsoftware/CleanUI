@@ -1,5 +1,5 @@
 //
-//  Language.swift
+//  CULanguage.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// This class helps to get translations
-public class Language {
+public class CULanguage {
     
     /// Get a string from the CleanUI localization
     /// - Parameter keyString: The description key

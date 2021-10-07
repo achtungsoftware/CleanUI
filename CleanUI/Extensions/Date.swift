@@ -26,25 +26,25 @@ public extension Date {
         let unit: String
         if secondsAgo < minute {
             quotient = secondsAgo
-            unit = quotient == 1 ? Language.getString("second") : Language.getString("seconds")
+            unit = quotient == 1 ? CULanguage.getString("second") : CULanguage.getString("seconds")
         } else if secondsAgo < hour {
             quotient = secondsAgo / minute
-            unit = quotient == 1 ? Language.getString("minute") : Language.getString("minutes")
+            unit = quotient == 1 ? CULanguage.getString("minute") : CULanguage.getString("minutes")
         } else if secondsAgo < day {
             quotient = secondsAgo / hour
-            unit = quotient == 1 ? Language.getString("hour") : Language.getString("hours")
+            unit = quotient == 1 ? CULanguage.getString("hour") : CULanguage.getString("hours")
         } else if secondsAgo < week {
             quotient = secondsAgo / day
-            unit = quotient == 1 ? Language.getString("day") : Language.getString("days")
+            unit = quotient == 1 ? CULanguage.getString("day") : CULanguage.getString("days")
         } else if secondsAgo < month {
             quotient = secondsAgo / week
-            unit = quotient == 1 ? Language.getString("week") : Language.getString("weeks")
+            unit = quotient == 1 ? CULanguage.getString("week") : CULanguage.getString("weeks")
         } else if secondsAgo < year {
             quotient = secondsAgo / month
-            unit = quotient == 1 ? Language.getString("month") : Language.getString("months")
+            unit = quotient == 1 ? CULanguage.getString("month") : CULanguage.getString("months")
         } else {
             quotient = secondsAgo / year
-            unit = quotient == 1 ? Language.getString("year") : Language.getString("years")
+            unit = quotient == 1 ? CULanguage.getString("year") : CULanguage.getString("years")
         }
         return "\(quotient) \(unit)"
     }

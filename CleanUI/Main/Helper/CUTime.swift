@@ -1,5 +1,5 @@
 //
-//  Time.swift
+//  CUTime.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 06.10.21.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// This is a time or Date helper class
-public class Time {
+public class CUTime {
     
     static let dateFormatter = DateFormatter()
     
@@ -75,7 +75,7 @@ public class Time {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
         if let date = dateFormatter.date(from: timestamp) {
-            dateFormatter.dateFormat = Language.getString("dateformat")
+            dateFormatter.dateFormat = CULanguage.getString("dateformat")
             
             return dateFormatter.string(from: date)
         }

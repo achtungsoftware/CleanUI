@@ -1,5 +1,5 @@
 //
-//  ThreadHelper.swift
+//  CUThreadHelper.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A class for handling DispatchQueues. Only sugar but makes it easy to remember
-public class ThreadHelper {
+public class CUThreadHelper {
     
     public enum async {
     case userInteractive

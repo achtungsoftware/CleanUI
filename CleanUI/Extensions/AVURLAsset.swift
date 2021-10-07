@@ -27,7 +27,7 @@ public extension AVURLAsset {
     func cropResizeFixCutAndConvertToMP4(at index: Int, cropRect: CGRect, callback: @escaping ( _ newUrl: URL ) -> (), quality: VideoExportQuality, maxLength: Double) {
         
         let videoTrack = tracks(withMediaType: .video)[index]
-        let trackOrientation = VideoHelper.orientation(for: videoTrack)
+        let trackOrientation = CUVideoHelper.orientation(for: videoTrack)
         
         let videoComposition = AVMutableVideoComposition()
         videoComposition.renderSize = cropRect.size
@@ -64,7 +64,7 @@ public extension AVURLAsset {
         instruction.layerInstructions = [transformer]
         videoComposition.instructions = [instruction]
         
-        let croppedOutputFileUrl = URL(fileURLWithPath: VideoHelper.getOutputPath(UUID().uuidString))
+        let croppedOutputFileUrl = URL(fileURLWithPath: CUVideoHelper.getOutputPath(UUID().uuidString))
         
         let exporter = AVAssetExportSession(asset: self, presetName: quality.get())!
         exporter.videoComposition = videoComposition
@@ -86,7 +86,7 @@ public extension AVURLAsset {
         exporter.timeRange = timeRange
         
         exporter.exportAsynchronously( completionHandler: { () -> Void in
-            ThreadHelper.async.main.run {
+            CUThreadHelper.async.main.run {
                 callback( croppedOutputFileUrl )
             }
         })

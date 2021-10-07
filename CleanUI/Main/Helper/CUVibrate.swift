@@ -1,5 +1,5 @@
 //
-//  Vibrate.swift
+//  CUVibrate.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -8,8 +8,8 @@
 import SwiftUI
 import AudioToolbox
 
-/// Vibrate helps you to play vibrations
-public enum Vibrate {
+/// ``CUVibrate`` helps you to play vibrations
+public enum CUVibrate {
     
     case error
     case success

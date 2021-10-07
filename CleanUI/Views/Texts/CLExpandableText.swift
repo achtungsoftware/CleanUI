@@ -78,7 +78,7 @@ public struct CLExpandableText: View {
                         alternativeExpandButtonAction!()
                     }
                 }) {
-                    Text(Language.getStringCleanUI(expanded ? "showless" : "showmore"))
+                    Text(CULanguage.getStringCleanUI(expanded ? "showless" : "showmore"))
                         .font(font)
                         .foregroundColor(Color.link)
                 }

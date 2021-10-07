@@ -161,7 +161,7 @@ public struct NavigationBar: ViewModifier {
                     
                     if(searchBar.hasSearchBar && !searchBar.isDiscrete || searchBar.isDiscrete && searchBar.show){
                         HStack(spacing: 0) {
-                            CLSearchBar(text: $searchBar.query, placeholder: Language.getStringCleanUI("search"), isEditing: $searchBar.isEditing)
+                            CLSearchBar(text: $searchBar.query, placeholder: CULanguage.getStringCleanUI("search"), isEditing: $searchBar.isEditing)
                             
                             if(searchBarShowSearchResultsWithAnimation){
                                 Button(action: {
@@ -174,7 +174,7 @@ public struct NavigationBar: ViewModifier {
                                     // Close Keyboard
                                     UIApplication.shared.endEditing()
                                 }){
-                                    Text(Language.getStringCleanUI("cancel"))
+                                    Text(CULanguage.getStringCleanUI("cancel"))
                                 }
                                 .padding(.leading, 8)
                                 .padding(.trailing)

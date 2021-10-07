@@ -25,7 +25,7 @@ public struct CLDateTime: View {
     
     public var body: some View {
         TimelineView(.periodic(from: Date.now, by: 5)) { context in
-            Text(showfullDateTime ? String(Time.timestampToHumanReadable(timestamp: Time.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  Time.timestampStringToDate(timestamp: Time.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
+            Text(showfullDateTime ? String(CUTime.timestampToHumanReadable(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  CUTime.timestampStringToDate(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
                 .foregroundColor(Color.grayText)
                 .lineLimit(1)
                 .font(.caption)
@@ -60,7 +60,7 @@ public struct CLBindingDateTime: View {
     
     public var body: some View {
         TimelineView(.periodic(from: Date.now, by: 5)) { context in
-            Text(showfullDateTime ? String(Time.timestampToHumanReadable(timestamp: Time.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  Time.timestampStringToDate(timestamp: Time.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
+            Text(showfullDateTime ? String(CUTime.timestampToHumanReadable(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  CUTime.timestampStringToDate(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
                 .foregroundColor(Color.grayText)
                 .lineLimit(1)
                 .font(.caption)
@@ -101,7 +101,7 @@ public struct CLStaticDateTime: View {
     @State var showfullDateTime: Bool = false
     
     public var body: some View {
-        Text(showfullDateTime ? String(Time.timestampToHumanReadable(timestamp: Time.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  Time.timestampStringToDate(timestamp: Time.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
+        Text(showfullDateTime ? String(CUTime.timestampToHumanReadable(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  CUTime.timestampStringToDate(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
             .foregroundColor(foregroundColor)
             .lineLimit(1)
             .font(.caption)

@@ -1,5 +1,5 @@
 //
-//  VideoHelper.swift
+//  CUVideoHelper.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -21,7 +21,7 @@ public enum VideoOrientation {
 }
 
 /// This is a video helper class
-public class VideoHelper {
+public class CUVideoHelper {
     
     /// Gets the ``VideoOrientation`` for an video (AVAssetTrack)
     /// - Parameter track: The video (AVAssetTrack)
@@ -49,14 +49,14 @@ public class VideoHelper {
     public static func changeQuality(videoUrl: URL, callback: @escaping ( _ newUrl: URL ) -> (), quality: VideoExportQuality = .medium) {
         let videoAsset = AVURLAsset(url: videoUrl, options: nil)
         
-        let outputUrl = URL(fileURLWithPath: VideoHelper.getOutputPath(UUID().uuidString))
+        let outputUrl = URL(fileURLWithPath: CUVideoHelper.getOutputPath(UUID().uuidString))
         
         let exporter = AVAssetExportSession(asset: videoAsset, presetName: quality.get())!
         exporter.outputURL = outputUrl
         exporter.outputFileType = AVFileType.mp4
         
         exporter.exportAsynchronously( completionHandler: { () -> Void in
-            ThreadHelper.async.main.run {
+            CUThreadHelper.async.main.run {
                 callback( outputUrl )
             }
         })
@@ -76,12 +76,12 @@ public class VideoHelper {
         do {
             let cgThumbImage = try avAssetImageGenerator.copyCGImage(at: thumnailTime, actualTime: nil)
             let thumbImage = UIImage(cgImage: cgThumbImage)
-            ThreadHelper.async.main.run {
+            CUThreadHelper.async.main.run {
                 completion(thumbImage)
             }
         } catch {
             print(error.localizedDescription)
-            ThreadHelper.async.main.run {
+            CUThreadHelper.async.main.run {
                 completion(nil)
             }
         }

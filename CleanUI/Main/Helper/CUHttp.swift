@@ -1,5 +1,5 @@
 //
-//  Http.swift
+//  CUHttp.swift
 //  CleanUI
 //
 //  Created by Julian Gerhards on 05.10.21.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A class for handling http requests and json encoding
-public class Http {
+public class CUHttp {
     
     /// This function uploads mutiple media to the server (Audio, Video, Image)
     /// - Parameters:
@@ -17,9 +17,9 @@ public class Http {
     ///   - videos: An Array of video asset urls
     ///   - images: An Array of images
     ///   - audios: An Array of audio asset urls
-    ///   - thread: The async thread for processing
+    ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the result String and success Bool
-    public static func upload(_ url: String, parameters: [String: String]? = nil, videos: [String: URL]? = nil, images: [String: UIImage]? = nil, audios: [String: URL]? = nil, thread: ThreadHelper.async = .background, callback: @escaping (String, Bool) -> ()) {
+    public static func upload(_ url: String, parameters: [String: String]? = nil, videos: [String: URL]? = nil, images: [String: UIImage]? = nil, audios: [String: URL]? = nil, thread: CUThreadHelper.async = .background, callback: @escaping (String, Bool) -> ()) {
         thread.run {
             let myUrl = NSURL(string: url)
             let request = NSMutableURLRequest(url:myUrl! as URL)
@@ -100,7 +100,7 @@ public class Http {
                 
                 // Check if Error took place
                 if error != nil {
-                    ThreadHelper.async.main.run {
+                    CUThreadHelper.async.main.run {
                         callback("", false)
                     }
                     return
@@ -114,16 +114,16 @@ public class Http {
                 
                 if(response?.statusCode == 200){
                     if(dataString != ""){
-                        ThreadHelper.async.main.run {
+                        CUThreadHelper.async.main.run {
                             callback(dataString ?? "", true)
                         }
                     }else {
-                        ThreadHelper.async.main.run {
+                        CUThreadHelper.async.main.run {
                             callback("", false)
                         }
                     }
                 }else {
-                    ThreadHelper.async.main.run {
+                    CUThreadHelper.async.main.run {
                         callback("", false)
                     }
                 }
@@ -138,14 +138,14 @@ public class Http {
     /// - Parameters:
     ///   - url: The Api url
     ///   - parameters: Post parameters
-    ///   - thread: The async thread for processing
+    ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the object, the result String and success Bool
-    public static func postObject<T: Decodable>(_ url: String, parameters: [String: String]? = nil, type: T.Type, thread: ThreadHelper.async = .utility, callback: @escaping (T?, String, Bool) -> ()){
+    public static func postObject<T: Decodable>(_ url: String, parameters: [String: String]? = nil, type: T.Type, thread: CUThreadHelper.async = .utility, callback: @escaping (T?, String, Bool) -> ()){
         
         thread.run {
             
             if(url.isEmpty){
-                ThreadHelper.async.main.run {
+                CUThreadHelper.async.main.run {
                     callback(nil, "", false)
                 }
                 return
@@ -167,7 +167,7 @@ public class Http {
                 
                 // Check if Error took place
                 if error != nil {
-                    ThreadHelper.async.main.run {
+                    CUThreadHelper.async.main.run {
                         callback(nil, "", false)
                     }
                     return
@@ -184,21 +184,21 @@ public class Http {
                         let jsonData = dataString!.data(using: .utf8)!
                         do {
                             let data: T = try JSONDecoder().decode(T.self, from: jsonData)
-                            ThreadHelper.async.main.run {
+                            CUThreadHelper.async.main.run {
                                 callback(data, dataString ?? "", true)
                             }
                         } catch {
-                            ThreadHelper.async.main.run {
+                            CUThreadHelper.async.main.run {
                                 callback(nil, "", false)
                             }
                         }
                     }else {
-                        ThreadHelper.async.main.run {
+                        CUThreadHelper.async.main.run {
                             callback(nil, "", false)
                         }
                     }
                 }else {
-                    ThreadHelper.async.main.run {
+                    CUThreadHelper.async.main.run {
                         callback(nil, "", false)
                     }
                 }
@@ -211,13 +211,13 @@ public class Http {
     /// - Parameters:
     ///   - url: The Api url
     ///   - parameters: Post parameters
-    ///   - thread: The async thread for processing
+    ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the object array, the result String and success Bool
-    public static func postObjectArray<T: Decodable>(_ url: String, parameters: [String: String]? = nil, type: T.Type, thread: ThreadHelper.async = .utility, callback: @escaping ([T]?, String, Bool) -> ()){
+    public static func postObjectArray<T: Decodable>(_ url: String, parameters: [String: String]? = nil, type: T.Type, thread: CUThreadHelper.async = .utility, callback: @escaping ([T]?, String, Bool) -> ()){
         
         thread.run {
             if(url.isEmpty){
-                ThreadHelper.async.main.run {
+                CUThreadHelper.async.main.run {
                     callback(nil, "", false)
                 }
                 return
@@ -239,7 +239,7 @@ public class Http {
                 
                 // Check if Error took place
                 if error != nil {
-                    ThreadHelper.async.main.run {
+                    CUThreadHelper.async.main.run {
                         callback(nil, "", false)
                     }
                     return
@@ -256,21 +256,21 @@ public class Http {
                         let jsonData = dataString!.data(using: .utf8)
                         do {
                             let data: [T] = try JSONDecoder().decode([T].self, from: jsonData!)
-                            ThreadHelper.async.main.run {
+                            CUThreadHelper.async.main.run {
                                 callback(data, dataString ?? "", true)
                             }
                         } catch {
-                            ThreadHelper.async.main.run {
+                            CUThreadHelper.async.main.run {
                                 callback(nil, "", false)
                             }
                         }
                     }else {
-                        ThreadHelper.async.main.run {
+                        CUThreadHelper.async.main.run {
                             callback(nil, "", false)
                         }
                     }
                 }else {
-                    ThreadHelper.async.main.run {
+                    CUThreadHelper.async.main.run {
                         callback(nil, "", false)
                     }
                 }
@@ -283,13 +283,13 @@ public class Http {
     /// - Parameters:
     ///   - url: The Api url
     ///   - parameters: Post parameters
-    ///   - thread: The async thread for processing
+    ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the result String and success Bool
-    public static func post(_ url: String, parameters: [String: String]? = nil, thread: ThreadHelper.async = .utility, callback: @escaping (String, Bool) -> ()){
+    public static func post(_ url: String, parameters: [String: String]? = nil, thread: CUThreadHelper.async = .utility, callback: @escaping (String, Bool) -> ()){
         
         thread.run {
             if(url.isEmpty){
-                ThreadHelper.async.main.run {
+                CUThreadHelper.async.main.run {
                     callback("", false)
                 }
                 return
@@ -311,7 +311,7 @@ public class Http {
                 
                 // Check if Error took place
                 if error != nil {
-                    ThreadHelper.async.main.run {
+                    CUThreadHelper.async.main.run {
                         callback("", false)
                     }
                     return
@@ -325,16 +325,16 @@ public class Http {
                 
                 if(response?.statusCode == 200){
                     if(dataString != ""){
-                        ThreadHelper.async.main.run {
+                        CUThreadHelper.async.main.run {
                             callback(dataString ?? "", true)
                         }
                     }else {
-                        ThreadHelper.async.main.run {
+                        CUThreadHelper.async.main.run {
                             callback("", false)
                         }
                     }
                 }else {
-                    ThreadHelper.async.main.run {
+                    CUThreadHelper.async.main.run {
                         callback("", false)
                     }
                 }
