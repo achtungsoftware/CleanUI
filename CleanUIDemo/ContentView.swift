@@ -87,7 +87,7 @@ struct ContentView: View {
                     }
                     
                     NavigationLink(destination: {
-                        ViewPresentationWrapperPage("CLTextEditor()", description: "CLTextEditor() is a multi line text editor which expands on line break. Besides that, CLSingleLineTextEditor() is able to show hashtags, mentions and links in realtime."){
+                        ViewPresentationWrapperPage("CLTextEditor()", description: "CLTextEditor() is a multi line text editor which expands on line break. Besides that, CLTextEditor() is able to show hashtags, mentions and links in realtime."){
                             CLTextEditor($text, placeholder: "Placeholder")
                         }
                     }) {
