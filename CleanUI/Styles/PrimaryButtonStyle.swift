@@ -15,8 +15,8 @@ public struct PrimaryButtonStyle: ButtonStyle {
     var withOpacity: Bool
     
     /// - Parameters:
-    ///   - buttonTheme: The button theme, default is .primary
-    ///   - withOpacity: Should the button background have a fixed opacity? Default is false
+    ///   - buttonTheme: The button theme, default is `.primary`
+    ///   - withOpacity: Should the button background have a fixed opacity? Default is false`
     public init(buttonTheme: PrimaryButtonTheme = .primary, withOpacity: Bool = false){
         self.buttonTheme = buttonTheme
         self.withOpacity = withOpacity

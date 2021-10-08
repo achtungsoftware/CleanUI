@@ -17,7 +17,7 @@ public struct CLUrlImage: View {
     /// - Parameters:
     ///   - urlString: The url string to the image
     ///   - fallbackImage: The fallback image, in case the url image could not be fetched
-    ///   - aspectRatio: The contentMode, default is .fill
+    ///   - aspectRatio: The `contentMode`, default is `.fill`
     public init(urlString: String?, fallbackImage: UIImage?, contentMode: ContentMode = .fill) {
         urlImageModel = UrlImageModel(urlString: urlString)
         self.contentMode = contentMode

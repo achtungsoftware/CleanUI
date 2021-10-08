@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// ``CLSearchBar`` is a UIViewRepresentable for an UISearchBar
+/// ``CLSearchBar`` is a `UIViewRepresentable` for an `UISearchBar`
 public struct CLSearchBar: UIViewRepresentable {
     
     @Binding var text: String
@@ -17,7 +17,7 @@ public struct CLSearchBar: UIViewRepresentable {
     /// - Parameters:
     ///   - text: The search text
     ///   - placeholder: The placeholder
-    ///   - isEditing: A Binding<Bool> which indicates if the ``CLSearchBar`` is in focus
+    ///   - isEditing: A `Binding<Bool>` which indicates if the ``CLSearchBar`` is in focus
     public init(text: Binding<String>, placeholder: String, isEditing: Binding<Bool>) {
         self._text = text
         self.placeholder = placeholder

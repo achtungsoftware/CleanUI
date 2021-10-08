@@ -9,7 +9,7 @@ import SwiftUI
 
 
 /// Returns an ``CLExpandableText`` which has a show more / show less button if the
-/// provided string is longer than the characterLimit
+/// provided string is longer than the `characterLimit`
 public struct CLExpandableText: View {
     
     var string: String
@@ -22,13 +22,13 @@ public struct CLExpandableText: View {
     
     
     /// - Parameters:
-    ///   - string: The String to show
-    ///   - characterLimit: The character limit; If the string is longer than the character limit, a show more / show less button gets shown
-    ///   - font: The Font
+    ///   - string: The `String` to show
+    ///   - characterLimit: The character limit; If the `string` is longer than the character limit, a show more / show less button gets shown
+    ///   - font: The `Font
     ///   - richText: Should the Text be an ``CLRichText``?
     ///   - foregroundColor: The Text color
     ///   - alternativeExpandButtonAction: If you provide an action here, the default action for the show more button gets overwritten
-    ///   - attributes: The attributes which should be highlighted for the ``CLRichText``, default is [.links, .hashtags, .mentions]
+    ///   - attributes: The attributes which should be highlighted for the ``CLRichText``, default is `[.links, .hashtags, .mentions]
     public init(_ string: String, characterLimit: Int = 150, font: Font = .callout, richText: Bool = true, foregroundColor: Color = Color.defaultText, alternativeExpandButtonAction: (() -> Void)? = nil, attributes: [Attribute] = [.links(), .hashtags(), .mentions()]) {
         self.characterLimit = characterLimit
         self.string = string

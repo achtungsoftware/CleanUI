@@ -23,10 +23,10 @@ public struct CLTextEditor: View {
     /// - Parameters:
     ///   - text: The text to modify
     ///   - placeholder: The placeholder
-    ///   - keyboardType: The keyboard type, default is .twitter
-    ///   - minHeight: The minimum height for the TextEditor, default is 90
-    ///   - characterLimit: The character limit which the user is allowed to type. 0 means no limit, default is 0
-    ///   - attributes: The attributes which should be highlighted, default is [.links, .hashtags, .mentions]
+    ///   - keyboardType: The keyboard type, default is `.twitter`
+    ///   - minHeight: The minimum height for the TextEditor, default is `90`
+    ///   - characterLimit: The character limit which the user is allowed to type. 0 means no limit, default is `0`
+    ///   - attributes: The attributes which should be highlighted, default is `[.links, .hashtags, .mentions]`
     public init(_ text: Binding<String>, placeholder: String = "", keyboardType: UIKeyboardType = .twitter, minHeight: CGFloat = 90, characterLimit: Int = 0, attributes: [Attribute] = [.links(), .hashtags(), .mentions()]){
         self._text = text
         self.placeholder = placeholder

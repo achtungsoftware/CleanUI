@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Returns a ``CLTextWithNewBadge`` (Text with optional CLNewBadge)
+/// Returns a ``CLTextWithNewBadge`` (Text with optional ``CLNewBadge`)
 public struct CLTextWithNewBadge: View {
     
     var string: String

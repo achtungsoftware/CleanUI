@@ -14,8 +14,8 @@ public struct CLDateTime: View {
     var expandable: Bool
     
     /// - Parameters:
-    ///   - timestamp: A ISO8601 timestamp String
-    ///   - expandable: Should it be expandable?, default is true
+    ///   - timestamp: A ISO8601 timestamp `String`
+    ///   - expandable: Should it be expandable?, default is `true`
     public init(_ timestamp: String, expandable: Bool = true) {
         self.timestamp = timestamp
         self.expandable = expandable
@@ -42,15 +42,15 @@ public struct CLDateTime: View {
 }
 
 /// ``CLBindingDateTime`` is the same as an ``CLDateTime`` except ``CLBindingDateTime`` uses a
-/// Binding timestamp input for easy updates
+/// `Binding` timestamp input for easy updates
 public struct CLBindingDateTime: View {
     
     @Binding var timestamp: String
     var expandable: Bool
     
     /// - Parameters:
-    ///   - timestamp: A binding ISO8601 timestamp String
-    ///   - expandable: Should it be expandable?, default is true
+    ///   - timestamp: A binding ISO8601 timestamp `String`
+    ///   - expandable: Should it be expandable?, default is `true`
     public init(_ timestamp: Binding<String>, expandable: Bool = true) {
         self._timestamp = timestamp
         self.expandable = expandable
@@ -88,9 +88,9 @@ public struct CLStaticDateTime: View {
     
     /// - Parameters:
     ///   - timestamp: A ISO8601 timestamp String
-    ///   - expandable: Should it be expandable?, default is true
-    ///   - fixedFontSize: Should it have a fixed font size? Or should the font size be automatic, so that it trys to fit everywhere?, default is false
-    ///   - foregroundColor: The foregroundColor, default is Color.grayText
+    ///   - expandable: Should it be expandable?, default is `true`
+    ///   - fixedFontSize: Should it have a fixed font size? Or should the font size be automatic, so that it trys to fit everywhere?, default is `false`
+    ///   - foregroundColor: The `foregroundColor`, default is `Color.grayText
     public init(_ timestamp: String, expandable: Bool = true, fixedFontSize: Bool = false, foregroundColor: Color = Color.grayText) {
         self.timestamp = timestamp
         self.expandable = expandable

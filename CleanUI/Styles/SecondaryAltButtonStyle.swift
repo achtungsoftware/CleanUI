@@ -18,8 +18,8 @@ public struct SecondaryAltButtonStyle: ButtonStyle {
     var translucent: Bool
     var size: SecondaryButtonSize
     
-    /// - Parameter translucent: Should the button background have a fixed opacity? Default is false
-    /// - Parameter size: The button size, default is .normal
+    /// - Parameter translucent: Should the button background have a fixed opacity? Default is `false
+    /// - Parameter size: The button size, default is `.normal`
     public init(translucent: Bool = false, size: SecondaryButtonSize = .normal){
         self.translucent = translucent
         self.size = size

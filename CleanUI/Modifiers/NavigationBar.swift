@@ -32,7 +32,8 @@ public class NavigationBarSearchField: ObservableObject, Equatable, Identifiable
     }
 }
 
-/// The ``NavigationBar`` modifier applies a ``NavigationBar`` to the view and removes the default UINavigationBar
+/// The ``NavigationBar`` modifier applies a ``NavigationBar`` to the view and removes the default UINavigationBar.
+/// Use only on ``CLNavigationView``
 public struct NavigationBar: ViewModifier {
     
     var title: String
@@ -45,7 +46,7 @@ public struct NavigationBar: ViewModifier {
     /// - Parameters:
     ///   - title: The navigation bar title
     ///   - subTitle: The navigation bar subtitle
-    ///   - bigTitle: Should the navigation bar title be big? default is false
+    ///   - bigTitle: Should the navigation bar title be big? default is `false
     ///   - customTitle: Lets you apply a custom title view, which replaces the default title
     ///   - buttons: The trailing buttons
     ///   - searchBar: When a ``NavigationBarSearchField`` is applied, the NavigationBar gets a search ability

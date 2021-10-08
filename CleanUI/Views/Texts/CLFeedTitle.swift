@@ -14,8 +14,8 @@ public struct CLFeedTitle: View {
     var withMargin: Bool
     
     /// - Parameters:
-    ///   - title: The title String
-    ///   - withMargin: Should the default padding be applied? Default is true
+    ///   - title: The title `String`
+    ///   - withMargin: Should the default padding be applied? Default is `true
     public init(_ title: String, withMargin: Bool = true) {
         self.title = title
         self.withMargin = withMargin

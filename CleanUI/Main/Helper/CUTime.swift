@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// This is a time or Date helper class
+/// This is a time / Date helper class
 public class CUTime {
     
     static let dateFormatter = DateFormatter()

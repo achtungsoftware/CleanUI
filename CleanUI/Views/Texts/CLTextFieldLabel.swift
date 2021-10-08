@@ -12,7 +12,7 @@ public struct CLTextFieldLabel: View {
     
     var label: String
     
-    /// - Parameter label: The label String
+    /// - Parameter label: The label `String
     public init(_ label: String) {
         self.label = label
     }

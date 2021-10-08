@@ -18,11 +18,11 @@ public class InfoCardManagerModel: ObservableObject {
     
     public init() {}
     
-    /// Shows a new CLInfoCard or replaces the old one
+    /// Shows a new ``CLInfoCard` or replaces the old one with animation
     /// - Parameters:
-    ///   - title: The main Text to display inside the card
-    ///   - subTitle: The secondary Text to display inside the card
-    ///   - type: The InfoCardType, default is .info
+    ///   - title: The main text to display inside the card
+    ///   - subTitle: The secondary text to display inside the card
+    ///   - type: The ``CLInfoCard/InfoCardType``, default is `.info`
     public func show(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info) {
         withAnimation {
             self.title = title
@@ -32,7 +32,7 @@ public class InfoCardManagerModel: ObservableObject {
         }
     }
     
-    /// Hides all InfoCards
+    /// Hides all InfoCards with animation
     public func hide(){
         withAnimation {
             self.isVisible = false
@@ -61,7 +61,8 @@ public struct CLInfoCardManager: View {
     }
 }
 
-/// Returns a view, in style of a card with text for information
+/// Returns a view, in style of a card with text for information. If there is the possibility that multiple ``CLInfoCard``'s
+/// gets shown, consider using a ``CLInfoCardManager`` instead.
 public struct CLInfoCard: View {
     
     public enum InfoCardType {

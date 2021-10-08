@@ -12,7 +12,7 @@ public struct CLFeedFooter: View {
     
     var title: String
     
-    /// - Parameter title: The title String
+    /// - Parameter title: The title `String
     public init(_ title: String) {
         self.title = title
     }

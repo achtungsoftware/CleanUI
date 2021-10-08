@@ -12,7 +12,7 @@ public struct PrimaryTextFieldStyle: TextFieldStyle {
     
     var isTransparent: Bool
     
-    /// - Parameter isTransparent: When true, the TextField does have a clear background, default is false
+    /// - Parameter isTransparent: When true, the TextField does have a clear background, default is `false
     public init(isTransparent: Bool = false) {
         self.isTransparent = isTransparent
     }

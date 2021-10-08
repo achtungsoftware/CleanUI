@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-/// ``CLBlurView`` is a UIViewRepresentable for an UIVisualEffectView
+/// ``CLBlurView`` is a UIViewRepresentable for an `UIVisualEffectView`
 public struct CLBlurView: UIViewRepresentable {
     
     var style: UIBlurEffect.Style
     
-    /// - Parameter style: The UIBlurEffect.Style that should be applied
+    /// - Parameter style: The `UIBlurEffect.Style` that should be applied
     public init(_ style: UIBlurEffect.Style) {
         self.style = style
     }

@@ -12,7 +12,7 @@ public struct ChatTextFieldStyle: TextFieldStyle {
     
     var backgroundColor: Color
     
-    /// - Parameter backgroundColor: The background color, default is Color.background
+    /// - Parameter backgroundColor: The background color, default is `Color.background
     public init(backgroundColor: Color = Color.background) {
         self.backgroundColor = backgroundColor
     }

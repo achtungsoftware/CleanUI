@@ -21,7 +21,7 @@ public struct CLDescriptiveNumber: View {
     /// - Parameters:
     ///   - number: The number which will be described
     ///   - description: The description for the number
-    ///   - size: The size, default is .normal
+    ///   - size: The size, default is `.normal
     public init(_ number: String, description: String, size: CLDescriptiveNumber.Size = .normal) {
         self.number = number
         self.description = description

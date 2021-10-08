@@ -12,7 +12,7 @@ public struct SecondaryButtonStyle: ButtonStyle {
     
     var size: SecondaryButtonSize
     
-    /// - Parameter size: The button size, default is .normal
+    /// - Parameter size: The button size, default is `.normal
     public init(size: SecondaryButtonSize = .normal){
         self.size = size
     }

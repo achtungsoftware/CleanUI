@@ -32,10 +32,10 @@ public struct CLIcon: View {
     ///   - image: Image name from asset catalog
     ///   - systemImage: System image name
     ///   - frameworkImage: The Image name from the CleanUI frameworks asset catalog
-    ///   - size: The ``CLIcon`` size, default is .medium
+    ///   - size: The ``CLIcon`` size, default is `.medium`
     ///   - newBadge: Should a ``CLNewBadge`` overlay the Icon?
     ///   - isImageOverlay: If true the ``CLIcon`` gets a shadow for better readability
-    ///   - offset: Define an offset for the ``CLIcon``, default is none
+    ///   - offset: Define an offset for the ``CLIcon``, default is none -> `.leading(0)`
     public init(_ image: String = "", systemImage: String = "", frameworkImage: String = "", size: CLIcon.Size = .medium, newBadge: Bool? = nil, isImageOverlay: Bool = false, offset: CLIcon.Offset = .leading(0)){
         self.image = image
         self.size = size
