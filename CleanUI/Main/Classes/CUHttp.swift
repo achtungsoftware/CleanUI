@@ -19,10 +19,17 @@ public class CUHttp {
     ///   - audios: An Array of audio asset urls
     ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the result String and success Bool
-    public static func upload(_ url: String, parameters: [String: String]? = nil, videos: [String: URL]? = nil, images: [String: UIImage]? = nil, audios: [String: URL]? = nil, thread: CUThreadHelper.async = .background, callback: @escaping (String, Bool) -> ()) {
+    public static func upload(_ urlString: String, parameters: [String: String]? = nil, videos: [String: URL]? = nil, images: [String: UIImage]? = nil, audios: [String: URL]? = nil, thread: CUThreadHelper.async = .background, callback: @escaping (String, Bool) -> ()) {
         thread.run {
-            let myUrl = NSURL(string: url)
-            let request = NSMutableURLRequest(url:myUrl! as URL)
+            
+            guard let url = URL(string: urlString) else {
+                CUThreadHelper.async.main.run {
+                    callback("", false)
+                }
+                return
+            }
+            
+            let request = NSMutableURLRequest(url: url)
             request.httpMethod = "POST"
             
             
@@ -140,23 +147,18 @@ public class CUHttp {
     ///   - parameters: Post parameters
     ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the object, the result String and success Bool
-    public static func postObject<T: Decodable>(_ url: String, parameters: [String: String]? = nil, type: T.Type, thread: CUThreadHelper.async = .utility, callback: @escaping (T?, String, Bool) -> ()){
-        
+    public static func postObject<T: Decodable>(_ urlString: String, parameters: [String: String]? = nil, type: T.Type, thread: CUThreadHelper.async = .utility, callback: @escaping (T?, String, Bool) -> ()){
         thread.run {
             
-            if(url.isEmpty){
+            guard let url = URL(string: urlString) else {
                 CUThreadHelper.async.main.run {
                     callback(nil, "", false)
                 }
                 return
             }
             
-            // Prepare URL
-            let url_p = URL(string: url)
-            guard let requestUrl = url_p else { fatalError() }
-            
             // Prepare URL Request Object
-            var request = URLRequest(url: requestUrl)
+            var request = URLRequest(url: url)
             request.httpMethod = "POST"
             
             // Set HTTP Request Body
@@ -213,22 +215,18 @@ public class CUHttp {
     ///   - parameters: Post parameters
     ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the object array, the result String and success Bool
-    public static func postObjectArray<T: Decodable>(_ url: String, parameters: [String: String]? = nil, type: T.Type, thread: CUThreadHelper.async = .utility, callback: @escaping ([T]?, String, Bool) -> ()){
+    public static func postObjectArray<T: Decodable>(_ urlString: String, parameters: [String: String]? = nil, type: T.Type, thread: CUThreadHelper.async = .utility, callback: @escaping ([T]?, String, Bool) -> ()){
         
         thread.run {
-            if(url.isEmpty){
+            guard let url = URL(string: urlString) else {
                 CUThreadHelper.async.main.run {
                     callback(nil, "", false)
                 }
                 return
             }
             
-            // Prepare URL
-            let url_p = URL(string: url)
-            guard let requestUrl = url_p else { fatalError() }
-            
             // Prepare URL Request Object
-            var request = URLRequest(url: requestUrl)
+            var request = URLRequest(url: url)
             request.httpMethod = "POST"
             
             // Set HTTP Request Body
@@ -285,22 +283,18 @@ public class CUHttp {
     ///   - parameters: Post parameters
     ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the result String and success Bool
-    public static func post(_ url: String, parameters: [String: String]? = nil, thread: CUThreadHelper.async = .utility, callback: @escaping (String, Bool) -> ()){
-        
+    public static func post(_ urlString: String, parameters: [String: String]? = nil, thread: CUThreadHelper.async = .utility, callback: @escaping (String, Bool) -> ()){
         thread.run {
-            if(url.isEmpty){
+            
+            guard let url = URL(string: urlString) else {
                 CUThreadHelper.async.main.run {
                     callback("", false)
                 }
                 return
             }
             
-            // Prepare URL
-            let url_p = URL(string: url)
-            guard let requestUrl = url_p else { fatalError() }
-            
             // Prepare URL Request Object
-            var request = URLRequest(url: requestUrl)
+            var request = URLRequest(url: url)
             request.httpMethod = "POST"
             
             // Set HTTP Request Body
