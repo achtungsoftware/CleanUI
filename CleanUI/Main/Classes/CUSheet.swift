@@ -217,7 +217,7 @@ struct CLSheetView<Content: View>: View {
             )
             .onAppear {
                 height = geometry.size.height
-                withAnimation(Animation.interpolatingSpring(mass: 0.8, stiffness: 28.5, damping: 11.5, initialVelocity: 9.5)){
+                withAnimation(Animation.interpolatingSpring(mass: 0.2, stiffness: 29.5, damping: 12, initialVelocity: 10)){
                     show = true
                     showBackground = true
                 }

@@ -158,21 +158,21 @@ struct ContentView: View {
                             Button(action: {
                                 CUSheet.show(
                                     VStack {
-                                        CUSheetTitle("This is a CUSheetTitle")
-                                        CUSheetMenu([
-                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                        CLSheetTitle("This is a CUSheetTitle")
+                                        CLSheetMenu([
+                                            CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
                                                 CUAlertMessage.show(message: "CUSheetMenuItem tapped")
                                             }, icon: CLIcon(systemImage: "square.and.arrow.up.fill", size: .small, newBadge: text.isEmpty)),
-                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                            CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
                                                 CUAlertMessage.show(message: "CUSheetMenuItem tapped")
                                             }),
-                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                            CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
                                                 CUAlertMessage.show(message: "CUSheetMenuItem tapped")
                                             }),
-                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                            CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
                                                 CUAlertMessage.show(message: "CUSheetMenuItem tapped")
                                             }),
-                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                            CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
                                                 CUAlertMessage.show(message: "CUSheetMenuItem tapped")
                                             })
                                         ])
