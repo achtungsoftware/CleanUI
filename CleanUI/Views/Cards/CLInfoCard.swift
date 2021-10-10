@@ -97,7 +97,7 @@ public struct CLInfoCard: View {
                         .font(.subheadline)
                     
                     if !subTitle.isEmpty {
-                        Text(title)
+                        Text(subTitle)
                             .font(.caption)
                     }
                 }
