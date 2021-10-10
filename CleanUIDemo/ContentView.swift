@@ -15,6 +15,7 @@ struct ContentView: View {
     var body: some View {
         CLNavigationView {
             List {
+                
                 Section(header: CLFeedTitle("Standard")) {
                     NavigationLink(destination: {
                         VStack {
@@ -74,6 +75,150 @@ struct ContentView: View {
                         .navigationBar("Colors", bigTitle: true)
                     }) {
                         Text("Colors")
+                    }
+                    
+                    NavigationLink(destination: {
+                        List {
+                            Button(action: {
+                                CUAlert.show(title: "This is a title", body: "This is the string body", action: {
+                                    CUAlertMessage.show(message: "CUAlert action tapped")
+                                })
+                            }){
+                                Text("Test CUAlert")
+                            }
+                        }
+                        .navigationBar("CUAlert()", bigTitle: true)
+                    }) {
+                        Text("CUAlert()")
+                    }
+                    
+                    NavigationLink(destination: {
+                        List {
+                            Button(action: {
+                                CUSheet.show(
+                                    VStack {
+                                        Text("This is a CUSheet")
+                                            .font(.title)
+                                        
+                                        Text("And inside is a Button")
+                                            .font(.subheadline)
+                                        
+                                        Button(action: {
+                                            CUAlertMessage.show(message: "Button tapped")
+                                        }){
+                                            Text("Button")
+                                        }
+                                        .buttonStyle(PrimaryButtonStyle())
+                                    }
+                                        .padding()
+                                )
+                            }){
+                                Text("Test CUSheet with Text and Button inside")
+                            }
+                            
+                            Button(action: {
+                                CUSheet.show(
+                                    List {
+                                        Text("List item")
+                                        Text("List item")
+                                        Text("List item")
+                                        Text("List item")
+                                        Text("List item")
+                                    }
+                                )
+                            }){
+                                Text("Test CUSheet with a List inside")
+                            }
+                            
+                            Button(action: {
+                                CUSheet.show(
+                                    CLScrollView {
+                                        VStack {
+                                            Text("VStack item")
+                                            Text("VStack item")
+                                            Text("VStack item")
+                                            Text("VStack item")
+                                            Text("VStack item")
+                                        }
+                                    }
+                                )
+                            }){
+                                Text("Test CUSheet with a CLScrollView inside")
+                            }
+                            
+                            Button(action: {
+                                CUSheet.show(
+                                    CLSingleLineTextEditor($text, placeholder: "Placeholder")
+                                        .padding()
+                                )
+                            }){
+                                Text("Test CUSheet with a CLSingleLineTextEditor inside")
+                            }
+                            
+                            Button(action: {
+                                CUSheet.show(
+                                    VStack {
+                                        CUSheetTitle("This is a CUSheetTitle")
+                                        CUSheetMenu([
+                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                            }, icon: CLIcon(systemImage: "square.and.arrow.up.fill", size: .small, newBadge: text.isEmpty)),
+                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                            }),
+                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                            }),
+                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                            }),
+                                            CUSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
+                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                            })
+                                        ])
+                                    }
+                                )
+                            }){
+                                Text("Test CUSheet with a CUSheetMenu inside")
+                            }
+                        }
+                        .navigationBar("CUSheet()", bigTitle: true)
+                    }) {
+                        Text("CUSheet()")
+                    }
+                    
+                    NavigationLink(destination: {
+                        List {
+                            Button(action: {
+                                CUAlertMessage.show(message: "This is a normal CUAlertMessage")
+                            }){
+                                Text("Test CUAlertMessage .normal")
+                            }
+                            
+                            Button(action: {
+                                CUAlertMessage.show(message: "This is a error CUAlertMessage", type: .error)
+                            }){
+                                Text("Test CUAlertMessage .error")
+                            }
+                        }
+                        .navigationBar("CUAlertMessage()", bigTitle: true)
+                    }) {
+                        Text("CUAlertMessage()")
+                    }
+                    
+                    NavigationLink(destination: {
+                        List {
+                            Button(action: {
+                                CUInAppNotification.show(title: "I'm a CUInAppNotification title", body: "This is my body", tapAction: {
+                                    CUAlertMessage.show(message: "CUInAppNotification action tapped")
+                                })
+                            }){
+                                Text("Test CUInAppNotification")
+                            }
+                        }
+                        .navigationBar("CUInAppNotification()", bigTitle: true)
+                    }) {
+                        Text("CUInAppNotification()")
                     }
                 }
                 

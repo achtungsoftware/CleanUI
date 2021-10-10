@@ -89,6 +89,15 @@
 		75B1CBCD270CF932000089F9 /* CLLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CBCC270CF932000089F9 /* CLLoadingIndicator.swift */; };
 		75B1CBD3270CFFE3000089F9 /* CLUrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CBD2270CFFE3000089F9 /* CLUrlImage.swift */; };
 		75B1CBD5270D0002000089F9 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CBD4270D0002000089F9 /* ImageCache.swift */; };
+		75C3B67527127D4D00CDC411 /* CUStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B67427127D4D00CDC411 /* CUStandard.swift */; };
+		75C3B6772712976400CDC411 /* CUNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B6762712976400CDC411 /* CUNavigation.swift */; };
+		75C3B67927129C6900CDC411 /* CUGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B67827129C6900CDC411 /* CUGlobal.swift */; };
+		75C3B67C2712A01B00CDC411 /* CUAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B67B2712A01B00CDC411 /* CUAlert.swift */; };
+		75C3B67E2712A07200CDC411 /* CUAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B67D2712A07200CDC411 /* CUAlertModel.swift */; };
+		75C3B6802712A3D700CDC411 /* CUAlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B67F2712A3D700CDC411 /* CUAlertMessage.swift */; };
+		75C3B6822712A59500CDC411 /* CUSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B6812712A59500CDC411 /* CUSheet.swift */; };
+		75C3B6852712A6EB00CDC411 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B6842712A6EB00CDC411 /* RoundedCorner.swift */; };
+		75C3B6892712AECC00CDC411 /* CUInAppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B6882712AECC00CDC411 /* CUInAppNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +209,15 @@
 		75B1CBCC270CF932000089F9 /* CLLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLoadingIndicator.swift; sourceTree = "<group>"; };
 		75B1CBD2270CFFE3000089F9 /* CLUrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUrlImage.swift; sourceTree = "<group>"; };
 		75B1CBD4270D0002000089F9 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		75C3B67427127D4D00CDC411 /* CUStandard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUStandard.swift; sourceTree = "<group>"; };
+		75C3B6762712976400CDC411 /* CUNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUNavigation.swift; sourceTree = "<group>"; };
+		75C3B67827129C6900CDC411 /* CUGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUGlobal.swift; sourceTree = "<group>"; };
+		75C3B67B2712A01B00CDC411 /* CUAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUAlert.swift; sourceTree = "<group>"; };
+		75C3B67D2712A07200CDC411 /* CUAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUAlertModel.swift; sourceTree = "<group>"; };
+		75C3B67F2712A3D700CDC411 /* CUAlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUAlertMessage.swift; sourceTree = "<group>"; };
+		75C3B6812712A59500CDC411 /* CUSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUSheet.swift; sourceTree = "<group>"; };
+		75C3B6842712A6EB00CDC411 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		75C3B6882712AECC00CDC411 /* CUInAppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUInAppNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				75B1CB88270CCF29000089F9 /* UIColor.swift */,
+				7521ACA727102E30001431A2 /* UINavigationController.swift */,
 				75B1CB8A270CCFB0000089F9 /* UIImage.swift */,
 				75B1CB94270CD2A2000089F9 /* UIScrollView.swift */,
 				75B1CB96270CD2E0000089F9 /* UIView.swift */,
@@ -268,7 +287,6 @@
 				75B1CB8C270CCFE6000089F9 /* Double.swift */,
 				75023B57270D3C2800EF4098 /* Date.swift */,
 				754249EA270F7AE0004D217B /* NSAttributedString.swift */,
-				7521ACA727102E30001431A2 /* UINavigationController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,7 +314,8 @@
 		751360A6270BAB38002E74AF /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				756C011B270BC86F00136DF8 /* Helper */,
+				75C3B67A27129F7E00CDC411 /* Models */,
+				756C011B270BC86F00136DF8 /* Classes */,
 				756C010B270BB73B00136DF8 /* Enums */,
 				751360A9270BAC0F002E74AF /* Provider */,
 				7521ACA927103009001431A2 /* ViewControllerTransitions.swift */,
@@ -374,7 +393,7 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		756C011B270BC86F00136DF8 /* Helper */ = {
+		756C011B270BC86F00136DF8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				756C011C270BC88A00136DF8 /* CUHttp.swift */,
@@ -383,8 +402,15 @@
 				756C0138270BDB0F00136DF8 /* CULanguage.swift */,
 				75B1CBA7270CE44D000089F9 /* CUVideoHelper.swift */,
 				75023B59270D3CA200EF4098 /* CUTime.swift */,
+				75C3B67427127D4D00CDC411 /* CUStandard.swift */,
+				75C3B6762712976400CDC411 /* CUNavigation.swift */,
+				75C3B67827129C6900CDC411 /* CUGlobal.swift */,
+				75C3B67B2712A01B00CDC411 /* CUAlert.swift */,
+				75C3B67F2712A3D700CDC411 /* CUAlertMessage.swift */,
+				75C3B6812712A59500CDC411 /* CUSheet.swift */,
+				75C3B6882712AECC00CDC411 /* CUInAppNotification.swift */,
 			);
-			path = Helper;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		756C0143270BE9E700136DF8 /* Styles */ = {
@@ -441,6 +467,7 @@
 		758C62BD2708BC6E008CF28A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75C3B6832712A6DD00CDC411 /* Shapes */,
 				75B1CBB3270CE90E000089F9 /* ProgressViews */,
 				751360B0270BB425002E74AF /* TextEditors */,
 				751360AB270BAD9C002E74AF /* Texts */,
@@ -475,6 +502,22 @@
 				75B1CBBA270CEAE7000089F9 /* CLLinearProgress.swift */,
 			);
 			path = ProgressViews;
+			sourceTree = "<group>";
+		};
+		75C3B67A27129F7E00CDC411 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				75C3B67D2712A07200CDC411 /* CUAlertModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		75C3B6832712A6DD00CDC411 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				75C3B6842712A6EB00CDC411 /* RoundedCorner.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -611,12 +654,16 @@
 				756C0121270BCFC400136DF8 /* CUVibrate.swift in Sources */,
 				756C0125270BD12000136DF8 /* CLFeedFooter.swift in Sources */,
 				75023B5C270D3E7B00EF4098 /* CLDateTime.swift in Sources */,
+				75C3B67C2712A01B00CDC411 /* CUAlert.swift in Sources */,
 				756C0139270BDB0F00136DF8 /* CULanguage.swift in Sources */,
 				75023B62270D46E900EF4098 /* CLScrollView.swift in Sources */,
+				75C3B67E2712A07200CDC411 /* CUAlertModel.swift in Sources */,
+				75C3B6892712AECC00CDC411 /* CUInAppNotification.swift in Sources */,
 				751360A8270BAB52002E74AF /* ColorProvider.swift in Sources */,
 				751360AF270BADF8002E74AF /* View.swift in Sources */,
 				756C0111270BBB7100136DF8 /* CLSingleLineTextEditor.swift in Sources */,
 				75B1CBB5270CE961000089F9 /* CLTextFieldProgress.swift in Sources */,
+				75C3B6772712976400CDC411 /* CUNavigation.swift in Sources */,
 				758C627A2708BC2A008CF28A /* CleanUI.docc in Sources */,
 				756C0131270BD85D00136DF8 /* CLSearchBar.swift in Sources */,
 				756C0151270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift in Sources */,
@@ -626,9 +673,11 @@
 				756C014F270BEC4500136DF8 /* SecondaryAltButtonStyle.swift in Sources */,
 				756C0133270BD95100136DF8 /* CLBlurView.swift in Sources */,
 				754249F3270F86BE004D217B /* CLExpandableText.swift in Sources */,
+				75C3B6802712A3D700CDC411 /* CUAlertMessage.swift in Sources */,
 				756C014B270BEB2C00136DF8 /* ChatTextFieldStyle.swift in Sources */,
 				75269A3D270CAC39007898A7 /* PrimaryButtonTheme.swift in Sources */,
 				756C014D270BEB8100136DF8 /* RoundedButtonStyle.swift in Sources */,
+				75C3B67927129C6900CDC411 /* CUGlobal.swift in Sources */,
 				756C012B270BD62A00136DF8 /* HideNavigationBar.swift in Sources */,
 				756C0137270BDA8900136DF8 /* NavigationBar.swift in Sources */,
 				756C0145270BE9FE00136DF8 /* PrimaryButtonStyle.swift in Sources */,
@@ -636,6 +685,7 @@
 				75023B8E270D51A800EF4098 /* ImageProvider.swift in Sources */,
 				75B1CBB7270CE9F5000089F9 /* CLCircularProgress.swift in Sources */,
 				75B1CBD5270D0002000089F9 /* ImageCache.swift in Sources */,
+				75C3B6822712A59500CDC411 /* CUSheet.swift in Sources */,
 				756C011D270BC88A00136DF8 /* CUHttp.swift in Sources */,
 				75B1CBB9270CEA27000089F9 /* CLKnogglGradient.swift in Sources */,
 				756C011A270BC0C900136DF8 /* OnLoad.swift in Sources */,
@@ -643,6 +693,7 @@
 				75023B58270D3C2800EF4098 /* Date.swift in Sources */,
 				7521ACAA27103009001431A2 /* ViewControllerTransitions.swift in Sources */,
 				754249E7270F79E8004D217B /* CLRichText.swift in Sources */,
+				75C3B6852712A6EB00CDC411 /* RoundedCorner.swift in Sources */,
 				756C0123270BD0B100136DF8 /* CLFeedTitle.swift in Sources */,
 				75B1CB87270CCE9E000089F9 /* PinchToZoom.swift in Sources */,
 				75B1CBAA270CE47C000089F9 /* AVURLAsset.swift in Sources */,
@@ -670,6 +721,7 @@
 				751360B4270BB653002E74AF /* String.swift in Sources */,
 				756C010D270BB74A00136DF8 /* Attribute.swift in Sources */,
 				756C0117270BC05F00136DF8 /* CLNewBadge.swift in Sources */,
+				75C3B67527127D4D00CDC411 /* CUStandard.swift in Sources */,
 				756C0135270BD9CB00136DF8 /* CLWebview.swift in Sources */,
 				756C011F270BC8AD00136DF8 /* CUThreadHelper.swift in Sources */,
 				75B1CBAE270CE613000089F9 /* VideoExportQuality.swift in Sources */,

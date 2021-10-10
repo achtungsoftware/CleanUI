@@ -59,4 +59,13 @@ public extension View {
     func defaultShadow() -> some View {
         return self.shadow(color: Color.black.opacity(0.4), radius: 3)
     }
+    
+    /// Clipshapes the view wit an ``RoundedCorner`` `Shape`
+    /// - Parameters:
+    ///   - radius: The radius
+    ///   - corners: The corners which the radius should apply to
+    /// - Returns: The clipped `View`
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape(RoundedCorner(radius: radius, corners: corners))
+    }
 }
