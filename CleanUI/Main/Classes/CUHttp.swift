@@ -12,7 +12,7 @@ public class CUHttp {
     
     /// This function uploads mutiple media to the server (Audio, Video, Image)
     /// - Parameters:
-    ///   - url: The Api url
+    ///   - urlString: The Api url
     ///   - parameters: Post parameters
     ///   - videos: An Array of video asset urls
     ///   - images: An Array of images
@@ -143,7 +143,7 @@ public class CUHttp {
     
     /// This function makes an http post request and trys to encode the result to an object
     /// - Parameters:
-    ///   - url: The Api url
+    ///   - urlString: The Api url
     ///   - parameters: Post parameters
     ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the object, the result String and success Bool
@@ -211,7 +211,7 @@ public class CUHttp {
     
     /// This function makes an http post request and trys to encode the result to an object array
     /// - Parameters:
-    ///   - url: The Api url
+    ///   - urlString: The Api url
     ///   - parameters: Post parameters
     ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the object array, the result String and success Bool
@@ -279,7 +279,7 @@ public class CUHttp {
     
     /// This function makes an http post request
     /// - Parameters:
-    ///   - url: The Api url
+    ///   - urlString: The Api url
     ///   - parameters: Post parameters
     ///   - thread: The ``CUThreadHelper`` async thread for processing
     ///   - callback: Callback with the result String and success Bool

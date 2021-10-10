@@ -47,8 +47,8 @@ public class CUAlertMessages {
             let infoCardController = UIHostingController(rootView: CLAlertMessageView(id: id, title: title, subTitle: subTitle, type: type))
             controller.view.addSubview(infoCardController.view)
             infoCardController.view.translatesAutoresizingMaskIntoConstraints = false
-            infoCardController.view.isUserInteractionEnabled = true
             infoCardController.view.backgroundColor = .clear
+            infoCardController.view.isUserInteractionEnabled = false
             
             
             
@@ -81,7 +81,6 @@ struct CLAlertMessageView: View {
     var type: CLInfoCard.InfoCardType
     
     @State private var show: Bool = true
-    @State private var offset = CGSize.zero
     
     var body: some View {
         if show {
@@ -91,36 +90,16 @@ struct CLAlertMessageView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .fill(Color.background)
                     )
-                    .onTapGesture {
-                        close()
-                    }
                 
                 Spacer()
                     .frame(width: UIScreen.main.bounds.width, height: 48)
-                    .allowsHitTesting(false)
             }
-            .offset(y: offset.height > 0 ? offset.height : 0)
             .transition(.move(edge: .bottom).combined(with: .opacity))
             .onLoad {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
                     close()
                 }
             }
-            .highPriorityGesture (
-                DragGesture(coordinateSpace: .global)
-                    .onChanged { gesture in
-                        offset = gesture.translation
-                    }
-                    .onEnded { g in
-                        if (g.predictedEndTranslation.height > 30) {
-                            close()
-                        } else {
-                            withAnimation(Animation.easeInOut(duration: 0.3)) {
-                                offset = .zero
-                            }
-                        }
-                    }
-            )
         }else {
             EmptyView()
         }

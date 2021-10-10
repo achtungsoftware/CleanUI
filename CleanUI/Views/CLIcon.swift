@@ -49,7 +49,7 @@ public struct CLIcon: View {
     }
     
     public var body: some View {
-        ZStack { 
+        ZStack {
             if !image.isEmpty {
                 Image(image)
                     .resizable()
@@ -78,7 +78,7 @@ public struct CLIcon: View {
                     }
             }
             
-            if(newBadge != nil && newBadge!){
+            if newBadge != nil && newBadge! {
                 CLNewBadge()
                     .offset(x: sideSize / 3, y: -sideSize / 3)
             }

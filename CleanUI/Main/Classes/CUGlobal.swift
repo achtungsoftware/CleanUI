@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Global static variables are saved here
+/// Global static variables are stored here
 public struct CUGlobal {
     
     /// `mainWindow` is filled after ``CUStandard/getMainUIWindow()``

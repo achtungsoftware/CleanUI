@@ -33,13 +33,13 @@ public struct CLLoadingIndicator: View {
     
     public var body: some View {
         ZStack {
-            if(isImageOverlay){
+            if isImageOverlay {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color.white.opacity(0.9))
                     .frame(width: 40, height: 40, alignment: .center)
             }
             
-            if(show){
+            if show {
                 switch style {
                 case .standard(let tint):
                     ProgressView()
@@ -52,7 +52,7 @@ public struct CLLoadingIndicator: View {
             }
         }
         .onLoad {
-            if(withDelay){
+            if withDelay {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                     withAnimation {
                         show = true
