@@ -96,6 +96,16 @@ struct ContentView: View {
                         List {
                             Button(action: {
                                 CUSheet.show(
+                                    CLSheetConfirmView("Test", subTitle: "Das ist ein sub title", confirmAction: {
+                                        CUAlertMessage.show("CLSheetConfirmView cancled")
+                                    })
+                                )
+                            }){
+                                Text("Test CUSheet with CLSheetConfirmView")
+                            }
+                            
+                            Button(action: {
+                                CUSheet.show(
                                     VStack {
                                         Text("This is a CUSheet")
                                             .font(.title)

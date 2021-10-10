@@ -42,28 +42,28 @@ public class CUSheets {
         clearAll()
         
         if let controller = CUStandard.getMainUIWindow()?.rootViewController {
-            let alertTemp = UIHostingController(rootView: CLSheetView(content: content))
-            controller.view.addSubview(alertTemp.view)
-            alertTemp.view.isUserInteractionEnabled = true
-            alertTemp.view.backgroundColor = .clear
-            alertTemp.view.center = controller.view.center
-            alertTemp.view.alpha = 0.0
+            let sheetView = UIHostingController(rootView: CLSheetView(content: content))
+            controller.view.addSubview(sheetView.view)
+            sheetView.view.isUserInteractionEnabled = true
+            sheetView.view.backgroundColor = .clear
+            sheetView.view.center = controller.view.center
+            sheetView.view.alpha = 0.0
             
-            alertTemp.view.topAnchor.constraint(equalTo: controller.view.topAnchor, constant: 0).isActive = true
-            alertTemp.view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor, constant: 0).isActive = true
-            alertTemp.view.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor, constant: 0).isActive = true
-            alertTemp.view.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor, constant: 0).isActive = true
-            alertTemp.view.translatesAutoresizingMaskIntoConstraints = false
+            sheetView.view.topAnchor.constraint(equalTo: controller.view.topAnchor, constant: 0).isActive = true
+            sheetView.view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor, constant: 0).isActive = true
+            sheetView.view.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor, constant: 0).isActive = true
+            sheetView.view.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor, constant: 0).isActive = true
+            sheetView.view.translatesAutoresizingMaskIntoConstraints = false
             
             UIView.animate(withDuration: 0.2) {
-                alertTemp.view.alpha = 1.0
+                sheetView.view.alpha = 1.0
             }
             
             
             // Close Keyboard
             UIApplication.shared.endEditing()
             
-            alerts.append(CUAlertModel(view: alertTemp.view))
+            alerts.append(CUAlertModel(view: sheetView.view))
         }
     }
     
@@ -109,6 +109,57 @@ public struct CLSheetTitle: View {
                 .font(.headline)
                 .foregroundColor(Color.defaultText)
         }
+    }
+}
+
+/// ``CLSheetConfirmView`` is a action confirmation view for ``CUSheet``
+public struct CLSheetConfirmView: View {
+    
+    var title: String
+    var subTitle: String
+    var confirmAction: () -> Void
+    
+    /// - Parameters:
+    ///   - title: The title `String`
+    ///   - subTitle: The optional sub title `String`
+    ///   - confirmAction: The action for the continue button
+    public init(_ title: String, subTitle: String = "", confirmAction: @escaping () -> Void) {
+        self.title = title
+        self.subTitle = subTitle
+        self.confirmAction = confirmAction
+    }
+    
+    public var body: some View {
+        VStack(spacing: 12) {
+            VStack {
+                Text(title)
+                    .font(.title2.bold())
+                    .padding(.bottom, 8)
+                
+                if !subTitle.isEmpty {
+                    Text(subTitle)
+                        .font(.subheadline)
+                }
+            }
+            .padding(.bottom)
+            
+            Button(action: {
+                CUSheet.clearAll()
+            }) {
+                Text(CULanguage.getStringCleanUI("cancel"))
+            }
+            .buttonStyle(PrimaryButtonStyle(buttonTheme: .secondary))
+            
+            Button(action: {
+                confirmAction()
+                CUSheet.clearAll()
+            }) {
+                Text(CULanguage.getStringCleanUI("continue"))
+            }
+            .buttonStyle(PrimaryButtonStyle())
+        }
+        .padding()
+        .foregroundColor(Color.defaultText)
     }
 }
 

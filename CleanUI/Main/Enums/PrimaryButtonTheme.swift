@@ -14,4 +14,5 @@ public enum PrimaryButtonTheme {
     case staticDark
     case materialDark
     case materialLight
+    case secondary
 }

@@ -27,11 +27,11 @@ public struct PrimaryButtonStyle: ButtonStyle {
             .padding(12)
             .font(.callout)
             .frame(maxWidth: .infinity)
-            .if(buttonTheme == .primary || buttonTheme == .staticDark || buttonTheme == .staticLight){ view in
+            .if(buttonTheme == .primary || buttonTheme == .staticDark || buttonTheme == .staticLight || buttonTheme == .secondary){ view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 11)
-                            .fill(buttonTheme == .primary ? Color.primaryColor : buttonTheme == .staticDark ? Color.accentStaticDark : Color.white)
+                            .fill(buttonTheme == .primary ? Color.primaryColor : buttonTheme == .staticDark ? Color.accentStaticDark : buttonTheme == .secondary ? Color.accent2 : Color.white)
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }
@@ -52,7 +52,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
                     )
             }
             .shadow(color: Color.black.opacity(0.04), radius: 8)
-            .foregroundColor(buttonTheme == .primary ? .white : buttonTheme == .staticDark || buttonTheme == .materialDark ? Color.white : Color.black)
+            .foregroundColor(buttonTheme == .primary ? .white : buttonTheme == .staticDark || buttonTheme == .materialDark ? Color.white : buttonTheme == .secondary ? Color.defaultText: Color.black)
             .scaleEffect(configuration.isPressed ? 0.97: 1)
     }
 }

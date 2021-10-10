@@ -12,4 +12,5 @@ import SwiftUI
 public struct CUAlertModel: Identifiable, Equatable {
     public var id = UUID()
     public var view: UIView
+    public var shouldDismiss: Bool = false
 }
