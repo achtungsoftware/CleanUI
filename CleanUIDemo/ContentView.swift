@@ -81,7 +81,7 @@ struct ContentView: View {
                         List {
                             Button(action: {
                                 CUAlert.show(title: "This is a title", body: "This is the string body", action: {
-                                    CUAlertMessage.show(message: "CUAlert action tapped")
+                                    CUAlertMessage.show("CUAlert action tapped")
                                 })
                             }){
                                 Text("Test CUAlert")
@@ -104,7 +104,7 @@ struct ContentView: View {
                                             .font(.subheadline)
                                         
                                         Button(action: {
-                                            CUAlertMessage.show(message: "Button tapped")
+                                            CUAlertMessage.show("Button tapped")
                                         }){
                                             Text("Button")
                                         }
@@ -161,19 +161,19 @@ struct ContentView: View {
                                         CLSheetTitle("This is a CUSheetTitle")
                                         CLSheetMenu([
                                             CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
-                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                                CUAlertMessage.show("CUSheetMenuItem tapped")
                                             }, icon: CLIcon(systemImage: "square.and.arrow.up.fill", size: .small, newBadge: text.isEmpty)),
                                             CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
-                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                                CUAlertMessage.show("CUSheetMenuItem tapped")
                                             }),
                                             CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
-                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                                CUAlertMessage.show("CUSheetMenuItem tapped")
                                             }),
                                             CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
-                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                                CUAlertMessage.show("CUSheetMenuItem tapped")
                                             }),
                                             CLSheetMenuItem(title: "This is a CUSheetMenuItem", show: true, action: {
-                                                CUAlertMessage.show(message: "CUSheetMenuItem tapped")
+                                                CUAlertMessage.show("CUSheetMenuItem tapped")
                                             })
                                         ])
                                     }
@@ -190,15 +190,27 @@ struct ContentView: View {
                     NavigationLink(destination: {
                         List {
                             Button(action: {
-                                CUAlertMessage.show(message: "This is a normal CUAlertMessage")
+                                CUAlertMessage.show("This is a normal CUAlertMessage with more text than usual", subTitle: "And we got a subTitle !!!")
                             }){
                                 Text("Test CUAlertMessage .normal")
                             }
                             
                             Button(action: {
-                                CUAlertMessage.show(message: "This is a error CUAlertMessage", type: .error)
+                                CUAlertMessage.show("This is a normal CUAlertMessage")
+                            }){
+                                Text("Test CUAlertMessage .normal")
+                            }
+                            
+                            Button(action: {
+                                CUAlertMessage.show("This is a error CUAlertMessage", type: .error)
                             }){
                                 Text("Test CUAlertMessage .error")
+                            }
+                            
+                            Button(action: {
+                                CUAlertMessage.show("This is a success CUAlertMessage", type: .success)
+                            }){
+                                Text("Test CUAlertMessage .success")
                             }
                         }
                         .navigationBar("CUAlertMessage()", bigTitle: true)
@@ -210,7 +222,7 @@ struct ContentView: View {
                         List {
                             Button(action: {
                                 CUInAppNotification.show(title: "I'm a CUInAppNotification title", body: "This is my body", tapAction: {
-                                    CUAlertMessage.show(message: "CUInAppNotification action tapped")
+                                    CUAlertMessage.show("CUInAppNotification action tapped")
                                 })
                             }){
                                 Text("Test CUInAppNotification")

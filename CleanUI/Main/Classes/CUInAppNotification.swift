@@ -118,7 +118,6 @@ struct CLInAppNotificationView: View {
                 DragGesture(coordinateSpace: .global)
                     .onChanged { gesture in
                         offset = gesture.translation
-                        print(offset)
                     }
                     .onEnded { g in
                         if (g.predictedEndTranslation.height < -30) {

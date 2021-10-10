@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-/// The ``CUAlertModel`` is used for ``CUSheet``, ``CUAlert`` and ``CUInAppNotification``
+/// The ``CUAlertModel`` is used for ``CUSheet``, ``CUAlert``, ``CUInAppNotification`` and ``CUAlertMessage``
 public struct CUAlertModel: Identifiable, Equatable {
     public var id = UUID()
     public var view: UIView

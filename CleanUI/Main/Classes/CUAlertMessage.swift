@@ -8,92 +8,131 @@
 import SwiftUI
 
 /// ``CUAlertMessage`` is able to show a toast like message at the bottom of the
-/// screen
+/// screen. ``CUAlertMessage`` uses ``CLInfoCard``'s.
 public class CUAlertMessage {
     
-    public enum AlertType {
-        case normal
-        case error
+    /// Adds a new alert message to the ``CUGlobal/alertMessages`` array, and shows it
+    /// - Parameters:
+    ///   - title: The title label to show
+    ///   - title: The subtitle label to show
+    ///   - type: The ``CLInfoCard/InfoCardType`` alert type, default is `.info`
+    public static func show(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info) {
+        CUGlobal.alertMessages.add(title, subTitle: subTitle, type: type)
     }
     
-    /// Shows a new ``CUAlertMessage``
-    /// - Parameters:
-    ///   - message: The message label to show
-    ///   - type: The ``CUAlertMessage/AlertType`` alert type
-    public static func show(message: String, type: CUAlertMessage.AlertType = .normal) {
-        if let controller = CUStandard.getMainUIWindow()?.rootViewController {
-            let labelContainer = UIView(frame: CGRect())
-            
-            switch type {
-            case .normal:
-                labelContainer.backgroundColor = UIColor.accent
-            case .error:
-                labelContainer.backgroundColor = UIColor.defaultRed
+    /// Clears a single message
+    /// - Parameter id: The id for the message
+    public static func clearSingle(_ id: UUID) {
+        CUGlobal.alertMessages.clearSingle(id)
+    }
+}
+
+/// This class handles all alert messages
+public class CUAlertMessages {
+    
+    var messages: [CUAlertModel] = []
+    
+    func clearSingle(_ id: UUID) {
+        for message in messages {
+            if message.id == id {
+                message.view.removeFromSuperview()
             }
-            
-            labelContainer.alpha = 0.0
-            labelContainer.layer.cornerRadius = 25
-            labelContainer.clipsToBounds = true
-            
-            let messageLabel = UILabel(frame: CGRect())
-            
-            switch type {
-            case .normal:
-                messageLabel.textColor = UIColor.defaultText
-            case .error:
-                messageLabel.textColor = UIColor.white
-            }
-            
-            messageLabel.textAlignment = .center;
-            messageLabel.font.withSize(12.0)
-            messageLabel.text = message
-            messageLabel.clipsToBounds = true
-            messageLabel.numberOfLines = 0
-            
-            labelContainer.layer.masksToBounds = false
-            labelContainer.layer.shadowColor = UIColor.black.cgColor
-            labelContainer.layer.shadowOpacity = 0.1
-            labelContainer.layer.shadowOffset = .zero
-            labelContainer.layer.shadowRadius = 10
-            
-            labelContainer.layer.borderWidth = 0.5
-            labelContainer.layer.borderColor = UIColor.defaultBorder.cgColor
-            
-            labelContainer.addSubview(messageLabel)
-            controller.view.addSubview(labelContainer)
-            
-            messageLabel.translatesAutoresizingMaskIntoConstraints = false
-            labelContainer.translatesAutoresizingMaskIntoConstraints = false
-            
-            let a1 = NSLayoutConstraint(item: messageLabel, attribute: .leading, relatedBy: .equal, toItem: labelContainer, attribute: .leading, multiplier: 1, constant: 15)
-            let a2 = NSLayoutConstraint(item: messageLabel, attribute: .trailing, relatedBy: .equal, toItem: labelContainer, attribute: .trailing, multiplier: 1, constant: -15)
-            let a3 = NSLayoutConstraint(item: messageLabel, attribute: .bottom, relatedBy: .equal, toItem: labelContainer, attribute: .bottom, multiplier: 1, constant: -15)
-            let a4 = NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: labelContainer, attribute: .top, multiplier: 1, constant: 15)
-            labelContainer.addConstraints([a1, a2, a3, a4])
-            
-            let c2 = NSLayoutConstraint(item: labelContainer, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: controller.view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
-            
-            let c3 = NSLayoutConstraint(item: labelContainer,
-                                        attribute:.width,
-                                        relatedBy:.lessThanOrEqual,
-                                        toItem: controller.view,
-                                        attribute:.width,
-                                        multiplier:0.9,
-                                        constant:0);
-            
-            let c1 = NSLayoutConstraint(item: labelContainer, attribute: .bottom, relatedBy: .equal, toItem: controller.view, attribute: .bottom, multiplier: 1, constant: -110)
-            controller.view.addConstraints([c1,c2,c3])
-            
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
-                labelContainer.alpha = 1.0
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.3, delay: 2, options: .curveEaseOut, animations: {
-                    labelContainer.alpha = 0.0
-                }, completion: {_ in
-                    labelContainer.removeFromSuperview()
-                })
-            })
         }
     }
     
+    func add(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info) {
+        let id: UUID = UUID()
+        
+        if let controller = CUStandard.getMainUIWindow()?.rootViewController {
+            let infoCardController = UIHostingController(rootView: CLAlertMessageView(id: id, title: title, subTitle: subTitle, type: type))
+            controller.view.addSubview(infoCardController.view)
+            infoCardController.view.translatesAutoresizingMaskIntoConstraints = false
+            infoCardController.view.isUserInteractionEnabled = true
+            infoCardController.view.backgroundColor = .clear
+            
+            
+            
+            let c1 = NSLayoutConstraint(item: infoCardController.view!, attribute: .leading, relatedBy: .equal, toItem: controller.view, attribute: .leading, multiplier: 1, constant: 10)
+            let c2 = NSLayoutConstraint(item: infoCardController.view!, attribute: .trailing, relatedBy: .equal, toItem: controller.view, attribute: .trailing, multiplier: 1, constant: -10)
+            let c3 = NSLayoutConstraint(item: infoCardController.view!, attribute: .bottom, relatedBy: .equal, toItem: controller.view, attribute: .bottom, multiplier: 1, constant: 0)
+            
+            controller.view.addConstraints([c1, c2, c3])
+            
+            
+            UIView.animate(withDuration:0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [UIView.AnimationOptions.curveEaseIn], animations: { () -> Void in
+                
+                infoCardController.view.frame.origin.y = -200
+            },  completion: {
+                (value: Bool) in
+            })
+            
+            messages.append(CUAlertModel(id: id, view: infoCardController.view))
+            CUVibrate.light.vibrate()
+        }
+    }
+}
+
+
+struct CLAlertMessageView: View {
+    
+    let id: UUID
+    var title: String
+    var subTitle: String
+    var type: CLInfoCard.InfoCardType
+    
+    @State private var show: Bool = true
+    @State private var offset = CGSize.zero
+    
+    var body: some View {
+        if show {
+            VStack {
+                CLInfoCard(title, subTitle: subTitle, type: type)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.background)
+                    )
+                    .onTapGesture {
+                        close()
+                    }
+                
+                Spacer()
+                    .frame(width: UIScreen.main.bounds.width, height: 48)
+                    .allowsHitTesting(false)
+            }
+            .offset(y: offset.height > 0 ? offset.height : 0)
+            .transition(.move(edge: .bottom).combined(with: .opacity))
+            .onLoad {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+                    close()
+                }
+            }
+            .highPriorityGesture (
+                DragGesture(coordinateSpace: .global)
+                    .onChanged { gesture in
+                        offset = gesture.translation
+                    }
+                    .onEnded { g in
+                        if (g.predictedEndTranslation.height > 30) {
+                            close()
+                        } else {
+                            withAnimation(Animation.easeInOut(duration: 0.3)) {
+                                offset = .zero
+                            }
+                        }
+                    }
+            )
+        }else {
+            EmptyView()
+        }
+    }
+    
+    func close() {
+        withAnimation(Animation.easeInOut(duration: 0.3)) {
+            show = false
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
+            CUAlertMessage.clearSingle(id)
+        }
+    }
 }

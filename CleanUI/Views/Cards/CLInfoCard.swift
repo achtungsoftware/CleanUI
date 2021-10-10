@@ -76,7 +76,7 @@ public struct CLInfoCard: View {
     /// - Parameters:
     ///   - title: The main Text to display inside the card
     ///   - subTitle: The secondary Text to display inside the card
-    ///   - type: The ``InfoCardType``, default is .info
+    ///   - type: The ``InfoCardType``, default is `.info`
     public init(_ title: String, subTitle: String = "", type: InfoCardType = .info) {
         self.title = title
         self.subTitle = subTitle
@@ -105,8 +105,11 @@ public struct CLInfoCard: View {
         }
         .foregroundColor(Color.defaultText)
         .padding(10)
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .background(RoundedRectangle(cornerRadius: 10).fill(type == .error ? Color.defaultRed : type == .info ? Color.accent : Color.green).opacity(type == .info ? 1 : 0.3))
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(type == .error ? Color.defaultRed : type == .info ? Color.accent : Color.green).opacity(type == .info ? 1 : 0.3)
+        )
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .strokeBorder(type == .error ? Color.defaultRed : type == .info ? Color.clear : Color.green, lineWidth: 0.5)
