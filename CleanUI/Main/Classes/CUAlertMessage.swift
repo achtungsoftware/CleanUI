@@ -16,6 +16,7 @@ public class CUAlertMessage {
         case error
     }
     
+    /// Shows a new ``CUAlertMessage``
     /// - Parameters:
     ///   - message: The message label to show
     ///   - type: The ``CUAlertMessage/AlertType`` alert type

@@ -10,6 +10,7 @@ import SwiftUI
 /// ``CUSheet`` allows to show and hide Sheets
 public class CUSheet {
     
+    /// Adds a new sheet to the ``CUGlobal/sheets`` array, and shows it
     /// - Parameters:
     ///   - content: The content `View` for the Sheet
     public static func show<Content: View>(_ content: Content){
@@ -22,10 +23,10 @@ public class CUSheet {
     }
 }
 
-/// This class handles all ``CUSheets``
+/// This class handles all Sheets
 public class CUSheets {
     
-    var alerts: [AlertModel] = []
+    var alerts: [CUAlertModel] = []
     
     func clearAll() {
         if(!alerts.isEmpty){
@@ -41,7 +42,7 @@ public class CUSheets {
         clearAll()
         
         if let controller = CUStandard.getMainUIWindow()?.rootViewController {
-            let alertTemp = UIHostingController(rootView: CUSheetView(content: content))
+            let alertTemp = UIHostingController(rootView: CLSheetView(content: content))
             controller.view.addSubview(alertTemp.view)
             alertTemp.view.isUserInteractionEnabled = true
             alertTemp.view.backgroundColor = .clear
@@ -62,7 +63,7 @@ public class CUSheets {
             // Close Keyboard
             UIApplication.shared.endEditing()
             
-            alerts.append(AlertModel(view: alertTemp.view))
+            alerts.append(CUAlertModel(view: alertTemp.view))
         }
     }
     
@@ -75,7 +76,7 @@ public class CUSheets {
     }
 }
 
-public struct CUSheetMenuItem: Identifiable {
+public struct CLSheetMenuItem: Identifiable {
     
     public init(title: String, show: Bool, action: @escaping () -> Void, icon: CLIcon? = nil, foregroundColor: Color? = nil){
         self.title = title
@@ -94,7 +95,7 @@ public struct CUSheetMenuItem: Identifiable {
 }
 
 /// Returns a title view for a ``CUSheet``
-public struct CUSheetTitle: View {
+public struct CLSheetTitle: View {
     
     var title: String
     
@@ -112,12 +113,12 @@ public struct CUSheetTitle: View {
 }
 
 /// Returns a styled menu for ``CUSheet``
-public struct CUSheetMenu: View {
+public struct CLSheetMenu: View {
     
-    var menuItems: [CUSheetMenuItem]
+    var menuItems: [CLSheetMenuItem]
     
-    /// - Parameter menuItems: The ``CUSheetMenuItem`` array
-    public init(_ menuItems: [CUSheetMenuItem]) {
+    /// - Parameter menuItems: The ``CLSheetMenuItem`` array
+    public init(_ menuItems: [CLSheetMenuItem]) {
         self.menuItems = menuItems
     }
     
@@ -149,7 +150,7 @@ public struct CUSheetMenu: View {
     }
 }
 
-struct CUSheetView<Content: View>: View {
+struct CLSheetView<Content: View>: View {
     
     var content: Content
     

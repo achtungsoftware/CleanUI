@@ -10,6 +10,7 @@ import SwiftUI
 /// ``CUAlert`` allows to show and hide Alerts
 public class CUAlert {
     
+    /// Adds a new alert to the ``CUGlobal/alerts`` array, and shows it
     /// - Parameters:
     ///   - title: The title `String`
     ///   - body: The body `String`
@@ -27,10 +28,10 @@ public class CUAlert {
     }
 }
 
-/// This class handles all ``CUAlerts``
+/// This class handles all alerts
 public class CUAlerts {
     
-    var alerts: [AlertModel] = []
+    var alerts: [CUAlertModel] = []
     
     func clearAll() {
         if(!alerts.isEmpty){
@@ -67,7 +68,7 @@ public class CUAlerts {
             // Close Keyboard
             UIApplication.shared.endEditing()
             
-            alerts.append(AlertModel(view: alertTemp.view))
+            alerts.append(CUAlertModel(view: alertTemp.view))
         }
     }
     

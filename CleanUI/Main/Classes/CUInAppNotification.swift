@@ -10,6 +10,7 @@ import SwiftUI
 /// ``CUInAppNotification`` allows to show and hide in app notifications
 public class CUInAppNotification {
     
+    /// Adds a new in app notification to the ``CUGlobal/inAppNotifications`` array, and shows it
     /// - Parameters:
     ///   - title: The title `String` for the notification
     ///   - body: The body `String` for the notification
@@ -25,10 +26,10 @@ public class CUInAppNotification {
     }
 }
 
-/// This class handles all ``CUInAppNotifications``
+/// This class handles all in app notifications
 public class CUInAppNotifications {
     
-    var notifications: [AlertModel] = []
+    var notifications: [CUAlertModel] = []
     
     func clearSingle(_ id: UUID) {
         for noti in notifications {
@@ -43,7 +44,7 @@ public class CUInAppNotifications {
         let id: UUID = UUID()
         
         if let controller = CUStandard.getMainUIWindow()?.rootViewController {
-            let notiTemp = UIHostingController(rootView: InAppNotificationTemp(id: id, title: title, subTitle: body, tapAction: tapAction))
+            let notiTemp = UIHostingController(rootView: CLInAppNotificationView(id: id, title: title, subTitle: body, tapAction: tapAction))
             controller.view.addSubview(notiTemp.view)
             notiTemp.view.translatesAutoresizingMaskIntoConstraints = false
             notiTemp.view.isUserInteractionEnabled = true
@@ -65,13 +66,13 @@ public class CUInAppNotifications {
                 (value: Bool) in
             })
             
-            notifications.append(AlertModel(id: id, view: notiTemp.view))
+            notifications.append(CUAlertModel(id: id, view: notiTemp.view))
             CUVibrate.oldSchool.vibrate()
         }
     }
 }
 
-struct InAppNotificationTemp: View {
+struct CLInAppNotificationView: View {
     
     let id: UUID
     var title: String
