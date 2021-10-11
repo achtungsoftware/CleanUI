@@ -222,7 +222,7 @@ struct CLSheetView<Content: View>: View {
                 
                 VStack(spacing: 0) {
                     Color.black
-                        .opacity(0.01)
+                        .opacity(0.001)
                         .onTapGesture {
                             close()
                         }
@@ -242,7 +242,7 @@ struct CLSheetView<Content: View>: View {
                         }
                         .transition(.move(edge: .bottom))
                         .frame(width: UIScreen.main.bounds.width)
-                        .background(.regularMaterial)
+                        .background(Color.alert)
                         .cornerRadius(16, corners: [.topLeft, .topRight])
                         .offset(x: 0, y: offset.height > 0 ? offset.height + 50 : 50)
                         .ignoresSafeArea(edges: .bottom)

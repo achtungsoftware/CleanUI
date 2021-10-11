@@ -31,7 +31,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 11)
-                            .fill(buttonTheme == .primary ? Color.primaryColor : buttonTheme == .staticDark ? Color.accentStaticDark : buttonTheme == .secondary ? Color.accent2 : Color.white)
+                            .fill(buttonTheme == .primary ? Color.primaryColor : buttonTheme == .staticDark ? Color.accentStaticDark : buttonTheme == .secondary ? Color.accent3 : Color.white)
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }

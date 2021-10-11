@@ -100,4 +100,8 @@ public extension UIColor {
     static var defaultBorder: UIColor {
         ColorProvider.uiColor("DefaultBorder")
     }
+    
+    static var alert: UIColor {
+        ColorProvider.uiColor("Alert")
+    }
 }

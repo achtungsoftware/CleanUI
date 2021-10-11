@@ -84,4 +84,7 @@ public extension Color {
         ColorProvider.color("DefaultBorder")
     }
     
+    static var alert: Color {
+        ColorProvider.color("Alert")
+    }
 }

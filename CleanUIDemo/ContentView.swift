@@ -97,7 +97,7 @@ struct ContentView: View {
                             Button(action: {
                                 CUSheet.show(
                                     CLSheetConfirmView("Test", subTitle: "Das ist ein sub title", confirmAction: {
-                                        CUAlertMessage.show("CLSheetConfirmView cancled")
+                                        CUAlertMessage.show("CLSheetConfirmView button tapped")
                                     })
                                 )
                             }){

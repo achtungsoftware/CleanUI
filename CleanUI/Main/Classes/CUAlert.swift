@@ -48,27 +48,27 @@ public class CUAlerts {
         clearAll()
         
         if let controller = CUStandard.getMainUIWindow()?.rootViewController {
-            let alertTemp = UIHostingController(rootView: CLALertView(title: title, bodyT: body, closeable: closeable, hideAfterAction: hideAfterAction, action: action, content: content))
-            controller.view.addSubview(alertTemp.view)
-            alertTemp.view.isUserInteractionEnabled = true
-            alertTemp.view.backgroundColor = .clear
-            alertTemp.view.center = controller.view.center
-            alertTemp.view.alpha = 0.0
+            let alertView = UIHostingController(rootView: CLALertView(title: title, bodyT: body, closeable: closeable, hideAfterAction: hideAfterAction, action: action, content: content))
+            controller.view.addSubview(alertView.view)
+            alertView.view.isUserInteractionEnabled = true
+            alertView.view.backgroundColor = .clear
+            alertView.view.center = controller.view.center
+            alertView.view.alpha = 0.0
             
-            alertTemp.view.topAnchor.constraint(equalTo: controller.view.topAnchor, constant: 0).isActive = true
-            alertTemp.view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor, constant: 0).isActive = true
-            alertTemp.view.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor, constant: 0).isActive = true
-            alertTemp.view.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor, constant: 0).isActive = true
-            alertTemp.view.translatesAutoresizingMaskIntoConstraints = false
+            alertView.view.topAnchor.constraint(equalTo: controller.view.topAnchor, constant: 0).isActive = true
+            alertView.view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor, constant: 0).isActive = true
+            alertView.view.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor, constant: 0).isActive = true
+            alertView.view.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor, constant: 0).isActive = true
+            alertView.view.translatesAutoresizingMaskIntoConstraints = false
             
             UIView.animate(withDuration: 0.2) {
-                alertTemp.view.alpha = 1.0
+                alertView.view.alpha = 1.0
             }
             
             // Close Keyboard
             UIApplication.shared.endEditing()
             
-            alerts.append(CUAlertModel(view: alertTemp.view))
+            alerts.append(CUAlertModel(view: alertView.view))
         }
     }
     
@@ -153,7 +153,7 @@ struct CLALertView: View {
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 16)
-                        .fill(.regularMaterial)
+                        .fill(Color.alert)
                 )
                 .padding()
             }

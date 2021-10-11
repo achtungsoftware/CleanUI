@@ -44,29 +44,29 @@ public class CUInAppNotifications {
         let id: UUID = UUID()
         
         if let controller = CUStandard.getMainUIWindow()?.rootViewController {
-            let notiTemp = UIHostingController(rootView: CLInAppNotificationView(id: id, title: title, subTitle: body, tapAction: tapAction))
-            controller.view.addSubview(notiTemp.view)
-            notiTemp.view.translatesAutoresizingMaskIntoConstraints = false
-            notiTemp.view.isUserInteractionEnabled = true
-            notiTemp.view.backgroundColor = .clear
+            let notificationView = UIHostingController(rootView: CLInAppNotificationView(id: id, title: title, subTitle: body, tapAction: tapAction))
+            controller.view.addSubview(notificationView.view)
+            notificationView.view.translatesAutoresizingMaskIntoConstraints = false
+            notificationView.view.isUserInteractionEnabled = true
+            notificationView.view.backgroundColor = .clear
             
             
             
-            let c1 = NSLayoutConstraint(item: notiTemp.view!, attribute: .leading, relatedBy: .equal, toItem: controller.view, attribute: .leading, multiplier: 1, constant: 10)
-            let c2 = NSLayoutConstraint(item: notiTemp.view!, attribute: .trailing, relatedBy: .equal, toItem: controller.view, attribute: .trailing, multiplier: 1, constant: -10)
-            let c3 = NSLayoutConstraint(item: notiTemp.view!, attribute: .top, relatedBy: .equal, toItem: controller.view, attribute: .top, multiplier: 1, constant: 0)
+            let c1 = NSLayoutConstraint(item: notificationView.view!, attribute: .leading, relatedBy: .equal, toItem: controller.view, attribute: .leading, multiplier: 1, constant: 10)
+            let c2 = NSLayoutConstraint(item: notificationView.view!, attribute: .trailing, relatedBy: .equal, toItem: controller.view, attribute: .trailing, multiplier: 1, constant: -10)
+            let c3 = NSLayoutConstraint(item: notificationView.view!, attribute: .top, relatedBy: .equal, toItem: controller.view, attribute: .top, multiplier: 1, constant: 0)
             
             controller.view.addConstraints([c1, c2, c3])
             
             
             UIView.animate(withDuration:0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [UIView.AnimationOptions.curveEaseIn], animations: { () -> Void in
                 
-                notiTemp.view.frame.origin.y = 200
+                notificationView.view.frame.origin.y = 200
             },  completion: {
                 (value: Bool) in
             })
             
-            notifications.append(CUAlertModel(id: id, view: notiTemp.view))
+            notifications.append(CUAlertModel(id: id, view: notificationView.view))
             CUVibrate.oldSchool.vibrate()
         }
     }
@@ -105,7 +105,11 @@ struct CLInAppNotificationView: View {
             .frame(width: UIScreen.main.bounds.width - 16)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(.regularMaterial)
+                    .fill(Color.alert)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .strokeBorder(Color.defaultBorder, lineWidth: 0.4)
+                    )
             )
             .offset(y: offset.height < 0 ? offset.height : 0)
             .transition(.move(edge: .top).combined(with: .opacity))
