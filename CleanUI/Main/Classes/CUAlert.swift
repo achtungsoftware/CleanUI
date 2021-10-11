@@ -43,7 +43,7 @@ public class CUAlerts {
         clearAll()
         
         if let controller = CUStandard.getMainUIWindow()?.rootViewController {
-            let alertView = UIHostingController(rootView: CLALertView(content: content))
+            let alertView = UIHostingController(rootView: CLALert(content: content))
             controller.view.addSubview(alertView.view)
             alertView.view.isUserInteractionEnabled = true
             alertView.view.backgroundColor = .clear
@@ -73,114 +73,5 @@ public class CUAlerts {
         }, completion: {_ in
             view.removeFromSuperview()
         })
-    }
-}
-
-/// ``CLAlertConfirmView`` is a action confirmation view for ``CUAlert``
-public struct CLAlertConfirmView: View {
-    
-    var title: String
-    var subTitle: String
-    var confirmAction: () -> Void
-    
-    /// - Parameters:
-    ///   - title: The title `String`
-    ///   - subTitle: The optional sub title `String`
-    ///   - confirmAction: The action for the continue button
-    public init(_ title: String, subTitle: String = "", confirmAction: @escaping () -> Void) {
-        self.title = title
-        self.subTitle = subTitle
-        self.confirmAction = confirmAction
-    }
-    
-    public var body: some View {
-        VStack(spacing: 16) {
-            VStack {
-                Text(title)
-                    .font(.title3.bold())
-                    .padding(.bottom, 8)
-                
-                if !subTitle.isEmpty {
-                    Text(subTitle)
-                        .font(.subheadline)
-                }
-            }
-            
-            Divider()
-            
-            HStack {
-                Button(action: {
-                    CUAlert.clearAll()
-                }, label: {
-                    Text(CULanguage.getStringCleanUI("cancel"))
-                        .fontWeight(.medium)
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 5)
-                })
-                
-                Divider()
-                    .frame(height: 25)
-                
-                Button(action: {
-                    confirmAction()
-                    CUAlert.clearAll()
-                }, label: {
-                    Text(CULanguage.getStringCleanUI("continue"))
-                        .fontWeight(.medium)
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 5)
-                })
-            }
-            .font(.subheadline)
-            .foregroundColor(Color.defaultText)
-        }
-    }
-}
-
-struct CLALertView<Content: View>: View {
-    
-    var content: Content
-    
-    @State private var show: Bool = false
-    
-    var body: some View {
-        ZStack {
-            if(show){
-                Color.black
-                    .opacity(0.25)
-                    .edgesIgnoringSafeArea(.all)
-                    .transition(.opacity)
-                    .onTapGesture {
-                        close()
-                    }
-                
-                VStack(spacing: 0) {
-                    content
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
-                .transition(.move(edge: .top).combined(with: .opacity))
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.alert)
-                )
-                .padding()
-            }
-        }
-        .onAppear {
-            withAnimation(Animation.easeInOut(duration: 0.3)) {
-                show = true
-            }
-        }
-    }
-    
-    func close() {
-        withAnimation(Animation.easeInOut(duration: 0.25)) {
-            show = false
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.28) {
-            CUAlert.clearAll()
-        }
     }
 }

@@ -51,6 +51,26 @@ struct ContentView: View {
             
             CLNavigationView {
                 List {
+                    Section(header: CLFeedTitle("Text's")) {
+                        NavigationLink(destination: {
+                            ViewPresentationWrapperPage("CLRichText", description: "CLRichText is a Text which is able to highlight mentions, hashtags and links. Besides that the highlighted attributes can be tapped with a custom onTapAction."){
+                                CLRichText("This is a #RichText! You can also open the Browser knoggl.com. @Mentions are no problem, at all!", attributes: [
+                                    .hashtags(onTapAction: { hashtag in
+                                        CUAlertMessage.show("You tapped a hashtag! \(hashtag)")
+                                    }),
+                                    .links(onTapAction: { link in
+                                        CUAlertMessage.show("You tapped a link! \(link)")
+                                    }),
+                                    .mentions(onTapAction: { mention in
+                                        CUAlertMessage.show("You tapped a mention! \(mention)")
+                                    })
+                                ])
+                            }
+                        }) {
+                            Text("CLRichText")
+                        }
+                    }
+                    
                     Section(header: CLFeedTitle("TextEditors")) {
                         NavigationLink(destination: {
                             ViewPresentationWrapperPage("CLSingleLineTextEditor", description: "CLSingleLineTextEditor is a single line text editor which expands on line break. Besides that, CLSingleLineTextEditor is able to show hashtags, mentions and links in realtime."){
@@ -66,24 +86,6 @@ struct ContentView: View {
                             }
                         }) {
                             Text("CLTextEditor")
-                        }
-                        
-                        NavigationLink(destination: {
-                            ViewPresentationWrapperPage("CLRichText", description: "CLRichText is a Text which is able to highlight mentions, hashtags and links. Besides that the highlighted attributes can be tapped with a custom onTapAction."){
-                                CLRichText("This is a #RichText! You can also open the Browser knoggl.com. @Mentions are not problem, at all!", attributes: [
-                                    .hashtags(onTapAction: { hashtag in
-                                        CUAlertMessage.show("You tapped a hashtag! \(hashtag)")
-                                    }),
-                                    .links(onTapAction: { link in
-                                        CUAlertMessage.show("You tapped a link! \(link)")
-                                    }),
-                                    .mentions(onTapAction: { mention in
-                                        CUAlertMessage.show("You tapped a mention! \(mention)")
-                                    })
-                                ])
-                            }
-                        }) {
-                            Text("CLRichText")
                         }
                     }
                 }
