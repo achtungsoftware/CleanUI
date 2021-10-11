@@ -25,6 +25,7 @@
 		751360B2270BB5D0002E74AF /* CLTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751360B1270BB5D0002E74AF /* CLTextEditor.swift */; };
 		751360B4270BB653002E74AF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751360B3270BB653002E74AF /* String.swift */; };
 		751360B6270BB6A3002E74AF /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751360B5270BB6A3002E74AF /* Font.swift */; };
+		7513F5E12713EB7C0099BEA1 /* CUBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513F5E02713EB7C0099BEA1 /* CUBrowser.swift */; };
 		7517FE6B270E779D00D18846 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7517FE6A270E779D00D18846 /* build.sh */; };
 		7521ACA427100B2B001431A2 /* ViewPresentationWrapperPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521ACA327100B2B001431A2 /* ViewPresentationWrapperPage.swift */; };
 		7521ACA627101E5B001431A2 /* CLNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521ACA527101E5B001431A2 /* CLNavigationView.swift */; };
@@ -142,6 +143,7 @@
 		751360B1270BB5D0002E74AF /* CLTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLTextEditor.swift; sourceTree = "<group>"; };
 		751360B3270BB653002E74AF /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		751360B5270BB6A3002E74AF /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		7513F5E02713EB7C0099BEA1 /* CUBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUBrowser.swift; sourceTree = "<group>"; };
 		7517FE6A270E779D00D18846 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		7521ACA327100B2B001431A2 /* ViewPresentationWrapperPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentationWrapperPage.swift; sourceTree = "<group>"; };
 		7521ACA527101E5B001431A2 /* CLNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationView.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				75C3B67F2712A3D700CDC411 /* CUAlertMessage.swift */,
 				75C3B6812712A59500CDC411 /* CUSheet.swift */,
 				75C3B6882712AECC00CDC411 /* CUInAppNotification.swift */,
+				7513F5E02713EB7C0099BEA1 /* CUBrowser.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				758C62C82708BF0D008CF28A /* Color.swift in Sources */,
 				756C0127270BD17D00136DF8 /* CLTextFieldLabel.swift in Sources */,
 				756C0115270BC02800136DF8 /* CLIcon.swift in Sources */,
+				7513F5E12713EB7C0099BEA1 /* CUBrowser.swift in Sources */,
 				751360B4270BB653002E74AF /* String.swift in Sources */,
 				756C010D270BB74A00136DF8 /* Attribute.swift in Sources */,
 				756C0117270BC05F00136DF8 /* CLNewBadge.swift in Sources */,

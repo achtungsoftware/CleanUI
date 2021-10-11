@@ -77,6 +77,12 @@ struct ContentView: View {
                         Text("Colors")
                     }
                     
+                    Button(action: {
+                        CUBrowser.open("https://www.knoggl.com")
+                    }){
+                        Text("Browser test")
+                    }
+                    
                     NavigationLink(destination: {
                         List {
                             Button(action: {
