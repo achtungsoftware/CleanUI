@@ -20,7 +20,7 @@ struct ViewPresentationWrapperPage<Content: View>: View {
     }
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(alignment: .leading, spacing: 20) {
             viewToPresent()
             
             Spacer()
@@ -30,6 +30,6 @@ struct ViewPresentationWrapperPage<Content: View>: View {
                 .font(.caption)
         }
         .padding()
-        .navigationBar(name, bigTitle: true)
+        .navigationBar(name)
     }
 }

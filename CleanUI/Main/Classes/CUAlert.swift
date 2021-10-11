@@ -12,14 +12,9 @@ public class CUAlert {
     
     /// Adds a new alert to the ``CUGlobal/alerts`` array, and shows it
     /// - Parameters:
-    ///   - title: The title `String`
-    ///   - body: The body `String`
-    ///   - closeable: Should the user be able to close the alert?, default is `true`
-    ///   - hideAfterAction: Should the alert dismiss itself after the action is finished?, default is `true`
-    ///   - action: The action for the continue button, default is `nil`
-    ///   - content: The content `View`, default is `nil`
-    public static func show(title: String, body: String, closeable: Bool = true, hideAfterAction: Bool = true, action: (() -> ())? = nil, content: AnyView? = nil){
-        CUGlobal.alerts.add(title: title, body: body, closeable: closeable, hideAfterAction: hideAfterAction, action: action, content: content)
+    ///   - content: The content `View` for the Alert
+    public static func show<Content: View>(_ content: Content){
+        CUGlobal.alerts.add(content)
     }
     
     /// Clears / dismisses all ``CUAlert``'s
@@ -43,12 +38,12 @@ public class CUAlerts {
         alerts = []
     }
     
-    func add(title: String, body: String, closeable: Bool = true, hideAfterAction: Bool = true, action: (() -> ())? = nil, content: AnyView?) {
+    func add<Content: View>(_ content: Content) {
         
         clearAll()
         
         if let controller = CUStandard.getMainUIWindow()?.rootViewController {
-            let alertView = UIHostingController(rootView: CLALertView(title: title, bodyT: body, closeable: closeable, hideAfterAction: hideAfterAction, action: action, content: content))
+            let alertView = UIHostingController(rootView: CLALertView(content: content))
             controller.view.addSubview(alertView.view)
             alertView.view.isUserInteractionEnabled = true
             alertView.view.backgroundColor = .clear
@@ -81,14 +76,70 @@ public class CUAlerts {
     }
 }
 
-struct CLALertView: View {
+/// ``CLAlertConfirmView`` is a action confirmation view for ``CUAlert``
+public struct CLAlertConfirmView: View {
     
     var title: String
-    var bodyT: String
-    var closeable: Bool
-    var hideAfterAction: Bool
-    var action: (() -> ())?
-    var content: AnyView?
+    var subTitle: String
+    var confirmAction: () -> Void
+    
+    /// - Parameters:
+    ///   - title: The title `String`
+    ///   - subTitle: The optional sub title `String`
+    ///   - confirmAction: The action for the continue button
+    public init(_ title: String, subTitle: String = "", confirmAction: @escaping () -> Void) {
+        self.title = title
+        self.subTitle = subTitle
+        self.confirmAction = confirmAction
+    }
+    
+    public var body: some View {
+        VStack(spacing: 16) {
+            VStack {
+                Text(title)
+                    .font(.title3.bold())
+                    .padding(.bottom, 8)
+                
+                if !subTitle.isEmpty {
+                    Text(subTitle)
+                        .font(.subheadline)
+                }
+            }
+            
+            Divider()
+            
+            HStack {
+                Button(action: {
+                    CUAlert.clearAll()
+                }, label: {
+                    Text(CULanguage.getStringCleanUI("cancel"))
+                        .fontWeight(.medium)
+                        .frame(maxWidth: .infinity)
+                        .padding(.bottom, 5)
+                })
+                
+                Divider()
+                    .frame(height: 25)
+                
+                Button(action: {
+                    confirmAction()
+                    CUAlert.clearAll()
+                }, label: {
+                    Text(CULanguage.getStringCleanUI("continue"))
+                        .fontWeight(.medium)
+                        .frame(maxWidth: .infinity)
+                        .padding(.bottom, 5)
+                })
+            }
+            .font(.subheadline)
+            .foregroundColor(Color.defaultText)
+        }
+    }
+}
+
+struct CLALertView<Content: View>: View {
+    
+    var content: Content
     
     @State private var show: Bool = false
     
@@ -104,51 +155,9 @@ struct CLALertView: View {
                     }
                 
                 VStack(spacing: 0) {
-                    Text(title)
-                        .font(.headline)
-                        .foregroundColor(Color.defaultText)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom)
-                    
-                    if(content != nil){
-                        content
-                    }else {
-                        Text(bodyT)
-                            .font(.subheadline)
-                            .foregroundColor(Color.defaultText)
-                            .multilineTextAlignment(.center)
-                    }
-                    
-                    if(action != nil){
-                        Divider()
-                            .padding(16)
-                        HStack {
-                            Button(action: {
-                                close()
-                            }, label: {
-                                Text(CULanguage.getStringCleanUI("cancel"))
-                                    .fontWeight(.medium)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.bottom, 5)
-                            })
-                            Divider()
-                                .frame(height: 25)
-                            Button(action: {
-                                action!()
-                                if(hideAfterAction){
-                                    close()
-                                }
-                            }, label: {
-                                Text(CULanguage.getStringCleanUI("continue"))
-                                    .fontWeight(.medium)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.bottom, 5)
-                            })
-                        }
-                        .font(.subheadline)
-                        .foregroundColor(Color.defaultText)
-                    }
+                    content
                 }
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
                 .transition(.move(edge: .top).combined(with: .opacity))
                 .padding()
                 .background(

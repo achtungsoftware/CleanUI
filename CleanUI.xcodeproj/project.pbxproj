@@ -26,6 +26,12 @@
 		751360B4270BB653002E74AF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751360B3270BB653002E74AF /* String.swift */; };
 		751360B6270BB6A3002E74AF /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751360B5270BB6A3002E74AF /* Font.swift */; };
 		7513F5E12713EB7C0099BEA1 /* CUBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513F5E02713EB7C0099BEA1 /* CUBrowser.swift */; };
+		7513F5E427141DE70099BEA1 /* CUBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513F5E327141DE70099BEA1 /* CUBrowserView.swift */; };
+		7513F5E627141E170099BEA1 /* CUSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513F5E527141E170099BEA1 /* CUSheetView.swift */; };
+		7513F5E827141EBD0099BEA1 /* CUAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513F5E727141EBD0099BEA1 /* CUAlertView.swift */; };
+		7513F5EA27141EE80099BEA1 /* ColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513F5E927141EE80099BEA1 /* ColorsView.swift */; };
+		7513F5EC27141F0B0099BEA1 /* CUAlertMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513F5EB27141F0B0099BEA1 /* CUAlertMessageView.swift */; };
+		7513F5EE27141F380099BEA1 /* CUInAppNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513F5ED27141F370099BEA1 /* CUInAppNotificationView.swift */; };
 		7517FE6B270E779D00D18846 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7517FE6A270E779D00D18846 /* build.sh */; };
 		7521ACA427100B2B001431A2 /* ViewPresentationWrapperPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521ACA327100B2B001431A2 /* ViewPresentationWrapperPage.swift */; };
 		7521ACA627101E5B001431A2 /* CLNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521ACA527101E5B001431A2 /* CLNavigationView.swift */; };
@@ -144,6 +150,12 @@
 		751360B3270BB653002E74AF /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		751360B5270BB6A3002E74AF /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		7513F5E02713EB7C0099BEA1 /* CUBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUBrowser.swift; sourceTree = "<group>"; };
+		7513F5E327141DE70099BEA1 /* CUBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUBrowserView.swift; sourceTree = "<group>"; };
+		7513F5E527141E170099BEA1 /* CUSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUSheetView.swift; sourceTree = "<group>"; };
+		7513F5E727141EBD0099BEA1 /* CUAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUAlertView.swift; sourceTree = "<group>"; };
+		7513F5E927141EE80099BEA1 /* ColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsView.swift; sourceTree = "<group>"; };
+		7513F5EB27141F0B0099BEA1 /* CUAlertMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUAlertMessageView.swift; sourceTree = "<group>"; };
+		7513F5ED27141F370099BEA1 /* CUInAppNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUInAppNotificationView.swift; sourceTree = "<group>"; };
 		7517FE6A270E779D00D18846 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		7521ACA327100B2B001431A2 /* ViewPresentationWrapperPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentationWrapperPage.swift; sourceTree = "<group>"; };
 		7521ACA527101E5B001431A2 /* CLNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationView.swift; sourceTree = "<group>"; };
@@ -366,9 +378,23 @@
 			path = TextEditors;
 			sourceTree = "<group>";
 		};
+		7513F5E227141DD70099BEA1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7513F5E327141DE70099BEA1 /* CUBrowserView.swift */,
+				7513F5E527141E170099BEA1 /* CUSheetView.swift */,
+				7513F5E727141EBD0099BEA1 /* CUAlertView.swift */,
+				7513F5E927141EE80099BEA1 /* ColorsView.swift */,
+				7513F5EB27141F0B0099BEA1 /* CUAlertMessageView.swift */,
+				7513F5ED27141F370099BEA1 /* CUInAppNotificationView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		7521ACA227100B12001431A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7513F5E227141DD70099BEA1 /* Components */,
 				7521ACA327100B2B001431A2 /* ViewPresentationWrapperPage.swift */,
 			);
 			path = Views;
@@ -641,7 +667,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				75136098270BA6E8002E74AF /* ContentView.swift in Sources */,
+				7513F5E827141EBD0099BEA1 /* CUAlertView.swift in Sources */,
 				75136096270BA6E8002E74AF /* CleanUIDemoApp.swift in Sources */,
+				7513F5EC27141F0B0099BEA1 /* CUAlertMessageView.swift in Sources */,
+				7513F5E627141E170099BEA1 /* CUSheetView.swift in Sources */,
+				7513F5E427141DE70099BEA1 /* CUBrowserView.swift in Sources */,
+				7513F5EE27141F380099BEA1 /* CUInAppNotificationView.swift in Sources */,
+				7513F5EA27141EE80099BEA1 /* ColorsView.swift in Sources */,
 				7521ACA427100B2B001431A2 /* ViewPresentationWrapperPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
