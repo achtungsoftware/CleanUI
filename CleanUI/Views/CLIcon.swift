@@ -54,7 +54,7 @@ public struct CLIcon: View {
                 Image(image)
                     .resizable()
                     .frame(width: sideSize, height: sideSize)
-                    .offset(calcOffset())
+                    .offset(offset.toCGSize())
                     .if(isImageOverlay) { view in
                         view
                             .defaultShadow()
@@ -63,7 +63,7 @@ public struct CLIcon: View {
                 ImageProvider.image(frameworkImage)
                     .resizable()
                     .frame(width: sideSize, height: sideSize)
-                    .offset(calcOffset())
+                    .offset(offset.toCGSize())
                     .if(isImageOverlay) { view in
                         view
                             .defaultShadow()
@@ -71,7 +71,7 @@ public struct CLIcon: View {
             } else {
                 Image(systemName: systemImage)
                     .font(.system(size: systemImage != "" ? sideSize - 4 : sideSize))
-                    .offset(calcOffset())
+                    .offset(offset.toCGSize())
                     .if(isImageOverlay) { view in
                         view
                             .defaultShadow()
@@ -82,19 +82,6 @@ public struct CLIcon: View {
                 CLNewBadge()
                     .offset(x: sideSize / 3, y: -sideSize / 3)
             }
-        }
-    }
-    
-    private func calcOffset() -> CGSize {
-        switch offset {
-        case .leading(let of):
-            return CGSize(width: of, height: 0)
-        case .trailing(let of):
-            return CGSize(width: -of, height: 0)
-        case .bottom(let of):
-            return CGSize(width: 0, height: -of)
-        case .top(let of):
-            return CGSize(width: 0, height: of)
         }
     }
 }

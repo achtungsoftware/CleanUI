@@ -44,6 +44,11 @@
 		7521ACA827102E30001431A2 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521ACA727102E30001431A2 /* UINavigationController.swift */; };
 		7521ACAA27103009001431A2 /* ViewControllerTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7521ACA927103009001431A2 /* ViewControllerTransitions.swift */; };
 		75269A3D270CAC39007898A7 /* PrimaryButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75269A3C270CAC38007898A7 /* PrimaryButtonTheme.swift */; };
+		753F82F727159AC1002B4C0F /* CUViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753F82F627159AC1002B4C0F /* CUViewModel.swift */; };
+		753F82FC27159D44002B4C0F /* CLSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753F82FB27159D44002B4C0F /* CLSheetViewModel.swift */; };
+		753F82FE27159E7B002B4C0F /* CLAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753F82FD27159E7B002B4C0F /* CLAlertViewModel.swift */; };
+		753F83002715A403002B4C0F /* CLIcon.Offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753F82FF2715A403002B4C0F /* CLIcon.Offset.swift */; };
+		753F83022715A54C002B4C0F /* CLIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753F83012715A54C002B4C0F /* CLIconView.swift */; };
 		754249E7270F79E8004D217B /* CLRichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249E6270F79E8004D217B /* CLRichText.swift */; };
 		754249E9270F7AB2004D217B /* GeometryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249E8270F7AB2004D217B /* GeometryProxy.swift */; };
 		754249EB270F7AE0004D217B /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249EA270F7AE0004D217B /* NSAttributedString.swift */; };
@@ -174,6 +179,11 @@
 		7521ACA727102E30001431A2 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		7521ACA927103009001431A2 /* ViewControllerTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTransitions.swift; sourceTree = "<group>"; };
 		75269A3C270CAC38007898A7 /* PrimaryButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonTheme.swift; sourceTree = "<group>"; };
+		753F82F627159AC1002B4C0F /* CUViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUViewModel.swift; sourceTree = "<group>"; };
+		753F82FB27159D44002B4C0F /* CLSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSheetViewModel.swift; sourceTree = "<group>"; };
+		753F82FD27159E7B002B4C0F /* CLAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAlertViewModel.swift; sourceTree = "<group>"; };
+		753F82FF2715A403002B4C0F /* CLIcon.Offset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIcon.Offset.swift; sourceTree = "<group>"; };
+		753F83012715A54C002B4C0F /* CLIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIconView.swift; sourceTree = "<group>"; };
 		754249E6270F79E8004D217B /* CLRichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLRichText.swift; sourceTree = "<group>"; };
 		754249E8270F7AB2004D217B /* GeometryProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryProxy.swift; sourceTree = "<group>"; };
 		754249EA270F7AE0004D217B /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
@@ -294,6 +304,7 @@
 			children = (
 				75B1CBAD270CE613000089F9 /* VideoExportQuality.swift */,
 				75B1CBD4270D0002000089F9 /* ImageCache.swift */,
+				753F82FF2715A403002B4C0F /* CLIcon.Offset.swift */,
 			);
 			path = CleanUI;
 			sourceTree = "<group>";
@@ -399,6 +410,7 @@
 				7513F5E927141EE80099BEA1 /* ColorsView.swift */,
 				7513F5EB27141F0B0099BEA1 /* CUAlertMessageView.swift */,
 				7513F5ED27141F370099BEA1 /* CUInAppNotificationView.swift */,
+				753F83012715A54C002B4C0F /* CLIconView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -448,6 +460,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		753F82F827159B43002B4C0F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				753F82FB27159D44002B4C0F /* CLSheetViewModel.swift */,
+				753F82FD27159E7B002B4C0F /* CLAlertViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		756C010B270BB73B00136DF8 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +493,7 @@
 		756C011B270BC86F00136DF8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				753F82F827159B43002B4C0F /* ViewModels */,
 				756C011C270BC88A00136DF8 /* CUHttp.swift */,
 				756C011E270BC8AD00136DF8 /* CUThreadHelper.swift */,
 				756C0120270BCFC400136DF8 /* CUVibrate.swift */,
@@ -486,6 +508,7 @@
 				75C3B6812712A59500CDC411 /* CUSheet.swift */,
 				75C3B6882712AECC00CDC411 /* CUInAppNotification.swift */,
 				7513F5E02713EB7C0099BEA1 /* CUBrowser.swift */,
+				753F82F627159AC1002B4C0F /* CUViewModel.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -716,6 +739,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753F83022715A54C002B4C0F /* CLIconView.swift in Sources */,
 				75136098270BA6E8002E74AF /* ContentView.swift in Sources */,
 				7513F5E827141EBD0099BEA1 /* CUAlertView.swift in Sources */,
 				75136096270BA6E8002E74AF /* CleanUIDemoApp.swift in Sources */,
@@ -758,6 +782,7 @@
 				756C014F270BEC4500136DF8 /* SecondaryAltButtonStyle.swift in Sources */,
 				756C0133270BD95100136DF8 /* CLBlurView.swift in Sources */,
 				754249F3270F86BE004D217B /* CLExpandableText.swift in Sources */,
+				753F82FC27159D44002B4C0F /* CLSheetViewModel.swift in Sources */,
 				75C3B6802712A3D700CDC411 /* CUAlertMessage.swift in Sources */,
 				756C014B270BEB2C00136DF8 /* ChatTextFieldStyle.swift in Sources */,
 				75269A3D270CAC39007898A7 /* PrimaryButtonTheme.swift in Sources */,
@@ -773,6 +798,7 @@
 				75B1CBD5270D0002000089F9 /* ImageCache.swift in Sources */,
 				75C3B6822712A59500CDC411 /* CUSheet.swift in Sources */,
 				756C011D270BC88A00136DF8 /* CUHttp.swift in Sources */,
+				753F83002715A403002B4C0F /* CLIcon.Offset.swift in Sources */,
 				75B1CBB9270CEA27000089F9 /* CLKnogglGradient.swift in Sources */,
 				756C011A270BC0C900136DF8 /* OnLoad.swift in Sources */,
 				758C62BF2708BCAC008CF28A /* CLCard.swift in Sources */,
@@ -813,9 +839,11 @@
 				756C010D270BB74A00136DF8 /* Attribute.swift in Sources */,
 				756C0117270BC05F00136DF8 /* CLNewBadge.swift in Sources */,
 				75C3B67527127D4D00CDC411 /* CUStandard.swift in Sources */,
+				753F82FE27159E7B002B4C0F /* CLAlertViewModel.swift in Sources */,
 				756C0135270BD9CB00136DF8 /* CLWebview.swift in Sources */,
 				756C011F270BC8AD00136DF8 /* CUThreadHelper.swift in Sources */,
 				75B1CBAE270CE613000089F9 /* VideoExportQuality.swift in Sources */,
+				753F82F727159AC1002B4C0F /* CUViewModel.swift in Sources */,
 				75B1CB8D270CCFE6000089F9 /* Double.swift in Sources */,
 				751360B2270BB5D0002E74AF /* CLTextEditor.swift in Sources */,
 				7513F5FD271432A00099BEA1 /* CLSheetTitle.swift in Sources */,

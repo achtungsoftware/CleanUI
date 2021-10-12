@@ -11,18 +11,17 @@ import SwiftUI
 internal struct CLALert<Content: View>: View {
     
     var content: Content
-    
-    @State private var show: Bool = false
+    @StateObject private var viewModel: CLAlertViewModel = CLAlertViewModel()
     
     var body: some View {
         ZStack {
-            if(show){
+            if viewModel.isShowing {
                 Color.black
                     .opacity(0.25)
                     .edgesIgnoringSafeArea(.all)
                     .transition(.opacity)
                     .onTapGesture {
-                        close()
+                        viewModel.close()
                     }
                 
                 VStack(spacing: 0) {
@@ -38,20 +37,8 @@ internal struct CLALert<Content: View>: View {
                 .padding()
             }
         }
-        .onAppear {
-            withAnimation(Animation.easeInOut(duration: 0.3)) {
-                show = true
-            }
-        }
-    }
-    
-    func close() {
-        withAnimation(Animation.easeInOut(duration: 0.25)) {
-            show = false
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.28) {
-            CUAlert.clearAll()
+        .onLoad {
+            viewModel.show()
         }
     }
 }

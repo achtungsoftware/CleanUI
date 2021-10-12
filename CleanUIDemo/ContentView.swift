@@ -22,6 +22,14 @@ struct ContentView: View {
                             Text("Colors")
                         }
                         
+                        NavigationLink(destination: {
+                            ViewPresentationWrapperPage("CLIcon", description: "CLIcon is a very dynamic and customizable icon representation.", viewToPresent: {
+                                CLIconView()
+                            })
+                        }) {
+                            Text("CLIcon")
+                        }
+                        
                         NavigationLink(destination: CUAlertView()) {
                             Text("CUAlert")
                         }
