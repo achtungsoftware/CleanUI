@@ -53,6 +53,8 @@
 		754249E9270F7AB2004D217B /* GeometryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249E8270F7AB2004D217B /* GeometryProxy.swift */; };
 		754249EB270F7AE0004D217B /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249EA270F7AE0004D217B /* NSAttributedString.swift */; };
 		754249F3270F86BE004D217B /* CLExpandableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249F2270F86BE004D217B /* CLExpandableText.swift */; };
+		756AF1042717146500932DE3 /* netlify.toml in Sources */ = {isa = PBXBuildFile; fileRef = 756AF1032717146500932DE3 /* netlify.toml */; };
+		756AF106271714B700932DE3 /* CleanUI.doccarchive in Resources */ = {isa = PBXBuildFile; fileRef = 756AF105271714B700932DE3 /* CleanUI.doccarchive */; };
 		756C010D270BB74A00136DF8 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C010C270BB74A00136DF8 /* Attribute.swift */; };
 		756C0111270BBB7100136DF8 /* CLSingleLineTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0110270BBB7100136DF8 /* CLSingleLineTextEditor.swift */; };
 		756C0113270BBC6700136DF8 /* CLInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0112270BBC6700136DF8 /* CLInfoCard.swift */; };
@@ -188,6 +190,8 @@
 		754249E8270F7AB2004D217B /* GeometryProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryProxy.swift; sourceTree = "<group>"; };
 		754249EA270F7AE0004D217B /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		754249F2270F86BE004D217B /* CLExpandableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLExpandableText.swift; sourceTree = "<group>"; };
+		756AF1032717146500932DE3 /* netlify.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = netlify.toml; sourceTree = "<group>"; };
+		756AF105271714B700932DE3 /* CleanUI.doccarchive */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CleanUI.doccarchive; sourceTree = "<group>"; };
 		756C010C270BB74A00136DF8 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		756C0110270BBB7100136DF8 /* CLSingleLineTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSingleLineTextEditor.swift; sourceTree = "<group>"; };
 		756C0112270BBC6700136DF8 /* CLInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLInfoCard.swift; sourceTree = "<group>"; };
@@ -531,6 +535,8 @@
 		758C626B2708BC2A008CF28A = {
 			isa = PBXGroup;
 			children = (
+				756AF1032717146500932DE3 /* netlify.toml */,
+				756AF105271714B700932DE3 /* CleanUI.doccarchive */,
 				7517FE6A270E779D00D18846 /* build.sh */,
 				758C62772708BC2A008CF28A /* CleanUI */,
 				75136094270BA6E8002E74AF /* CleanUIDemo */,
@@ -727,6 +733,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7517FE6B270E779D00D18846 /* build.sh in Resources */,
+				756AF106271714B700932DE3 /* CleanUI.doccarchive in Resources */,
 				7513608C270BA493002E74AF /* Assets.xcassets in Resources */,
 				756C013E270BDFE900136DF8 /* Localizable.strings in Resources */,
 			);
@@ -778,6 +785,7 @@
 				756C0151270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift in Sources */,
 				75B1CBA8270CE44D000089F9 /* CUVideoHelper.swift in Sources */,
 				756C0129270BD1C600136DF8 /* CLTextWithNewBadge.swift in Sources */,
+				756AF1042717146500932DE3 /* netlify.toml in Sources */,
 				75023B5A270D3CA200EF4098 /* CUTime.swift in Sources */,
 				756C014F270BEC4500136DF8 /* SecondaryAltButtonStyle.swift in Sources */,
 				756C0133270BD95100136DF8 /* CLBlurView.swift in Sources */,

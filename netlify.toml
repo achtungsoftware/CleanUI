@@ -1,0 +1,38 @@
+    [build]
+    publish = "CleanUI.doccarchive/"
+    ###### Change it to your doccarchive file's name
+
+    [[redirects]]
+    from = "/documentation/*"
+    status = 200
+    to = "/index.html"
+
+    [[redirects]]
+    from = "/tutorials/*"
+    status = 200
+    to = "/index.html"
+
+    [[redirects]]
+    from = "/data/documentation.json"
+    status = 200
+    to = "/data/documentation/projectname.json"
+    ###### Change it to name in ProjectName.doccarchive/data/documentation/...
+    # often just all lowercase of your project name
+
+    [[redirects]]
+    force = true
+    from = "/"
+    status = 302
+    to = "/documentation/"
+
+    [[redirects]]
+    force = true
+    from = "/documentation"
+    status = 302
+    to = "/documentation/"
+
+    [[redirects]]
+    force = true
+    from = "/tutorials"
+    status = 302
+    to = "/tutorials/"
