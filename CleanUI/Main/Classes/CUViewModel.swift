@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// This is the base class for every view model
-public class CUViewModel: ObservableObject {
+open class CUViewModel: ObservableObject {
     
     public init () {}
 
