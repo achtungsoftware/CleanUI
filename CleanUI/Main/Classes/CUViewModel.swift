@@ -25,8 +25,8 @@ open class CUViewModel: ObservableObject {
     }
     
     /// This method should get called in `view.onAppear {}`
-    public func didAppear() {}
+    open func didAppear() {}
     
     /// This method should get called in `view.onLoad {}`
-    public func didLoad() {}
+    open func didLoad() {}
 }
