@@ -38,7 +38,7 @@ internal struct CLALert<Content: View>: View {
             }
         }
         .onLoad {
-            viewModel.show()
+            viewModel.didLoad()
         }
     }
 }

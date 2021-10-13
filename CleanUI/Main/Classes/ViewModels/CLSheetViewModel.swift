@@ -15,8 +15,10 @@ internal class CLSheetViewModel: CUViewModel {
     @Published var offset = CGSize.zero
     @Published var height: CGFloat = 0
     
-    /// Shows the alert
-    func show() {
+    override func didLoad() {
+        super.didLoad()
+        
+        // Show the sheet with animation
         withAnimation(Animation.interpolatingSpring(mass: 0.2, stiffness: 29.5, damping: 12, initialVelocity: 10)){
             isShowing = true
             showBackground = true

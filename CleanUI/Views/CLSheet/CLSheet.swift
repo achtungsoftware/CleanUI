@@ -71,7 +71,7 @@ internal struct CLSheet<Content: View>: View {
             )
             .onLoad {
                 viewModel.height = geometry.size.height
-                viewModel.show()
+                viewModel.didLoad()
             }
         }
     }

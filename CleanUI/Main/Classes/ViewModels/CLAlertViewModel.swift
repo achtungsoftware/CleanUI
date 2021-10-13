@@ -12,8 +12,10 @@ internal class CLAlertViewModel: CUViewModel {
     
     @Published var isShowing: Bool = false
     
-    /// Shows the alert
-    func show() {
+    override func didLoad() {
+        super.didLoad()
+        
+        // Show the alert with animation
         withAnimation(Animation.easeInOut(duration: 0.3)) {
             isShowing = true
         }

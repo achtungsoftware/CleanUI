@@ -23,4 +23,10 @@ public class CUViewModel: ObservableObject {
     public func activeSinceSeconds() -> Int {
         return Int(Date().timeIntervalSince(createdDate))
     }
+    
+    /// This method should get called in `view.onAppear {}`
+    public func didAppear() {}
+    
+    /// This method should get called in `view.onLoad {}`
+    public func didLoad() {}
 }
