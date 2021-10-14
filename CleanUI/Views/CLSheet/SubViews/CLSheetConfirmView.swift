@@ -25,16 +25,19 @@ public struct CLSheetConfirmView: View {
     
     public var body: some View {
         VStack(spacing: 12) {
-            VStack {
+            VStack(alignment: .center) {
                 Text(title)
                     .font(.title2.bold())
+                    .multilineTextAlignment(.center)
                     .padding(.bottom, 8)
                 
                 if !subTitle.isEmpty {
                     Text(subTitle)
                         .font(.subheadline)
+                        .multilineTextAlignment(.center)
                 }
             }
+            .fixedSize(horizontal: false, vertical: true)
             .padding(.bottom)
             
             Button(action: {

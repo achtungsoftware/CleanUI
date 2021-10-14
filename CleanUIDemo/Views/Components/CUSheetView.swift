@@ -12,7 +12,7 @@ struct CUSheetView: View {
         List {
             Button(action: {
                 CUSheet.show(
-                    CLSheetConfirmView("Test", subTitle: "This is a subtitle", confirmAction: {
+                    CLSheetConfirmView("This is a slightly longer title just for testing", subTitle: "This is a subtitle This is a subtitle This is a subtitle This is a subtitle This is a subtitle ", confirmAction: {
                         CUAlertMessage.show("CLSheetConfirmView button tapped")
                     })
                 )

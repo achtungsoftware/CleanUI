@@ -34,9 +34,12 @@ internal struct CLSheet<Content: View>: View {
                             HStack {
                                 RoundedRectangle(cornerRadius: 3)
                                     .fill(.secondary)
-                                    .frame(width: 40, height: 5, alignment: .center)
+                                    .frame(width: 35, height: 5, alignment: .center)
+                                    .opacity(0.6)
                             }
-                            .padding(10)
+                            .padding(.top, 5)
+                            .padding(.bottom, 10)
+                            
                             content
                             
                             Spacer()
@@ -45,7 +48,7 @@ internal struct CLSheet<Content: View>: View {
                         .transition(.move(edge: .bottom))
                         .frame(width: UIScreen.main.bounds.width)
                         .background(Color.alert)
-                        .cornerRadius(16, corners: [.topLeft, .topRight])
+                        .cornerRadius(10, corners: [.topLeft, .topRight])
                         .offset(x: 0, y: viewModel.offset.height > 0 ? viewModel.offset.height + 50 : 50)
                         .ignoresSafeArea(edges: .bottom)
                     }
