@@ -1,8 +1,7 @@
 //
-//  UIImage.swift
-//  CleanUI
+//  Copyright © 2021 - present CleanUI (Julian Gerhards)
 //
-//  Created by Julian Gerhards on 05.10.21.
+//  GitHub https://github.com/knoggl/CleanUI
 //
 
 import SwiftUI
@@ -13,7 +12,7 @@ public extension UIImage {
     /// - Parameters:
     ///   - size: The size frame for the new UIImage
     ///   - withOrientationFix: should the orientation be fixed?, default is false
-    /// - Returns: <#description#>
+    /// - Returns: The cropped `UIImage`
     func cropCenter(_ size: CGSize, withOrientationFix: Bool = false) -> UIImage {
         
         let cgimage: CGImage = withOrientationFix ? self.fixedOrientation().cgImage! : self.cgImage!

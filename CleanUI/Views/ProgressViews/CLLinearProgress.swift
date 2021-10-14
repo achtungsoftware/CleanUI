@@ -1,8 +1,7 @@
 //
-//  CLLinearProgress.swift
-//  CleanUI
+//  Copyright © 2021 - present CleanUI (Julian Gerhards)
 //
-//  Created by Julian Gerhards on 05.10.21.
+//  GitHub https://github.com/knoggl/CleanUI
 //
 
 import SwiftUI
