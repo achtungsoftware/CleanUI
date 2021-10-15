@@ -53,7 +53,6 @@
 		754249E9270F7AB2004D217B /* GeometryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249E8270F7AB2004D217B /* GeometryProxy.swift */; };
 		754249EB270F7AE0004D217B /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249EA270F7AE0004D217B /* NSAttributedString.swift */; };
 		754249F3270F86BE004D217B /* CLExpandableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249F2270F86BE004D217B /* CLExpandableText.swift */; };
-		75553B7E27180A1400F54C42 /* CUFeedNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75553B7D27180A1400F54C42 /* CUFeedNetworking.swift */; };
 		756C010D270BB74A00136DF8 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C010C270BB74A00136DF8 /* Attribute.swift */; };
 		756C0111270BBB7100136DF8 /* CLSingleLineTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0110270BBB7100136DF8 /* CLSingleLineTextEditor.swift */; };
 		756C0113270BBC6700136DF8 /* CLInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0112270BBC6700136DF8 /* CLInfoCard.swift */; };
@@ -189,7 +188,6 @@
 		754249E8270F7AB2004D217B /* GeometryProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryProxy.swift; sourceTree = "<group>"; };
 		754249EA270F7AE0004D217B /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		754249F2270F86BE004D217B /* CLExpandableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLExpandableText.swift; sourceTree = "<group>"; };
-		75553B7D27180A1400F54C42 /* CUFeedNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUFeedNetworking.swift; sourceTree = "<group>"; };
 		756C010C270BB74A00136DF8 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		756C0110270BBB7100136DF8 /* CLSingleLineTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSingleLineTextEditor.swift; sourceTree = "<group>"; };
 		756C0112270BBC6700136DF8 /* CLInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLInfoCard.swift; sourceTree = "<group>"; };
@@ -511,7 +509,6 @@
 				75C3B6882712AECC00CDC411 /* CUInAppNotification.swift */,
 				7513F5E02713EB7C0099BEA1 /* CUBrowser.swift */,
 				753F82F627159AC1002B4C0F /* CUViewModel.swift */,
-				75553B7D27180A1400F54C42 /* CUFeedNetworking.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -764,7 +761,6 @@
 				75B1CB89270CCF29000089F9 /* UIColor.swift in Sources */,
 				75B1CB97270CD2E0000089F9 /* UIView.swift in Sources */,
 				756C0121270BCFC400136DF8 /* CUVibrate.swift in Sources */,
-				75553B7E27180A1400F54C42 /* CUFeedNetworking.swift in Sources */,
 				756C0125270BD12000136DF8 /* CLFeedFooter.swift in Sources */,
 				75023B5C270D3E7B00EF4098 /* CLDateTime.swift in Sources */,
 				75C3B67C2712A01B00CDC411 /* CUAlert.swift in Sources */,
