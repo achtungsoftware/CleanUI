@@ -9,9 +9,7 @@ import CleanUI
 
 struct CLIconView: View {
     var body: some View {
-        ZStack {
-            Color.clear
-            
+        ScrollView {
             VStack(spacing: 30) {
                 VStack {
                     Text(".textSize")

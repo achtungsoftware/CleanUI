@@ -36,4 +36,25 @@ public extension UIView {
         }
         return isVisible(view: self, inView: self.superview)
     }
+    
+    /// Finds subviews from a specific type
+    /// - Returns: An `Array` with the founded `UIViews`'s
+    func findViews<T: UIView>(subclassOf: T.Type) -> [T] {
+        return recursiveSubviews.compactMap { $0 as? T }
+    }
+    
+    var recursiveSubviews: [UIView] {
+        return subviews + subviews.flatMap { $0.recursiveSubviews }
+    }
+    
+    /// Trys to find the first `UIScrollView` in `UIView`'s subviews
+    var findFirstUISrollView: UIScrollView? {
+        let arr = self.findViews(subclassOf: UIScrollView.self)
+        
+        if arr.count > 0 {
+            return arr[0]
+        }
+        
+        return nil
+    }
 }

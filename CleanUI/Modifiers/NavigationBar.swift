@@ -63,6 +63,8 @@ public struct NavigationBar: ViewModifier {
     @State private var searchBarShowSearchResultsWithAnimation: Bool = false
     @State private var isPresentedStatic: Bool = false
     
+    @State private var showBorder: Bool = false
+    
     public func body(content: Content) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             
@@ -192,6 +194,7 @@ public struct NavigationBar: ViewModifier {
                     Spacer()
                     Divider()
                         .frame(height: 0.4)
+//                        .opacity(showBorder ? 0.7 : 0)
                         .opacity(0.7)
                 }
             )
@@ -208,9 +211,24 @@ public struct NavigationBar: ViewModifier {
                 // Expand view fullscreen
                 Color.clear.edgesIgnoringSafeArea(.all)
                 
+//                CLScrollOffsetReader(offsetChanged: { offset in
+//                    if offset.y > 10 {
+//                        if !showBorder {
+//                            showBorder = true
+//                        }
+//                    }else {
+//                        if showBorder {
+//                            showBorder = false
+//                        }
+//                    }
+//                }) {
+//                    content
+//                }
+                
                 content
             }
         }
+        .hideNavigationBar()
         .onChange(of: searchBar.isEditing) { value in
             withAnimation(.easeInOut(duration: 0.25)) {
                 searchBarIsEditingWithAnimation = value
@@ -224,6 +242,5 @@ public struct NavigationBar: ViewModifier {
                 searchBarShowSearchResultsWithAnimation = value
             }
         }
-        .hideNavigationBar()
     }
 }
