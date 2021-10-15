@@ -95,9 +95,9 @@ public class CUVideoHelper {
         return CGSize(width: abs(size.width), height: abs(size.height))
     }
     
-    public static func getOutputPath( _ name: String ) -> String {
+    public static func getOutputPath(_ name: String) -> String {
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true )[0] as NSString
-        let outputPath = "\(documentPath)/\(name).mov"
+        let outputPath = "\(documentPath)/\(name).mp4"
         return outputPath
     }
 }
