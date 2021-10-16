@@ -91,6 +91,7 @@ public struct NavigationBar: ViewModifier {
                                             .font(.title2)
                                             .fontWeight(.bold)
                                             .lineLimit(1)
+                                        
                                         if(!subTitle.isEmpty){
                                             Text(subTitle)
                                                 .font(.caption2)
@@ -195,7 +196,6 @@ public struct NavigationBar: ViewModifier {
                     Divider()
                         .frame(height: 0.4)
                         .opacity(showBorder ? 0.7 : 0)
-//                        .opacity(0.7)
                 }
             )
             .onAppear {
@@ -228,8 +228,6 @@ public struct NavigationBar: ViewModifier {
                 }) {
                     content
                 }
-                
-//                content
             }
         }
         .hideNavigationBar()
