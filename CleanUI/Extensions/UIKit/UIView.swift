@@ -6,6 +6,8 @@
 
 import SwiftUI
 
+public typealias PlatformView = UIView
+
 public extension UIView {
     
     /// Makes an screenshot from the given UIView
@@ -55,6 +57,18 @@ public extension UIView {
             return arr[0]
         }
         
+        return nil
+    }
+    
+    /// Try's to find a HostingView of a specific subview
+    func findHostingView() -> UIView? {
+        var superview = self.superview
+        while let s = superview {
+            if NSStringFromClass(type(of: s)).contains("HostingView") {
+                return s
+            }
+            superview = s.superview
+        }
         return nil
     }
 }

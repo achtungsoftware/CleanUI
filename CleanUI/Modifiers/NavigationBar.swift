@@ -194,8 +194,8 @@ public struct NavigationBar: ViewModifier {
                     Spacer()
                     Divider()
                         .frame(height: 0.4)
-//                        .opacity(showBorder ? 0.7 : 0)
-                        .opacity(0.7)
+                        .opacity(showBorder ? 0.7 : 0)
+//                        .opacity(0.7)
                 }
             )
             .onAppear {
@@ -211,21 +211,25 @@ public struct NavigationBar: ViewModifier {
                 // Expand view fullscreen
                 Color.clear.edgesIgnoringSafeArea(.all)
                 
-//                CLScrollOffsetReader(offsetChanged: { offset in
-//                    if offset.y > 10 {
-//                        if !showBorder {
-//                            showBorder = true
-//                        }
-//                    }else {
-//                        if showBorder {
-//                            showBorder = false
-//                        }
-//                    }
-//                }) {
-//                    content
-//                }
+                CLScrollOffsetReader(offsetChanged: { offset in
+                    if let offset = offset {
+                        if offset.y > 10 {
+                            if !showBorder {
+                                showBorder = true
+                            }
+                        }else {
+                            if showBorder {
+                                showBorder = false
+                            }
+                        }
+                    }else {
+                        showBorder = true
+                    }
+                }) {
+                    content
+                }
                 
-                content
+//                content
             }
         }
         .hideNavigationBar()
