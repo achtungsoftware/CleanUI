@@ -61,6 +61,7 @@ public extension UIView {
     }
     
     /// Try's to find a HostingView of a specific subview
+    /// - Returns: The optional `UIView`
     func findHostingView() -> UIView? {
         var superview = self.superview
         while let s = superview {

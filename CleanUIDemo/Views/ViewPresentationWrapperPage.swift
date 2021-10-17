@@ -19,16 +19,20 @@ struct ViewPresentationWrapperPage<Content: View>: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            viewToPresent()
+        VStack(alignment: .leading, spacing: 0) {
+            
+            ScrollView {
+                viewToPresent()
+                    .padding()
+            }
             
             Spacer()
             
             Text(description)
                 .foregroundColor(Color.grayText)
                 .font(.caption)
+                .padding()
         }
-        .padding()
         .navigationBar(name)
     }
 }

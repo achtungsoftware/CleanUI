@@ -118,7 +118,6 @@
 		75C3B6892712AECC00CDC411 /* CUInAppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B6882712AECC00CDC411 /* CUInAppNotification.swift */; };
 		75E9CA61271998A500E211D6 /* CLScrollOffsetReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E9CA60271998A500E211D6 /* CLScrollOffsetReader.swift */; };
 		75E9CA632719B82900E211D6 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E9CA622719B82900E211D6 /* UIViewController.swift */; };
-		75E9CA652719BA2500E211D6 /* CLUINavigationControllerReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E9CA642719BA2500E211D6 /* CLUINavigationControllerReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,7 +258,6 @@
 		75C3B6882712AECC00CDC411 /* CUInAppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUInAppNotification.swift; sourceTree = "<group>"; };
 		75E9CA60271998A500E211D6 /* CLScrollOffsetReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLScrollOffsetReader.swift; sourceTree = "<group>"; };
 		75E9CA622719B82900E211D6 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		75E9CA642719BA2500E211D6 /* CLUINavigationControllerReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUINavigationControllerReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,7 +498,6 @@
 		756C011B270BC86F00136DF8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				75E9CA5F2719989100E211D6 /* Reader */,
 				753F82F827159B43002B4C0F /* ViewModels */,
 				756C011C270BC88A00136DF8 /* CUHttp.swift */,
 				756C011E270BC8AD00136DF8 /* CUThreadHelper.swift */,
@@ -593,6 +590,7 @@
 				75B1CBD2270CFFE3000089F9 /* CLUrlImage.swift */,
 				75023B61270D46E900EF4098 /* CLScrollView.swift */,
 				7521ACA527101E5B001431A2 /* CLNavigationView.swift */,
+				75E9CA60271998A500E211D6 /* CLScrollOffsetReader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -628,15 +626,6 @@
 				75C3B6842712A6EB00CDC411 /* RoundedCorner.swift */,
 			);
 			path = Shapes;
-			sourceTree = "<group>";
-		};
-		75E9CA5F2719989100E211D6 /* Reader */ = {
-			isa = PBXGroup;
-			children = (
-				75E9CA60271998A500E211D6 /* CLScrollOffsetReader.swift */,
-				75E9CA642719BA2500E211D6 /* CLUINavigationControllerReader.swift */,
-			);
-			path = Reader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -844,7 +833,6 @@
 				75B1CBBB270CEAE7000089F9 /* CLLinearProgress.swift in Sources */,
 				75783B1F270C0CEA008A9E66 /* Int.swift in Sources */,
 				756C0149270BEAE700136DF8 /* SecondaryButtonStyle.swift in Sources */,
-				75E9CA652719BA2500E211D6 /* CLUINavigationControllerReader.swift in Sources */,
 				756C0113270BBC6700136DF8 /* CLInfoCard.swift in Sources */,
 				75B1CB8B270CCFB0000089F9 /* UIImage.swift in Sources */,
 				7513F5FF271432C30099BEA1 /* CLAlertConfirmView.swift in Sources */,
