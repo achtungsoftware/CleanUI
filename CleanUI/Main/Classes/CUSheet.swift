@@ -20,14 +20,10 @@ public class CUSheet {
     public static func clearAll(){
         CUGlobal.sheets.clearAll()
     }
-}
-
-/// This class handles all Sheets
-public class CUSheets {
     
     var alerts: [CUAlertModel] = []
     
-    func clearAll() {
+    private func clearAll() {
         if(!alerts.isEmpty){
             for alert in alerts {
                 alert.view.removeFromSuperview()
@@ -36,7 +32,7 @@ public class CUSheets {
         alerts = []
     }
     
-    func add<Content: View>(_ content: Content) {
+    private func add<Content: View>(_ content: Content) {
         
         clearAll()
         

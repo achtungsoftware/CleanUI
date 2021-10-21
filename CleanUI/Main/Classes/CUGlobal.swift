@@ -16,10 +16,10 @@ public struct CUGlobal {
     public static var mainWindow: UIWindow? = nil
     
     /// Stores the global ``CUAlerts`` array
-    public static var alerts: CUAlerts = CUAlerts()
+    public static var alerts: CUAlert = CUAlert()
     
     /// Stores the global ``CUSheets`` array
-    public static var sheets: CUSheets = CUSheets() 
+    public static var sheets: CUSheet = CUSheet() 
     
     /// Stores the global ``CUInAppNotifications`` array
     public static var inAppNotifications: CUInAppNotifications = CUInAppNotifications()
