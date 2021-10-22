@@ -38,7 +38,7 @@ public struct CLDateTime: View {
                 Text(showfullDateTime ? String(CUTime.timestampToHumanReadable(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  CUTime.timestampStringToDate(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
                     .foregroundColor(foregroundColor)
                     .lineLimit(1)
-                    .font(.caption)
+                    .font(.caption2)
                     .if(!fixedFontSize) { view in
                         view.minimumScaleFactor(0.1)
                     }
@@ -54,7 +54,7 @@ public struct CLDateTime: View {
                     Text(showfullDateTime ? String(CUTime.timestampToHumanReadable(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  CUTime.timestampStringToDate(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
                         .foregroundColor(foregroundColor)
                         .lineLimit(1)
-                        .font(.caption)
+                        .font(.caption2)
                         .if(!fixedFontSize) { view in
                             view.minimumScaleFactor(0.1)
                         }
