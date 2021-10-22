@@ -78,8 +78,8 @@ public struct CLExpandableText: View {
                     }
                 }) {
                     Text(CULanguage.getStringCleanUI(expanded ? "showless" : "showmore"))
-                        .font(font)
-                        .foregroundColor(Color.link)
+                        .font(.subheadline)
+                        .foregroundColor(Color.grayText)
                 }
                 .buttonStyle(.plain)
                 .padding(.vertical, 5)
