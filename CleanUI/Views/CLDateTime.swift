@@ -33,28 +33,38 @@ public struct CLDateTime: View {
     @State var showfullDateTime: Bool = false
     
     public var body: some View {
-        
-        let text = Text(showfullDateTime ? String(CUTime.timestampToHumanReadable(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  CUTime.timestampStringToDate(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
-            .foregroundColor(foregroundColor)
-            .lineLimit(1)
-            .font(.caption)
-            .if(!fixedFontSize) { view in
-                view.minimumScaleFactor(0.1)
-            }
-            .if(expandable) { view in
-                view.onTapGesture{
-                    withAnimation {
-                        showfullDateTime.toggle()
-                    }
-                }
-            }
-        
         Group {
             if updateInterval <= 0 {
-                text
+                Text(showfullDateTime ? String(CUTime.timestampToHumanReadable(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  CUTime.timestampStringToDate(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
+                    .foregroundColor(foregroundColor)
+                    .lineLimit(1)
+                    .font(.caption)
+                    .if(!fixedFontSize) { view in
+                        view.minimumScaleFactor(0.1)
+                    }
+                    .if(expandable) { view in
+                        view.onTapGesture{
+                            withAnimation {
+                                showfullDateTime.toggle()
+                            }
+                        }
+                    }
             }else {
                 TimelineView(.periodic(from: Date.now, by: 5)) { _ in
-                    text
+                    Text(showfullDateTime ? String(CUTime.timestampToHumanReadable(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "") ?? "") :  CUTime.timestampStringToDate(timestamp: CUTime.serverToLocalTime(dateStr: timestamp) ?? "")?.timeAgo() ?? "")
+                        .foregroundColor(foregroundColor)
+                        .lineLimit(1)
+                        .font(.caption)
+                        .if(!fixedFontSize) { view in
+                            view.minimumScaleFactor(0.1)
+                        }
+                        .if(expandable) { view in
+                            view.onTapGesture{
+                                withAnimation {
+                                    showfullDateTime.toggle()
+                                }
+                            }
+                        }
                 }
             }
         }
