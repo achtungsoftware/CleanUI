@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// ``CUSheet`` allows to show and hide Sheets
 public class CUSheet {

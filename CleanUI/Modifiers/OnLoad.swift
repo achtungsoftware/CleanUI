@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// The ``OnLoad`` ViewModifier allows to add a `.onLoad { action() }` to a view,
 /// The action() never gets called twice

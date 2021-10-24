@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// This `View` is able to find the first `UIScrollView`
 /// in the `Content` view hierarchy. If a `UIScrollView` is found, it returns a scroll offset, else nil

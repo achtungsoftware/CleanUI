@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a ``CLNewBadge`` for indicating that something is unseen or new
 public struct CLNewBadge: View {

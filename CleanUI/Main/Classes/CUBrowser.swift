@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// This class handles browser windows
 public class CUBrowser {

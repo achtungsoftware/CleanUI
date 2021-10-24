@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a ``CLTextWithNewBadge`` (Text with optional ``CLNewBadge`)
 public struct CLTextWithNewBadge: View {

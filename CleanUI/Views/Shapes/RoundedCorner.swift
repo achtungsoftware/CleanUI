@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a `Shape` with custom corner radius
 public struct RoundedCorner: Shape {

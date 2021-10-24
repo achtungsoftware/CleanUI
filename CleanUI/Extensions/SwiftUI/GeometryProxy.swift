@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 public extension GeometryProxy {
     var maxWidth: CGFloat {

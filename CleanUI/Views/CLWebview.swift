@@ -6,6 +6,7 @@
 
 import SwiftUI
 import WebKit
+import Combine
 
 /// ``CLWebview`` is a UIViewRepresentable for an `WKWebView
 public struct CLWebview: UIViewRepresentable {

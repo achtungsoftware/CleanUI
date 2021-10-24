@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Adds a ``CLCard`` style to a view without wrapping it inside a container
 public struct CLCard<Content: View>: View {

@@ -5,7 +5,7 @@
 //
 
 import SwiftUI
-
+import Combine
 
 /// The ``CUAlertModel`` is used for ``CUSheet``, ``CUAlert``, ``CUInAppNotification`` and ``CUAlertMessage``
 public struct CUAlertModel: Identifiable, Equatable {

@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// A ``CLLoadingIndicator`` for indicating unknown progress
 public struct CLLoadingIndicator: View {

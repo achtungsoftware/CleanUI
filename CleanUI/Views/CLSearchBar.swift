@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// ``CLSearchBar`` is a `UIViewRepresentable` for an `UISearchBar`
 public struct CLSearchBar: UIViewRepresentable {

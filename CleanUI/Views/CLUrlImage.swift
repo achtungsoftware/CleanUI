@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns an ``CLUrlImage`` which fetches a image from an url, displays and caches it, if needed
 public struct CLUrlImage: View {

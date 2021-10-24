@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a ``CLDescriptiveNumber`` with a number and an description, aligned vertically
 public struct CLDescriptiveNumber: View {

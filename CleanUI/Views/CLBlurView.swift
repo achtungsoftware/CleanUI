@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// ``CLBlurView`` is a UIViewRepresentable for an `UIVisualEffectView`
 public struct CLBlurView: UIViewRepresentable {

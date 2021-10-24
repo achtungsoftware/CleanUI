@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// The ``NavigationBarSearchField`` is an ObservableObject model for applying to an ``NavigationBar``
 public class NavigationBarSearchField: ObservableObject, Equatable, Identifiable {

@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// The `CUStandard` class provides a collection of static standard functions
 public class CUStandard {

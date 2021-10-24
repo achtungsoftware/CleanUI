@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 class PinchZoomView: UIView {
 

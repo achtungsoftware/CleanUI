@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a very dynamic and customizable ``CLIcon``
 public struct CLIcon: View {

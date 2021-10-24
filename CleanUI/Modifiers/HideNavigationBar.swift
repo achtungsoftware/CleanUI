@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// The ``HideNavigationBar`` modifier hides the default UINavigationBar
 public struct HideNavigationBar: ViewModifier {

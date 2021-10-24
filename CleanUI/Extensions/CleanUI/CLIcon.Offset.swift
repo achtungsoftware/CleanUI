@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 extension CLIcon.Offset {
     

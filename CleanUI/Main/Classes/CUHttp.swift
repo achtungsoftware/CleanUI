@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// A class for handling http requests and json encoding
 public class CUHttp {

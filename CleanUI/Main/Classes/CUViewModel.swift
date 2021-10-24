@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// This is the base class for every view model
 open class CUViewModel: ObservableObject {

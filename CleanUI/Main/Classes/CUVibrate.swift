@@ -6,6 +6,7 @@
 
 import SwiftUI
 import AudioToolbox
+import Combine
 
 /// ``CUVibrate`` helps you to play vibrations
 public enum CUVibrate {

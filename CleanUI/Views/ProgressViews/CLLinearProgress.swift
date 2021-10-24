@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// A ``CLLinearProgress``  for indacting any type of progress
 public struct CLLinearProgress: View {

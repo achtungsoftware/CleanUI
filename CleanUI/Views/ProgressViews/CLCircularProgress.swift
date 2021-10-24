@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// A ``CLCircularProgress`` for indacting any type of progress
 public struct CLCircularProgress: View {

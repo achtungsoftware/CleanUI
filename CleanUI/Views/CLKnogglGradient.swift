@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns the ``CLKnogglGradient`` a linear gradient in Knoggl style
 public struct CLKnogglGradient: View {

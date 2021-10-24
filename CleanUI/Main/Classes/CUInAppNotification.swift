@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// ``CUInAppNotification`` allows to show and hide in app notifications
 public class CUInAppNotification {

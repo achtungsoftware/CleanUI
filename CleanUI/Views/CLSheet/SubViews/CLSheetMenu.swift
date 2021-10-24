@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a styled menu for ``CUSheet``
 public struct CLSheetMenu: View {

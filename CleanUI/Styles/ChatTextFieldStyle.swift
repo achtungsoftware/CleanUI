@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// ChatTextFieldStyle: TextFieldStyle
 public struct ChatTextFieldStyle: TextFieldStyle {

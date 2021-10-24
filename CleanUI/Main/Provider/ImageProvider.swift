@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Provides images from the CleanUI frameworks Asset Catalog
 class ImageProvider {

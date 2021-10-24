@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a ``CLSingleLineTextEditor``. The editor is first single line and expands on line break
 public struct CLSingleLineTextEditor: View {

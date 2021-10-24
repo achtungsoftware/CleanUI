@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// ``InfoCardManagerModel`` manages the ``CLInfoCardManager``
 public class InfoCardManagerModel: ObservableObject {

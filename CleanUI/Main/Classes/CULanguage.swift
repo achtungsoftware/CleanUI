@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// This class helps to get translations
 public class CULanguage {

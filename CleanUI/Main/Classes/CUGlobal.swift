@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Global static variables are stored here
 public struct CUGlobal {

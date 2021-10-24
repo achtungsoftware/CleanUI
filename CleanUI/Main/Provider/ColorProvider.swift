@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Provides colors from the CleanUI frameworks Asset Catalog
 class ColorProvider {

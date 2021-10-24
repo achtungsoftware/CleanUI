@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// This is the ``CUViewModel`` class for ``CLSheet``
 internal class CLSheetViewModel: CUViewModel {

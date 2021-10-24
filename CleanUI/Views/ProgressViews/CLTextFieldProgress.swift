@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a ``CLTextFieldProgress`` view for indication how much the user is allowed to type inside a TextField or TextEditor
 public struct CLTextFieldProgress: View {

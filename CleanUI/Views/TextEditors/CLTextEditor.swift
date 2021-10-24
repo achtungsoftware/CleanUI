@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a ``CLTextEditor`` with ``Attribute`` highlighting, character limit, and placeholder
 public struct CLTextEditor: View {

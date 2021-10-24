@@ -6,3 +6,10 @@ CleanUI has many default views from simple to complex. CleanUI allows to make hu
 
 # How to use
 CleanUI views have a 'CL' prefix. CleanUI helper classes have a 'CU' prefix.
+
+# Compiling
+Compile the XCFramework with
+
+```console
+sh build.sh
+```

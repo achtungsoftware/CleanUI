@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a ``CLFeedFooter`` for implementation in feeds or forms
 public struct CLFeedFooter: View {

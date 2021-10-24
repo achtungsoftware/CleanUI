@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 public extension NSAttributedString.Key {
     static let customLink = NSAttributedString.Key(rawValue: "CustomLink")

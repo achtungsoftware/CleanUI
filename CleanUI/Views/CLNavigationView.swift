@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// ``CLNavigationView`` is a wrapper for NavigationView.
 public struct CLNavigationView<Content: View>: View {

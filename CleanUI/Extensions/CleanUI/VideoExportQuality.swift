@@ -6,6 +6,7 @@
 
 import SwiftUI
 import AVKit
+import Combine
 
 public extension VideoExportQuality {
     func get()->String{

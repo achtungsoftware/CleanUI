@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// ``CUAlert`` allows to show and hide Alerts
 public class CUAlert {

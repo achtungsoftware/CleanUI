@@ -5,7 +5,7 @@
 //
 
 import SwiftUI
-
+import Combine
 
 /// Returns an ``CLExpandableText`` which has a show more / show less button if the
 /// provided string is longer than the `characterLimit`

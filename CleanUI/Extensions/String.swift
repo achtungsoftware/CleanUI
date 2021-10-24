@@ -6,6 +6,7 @@
 
 import SwiftUI
 import CryptoKit
+import Combine
 
 public extension String {
     

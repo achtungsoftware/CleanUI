@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// A class for handling DispatchQueues. Only sugar but makes it easy to remember
 public class CUThreadHelper {

@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// Returns a ``CLFeedTitle`` for implementation in feeds or forms
 public struct CLFeedTitle: View {

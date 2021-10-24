@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /// This class handles all sorts of programmatic navigation
 public class CUNavigation {
