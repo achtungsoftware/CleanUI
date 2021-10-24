@@ -107,7 +107,7 @@
 		75B1CBCD270CF932000089F9 /* CLLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CBCC270CF932000089F9 /* CLLoadingIndicator.swift */; };
 		75B1CBD3270CFFE3000089F9 /* CLUrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CBD2270CFFE3000089F9 /* CLUrlImage.swift */; };
 		75B1CBD5270D0002000089F9 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1CBD4270D0002000089F9 /* ImageCache.swift */; };
-		75C3B67527127D4D00CDC411 /* CUStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B67427127D4D00CDC411 /* CUStandard.swift */; };
+		75C3B67527127D4D00CDC411 /* CUStd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B67427127D4D00CDC411 /* CUStd.swift */; };
 		75C3B6772712976400CDC411 /* CUNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B6762712976400CDC411 /* CUNavigation.swift */; };
 		75C3B67927129C6900CDC411 /* CUGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B67827129C6900CDC411 /* CUGlobal.swift */; };
 		75C3B67C2712A01B00CDC411 /* CUAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C3B67B2712A01B00CDC411 /* CUAlert.swift */; };
@@ -248,7 +248,7 @@
 		75B1CBCC270CF932000089F9 /* CLLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLoadingIndicator.swift; sourceTree = "<group>"; };
 		75B1CBD2270CFFE3000089F9 /* CLUrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUrlImage.swift; sourceTree = "<group>"; };
 		75B1CBD4270D0002000089F9 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		75C3B67427127D4D00CDC411 /* CUStandard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUStandard.swift; sourceTree = "<group>"; };
+		75C3B67427127D4D00CDC411 /* CUStd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUStd.swift; sourceTree = "<group>"; };
 		75C3B6762712976400CDC411 /* CUNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUNavigation.swift; sourceTree = "<group>"; };
 		75C3B67827129C6900CDC411 /* CUGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUGlobal.swift; sourceTree = "<group>"; };
 		75C3B67B2712A01B00CDC411 /* CUAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUAlert.swift; sourceTree = "<group>"; };
@@ -507,7 +507,7 @@
 				756C0138270BDB0F00136DF8 /* CULanguage.swift */,
 				75B1CBA7270CE44D000089F9 /* CUVideoHelper.swift */,
 				75023B59270D3CA200EF4098 /* CUTime.swift */,
-				75C3B67427127D4D00CDC411 /* CUStandard.swift */,
+				75C3B67427127D4D00CDC411 /* CUStd.swift */,
 				75C3B6762712976400CDC411 /* CUNavigation.swift */,
 				75C3B67827129C6900CDC411 /* CUGlobal.swift */,
 				75C3B67B2712A01B00CDC411 /* CUAlert.swift */,
@@ -849,7 +849,7 @@
 				751360B4270BB653002E74AF /* String.swift in Sources */,
 				756C010D270BB74A00136DF8 /* Attribute.swift in Sources */,
 				756C0117270BC05F00136DF8 /* CLNewBadge.swift in Sources */,
-				75C3B67527127D4D00CDC411 /* CUStandard.swift in Sources */,
+				75C3B67527127D4D00CDC411 /* CUStd.swift in Sources */,
 				753F82FE27159E7B002B4C0F /* CLAlertViewModel.swift in Sources */,
 				756C0135270BD9CB00136DF8 /* CLWebview.swift in Sources */,
 				756C011F270BC8AD00136DF8 /* CUThreadHelper.swift in Sources */,

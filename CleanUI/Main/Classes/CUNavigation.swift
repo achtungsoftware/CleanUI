@@ -21,7 +21,7 @@ public class CUNavigation {
     /// - Returns: An optional UINavigationController
     public static func getCurrentNavigationController() -> UINavigationController? {
         
-        if let rootViewController = CUStandard.getMainUIWindow()?.rootViewController {
+        if let rootViewController = CUStd.getMainUIWindow()?.rootViewController {
             
             // Search for the UINavigationController
             for vc in rootViewController.children {
@@ -81,7 +81,7 @@ public class CUNavigation {
             detents = [.medium(), .large()]
         }
         
-        if let rootViewController = CUStandard.getMainUIWindow()?.rootViewController {
+        if let rootViewController = CUStd.getMainUIWindow()?.rootViewController {
             let sheetHostingController = SheetHostingController(rootView: view, detents: detents)
             rootViewController.present(sheetHostingController, animated: true)
         }

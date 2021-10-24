@@ -26,8 +26,6 @@ public struct CLIcon: View {
     var isImageOverlay: Bool
     var offset: CLIcon.Offset
     
-    @State var sideSize: CGFloat = 0
-    
     /// - Parameters:
     ///   - image: Image name from asset catalog
     ///   - systemImage: System image name
@@ -47,6 +45,8 @@ public struct CLIcon: View {
         
         self._sideSize = State(initialValue: self.size == .small ? 22 : self.size == .medium ? 26 : self.size == .textSize ? 16 : 30)
     }
+    
+    @State var sideSize: CGFloat = 0
     
     public var body: some View {
         ZStack {

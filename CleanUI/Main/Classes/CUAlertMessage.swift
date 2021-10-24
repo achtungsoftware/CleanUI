@@ -43,7 +43,7 @@ public class CUAlertMessages {
     func add(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info) {
         let id: UUID = UUID()
         
-        if let controller = CUStandard.getMainUIWindow()?.rootViewController {
+        if let controller = CUStd.getMainUIWindow()?.rootViewController {
             let infoCardController = UIHostingController(rootView: CLAlertMessageView(id: id, title: title, subTitle: subTitle, type: type))
             controller.view.addSubview(infoCardController.view)
             infoCardController.view.translatesAutoresizingMaskIntoConstraints = false

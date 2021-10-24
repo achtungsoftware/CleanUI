@@ -7,8 +7,8 @@
 import SwiftUI
 import Combine
 
-/// The `CUStandard` class provides a collection of static standard functions
-public class CUStandard {
+/// The `CUStd` class provides a collection of static standard functions
+public class CUStd {
     
     /// Trys to get the main `UIWindow`
     /// - Returns: The main `UIWindow`

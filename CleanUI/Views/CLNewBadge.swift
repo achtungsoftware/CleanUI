@@ -12,13 +12,13 @@ public struct CLNewBadge: View {
     
     var withBackground: Bool
     
-    var defaultSize: CGFloat = 6
-    @State private var animationAmount: CGFloat = 1
-    
     /// - Parameter withBackground: Should this ``CLNewBadge`` have a background (color) ?
     public init(_ withBackground: Bool = true) {
         self.withBackground = withBackground
     }
+    
+    var defaultSize: CGFloat = 6
+    @State private var animationAmount: CGFloat = 1
     
     public var body: some View {
         ZStack {

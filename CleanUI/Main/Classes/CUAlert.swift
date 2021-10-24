@@ -38,7 +38,7 @@ public class CUAlert {
         
         clearAll()
         
-        if let controller = CUStandard.getMainUIWindow()?.rootViewController {
+        if let controller = CUStd.getMainUIWindow()?.rootViewController {
             let alertView = UIHostingController(rootView: CLALert(content: content))
             controller.view.addSubview(alertView.view)
             alertView.view.isUserInteractionEnabled = true

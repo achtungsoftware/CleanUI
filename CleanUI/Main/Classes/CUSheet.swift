@@ -37,7 +37,7 @@ public class CUSheet {
         
         clearAll()
         
-        if let controller = CUStandard.getMainUIWindow()?.rootViewController {
+        if let controller = CUStd.getMainUIWindow()?.rootViewController {
             let sheetView = UIHostingController(rootView: CLSheet(content: content))
             controller.view.addSubview(sheetView.view)
             sheetView.view.isUserInteractionEnabled = true

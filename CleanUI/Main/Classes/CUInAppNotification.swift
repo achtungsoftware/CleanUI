@@ -43,7 +43,7 @@ public class CUInAppNotifications {
         
         let id: UUID = UUID()
         
-        if let controller = CUStandard.getMainUIWindow()?.rootViewController {
+        if let controller = CUStd.getMainUIWindow()?.rootViewController {
             let notificationView = UIHostingController(rootView: CLInAppNotificationView(id: id, title: title, subTitle: body, tapAction: tapAction))
             controller.view.addSubview(notificationView.view)
             notificationView.view.translatesAutoresizingMaskIntoConstraints = false
