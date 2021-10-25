@@ -34,10 +34,6 @@ public class CUInAppNotification {
     public static func clearSingle(_ id: UUID) {
         CUGlobal.inAppNotifications.clearSingle(id)
     }
-}
-
-/// This class handles all in app notifications
-public class CUInAppNotifications {
     
     var notifications: [CUAlertModel] = []
     

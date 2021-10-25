@@ -32,8 +32,8 @@ public struct CUGlobal {
     /// Stores the global ``CUSheet`` array
     public static var sheets: CUSheet = CUSheet() 
     
-    /// Stores the global ``CUInAppNotifications`` array
-    public static var inAppNotifications: CUInAppNotifications = CUInAppNotifications()
+    /// Stores the global ``CUInAppNotification`` array
+    public static var inAppNotifications: CUInAppNotification = CUInAppNotification()
     
     /// Stores the global ``CUAlertMessages`` array
     public static var alertMessages: CUAlertMessages = CUAlertMessages()
