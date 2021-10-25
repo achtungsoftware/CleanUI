@@ -27,6 +27,14 @@ public class CUNavigation {
         case halfAllowFull
     }
     
+    /// Trys to pop to the rootViewController / View inside of the current UINavigationController
+    /// - Parameter animated: Animated, default `true`
+    public static func popToRootView(_ animated: Bool = true) {
+        if let navigationController = self.getCurrentNavigationController() {
+            navigationController.popToRootViewController(animated: animated)
+        }
+    }
+    
     /// Trys to find the current active UINavigationController.
     /// - Returns: An optional UINavigationController
     public static func getCurrentNavigationController() -> UINavigationController? {

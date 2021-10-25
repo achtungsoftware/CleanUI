@@ -39,6 +39,10 @@ struct ContentView: View {
                             Text("CLIcon")
                         }
                         
+                        NavigationLink(destination: CUNavigationView()) {
+                            Text("CUNavigation")
+                        }
+                        
                         NavigationLink(destination: CUAlertView()) {
                             Text("CUAlert")
                         }
