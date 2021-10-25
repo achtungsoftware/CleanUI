@@ -24,3 +24,17 @@
 "cancel" = "Отмена";
 "continue" = "Продолжать";
 "close" = "Закрывать";
+"secondsago" = "x@ секунды назад";
+"minutesago" = "x@ минуты назад";
+"hoursago" = "x@ часа назад";
+"daysago" = "x@ дня назад";
+"weeksago" = "x@ недели назад";
+"monthsago" = "x@ месяца назад";
+"yearsago" = "x@ года назад";
+"secondago" = "x@ секунду назад";
+"minuteago" = "x@ минуту назад";
+"hourago" = "x@ час назад";
+"dayago" = "x@ день назад";
+"weekago" = "x@ неделю назад";
+"monthago" = "x@ месяц назад";
+"yearago" = "x@ год назад";

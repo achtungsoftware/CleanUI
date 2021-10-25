@@ -24,3 +24,17 @@
 "cancel" = "Abbrechen";
 "continue" = "Fortfahren";
 "close" = "Schließen";
+"secondsago" = "Vor x@ Sekunden";
+"minutesago" = "Vor x@ Minuten";
+"hoursago" = "Vor x@ Stunden";
+"daysago" = "Vor x@ Tagen";
+"weeksago" = "Vor x@ Wochen";
+"monthsago" = "Vor x@ Monaten";
+"yearsago" = "Vor x@ Jahren";
+"secondago" = "Vor x@ Sekunde";
+"minuteago" = "Vor x@ Minute";
+"hourago" = "Vor x@ Stunde";
+"dayago" = "Vor x@ Tag";
+"weekago" = "Vor x@ Woche";
+"monthago" = "Vor x@ Monat";
+"yearago" = "Vor x@ Jahr";

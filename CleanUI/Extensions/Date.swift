@@ -33,29 +33,27 @@ public extension Date {
         let year = 12 * month
         
         let quotient: Int
-        let unit: String
         if secondsAgo < minute {
             quotient = secondsAgo
-            unit = quotient == 1 ? CULanguage.getString("second") : CULanguage.getString("seconds")
+            return quotient == 1 ? CULanguage.getStringWithReplaceCleanUI("secondago", replace: "x@", with: String(quotient)) : CULanguage.getStringWithReplaceCleanUI("secondsago", replace: "x@", with: String(quotient))
         } else if secondsAgo < hour {
             quotient = secondsAgo / minute
-            unit = quotient == 1 ? CULanguage.getString("minute") : CULanguage.getString("minutes")
+            return quotient == 1 ? CULanguage.getStringWithReplaceCleanUI("minuteago", replace: "x@", with: String(quotient)) : CULanguage.getStringWithReplaceCleanUI("minutesago", replace: "x@", with: String(quotient))
         } else if secondsAgo < day {
             quotient = secondsAgo / hour
-            unit = quotient == 1 ? CULanguage.getString("hour") : CULanguage.getString("hours")
+            return quotient == 1 ? CULanguage.getStringWithReplaceCleanUI("hourago", replace: "x@", with: String(quotient)) : CULanguage.getStringWithReplaceCleanUI("hoursago", replace: "x@", with: String(quotient))
         } else if secondsAgo < week {
             quotient = secondsAgo / day
-            unit = quotient == 1 ? CULanguage.getString("day") : CULanguage.getString("days")
+            return quotient == 1 ? CULanguage.getStringWithReplaceCleanUI("dayago", replace: "x@", with: String(quotient)) : CULanguage.getStringWithReplaceCleanUI("daysago", replace: "x@", with: String(quotient))
         } else if secondsAgo < month {
             quotient = secondsAgo / week
-            unit = quotient == 1 ? CULanguage.getString("week") : CULanguage.getString("weeks")
+            return quotient == 1 ? CULanguage.getStringWithReplaceCleanUI("weekago", replace: "x@", with: String(quotient)) : CULanguage.getStringWithReplaceCleanUI("weeksago", replace: "x@", with: String(quotient))
         } else if secondsAgo < year {
             quotient = secondsAgo / month
-            unit = quotient == 1 ? CULanguage.getString("month") : CULanguage.getString("months")
+            return quotient == 1 ? CULanguage.getStringWithReplaceCleanUI("monthago", replace: "x@", with: String(quotient)) : CULanguage.getStringWithReplaceCleanUI("monthsago", replace: "x@", with: String(quotient))
         } else {
             quotient = secondsAgo / year
-            unit = quotient == 1 ? CULanguage.getString("year") : CULanguage.getString("years")
+            return quotient == 1 ? CULanguage.getStringWithReplaceCleanUI("yearago", replace: "x@", with: String(quotient)) : CULanguage.getStringWithReplaceCleanUI("yearsago", replace: "x@", with: String(quotient))
         }
-        return "\(quotient) \(unit)"
     }
 }

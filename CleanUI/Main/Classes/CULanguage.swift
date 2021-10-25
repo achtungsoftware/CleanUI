@@ -27,6 +27,18 @@ public class CULanguage {
         NSLocalizedString(keyString, tableName: nil, bundle: Bundle(for: self), value: "", comment: "")
     }
     
+    /// Get a string from the CleanUI localization and replace a specified part of the string
+    /// - Parameters:
+    ///   - keyString: The description key
+    ///   - replace: The part that should be replaced
+    ///   - with: The string that replaces "replace"
+    /// - Returns: The modified string
+    static func getStringWithReplaceCleanUI(_ keyString: String, replace: String, with: String) -> String {
+        let text = NSLocalizedString(keyString, tableName: nil, bundle: Bundle(for: self), value: "", comment: "")
+        let replaced = text.replacingOccurrences(of: replace, with: with)
+        return replaced
+    }
+    
     /// Get a string
     /// - Parameter keyString: The description key
     /// - Returns: The string

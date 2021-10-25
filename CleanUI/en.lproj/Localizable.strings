@@ -24,3 +24,17 @@
 "cancel" = "Cancel";
 "continue" = "Continue";
 "close" = "Close";
+"secondsago" = "x@ seconds ago";
+"minutesago" = "x@ minutes ago";
+"hoursago" = "x@ hours ago";
+"daysago" = "x@ days ago";
+"weeksago" = "x@ weeks ago";
+"monthsago" = "x@ months ago";
+"yearsago" = "x@ years ago";
+"secondago" = "x@ second ago";
+"minuteago" = "x@ minute ago";
+"hourago" = "x@ hour ago";
+"dayago" = "x@ day ago";
+"weekago" = "x@ week ago";
+"monthago" = "x@ month ago";
+"yearago" = "x@ year ago";
