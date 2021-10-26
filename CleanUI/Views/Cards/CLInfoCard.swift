@@ -98,7 +98,7 @@ public struct CLInfoCard: View {
                 
                 Image(systemName: type == .error ? "xmark.octagon" : type == .info ? "info.circle" : "checkmark.seal")
                     .imageScale(.medium)
-                    .foregroundColor(type == .error ? Color.defaultRed : type == .info ? .gray : Color.green)
+                    .foregroundColor(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green)
                     .opacity(0.8)
                 
                 VStack(alignment: .leading) {
@@ -117,12 +117,12 @@ public struct CLInfoCard: View {
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
         .background(
             RoundedRectangle(cornerRadius: 10)
-                .fill(type == .error ? Color.defaultRed : type == .info ? Color.accent : Color.green).opacity(type == .info ? 1 : 0.3)
+                .fill(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green).opacity(0.3)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .strokeBorder(type == .error ? Color.defaultRed : type == .info ? Color.clear : Color.green, lineWidth: 0.5)
-                .opacity(type == .info ? 1 : 0.6)
+                .strokeBorder(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green, lineWidth: 0.5)
+                .opacity(0.6)
         )
     }
 }
