@@ -39,6 +39,10 @@ struct ContentView: View {
                             Text("CLIcon")
                         }
                         
+                        NavigationLink(destination: ButtonStylesView()) {
+                            Text("ButtonStyles")
+                        }
+                        
                         NavigationLink(destination: CUNavigationView()) {
                             Text("CUNavigation")
                         }

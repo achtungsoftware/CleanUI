@@ -32,12 +32,27 @@ public struct PrimaryButtonStyle: ButtonStyle {
         self.withOpacity = withOpacity
     }
     
+    @Environment(\.colorScheme) var colorScheme
+    
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding(12)
             .font(.callout)
             .frame(maxWidth: .infinity)
-            .if(buttonTheme == .primary || buttonTheme == .staticDark || buttonTheme == .staticLight || buttonTheme == .secondary){ view in
+            .if(buttonTheme == .primary && colorScheme == .dark) { view in
+                view
+                    .background(
+                        RoundedRectangle(cornerRadius: 11)
+                            .fill(Color.primaryColor)
+                            .opacity(0.3)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 11)
+                            .strokeBorder(Color.primaryColor, lineWidth: 0.5)
+                            .opacity(0.6)
+                    )
+            }
+            .if(buttonTheme == .primary && colorScheme != .dark || buttonTheme == .staticDark || buttonTheme == .staticLight || buttonTheme == .secondary){ view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 11)
