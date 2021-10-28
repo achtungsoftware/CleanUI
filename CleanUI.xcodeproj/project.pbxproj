@@ -12,7 +12,6 @@
 		75023B5C270D3E7B00EF4098 /* CLDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B5B270D3E7B00EF4098 /* CLDateTime.swift */; };
 		75023B62270D46E900EF4098 /* CLScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B61270D46E900EF4098 /* CLScrollView.swift */; };
 		75023B8E270D51A800EF4098 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75023B8D270D51A800EF4098 /* ImageProvider.swift */; };
-		750507BF2726DB9A00B42C87 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 750507BE2726DB9A00B42C87 /* LICENSE.txt */; };
 		750507C32726EDEA00B42C87 /* CUNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750507C22726EDEA00B42C87 /* CUNavigationView.swift */; };
 		7513608C270BA493002E74AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7513608B270BA493002E74AF /* Assets.xcassets */; };
 		75136096270BA6E8002E74AF /* CleanUIDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75136095270BA6E8002E74AF /* CleanUIDemoApp.swift */; };
@@ -154,7 +153,6 @@
 		75023B5B270D3E7B00EF4098 /* CLDateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLDateTime.swift; sourceTree = "<group>"; };
 		75023B61270D46E900EF4098 /* CLScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLScrollView.swift; sourceTree = "<group>"; };
 		75023B8D270D51A800EF4098 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
-		750507BE2726DB9A00B42C87 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		750507C22726EDEA00B42C87 /* CUNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUNavigationView.swift; sourceTree = "<group>"; };
 		7513608B270BA493002E74AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75136093270BA6E8002E74AF /* CleanUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -546,7 +544,6 @@
 		758C626B2708BC2A008CF28A = {
 			isa = PBXGroup;
 			children = (
-				750507BE2726DB9A00B42C87 /* LICENSE.txt */,
 				75E941842724AFC500DA606A /* README.md */,
 				7517FE6A270E779D00D18846 /* build.sh */,
 				758C62772708BC2A008CF28A /* CleanUI */,
@@ -747,7 +744,6 @@
 				7517FE6B270E779D00D18846 /* build.sh in Resources */,
 				7513608C270BA493002E74AF /* Assets.xcassets in Resources */,
 				75E941852724AFC500DA606A /* README.md in Resources */,
-				750507BF2726DB9A00B42C87 /* LICENSE.txt in Resources */,
 				756C013E270BDFE900136DF8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
