@@ -5,6 +5,7 @@
 
 import SwiftUI
 import Combine
+import SafariServices
 
 /// This class handles browser windows
 public class CUBrowser {
@@ -14,7 +15,11 @@ public class CUBrowser {
     ///   - urlString: The initial url as `String`
     public static func open(_ urlString: String){
         if let url = URL(string: urlString){
-            CUNavigation.pushBottomSheet(CLBrowserView(url: url))
+            let safariViewController = SFSafariViewController(url: url)
+            
+            if let navigationController = CUNavigation.getCurrentNavigationController() {
+                navigationController.present(safariViewController, animated: true, completion: nil)
+            }
         }
     }
 }
@@ -53,5 +58,18 @@ struct CLBrowserView: View {
                 }
             }
         }
+    }
+}
+
+struct CLSafariView: UIViewControllerRepresentable {
+
+    let url: URL
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<CLSafariView>) -> SFSafariViewController {
+        return SFSafariViewController(url: url)
+    }
+
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<CLSafariView>) {
+
     }
 }
