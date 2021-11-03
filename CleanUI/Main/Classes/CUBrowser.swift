@@ -14,7 +14,15 @@ public class CUBrowser {
     /// - Parameters:
     ///   - urlString: The initial url as `String`
     public static func open(_ urlString: String){
-        if let url = URL(string: urlString){
+        
+        var useUrl: String = urlString
+        
+        if(!useUrl.lowercased().starts(with: "https://") && !useUrl.lowercased().starts(with: "http://")){
+            useUrl = "http://" + useUrl
+        }
+        
+        if let url = URL(string: useUrl){
+            
             let safariViewController = SFSafariViewController(url: url)
             
             if let navigationController = CUNavigation.getCurrentNavigationController() {
