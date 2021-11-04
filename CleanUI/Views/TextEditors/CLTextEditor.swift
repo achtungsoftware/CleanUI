@@ -132,7 +132,7 @@ struct UTextViewOverlay: UIViewRepresentable {
             }
         }
         
-        uiView.attributedText = attributedText
+        uiView.textStorage.setAttributedString(attributedText)
         uiView.maxLayoutWidth = maxLayoutWidth
         textViewStore.didUpdateTextView(uiView)
     }
