@@ -15,18 +15,23 @@ public class CUBrowser {
     ///   - urlString: The initial url as `String`
     public static func open(_ urlString: String){
         
-        var useUrl: String = urlString
-        
-        if(!useUrl.lowercased().starts(with: "https://") && !useUrl.lowercased().starts(with: "http://")){
-            useUrl = "http://" + useUrl
-        }
-        
-        if let url = URL(string: useUrl){
+        // If there is a UINavigationController use `SFSafariViewController`
+        if let navigationController = CUNavigation.getCurrentNavigationController() {
+            var useUrl: String = urlString
             
-            let safariViewController = SFSafariViewController(url: url)
+            if(!useUrl.lowercased().starts(with: "https://") && !useUrl.lowercased().starts(with: "http://")){
+                useUrl = "http://" + useUrl
+            }
             
-            if let navigationController = CUNavigation.getCurrentNavigationController() {
+            if let url = URL(string: useUrl){
+                
+                let safariViewController = SFSafariViewController(url: url)
                 navigationController.present(safariViewController, animated: true, completion: nil)
+                
+            }
+        }else { // When no UINavigationController found, use `CLBrowserView` inside of a sheet
+            if let url = URL(string: urlString){
+                CUNavigation.pushBottomSheet(CLBrowserView(url: url))
             }
         }
     }
@@ -70,14 +75,14 @@ struct CLBrowserView: View {
 }
 
 struct CLSafariView: UIViewControllerRepresentable {
-
+    
     let url: URL
-
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<CLSafariView>) -> SFSafariViewController {
         return SFSafariViewController(url: url)
     }
-
+    
     func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<CLSafariView>) {
-
+        
     }
 }
