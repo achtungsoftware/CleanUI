@@ -17,6 +17,7 @@ public struct CLExpandableText: View {
     var foregroundColor: Color
     var alternativeExpandButtonAction: (() -> Void)? = nil
     var attributes: [Attribute]
+    var expandButtonColor: Color
     
     
     /// - Parameters:
@@ -27,7 +28,8 @@ public struct CLExpandableText: View {
     ///   - foregroundColor: The Text color
     ///   - alternativeExpandButtonAction: If you provide an action here, the default action for the show more button gets overwritten
     ///   - attributes: The attributes which should be highlighted for the ``CLRichText``, default is `[.links, .hashtags, .mentions]
-    public init(_ string: String, characterLimit: Int = 150, font: Font = .callout, richText: Bool = true, foregroundColor: Color = Color.defaultText, alternativeExpandButtonAction: (() -> Void)? = nil, attributes: [Attribute] = [.links(), .hashtags(), .mentions()]) {
+    ///   - expandButtonColor: Set the foregroundColor for the expand button, default is `Color.grayText`
+    public init(_ string: String, characterLimit: Int = 150, font: Font = .callout, richText: Bool = true, foregroundColor: Color = Color.defaultText, alternativeExpandButtonAction: (() -> Void)? = nil, attributes: [Attribute] = [.links(), .hashtags(), .mentions()], expandButtonColor: Color = Color.grayText) {
         self.characterLimit = characterLimit
         self.string = string
         self.font = font
@@ -35,6 +37,7 @@ public struct CLExpandableText: View {
         self.foregroundColor = foregroundColor
         self.alternativeExpandButtonAction = alternativeExpandButtonAction
         self.attributes = attributes
+        self.expandButtonColor = expandButtonColor
         
         self._shortString = State(initialValue: String(self.string.trim().prefix(characterLimit) + String(self.string.count > self.characterLimit ? "..." : "")))
     }
@@ -78,7 +81,7 @@ public struct CLExpandableText: View {
                 }) {
                     Text(CULanguage.getStringCleanUI(expanded ? "showless" : "showmore"))
                         .font(.subheadline)
-                        .foregroundColor(Color.grayText)
+                        .foregroundColor(expandButtonColor)
                 }
                 .buttonStyle(.plain)
                 .padding(.vertical, 5)
