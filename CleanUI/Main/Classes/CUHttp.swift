@@ -48,12 +48,13 @@ public class CUHttp {
             
             if let images = images {
                 for (name, image) in images {
-                    let imageData = image.jpegData(compressionQuality: 0.8)
-                    body.appendString(string: "--\(boundary)\r\n")
-                    body.appendString(string: "Content-Disposition: form-data; name=\"\(name)\"; filename=\"image.jpg\"\r\n")
-                    body.appendString(string: "Content-Type: image/jpg\r\n\r\n")
-                    body.append(imageData! as Data)
-                    body.appendString(string: "\r\n")
+                    if let imageData = image.jpegData(compressionQuality: 0.8) {
+                        body.appendString(string: "--\(boundary)\r\n")
+                        body.appendString(string: "Content-Disposition: form-data; name=\"\(name)\"; filename=\"image.jpg\"\r\n")
+                        body.appendString(string: "Content-Type: image/jpg\r\n\r\n")
+                        body.append(imageData as Data)
+                        body.appendString(string: "\r\n")
+                    }
                 }
             }
             
@@ -65,11 +66,12 @@ public class CUHttp {
                     } catch _ {
                         videoData = nil
                     }
-                    if(videoData != nil){
+                    
+                    if let videoData = videoData {
                         body.appendString(string: "--\(boundary)\r\n")
                         body.appendString(string: "Content-Disposition: form-data; name=\"\(name)\"; filename=\"video.mp4\"\r\n")
                         body.appendString(string: "Content-Type: video/mp4\r\n\r\n")
-                        body.append(videoData! as Data)
+                        body.append(videoData as Data)
                         body.appendString(string: "\r\n")
                     }
                 }
@@ -85,11 +87,11 @@ public class CUHttp {
                         audioData = nil
                     }
                     
-                    if(audioData != nil){
+                    if let audioData = audioData {
                         body.appendString(string: "--\(boundary)\r\n")
                         body.appendString(string: "Content-Disposition: form-data; name=\"\(name)\"; filename=\"audio.m4a\"\r\n")
                         body.appendString(string: "Content-Type: audio/m4a\r\n\r\n")
-                        body.append(audioData! as Data)
+                        body.append(audioData as Data)
                         body.appendString(string: "\r\n")
                     }
                 }
@@ -113,27 +115,40 @@ public class CUHttp {
                 }
                 
                 // Read HTTP Response Status code
-                let response = response as? HTTPURLResponse
-                
-                // Convert HTTP Response Data to a simple String
-                let dataString = String(data: data!, encoding: .utf8)
-                
-                if(response?.statusCode == 200){
-                    if(dataString != ""){
-                        CUThreadHelper.async.main.run {
-                            callback(dataString ?? "", true)
-                        }
-                    }else {
-                        CUThreadHelper.async.main.run {
-                            callback("", false)
-                        }
-                    }
-                }else {
+                guard let response = response as? HTTPURLResponse else {
                     CUThreadHelper.async.main.run {
                         callback("", false)
                     }
+                    return
                 }
                 
+                // Check if data is valid
+                guard let data = data else {
+                    CUThreadHelper.async.main.run {
+                        callback("", false)
+                    }
+                    return
+                }
+                
+                // Convert HTTP Response Data to a simple String
+                guard let dataString = String(data: data, encoding: .utf8) else {
+                    CUThreadHelper.async.main.run {
+                        callback("", false)
+                    }
+                    return
+                }
+                
+                // Check if HTTP-STATUS-CODE is OK (200)
+                if response.statusCode != 200 {
+                    CUThreadHelper.async.main.run {
+                        callback("", false)
+                    }
+                    return
+                }
+                
+                CUThreadHelper.async.main.run {
+                    callback(dataString, true)
+                }
             }
             
             task.resume()
@@ -175,33 +190,58 @@ public class CUHttp {
                 }
                 
                 // Read HTTP Response Status code
-                let response = response as? HTTPURLResponse
-                
-                // Convert HTTP Response Data to a simple String
-                let dataString = String(data: data!, encoding: .utf8)
-                
-                if(response?.statusCode == 200){
-                    if(dataString != ""){
-                        let jsonData = dataString!.data(using: .utf8)!
-                        do {
-                            let data: T = try JSONDecoder().decode(T.self, from: jsonData)
-                            CUThreadHelper.async.main.run {
-                                callback(data, dataString ?? "", true)
-                            }
-                        } catch {
-                            CUThreadHelper.async.main.run {
-                                callback(nil, "", false)
-                            }
-                        }
-                    }else {
-                        CUThreadHelper.async.main.run {
-                            callback(nil, "", false)
-                        }
-                    }
-                }else {
+                guard let response = response as? HTTPURLResponse else {
                     CUThreadHelper.async.main.run {
                         callback(nil, "", false)
                     }
+                    return
+                }
+                
+                // Check if data is valid
+                guard let data = data else {
+                    CUThreadHelper.async.main.run {
+                        callback(nil, "", false)
+                    }
+                    return
+                }
+                
+                // Convert HTTP Response Data to a simple String
+                guard let dataString = String(data: data, encoding: .utf8) else {
+                    CUThreadHelper.async.main.run {
+                        callback(nil, "", false)
+                    }
+                    return
+                }
+                
+                // Check if HTTP-STATUS-CODE is OK (200)
+                if response.statusCode != 200 {
+                    CUThreadHelper.async.main.run {
+                        callback(nil, "", false)
+                    }
+                    return
+                }
+                
+                if dataString.isEmpty {
+                    CUThreadHelper.async.main.run {
+                        callback(nil, "", false)
+                    }
+                    return
+                }
+                
+                let jsonData = dataString.data(using: .utf8)
+                
+                if let jsonData = jsonData {
+                    do {
+                        let data: T = try JSONDecoder().decode(T.self, from: jsonData)
+                        CUThreadHelper.async.main.run {
+                            callback(data, dataString, true)
+                        }
+                        return
+                    } catch {}
+                }
+                
+                CUThreadHelper.async.main.run {
+                    callback(nil, "", false)
                 }
             }
             task.resume()
@@ -243,33 +283,51 @@ public class CUHttp {
                 }
                 
                 // Read HTTP Response Status code
-                let response = response as? HTTPURLResponse
-                
-                // Convert HTTP Response Data to a simple String
-                let dataString = String(data: data!, encoding: .utf8)
-                
-                if(response?.statusCode == 200){
-                    if(dataString != ""){
-                        let jsonData = dataString!.data(using: .utf8)
-                        do {
-                            let data: [T] = try JSONDecoder().decode([T].self, from: jsonData!)
-                            CUThreadHelper.async.main.run {
-                                callback(data, dataString ?? "", true)
-                            }
-                        } catch {
-                            CUThreadHelper.async.main.run {
-                                callback(nil, "", false)
-                            }
-                        }
-                    }else {
-                        CUThreadHelper.async.main.run {
-                            callback(nil, "", false)
-                        }
-                    }
-                }else {
+                guard let response = response as? HTTPURLResponse else {
                     CUThreadHelper.async.main.run {
                         callback(nil, "", false)
                     }
+                    return
+                }
+                
+                // Check if data is valid
+                guard let data = data else {
+                    CUThreadHelper.async.main.run {
+                        callback(nil, "", false)
+                    }
+                    return
+                }
+                
+                // Convert HTTP Response Data to a simple String
+                guard let dataString = String(data: data, encoding: .utf8) else {
+                    CUThreadHelper.async.main.run {
+                        callback(nil, "", false)
+                    }
+                    return
+                }
+                
+                // Check if HTTP-STATUS-CODE is OK (200)
+                if response.statusCode != 200 {
+                    CUThreadHelper.async.main.run {
+                        callback(nil, "", false)
+                    }
+                    return
+                }
+                
+                let jsonData = dataString.data(using: .utf8)
+                
+                if let jsonData = jsonData {
+                    do {
+                        let data: [T] = try JSONDecoder().decode([T].self, from: jsonData)
+                        CUThreadHelper.async.main.run {
+                            callback(data, dataString, true)
+                        }
+                        return
+                    } catch {}
+                }
+                
+                CUThreadHelper.async.main.run {
+                    callback(nil, "", false)
                 }
             }
             task.resume()
@@ -311,25 +369,39 @@ public class CUHttp {
                 }
                 
                 // Read HTTP Response Status code
-                let response = response as? HTTPURLResponse
-                
-                // Convert HTTP Response Data to a simple String
-                let dataString = String(data: data!, encoding: .utf8)
-                
-                if(response?.statusCode == 200){
-                    if(dataString != ""){
-                        CUThreadHelper.async.main.run {
-                            callback(dataString ?? "", true)
-                        }
-                    }else {
-                        CUThreadHelper.async.main.run {
-                            callback("", false)
-                        }
-                    }
-                }else {
+                guard let response = response as? HTTPURLResponse else {
                     CUThreadHelper.async.main.run {
                         callback("", false)
                     }
+                    return
+                }
+                
+                // Check if data is valid
+                guard let data = data else {
+                    CUThreadHelper.async.main.run {
+                        callback("", false)
+                    }
+                    return
+                }
+                
+                // Convert HTTP Response Data to a simple String
+                guard let dataString = String(data: data, encoding: .utf8) else {
+                    CUThreadHelper.async.main.run {
+                        callback("", false)
+                    }
+                    return
+                }
+                
+                // Check if HTTP-STATUS-CODE is OK (200)
+                if response.statusCode != 200 {
+                    CUThreadHelper.async.main.run {
+                        callback("", false)
+                    }
+                    return
+                }
+                
+                CUThreadHelper.async.main.run {
+                    callback(dataString, true)
                 }
             }
             task.resume()
