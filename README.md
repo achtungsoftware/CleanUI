@@ -1,5 +1,5 @@
 # Docs
-You can find the documentation [here](https://www.knoggl.com/docs/cleanui).
+You can find the documentation [here](https://knoggl.github.io/CleanUI/).
 
 # What is CleanUI
 CleanUI is a SwiftUI & Swift, ui / backend framework. CleanUI has everything build in to get you started to build your app. CleanUI is ripped out of the [Knoggl iOS App](https://www.knoggl.com) to make a reusable framework, which can be worked on without directly changing things inside of the [Knoggl iOS App](https://www.knoggl.com). In other words, CleanUI is the heart of the [Knoggl iOS App](https://www.knoggl.com).
