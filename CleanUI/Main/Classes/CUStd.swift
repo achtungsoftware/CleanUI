@@ -15,11 +15,13 @@ public class CUStd {
         if let mainWindow = CUGlobal.mainWindow {
             return mainWindow
         }else {
-            return UIApplication
+            CUGlobal.mainWindow = UIApplication
                 .shared
                 .connectedScenes
                 .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
                 .first { $0.isKeyWindow }
+            
+            return CUGlobal.mainWindow
         }
     }
 }
