@@ -14,8 +14,9 @@ public class CUInAppNotification {
     ///   - title: The title `String` for the notification
     ///   - body: The body `String` for the notification
     ///   - tapAction: The tap action, default is `nil`
-    public static func show(title: String, body: String, tapAction: (() -> ())? = nil) {
-        CUGlobal.inAppNotifications.add(title: title, body: body, tapAction: tapAction)
+    ///   - vibration: The `CUVibrate` vibration type, if no vibration needed use `.none`. Default is, `.oldSchool`
+    public static func show(title: String, body: String, tapAction: (() -> ())? = nil, vibration: CUVibrate = .oldSchool) {
+        CUGlobal.inAppNotifications.add(title: title, body: body, tapAction: tapAction, vibration: vibration)
     }
     
     /// Clears a single notification
@@ -34,7 +35,7 @@ public class CUInAppNotification {
         }
     }
     
-    func add(title: String, body: String, tapAction: (() -> ())?) {
+    func add(title: String, body: String, tapAction: (() -> ())?, vibration: CUVibrate) {
         
         let id: UUID = UUID()
         
@@ -62,7 +63,8 @@ public class CUInAppNotification {
             })
             
             notifications.append(CUAlertModel(id: id, view: notificationView.view))
-            CUVibrate.oldSchool.vibrate()
+            
+            vibration.vibrate()
         }
     }
 }

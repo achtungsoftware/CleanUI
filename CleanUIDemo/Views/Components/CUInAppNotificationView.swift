@@ -16,6 +16,23 @@ struct CUInAppNotificationView: View {
             }){
                 Text("Test CUInAppNotification")
             }
+            
+            Button(action: {
+                CUInAppNotification.show(title: "I'm a CUInAppNotification title", body: "This is my body", tapAction: {
+                    CUAlertMessage.show("CUInAppNotification action tapped")
+                }, vibration: .heavy)
+            }){
+                Text("Test CUInAppNotification with different vibration")
+            }
+            
+            
+            Button(action: {
+                CUInAppNotification.show(title: "I'm a CUInAppNotification title", body: "This is my body", tapAction: {
+                    CUAlertMessage.show("CUInAppNotification action tapped")
+                }, vibration: .none)
+            }){
+                Text("Test CUInAppNotification without vibration")
+            }
         }
         .navigationBar("CUInAppNotification")
     }

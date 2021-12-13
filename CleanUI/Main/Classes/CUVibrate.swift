@@ -22,6 +22,7 @@ public enum CUVibrate {
     case rigid
     case selection
     case oldSchool
+    case none
     
     /// Fire the vibration
     public func vibrate() {
@@ -65,6 +66,8 @@ public enum CUVibrate {
                 UISelectionFeedbackGenerator().selectionChanged()
             case .oldSchool:
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            case .none:
+                break
             }
         }
     }
