@@ -6,6 +6,7 @@
 import SwiftUI
 import Combine
 
+
 /// Returns a styled menu for ``CUSheet``
 public struct CLSheetMenu: View {
     
@@ -17,28 +18,36 @@ public struct CLSheetMenu: View {
     }
     
     public var body: some View {
-        ForEach(menuItems, id: \.id) { item in
-            if(item.show){
-                Button(action: {
-                    item.action()
-                }, label: {
-                    HStack(spacing: 16) {
-                        if let icon = item.icon {
-                            icon
+        VStack(spacing: 0) {
+            ForEach(Array(menuItems.enumerated()), id: \.offset) { index, item in
+                if item.show {
+                    Button(action: {
+                        item.action()
+                    }) {
+                        VStack(spacing: 0) {
+                            HStack(spacing: 16) {
+                                if let icon = item.icon {
+                                    icon
+                                }
+                                
+                                Text(item.title)
+                                
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                            .padding(.bottom, 16)
+                            .padding(.top, 16)
+                            
+                            if index < menuItems.count - 1 {
+                                Divider()
+                            }
                         }
-                        
-                        Text(item.title)
-                            .fontWeight(.medium)
-                        
-                        Spacer()
+                        .contentShape(Rectangle())
                     }
-                    .contentShape(Rectangle())
-                })
-                    .buttonStyle(.plain)
+                    .buttonStyle(MenuButtonStyle())
                     .foregroundColor(item.foregroundColor != nil ? item.foregroundColor : Color.defaultText)
-                    .font(.subheadline)
-                    .padding(.horizontal)
-                    .padding(.bottom)
+                    .font(.callout)
+                }
             }
         }
     }

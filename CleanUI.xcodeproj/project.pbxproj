@@ -55,6 +55,7 @@
 		754249E9270F7AB2004D217B /* GeometryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249E8270F7AB2004D217B /* GeometryProxy.swift */; };
 		754249EB270F7AE0004D217B /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249EA270F7AE0004D217B /* NSAttributedString.swift */; };
 		754249F3270F86BE004D217B /* CLExpandableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754249F2270F86BE004D217B /* CLExpandableText.swift */; };
+		756730E1276BC7650080EFA4 /* MenuButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756730E0276BC7650080EFA4 /* MenuButtonStyle.swift */; };
 		756C010D270BB74A00136DF8 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C010C270BB74A00136DF8 /* Attribute.swift */; };
 		756C0111270BBB7100136DF8 /* CLSingleLineTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0110270BBB7100136DF8 /* CLSingleLineTextEditor.swift */; };
 		756C0113270BBC6700136DF8 /* CLInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C0112270BBC6700136DF8 /* CLInfoCard.swift */; };
@@ -196,6 +197,7 @@
 		754249E8270F7AB2004D217B /* GeometryProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryProxy.swift; sourceTree = "<group>"; };
 		754249EA270F7AE0004D217B /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		754249F2270F86BE004D217B /* CLExpandableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLExpandableText.swift; sourceTree = "<group>"; };
+		756730E0276BC7650080EFA4 /* MenuButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonStyle.swift; sourceTree = "<group>"; };
 		756C010C270BB74A00136DF8 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		756C0110270BBB7100136DF8 /* CLSingleLineTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSingleLineTextEditor.swift; sourceTree = "<group>"; };
 		756C0112270BBC6700136DF8 /* CLInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLInfoCard.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 				756C014E270BEC4500136DF8 /* SecondaryAltButtonStyle.swift */,
 				756C0150270BEE5500136DF8 /* IconRoundOverImageButtonStyle.swift */,
 				756C0152270BEE7F00136DF8 /* ImageOverlayButtonStyle.swift */,
+				756730E0276BC7650080EFA4 /* MenuButtonStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 				75B1CB95270CD2A2000089F9 /* UIScrollView.swift in Sources */,
 				75023B8E270D51A800EF4098 /* ImageProvider.swift in Sources */,
 				75B1CBB7270CE9F5000089F9 /* CLCircularProgress.swift in Sources */,
+				756730E1276BC7650080EFA4 /* MenuButtonStyle.swift in Sources */,
 				75B1CBD5270D0002000089F9 /* ImageCache.swift in Sources */,
 				75C3B6822712A59500CDC411 /* CUSheet.swift in Sources */,
 				756C011D270BC88A00136DF8 /* CUHttp.swift in Sources */,
@@ -1096,7 +1100,7 @@
 				);
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = U5D9QBA695;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1111,7 +1115,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knoggl.CleanUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
@@ -1132,7 +1136,7 @@
 				);
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = U5D9QBA695;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1147,7 +1151,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knoggl.CleanUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
