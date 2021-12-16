@@ -15,7 +15,7 @@ internal class CLAlertViewModel: CUViewModel {
         super.didLoad()
         
         // Show the alert with animation
-        withAnimation(Animation.easeInOut(duration: 0.3)) {
+        withAnimation(Animation.easeInOut(duration: 0.25)) {
             isShowing = true
         }
     }

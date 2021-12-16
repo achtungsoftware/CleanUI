@@ -26,12 +26,12 @@ internal class CLSheetViewModel: CUViewModel {
     
     /// Closes / dismisses the sheet
     func close() {
-        withAnimation(Animation.easeInOut(duration: 0.3)) {
+        withAnimation(Animation.easeInOut(duration: 0.25)) {
             offset.height = height
             showBackground = false
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.28) {
             CUSheet.clearAll()
         }
     }

@@ -24,7 +24,7 @@ public class CUAlert {
     var alerts: [CUAlertModel] = []
     
     private func clearAll() {
-        if(!alerts.isEmpty){
+        if !alerts.isEmpty {
             for alert in alerts {
                 alert.view.removeFromSuperview()
             }

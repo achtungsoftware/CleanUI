@@ -16,7 +16,7 @@ internal struct CLALert<Content: View>: View {
         ZStack {
             if viewModel.isShowing {
                 Color.black
-                    .opacity(0.25)
+                    .opacity(0.20)
                     .edgesIgnoringSafeArea(.all)
                     .transition(.opacity)
                     .onTapGesture {
@@ -30,7 +30,7 @@ internal struct CLALert<Content: View>: View {
                 .transition(.move(edge: .top).combined(with: .opacity))
                 .padding()
                 .background(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: 12)
                         .fill(Color.alert)
                 )
                 .padding()

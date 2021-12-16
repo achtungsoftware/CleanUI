@@ -24,7 +24,7 @@ public class CUSheet {
     var alerts: [CUAlertModel] = []
     
     private func clearAll() {
-        if(!alerts.isEmpty){
+        if !alerts.isEmpty {
             for alert in alerts {
                 alert.view.removeFromSuperview()
             }
@@ -53,7 +53,6 @@ public class CUSheet {
             UIView.animate(withDuration: 0.2) {
                 sheetView.view.alpha = 1.0
             }
-            
             
             // Close Keyboard
             UIApplication.shared.endEditing()
