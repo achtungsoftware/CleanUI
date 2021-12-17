@@ -331,49 +331,49 @@
     },
     {
       "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Main/Classes/CUSheet.swift",
-      "line": 74,
+      "line": 73,
       "symbol": "CLSheetMenuItem",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Main/Classes/CUSheet.swift",
-      "line": 76,
+      "line": 75,
       "symbol": "CLSheetMenuItem.init(title:show:action:icon:foregroundColor:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Main/Classes/CUSheet.swift",
-      "line": 85,
+      "line": 84,
       "symbol": "CLSheetMenuItem.title",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Main/Classes/CUSheet.swift",
-      "line": 86,
+      "line": 85,
       "symbol": "CLSheetMenuItem.show",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Main/Classes/CUSheet.swift",
-      "line": 87,
+      "line": 86,
       "symbol": "CLSheetMenuItem.action",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Main/Classes/CUSheet.swift",
-      "line": 88,
+      "line": 87,
       "symbol": "CLSheetMenuItem.icon",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Main/Classes/CUSheet.swift",
-      "line": 89,
+      "line": 88,
       "symbol": "CLSheetMenuItem.foregroundColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -487,6 +487,13 @@
       "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Main/Classes/CUVibrate.swift",
       "line": 24,
       "symbol": "CUVibrate.oldSchool",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Main/Classes/CUVibrate.swift",
+      "line": 25,
+      "symbol": "CUVibrate.none",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
@@ -733,6 +740,13 @@
       "line": 12,
       "symbol": "ImageOverlayButtonStyle.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/juliangerhards/Desktop/Knoggl/CleanUI/CleanUI/Styles/MenuButtonStyle.swift",
+      "line": 9,
+      "symbol": "MenuButtonStyle",
+      "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
