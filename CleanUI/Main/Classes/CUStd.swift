@@ -24,4 +24,20 @@ public class CUStd {
             return CUGlobal.mainWindow
         }
     }
+    
+    /// Trys to return the index of an object inside a `Identifiable` `Array`.
+    /// - Parameter array: The `Identifiable` `Array` in which we search for the index
+    /// - Parameter searchedObject: The `Identifiable` to search for
+    /// - Returns: The index if found, else `0`
+    public static func getArrayIndex<T: Identifiable>(_ array: [T], searchedObject: T) -> Int {
+        var currentIndex: Int = 0
+        for obj in array
+        {
+            if obj.id == searchedObject.id {
+                return currentIndex
+            }
+            currentIndex += 1
+        }
+        return 0
+    }
 }
