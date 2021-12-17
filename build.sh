@@ -1,8 +1,3 @@
-//
-//  Copyright © 2021 - present Julian Gerhards
-//  GitHub https://github.com/knoggl/CleanUI
-//
-
 echo "Remove old xcframework build..."
 rm -rf "./build/CleanUI.xcframework"
 
@@ -16,7 +11,6 @@ xcodebuild archive clean \
     -configuration Release \
     -destination 'generic/platform=iOS' \
     -archivePath "./build/iphoneos/CleanUI.xcarchive" \
-    -sdk iphoneos15.0 \
     SKIP_INSTALL=NO \
     BUILD_LIBRARIES_FOR_DISTRIBUTION=YES \
     ONLY_ACTIVE_ARCH=NO \
@@ -28,7 +22,6 @@ echo "Building for iOS Simulator..."
     -configuration Release \
     -destination 'generic/platform=iOS Simulator' \
     -archivePath "./build/iphonesimulator/CleanUI.xcarchive" \
-    -sdk iphonesimulator15.0 \
     SKIP_INSTALL=NO \
     BUILD_LIBRARIES_FOR_DISTRIBUTION=YES \
     ONLY_ACTIVE_ARCH=NO \

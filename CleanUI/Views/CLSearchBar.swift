@@ -12,15 +12,18 @@ public struct CLSearchBar: UIViewRepresentable {
     @Binding var text: String
     var placeholder: String
     @Binding var isEditing: Bool
+    let becomeFirstResponder: Bool
     
     /// - Parameters:
     ///   - text: The search text
     ///   - placeholder: The placeholder
     ///   - isEditing: A `Binding<Bool>` which indicates if the ``CLSearchBar`` is in focus
-    public init(text: Binding<String>, placeholder: String, isEditing: Binding<Bool>) {
+    ///   - becomeFirstResponder: Should this `UISearchBar` automatically focus?, default is `false`
+    public init(text: Binding<String>, placeholder: String, isEditing: Binding<Bool>, becomeFirstResponder: Bool = false) {
         self._text = text
         self.placeholder = placeholder
         self._isEditing = isEditing
+        self.becomeFirstResponder = becomeFirstResponder
     }
     
     public func makeUIView(context: UIViewRepresentableContext<CLSearchBar>) -> UISearchBar {
@@ -29,6 +32,11 @@ public struct CLSearchBar: UIViewRepresentable {
         searchBar.placeholder = placeholder
         searchBar.searchBarStyle = .minimal
         searchBar.autocapitalizationType = .none
+        
+        if becomeFirstResponder {
+            searchBar.becomeFirstResponder()
+        }
+        
         return searchBar
     }
     
