@@ -15,8 +15,8 @@ public class CUInAppNotification {
     ///   - body: The body `String` for the notification
     ///   - tapAction: The tap action, default is `nil`
     ///   - vibration: The `CUVibrate` vibration type, if no vibration needed use `.none`. Default is, `.oldSchool`
-    public static func show(title: String, body: String, tapAction: (() -> ())? = nil, vibration: CUVibrate = .oldSchool) {
-        CUGlobal.inAppNotifications.add(title: title, body: body, tapAction: tapAction, vibration: vibration)
+    public static func show(title: String, body: String, tapAction: (() -> ())? = nil, vibration: CUVibrate = .oldSchool, trailingView: AnyView? = nil) {
+        CUGlobal.inAppNotifications.add(title: title, body: body, tapAction: tapAction, vibration: vibration, trailingView: trailingView)
     }
     
     /// Clears a single notification
@@ -35,12 +35,12 @@ public class CUInAppNotification {
         }
     }
     
-    func add(title: String, body: String, tapAction: (() -> ())?, vibration: CUVibrate) {
+    func add(title: String, body: String, tapAction: (() -> ())?, vibration: CUVibrate, trailingView: AnyView?) {
         
         let id: UUID = UUID()
         
         if let controller = CUStd.getMainUIWindow()?.rootViewController {
-            let notificationView = UIHostingController(rootView: CLInAppNotificationView(id: id, title: title, subTitle: body, tapAction: tapAction))
+            let notificationView = UIHostingController(rootView: CLInAppNotificationView(id: id, title: title, subTitle: body, trailingView: trailingView, tapAction: tapAction))
             controller.view.addSubview(notificationView.view)
             notificationView.view.translatesAutoresizingMaskIntoConstraints = false
             notificationView.view.isUserInteractionEnabled = true
@@ -74,6 +74,7 @@ struct CLInAppNotificationView: View {
     let id: UUID
     var title: String
     var subTitle: String
+    var trailingView: AnyView?
     var tapAction: (() -> ())?
     
     @State private var show: Bool = true
@@ -81,21 +82,28 @@ struct CLInAppNotificationView: View {
     
     var body: some View {
         if show {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(title)
-                        .font(.subheadline)
-                        .foregroundColor(Color.defaultText)
-                        .fontWeight(.bold)
-                        .lineLimit(1)
-                    Spacer()
+            HStack {
+                
+                if let trailingView = trailingView {
+                    trailingView
                 }
-                HStack {
-                    Text(subTitle)
-                        .lineLimit(1)
-                        .font(.subheadline)
-                        .foregroundColor(Color.defaultText)
-                    Spacer()
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(title)
+                            .font(.subheadline)
+                            .foregroundColor(Color.defaultText)
+                            .fontWeight(.bold)
+                            .lineLimit(1)
+                        Spacer()
+                    }
+                    HStack {
+                        Text(subTitle)
+                            .lineLimit(1)
+                            .font(.subheadline)
+                            .foregroundColor(Color.defaultText)
+                        Spacer()
+                    }
                 }
             }
             .padding(16)
