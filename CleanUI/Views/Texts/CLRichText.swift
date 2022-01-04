@@ -5,6 +5,7 @@
 
 import SwiftUI
 import Combine
+import SwiftPlus
 
 /// Returns a ``CLRichText`` with ``Attribute`` highlighting and onTap actions
 public struct CLRichText: View {

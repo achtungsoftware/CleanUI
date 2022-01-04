@@ -6,6 +6,7 @@
 import SwiftUI
 import AVKit
 import Combine
+import SwiftPlus
 
 public enum VideoExportQuality {
     case low
@@ -55,7 +56,7 @@ public class CUVideoHelper {
         exporter.outputFileType = AVFileType.mp4
         
         exporter.exportAsynchronously( completionHandler: { () -> Void in
-            CUThreadHelper.async.main.run {
+            SPThreadHelper.async.main.run {
                 callback( outputUrl )
             }
         })
@@ -75,12 +76,12 @@ public class CUVideoHelper {
         do {
             let cgThumbImage = try avAssetImageGenerator.copyCGImage(at: thumnailTime, actualTime: nil)
             let thumbImage = UIImage(cgImage: cgThumbImage)
-            CUThreadHelper.async.main.run {
+            SPThreadHelper.async.main.run {
                 completion(thumbImage)
             }
         } catch {
             print(error.localizedDescription)
-            CUThreadHelper.async.main.run {
+            SPThreadHelper.async.main.run {
                 completion(nil)
             }
         }

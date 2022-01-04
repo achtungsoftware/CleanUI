@@ -6,6 +6,7 @@
 import SwiftUI
 import AVKit
 import Combine
+import SwiftPlus
 
 public extension AVURLAsset {
     
@@ -85,7 +86,7 @@ public extension AVURLAsset {
         exporter.timeRange = timeRange
         
         exporter.exportAsynchronously( completionHandler: { () -> Void in
-            CUThreadHelper.async.main.run {
+            SPThreadHelper.async.main.run {
                 callback( croppedOutputFileUrl )
             }
         })

@@ -5,6 +5,7 @@
 
 import SwiftUI
 import Combine
+import SwiftPlus
 
 /// Returns an ``CLUrlImage`` which fetches a image from an url, displays and caches it, if needed
 public struct CLUrlImage: View {
@@ -90,7 +91,7 @@ public class UrlImageModel: ObservableObject {
         
         self.imageCache.set(forKey: self.urlString!, image: loadedImage)
         
-        CUThreadHelper.async.main.run {
+        SPThreadHelper.async.main.run {
             self.image = loadedImage
         }
     }

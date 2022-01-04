@@ -5,6 +5,7 @@
 
 import SwiftUI
 import Combine
+import SwiftPlus
 
 /// ``CLSearchBar`` is a `UIViewRepresentable` for an `UISearchBar`
 public struct CLSearchBar: UIViewRepresentable {
@@ -63,13 +64,13 @@ public struct CLSearchBar: UIViewRepresentable {
         }
         
         public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            CUThreadHelper.async.main.run {
+            SPThreadHelper.async.main.run {
                 self.isEditing = true
             }
         }
         
         public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-            CUThreadHelper.async.main.run {
+            SPThreadHelper.async.main.run {
                 self.isEditing = false
             }
         }
