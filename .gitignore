@@ -1,4 +1,7 @@
-
-CleanUI/.DS_Store
 .DS_Store
-build/
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftPlus",
+        "repositoryURL": "https://github.com/knoggl/SwiftPlus.git",
+        "state": {
+          "branch": null,
+          "revision": "5acb6e450bcc89e7ab67badda7e98ea7a4716270",
+          "version": "1.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
