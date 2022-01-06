@@ -15,3 +15,30 @@ CleanUI has many default views from simple to complex. CleanUI allows to make hu
 
 # How to use
 CleanUI views have a 'CL' prefix. CleanUI helper classes have a 'CU' prefix.
+
+# Examples
+
+### Programmatic Navigation
+```swift
+NavigationView {
+    Button(action: {
+      CUNavigation.pushToSwiftUiView(YOUR_VIEW_HERE)
+    }){
+      Text("Push To SwiftUI View")
+    }
+    
+    Button(action: {
+      CUNavigation.popToRootView()
+    }){
+      Text("Pop to the Root View")
+    }
+    
+    Button(action: {
+      CUNavigation.pushBottomSheet(YOUR_VIEW_HERE)
+    }){
+      Text("Push to a Botton-Sheet")
+    }
+}
+```
+
+
