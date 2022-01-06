@@ -41,4 +41,31 @@ NavigationView {
 }
 ```
 
+### Custom NavigationBar
+```swift
+List {
+    Text("Item")
+}
+.navigationBar("MyTitle")
 
+// With a big title
+List {
+    Text("Item")
+}
+.navigationBar("MyTitle", bigTitle: true)
+
+// With a NavigationSearchBar and trailing buttons
+
+@StateObject var navigationSearchField: NavigationBarSearchField = NavigationBarSearchField()
+
+List {
+    Text("Item")
+}
+.navigationBar("MyTitle", bigTitle: true, buttons: AnyView(Group {
+    Button(action: {
+        // Action
+    }, label: {
+        CLIcon(systemImage: "plus")
+    })
+}), searchBar: navigationSearchField)
+```
