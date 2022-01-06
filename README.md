@@ -69,3 +69,39 @@ List {
     })
 }), searchBar: navigationSearchField)
 ```
+
+### Alerts, Sheets and AlertMessages
+CleanUI lets you create Alerts and Sheets very easily.
+
+To show a Alert from everywhere in code you can do this.
+```swift
+CUAlert.show(YOUR_VIEW_HERE)
+
+// Clear all Alerts with
+CUAlert.clearAll()
+```
+
+To show a Sheet from everywhere in code you can do this.
+```swift
+CUSheet.show(YOUR_VIEW_HERE)
+
+// Clear all Sheets with
+CUSheet.clearAll()
+```
+
+To show a AlertMessage from everywhere in code you can do this.
+```swift
+CUAlertMessage.show("HELOOOOO")
+CUAlertMessage.show("HELOOOOO", subTitle: "WORLD")
+
+// All styles `CLInfoCard.InfoCardType``
+CUAlertMessage.show("HELOOOOO", type: .error)
+CUAlertMessage.show("HELOOOOO", subTitle: "WORLD", type: .error)
+
+CUAlertMessage.show("HELOOOOO", type: .success)
+CUAlertMessage.show("HELOOOOO", subTitle: "WORLD", type: .success)
+
+CUAlertMessage.show("HELOOOOO", type: .info)
+CUAlertMessage.show("HELOOOOO", subTitle: "WORLD", type: .info)
+```
+
