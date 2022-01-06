@@ -14,7 +14,7 @@ You can download the Knoggl-iOS App on the [AppStore](https://apps.apple.com/de/
 CleanUI has many default views from simple to complex. CleanUI allows to make huge changes in your app with as little code as possible.
 
 # How to use
-CleanUI views have a 'CL' prefix. CleanUI helper classes have a 'CU' prefix.
+CleanUI views have a ``CL`` prefix. CleanUI helper classes have a ``CU`` prefix.
 
 # Examples
 
