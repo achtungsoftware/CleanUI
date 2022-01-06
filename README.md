@@ -71,7 +71,7 @@ List {
 ```
 
 ### Alerts, Sheets and AlertMessages
-CleanUI lets you create Alerts and Sheets very easily.
+CleanUI lets you create Alerts, Sheets and AlertMessages very easily.
 
 To show a Alert from everywhere in code you can do this.
 ```swift
