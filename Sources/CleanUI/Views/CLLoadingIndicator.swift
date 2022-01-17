@@ -54,7 +54,7 @@ public struct CLLoadingIndicator: View {
                 switch style {
                 case .standard(let tint):
                     ProgressView()
-                        .foregroundColor(tint)
+                        .progressViewStyle(CircularProgressViewStyle(tint: tint))
                 case .knoggl:
                     CLKnogglGradient()
                         .frame(width: 20, height: 20, alignment: .center)
