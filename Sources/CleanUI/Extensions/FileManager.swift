@@ -17,7 +17,7 @@
 
 import SwiftUI
 
-extension FileManager {
+public extension FileManager {
     
     /// Clears the temporary directory
     func clearTmpDirectory() {
