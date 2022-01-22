@@ -36,3 +36,19 @@ public struct CLCard<Content: View>: View {
             .background(RoundedRectangle(cornerRadius: 10).fill(accent2 ? Color.accent2 : Color.accent))
     }
 }
+
+struct CLCard_Previews: PreviewProvider {
+    static var previews: some View {
+        List {
+            CLCard {
+                Text("Test")
+            }
+            
+            CLCard(accent2: true) {
+                Text("Test1")
+            }
+        }
+        .listStyle(.plain)
+        .preferredColorScheme(.dark)
+    }
+}

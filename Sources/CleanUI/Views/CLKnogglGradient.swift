@@ -18,7 +18,7 @@
 import SwiftUI
 import Combine
 
-/// Returns the ``CLKnogglGradient`` a linear gradient in Knoggl style
+/// Returns the ``CLKnogglGradient`` a `LinearGradient` in Knoggl style
 public struct CLKnogglGradient: View {
     
     public init() {}
@@ -32,5 +32,11 @@ public struct CLKnogglGradient: View {
             Color(hex: "FE5643"),
             Color(hex: "FE5643")
         ], startPoint: .topLeading, endPoint: .bottomTrailing)
+    }
+}
+
+struct CLKnogglGradient_Previews: PreviewProvider {
+    static var previews: some View {
+        CLKnogglGradient()
     }
 }

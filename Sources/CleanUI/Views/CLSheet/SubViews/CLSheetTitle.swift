@@ -36,3 +36,9 @@ public struct CLSheetTitle: View {
         }
     }
 }
+
+struct CLSheetTitle_Previews: PreviewProvider {
+    static var previews: some View {
+        CLSheetTitle("This is a Title")
+    }
+}

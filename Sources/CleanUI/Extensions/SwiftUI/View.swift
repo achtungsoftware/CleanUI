@@ -65,6 +65,15 @@ public extension View {
         modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchBar: searchBar))
     }
     
+    /// Adds a ``PreviewContextMenu`` to a `View`.
+    /// - Parameters:
+    ///   - targetView: Defines the target navigation and preview `View`
+    ///   - menu: The `UIMenu` to show, can be `nil`, default is `nil`
+    /// - Returns: The new PreviewContextMenu combined with the wrapped parent `View`
+    func previewContextMenu<Preview: View>(@ViewBuilder targetView: @escaping () -> Preview, menu: @escaping () -> UIMenu? = {nil}) -> some View {
+        return PreviewContextMenu(content: {self}, targetView: targetView, menu: menu)
+    }
+    
     /// Applies the frameworks default shadow to a view
     /// - Returns: The view with the default shadow
     func defaultShadow() -> some View {

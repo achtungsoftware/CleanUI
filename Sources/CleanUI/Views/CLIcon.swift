@@ -96,3 +96,15 @@ public struct CLIcon: View {
         }
     }
 }
+
+struct CLIcon_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            CLIcon(systemImage: "clock", size: .textSize)
+            CLIcon(systemImage: "clock", size: .small)
+            CLIcon(systemImage: "clock", size: .medium)
+            CLIcon(systemImage: "clock", size: .large)
+            CLIcon(systemImage: "clock", newBadge: true)
+        }
+    }
+}
