@@ -31,8 +31,8 @@ public struct CLSheetTitle: View {
     public var body: some View {
         HStack {
             Text(title)
-                .font(.headline)
-                .foregroundColor(Color.defaultText)
+                .font(.caption)
+                .foregroundColor(Color.grayText)
         }
     }
 }
