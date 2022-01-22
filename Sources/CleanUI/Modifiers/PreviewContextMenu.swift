@@ -48,6 +48,8 @@ public struct PreviewContextMenuOverlay<Content: View, Target: View>: UIViewRepr
         view.addSubview(hostView.view)
         view.addConstraints(constraints)
         
+        hostView.view.backgroundColor = .clear
+        
         let interaction = UIContextMenuInteraction(delegate: context.coordinator)
         view.addInteraction(interaction)
         
@@ -105,5 +107,20 @@ public struct PreviewContextMenu<Content: View, Target: View>: View {
         content
             .opacity(0)
             .overlay(PreviewContextMenuOverlay(content: content, targetView: targetView, menu: menu))
+    }
+}
+
+struct PreviewContextMenuOverlay_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            List {
+                NavigationLink(destination: Text("Destination Page")) {
+                    Text("Test Row")
+                }
+                .previewContextMenu {
+                    Text("Destination Page")
+                }
+            }
+        }
     }
 }
