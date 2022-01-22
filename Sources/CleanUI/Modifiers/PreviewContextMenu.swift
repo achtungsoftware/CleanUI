@@ -73,6 +73,7 @@ public struct PreviewContextMenuOverlay<Content: View, Target: View>: UIViewRepr
         public func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
             return UIContextMenuConfiguration(identifier: nil) {
                 let previewController = UIHostingController(rootView: self.parent.targetView)
+                previewController.view.backgroundColor = UIColor.background
                 return previewController
             } actionProvider: { items in
                 return self.parent.menu
