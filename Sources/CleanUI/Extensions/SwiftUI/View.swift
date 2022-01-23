@@ -88,4 +88,23 @@ public extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners))
     }
+    
+    /// Reads the size `CGSize` from a `View` and updates it automatically
+    /// Thanks to https://fivestars.blog/swiftui/swiftui-share-layout-information.html
+    /// - Parameter onChange: The onchange event
+    /// - Returns: The measured `View`
+    func readSize(onChange: @escaping (CGSize) -> Void) -> some View {
+        background(
+            GeometryReader { geometryProxy in
+                Color.clear
+                    .preference(key: SizePreferenceKey.self, value: geometryProxy.size)
+            }
+        )
+            .onPreferenceChange(SizePreferenceKey.self, perform: onChange)
+    }
+}
+
+internal struct SizePreferenceKey: PreferenceKey {
+    static var defaultValue: CGSize = .zero
+    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {}
 }
