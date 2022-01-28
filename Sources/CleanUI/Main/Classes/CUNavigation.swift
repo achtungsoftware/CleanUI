@@ -36,6 +36,14 @@ public class CUNavigation {
         }
     }
     
+    /// Trys to pop the current view to navigate one step back
+    /// - Parameter animated: Animated, default `true`
+    public static func pop(_ animated: Bool = true) {
+        if let navigationController = self.getCurrentNavigationController() {
+            navigationController.popViewController(animated: animated)
+        }
+    }
+    
     /// Trys to find the current active UINavigationController.
     /// - Returns: An optional UINavigationController
     public static func getCurrentNavigationController() -> UINavigationController? {
