@@ -24,7 +24,19 @@ NavigationView {
     Button(action: {
       CUNavigation.pushToSwiftUiView(YOUR_VIEW_HERE)
     }){
-      Text("Push To SwiftUI View")
+      Text("Push To SwiftUI view")
+    }
+    
+    Button(action: {
+      CUNavigation.pushToSwiftUiView(YOUR_VIEW_HERE, enableBackNavigation: false)
+    }){
+      Text("Push To SwiftUI view and disbale swipe right to go back gesture")
+    }
+    
+    Button(action: {
+      CUNavigation.pop()
+    }){
+      Text("Pop to previous view")
     }
     
     Button(action: {
@@ -104,4 +116,3 @@ CUAlertMessage.show("HELOOOOO", subTitle: "WORLD", type: .success)
 CUAlertMessage.show("HELOOOOO", type: .info)
 CUAlertMessage.show("HELOOOOO", subTitle: "WORLD", type: .info)
 ```
-
