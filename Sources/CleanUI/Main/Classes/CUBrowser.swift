@@ -83,6 +83,7 @@ struct CLBrowserView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 
