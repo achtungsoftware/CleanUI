@@ -55,10 +55,10 @@ internal struct CLSheet<Content: View>: View {
                             content
                             
                             Spacer()
-                                .frame(width: UIScreen.main.bounds.width, height: geometry.safeAreaInsets.bottom + abs(viewModel.offset.height) / 4)
+                                .frame(width: geometry.size.width, height: geometry.safeAreaInsets.bottom + abs(viewModel.offset.height) / 4)
                         }
                         .transition(.move(edge: .bottom))
-                        .frame(width: UIScreen.main.bounds.width)
+                        .frame(width: geometry.size.width)
                         .background(Color.alert)
                         .cornerRadius(12, corners: [.topLeft, .topRight])
                         .offset(x: 0, y: viewModel.offset.height > 0 ? viewModel.offset.height : 0)
@@ -66,7 +66,6 @@ internal struct CLSheet<Content: View>: View {
                     }
                 }
             }
-            .frame(width: UIScreen.main.bounds.width)
             .ignoresSafeArea(edges: .bottom)
             .highPriorityGesture (
                 DragGesture(coordinateSpace: .global)
