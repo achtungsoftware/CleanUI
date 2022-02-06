@@ -85,11 +85,14 @@ public class CUNavigation {
     }
     
     /// Try's to push to a SwiftUI View inside the current UINavigationController
-    public static func pushToSwiftUiView<Content: View>(_ view: Content, animated: Bool = true){
+    /// - Parameter animated: Animated, default `true`
+    /// - Parameter enableBackNavigation: Enable or disbale back swipe gesture, default `true`
+    public static func pushToSwiftUiView<Content: View>(_ view: Content, animated: Bool = true, enableBackNavigation: Bool = true){
         if let navigationController = self.getCurrentNavigationController() {
             let viewController = UIHostingController(rootView: view)
             viewController.navigationItem.largeTitleDisplayMode = .never
             navigationController.pushViewController(viewController, animated: animated)
+            navigationController.interactivePopGestureRecognizer?.isEnabled = enableBackNavigation
         }
     }
     
