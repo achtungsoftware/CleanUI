@@ -48,7 +48,7 @@ NavigationView {
     Button(action: {
       CUNavigation.pushBottomSheet(YOUR_VIEW_HERE)
     }){
-      Text("Push to a Botton-Sheet")
+      Text("Push to a Bottom-Sheet")
     }
 }
 ```
