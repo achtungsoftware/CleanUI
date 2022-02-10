@@ -22,9 +22,6 @@ public struct MenuButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .if(configuration.isPressed) { view in
-                view
-                    .background(.thinMaterial)
-            }
+            .opacity(configuration.isPressed ? 0.6 : 1)
     }
 }
