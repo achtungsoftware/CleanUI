@@ -90,71 +90,76 @@ struct CLInAppNotificationView: View {
     var tapAction: (() -> ())?
     
     @State private var show: Bool = true
-    @State private var offset = CGSize.zero
+    @State private var offset: CGSize = .zero
+    
+    @State private var screenSize: CGSize = .zero
     
     var body: some View {
         if show {
-            HStack {
-                
-                if let trailingView = trailingView {
-                    trailingView
-                }
-                
-                VStack(alignment: .leading) {
+                ZStack {
+                    Color.clear
+                        .readSize { value in
+                            screenSize = value
+                        }
+                    
                     HStack {
-                        Text(title)
-                            .font(.subheadline)
-                            .foregroundColor(Color.defaultText)
-                            .fontWeight(.bold)
-                            .lineLimit(1)
-                        Spacer()
-                    }
-                    HStack {
-                        Text(subTitle)
-                            .lineLimit(1)
-                            .font(.subheadline)
-                            .foregroundColor(Color.defaultText)
-                        Spacer()
-                    }
-                }
-            }
-            .padding(16)
-            .frame(width: UIScreen.main.bounds.width - 16)
-            .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.alert)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder(Color.defaultBorder, lineWidth: 0.4)
-                    )
-            )
-            .offset(y: offset.height < 0 ? offset.height : 0)
-            .transition(.move(edge: .top).combined(with: .opacity))
-            .onLoad {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    close()
-                }
-            }
-            .highPriorityGesture (
-                DragGesture(coordinateSpace: .global)
-                    .onChanged { gesture in
-                        offset = gesture.translation
-                    }
-                    .onEnded { g in
-                        if (g.predictedEndTranslation.height < -30) {
-                            close()
-                        } else {
-                            withAnimation(Animation.easeInOut(duration: 0.3)) {
-                                offset = .zero
+                        
+                        if let trailingView = trailingView {
+                            trailingView
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text(title)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color.defaultText)
+                                    .fontWeight(.bold)
+                                    .lineLimit(1)
+                                Spacer()
+                            }
+                            HStack {
+                                Text(subTitle)
+                                    .lineLimit(1)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color.defaultText)
+                                Spacer()
                             }
                         }
                     }
-            )
-            .onTapGesture {
-                if let tapAction = tapAction {
-                    tapAction()
+                    .padding(16)
+                    .frame(width: screenSize.width.maxValue(500))
+                    .background(
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(.ultraThinMaterial)
+                    )
+                    .offset(y: offset.height < 0 ? offset.height : 0)
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                    .highPriorityGesture (
+                        DragGesture(coordinateSpace: .global)
+                            .onChanged { gesture in
+                                offset = gesture.translation
+                            }
+                            .onEnded { g in
+                                if (g.predictedEndTranslation.height < -30) {
+                                    close()
+                                } else {
+                                    withAnimation(Animation.easeInOut(duration: 0.3)) {
+                                        offset = .zero
+                                    }
+                                }
+                            }
+                    )
+                    .onTapGesture {
+                        if let tapAction = tapAction {
+                            tapAction()
+                        }
+                    }
+                    .onLoad {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            close()
+                        }
+                    }
                 }
-            }
         }else {
             EmptyView()
         }

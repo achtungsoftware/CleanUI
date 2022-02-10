@@ -17,35 +17,38 @@
 
 import SwiftUI
 import Combine
+import SwiftPlus
 
 /// This is the main Alert wrapper
-internal struct CLALert<Content: View>: View {
+internal struct CLAlert<Content: View>: View {
     
     var content: Content
     @StateObject private var viewModel: CLAlertViewModel = CLAlertViewModel()
     
     var body: some View {
-        ZStack {
-            if viewModel.isShowing {
-                Color.black
-                    .opacity(0.20)
-                    .edgesIgnoringSafeArea(.all)
-                    .transition(.opacity)
-                    .onTapGesture {
-                        viewModel.close()
+        GeometryReader { geometry in
+            ZStack {
+                if viewModel.isShowing {
+                    Color.black
+                        .opacity(0.20)
+                        .edgesIgnoringSafeArea(.all)
+                        .transition(.opacity)
+                        .onTapGesture {
+                            viewModel.close()
+                        }
+                    
+                    VStack(spacing: 0) {
+                        content
                     }
-                
-                VStack(spacing: 0) {
-                    content
+                    .frame(width: Double(geometry.size.width - 64).maxValue(500))
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(.ultraThinMaterial)
+                    )
+                    .padding(16)
                 }
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
-                .transition(.move(edge: .top).combined(with: .opacity))
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.alert)
-                )
-                .padding()
             }
         }
         .onLoad {

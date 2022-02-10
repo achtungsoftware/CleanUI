@@ -92,23 +92,32 @@ struct CLAlertMessageView: View {
     var type: CLInfoCard.InfoCardType
     
     @State private var show: Bool = true
+    @State private var screenSize: CGSize = .zero
     
     var body: some View {
         if show {
-            VStack {
-                CLInfoCard(title, subTitle: subTitle, type: type)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.background)
-                    )
+            ZStack {
+                Color.clear
+                    .readSize { value in
+                        screenSize = value
+                    }
                 
-                Spacer()
-                    .frame(width: UIScreen.main.bounds.width, height: 48)
-            }
-            .transition(.move(edge: .bottom).combined(with: .opacity))
-            .onLoad {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-                    close()
+                
+                VStack {
+                    CLInfoCard(title, subTitle: subTitle, type: type)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.background)
+                        )
+                    
+                    Spacer()
+                }
+                .frame(width: screenSize.width.maxValue(500), height: 48)
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+                .onLoad {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+                        close()
+                    }
                 }
             }
         }else {

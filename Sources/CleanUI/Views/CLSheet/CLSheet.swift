@@ -55,11 +55,11 @@ internal struct CLSheet<Content: View>: View {
                             content
                             
                             Spacer()
-                                .frame(width: geometry.size.width, height: geometry.safeAreaInsets.bottom + abs(viewModel.offset.height) / 4)
+                                .frame(width: geometry.size.width.maxValue(500), height: geometry.safeAreaInsets.bottom + abs(viewModel.offset.height) / 4)
                         }
                         .transition(.move(edge: .bottom))
-                        .frame(width: geometry.size.width)
-                        .background(Color.alert)
+                        .frame(width: geometry.size.width.maxValue(500))
+                        .background(.ultraThinMaterial)
                         .cornerRadius(12, corners: [.topLeft, .topRight])
                         .offset(x: 0, y: viewModel.offset.height > 0 ? viewModel.offset.height : 0)
                         .ignoresSafeArea(edges: .bottom)
