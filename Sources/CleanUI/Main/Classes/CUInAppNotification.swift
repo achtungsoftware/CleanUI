@@ -130,7 +130,7 @@ struct CLInAppNotificationView: View {
                     .frame(width: screenSize.width.maxValue(500))
                     .background(
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(.ultraThinMaterial)
+                            .fill(.regularMaterial)
                     )
                     .offset(y: offset.height < 0 ? offset.height : 0)
                     .transition(.move(edge: .top).combined(with: .opacity))

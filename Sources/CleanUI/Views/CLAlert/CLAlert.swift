@@ -45,7 +45,7 @@ internal struct CLAlert<Content: View>: View {
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(.ultraThinMaterial)
+                            .fill(.regularMaterial)
                     )
                     .padding(16)
                 }

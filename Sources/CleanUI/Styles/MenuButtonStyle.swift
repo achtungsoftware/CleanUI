@@ -22,6 +22,9 @@ public struct MenuButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .background(configuration.isPressed ? Color.accent2 : Color.clear)
+            .if(configuration.isPressed) { view in
+                view
+                    .background(.thinMaterial)
+            }
     }
 }
