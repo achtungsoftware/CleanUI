@@ -94,36 +94,46 @@ public struct CLInfoCard: View {
     }
     
     public var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
+        HStack {
+            Rectangle()
+                .fill(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green)
+                .frame(width: 12)
+            
+            VStack(alignment: .leading) {
+                Text(title)
+                    .font(.callout.bold())
                 
-                Image(systemName: type == .error ? "xmark.octagon" : type == .info ? "info.circle" : "checkmark.seal")
-                    .imageScale(.medium)
-                    .foregroundColor(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green)
-                    .opacity(0.8)
-                
-                VStack(alignment: .leading) {
-                    Text(title)
-                        .font(.subheadline)
-                    
-                    if !subTitle.isEmpty {
-                        Text(subTitle)
-                            .font(.caption)
-                    }
+                if !subTitle.isEmpty {
+                    Text(subTitle)
+                        .font(.caption)
+                        .foregroundColor(Color.grayText)
                 }
             }
+            .padding(8)
         }
         .foregroundColor(Color.defaultText)
-        .padding(10)
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
         .background(
-            RoundedRectangle(cornerRadius: 10)
-                .fill(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green).opacity(0.3)
+            Color.alert
         )
+        .cornerRadius(6)
         .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .strokeBorder(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green, lineWidth: 0.5)
+            RoundedRectangle(cornerRadius: 6)
+                .strokeBorder(Color.defaultBorder, lineWidth: 0.5)
                 .opacity(0.6)
         )
+    }
+}
+
+struct CLInfoCard_Previews: PreviewProvider {
+    static var previews: some View {
+        ScrollView {
+            VStack {
+                CLInfoCard("Success", subTitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", type: .success)
+                CLInfoCard("Error", subTitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", type: .error)
+                CLInfoCard("Info", subTitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", type: .info)
+            }
+            .padding()
+        }
     }
 }
