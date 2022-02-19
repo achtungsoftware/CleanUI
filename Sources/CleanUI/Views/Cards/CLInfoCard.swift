@@ -95,10 +95,6 @@ public struct CLInfoCard: View {
     
     public var body: some View {
         HStack {
-            Rectangle()
-                .fill(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green)
-                .frame(width: 12)
-            
             VStack(alignment: .leading) {
                 Text(title)
                     .font(.callout.bold())
@@ -110,30 +106,31 @@ public struct CLInfoCard: View {
                 }
             }
             .padding(8)
+            .padding(.leading, 10)
         }
         .foregroundColor(Color.defaultText)
-        .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
+        .frame(maxWidth: .infinity, alignment: .topLeading)
         .background(
             Color.alert
         )
-        .cornerRadius(6)
         .overlay(
-            RoundedRectangle(cornerRadius: 6)
-                .strokeBorder(Color.defaultBorder, lineWidth: 0.5)
-                .opacity(0.6)
+            ZStack(alignment: .topLeading) {
+                RoundedRectangle(cornerRadius: 6)
+                    .strokeBorder(Color.defaultBorder, lineWidth: 0.5)
+                    .opacity(0.6)
+                
+                Rectangle()
+                    .fill(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green)
+                    .frame(width: 10)
+            }
         )
+        .cornerRadius(6)
     }
 }
 
 struct CLInfoCard_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollView {
-            VStack {
-                CLInfoCard("Success", subTitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", type: .success)
-                CLInfoCard("Error", subTitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", type: .error)
-                CLInfoCard("Info", subTitle: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", type: .info)
-            }
+        CLInfoCard("Info", subTitle: "Lorem", type: .info)
             .padding()
-        }
     }
 }

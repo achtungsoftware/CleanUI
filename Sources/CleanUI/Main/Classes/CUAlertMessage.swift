@@ -52,22 +52,29 @@ public class CUAlertMessages {
     }
     
     func add(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info) {
+        
         let id: UUID = UUID()
         
         if let controller = CUStd.getMainUIWindow()?.rootViewController {
             let infoCardController = UIHostingController(rootView: CLAlertMessageView(id: id, title: title, subTitle: subTitle, type: type))
             controller.view.addSubview(infoCardController.view)
-            infoCardController.view.translatesAutoresizingMaskIntoConstraints = false
             infoCardController.view.backgroundColor = .clear
             infoCardController.view.isUserInteractionEnabled = false
             
             
+            let c1 = NSLayoutConstraint(item: infoCardController.view!, attribute: .leading, relatedBy: .equal, toItem: controller.view, attribute: .leading, multiplier: 1, constant: 8)
+            let c2 = NSLayoutConstraint(item: infoCardController.view!, attribute: .trailing, relatedBy: .equal, toItem: controller.view, attribute: .trailing, multiplier: 1, constant: -8)
             
-            let c1 = NSLayoutConstraint(item: infoCardController.view!, attribute: .leading, relatedBy: .equal, toItem: controller.view, attribute: .leading, multiplier: 1, constant: 10)
-            let c2 = NSLayoutConstraint(item: infoCardController.view!, attribute: .trailing, relatedBy: .equal, toItem: controller.view, attribute: .trailing, multiplier: 1, constant: -10)
-            let c3 = NSLayoutConstraint(item: infoCardController.view!, attribute: .bottom, relatedBy: .equal, toItem: controller.view, attribute: .bottom, multiplier: 1, constant: 0)
+            var c3: NSLayoutConstraint
+            
+            if let tabbar = findUITabBarController() {
+                c3 = NSLayoutConstraint(item: infoCardController.view!, attribute: .bottom, relatedBy: .equal, toItem: controller.view, attribute: .bottom, multiplier: 1, constant: -(tabbar.tabBar.frame.height + 8))
+            }else {
+                c3 = NSLayoutConstraint(item: infoCardController.view!, attribute: .bottom, relatedBy: .equal, toItem: controller.view, attribute: .bottom, multiplier: 1, constant: 0)
+            }
             
             controller.view.addConstraints([c1, c2, c3])
+            infoCardController.view.translatesAutoresizingMaskIntoConstraints = false
             
             
             UIView.animate(withDuration:0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [UIView.AnimationOptions.curveEaseIn], animations: { () -> Void in
@@ -81,6 +88,18 @@ public class CUAlertMessages {
             CUVibrate.light.vibrate()
         }
     }
+    
+    func findUITabBarController() -> UITabBarController? {
+        if let rootViewController = CUStd.getMainUIWindow()?.rootViewController {
+            for vc in rootViewController.children {
+                if let tabBarController = vc as? UITabBarController {
+                    return tabBarController
+                }
+            }
+        }
+        
+        return nil
+    }
 }
 
 
@@ -92,36 +111,27 @@ struct CLAlertMessageView: View {
     var type: CLInfoCard.InfoCardType
     
     @State private var show: Bool = true
-    @State private var screenSize: CGSize = .zero
+    @State private var size: CGSize = .zero
     
     var body: some View {
-        if show {
-            ZStack {
-                Color.clear
-                    .readSize { value in
-                        screenSize = value
+        ZStack(alignment: .bottom) {
+            Color.clear
+                .readSize { _size in
+                    size = _size
+                }
+            
+            if show {
+                
+                CLInfoCard(title, subTitle: subTitle, type: type)
+                    .frame(width: size.width.maxValue(500))
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .onLoad {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+                            close()
+                        }
                     }
                 
-                
-                VStack {
-                    CLInfoCard(title, subTitle: subTitle, type: type)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.background)
-                        )
-                    
-                    Spacer()
-                }
-                .frame(width: screenSize.width.maxValue(500), height: 48)
-                .transition(.move(edge: .bottom).combined(with: .opacity))
-                .onLoad {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-                        close()
-                    }
-                }
             }
-        }else {
-            EmptyView()
         }
     }
     
