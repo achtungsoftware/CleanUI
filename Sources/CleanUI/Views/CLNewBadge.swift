@@ -28,35 +28,41 @@ public struct CLNewBadge: View {
         self.withBackground = withBackground
     }
     
-    var defaultSize: CGFloat = 6
-    @State private var animationAmount: CGFloat = 1
+    @StateObject private var model: ViewModel = ViewModel()
     
     public var body: some View {
         ZStack {
-            if(withBackground){
+            if withBackground {
                 Circle()
                     .fill(Color.background)
-                    .frame(width: defaultSize+8, height: defaultSize+8)
+                    .frame(width: model.defaultSize + 8, height: model.defaultSize + 8)
             }
             
             Circle()
                 .fill(Color.primaryColor)
-                .frame(width: defaultSize, height: defaultSize)
+                .frame(width: model.defaultSize, height: model.defaultSize)
                 .background(
                     Circle()
                         .stroke(Color.primaryColor)
-                        .scaleEffect(animationAmount * 1.2)
-                        .opacity(animationAmount == 2 ? 0 : 1)
+                        .scaleEffect(model.animationAmount * 1.2)
+                        .opacity(model.animationAmount == 2 ? 0 : 1)
                         .animation(
                             Animation.easeOut(duration: 1.2)
                                 .repeatForever(autoreverses: false),
-                            value: animationAmount == 2
+                            value: model.animationAmount == 2
                         )
                 )
         }
         .allowsHitTesting(false)
         .onLoad {
-            animationAmount = 2
+            model.animationAmount = 2
         }
+    }
+}
+
+internal extension CLNewBadge {
+    class ViewModel: ObservableObject {
+        @Published var defaultSize: CGFloat = 6
+        @Published var animationAmount: CGFloat = 1
     }
 }

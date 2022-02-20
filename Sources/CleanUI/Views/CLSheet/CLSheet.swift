@@ -22,12 +22,12 @@ import Combine
 internal struct CLSheet<Content: View>: View {
     
     var content: Content
-    @StateObject private var viewModel: CLSheetViewModel = CLSheetViewModel()
+    @StateObject private var model: ViewModel = ViewModel()
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                if viewModel.showBackground {
+                if model.showBackground {
                     Color.black
                         .opacity(0.20)
                         .edgesIgnoringSafeArea(.all)
@@ -38,10 +38,10 @@ internal struct CLSheet<Content: View>: View {
                     Color.black
                         .opacity(0.001)
                         .onTapGesture {
-                            viewModel.close()
+                            model.close()
                         }
                     
-                    if viewModel.isShowing {
+                    if model.isShowing {
                         VStack(spacing: 0) {
                             HStack {
                                 RoundedRectangle(cornerRadius: 3)
@@ -55,13 +55,13 @@ internal struct CLSheet<Content: View>: View {
                             content
                             
                             Spacer()
-                                .frame(width: geometry.size.width.maxValue(500), height: geometry.safeAreaInsets.bottom + abs(viewModel.offset.height) / 4)
+                                .frame(width: geometry.size.width.maxValue(500), height: geometry.safeAreaInsets.bottom + abs(model.offset.height) / 4)
                         }
                         .transition(.move(edge: .bottom))
                         .frame(width: geometry.size.width.maxValue(500))
                         .background(.regularMaterial)
                         .cornerRadius(12, corners: [.topLeft, .topRight])
-                        .offset(x: 0, y: viewModel.offset.height > 0 ? viewModel.offset.height : 0)
+                        .offset(x: 0, y: model.offset.height > 0 ? model.offset.height : 0)
                         .ignoresSafeArea(edges: .bottom)
                     }
                 }
@@ -70,21 +70,52 @@ internal struct CLSheet<Content: View>: View {
             .highPriorityGesture (
                 DragGesture(coordinateSpace: .global)
                     .onChanged { gesture in
-                        viewModel.offset = gesture.translation
+                        model.offset = gesture.translation
                     }
                     .onEnded { g in
-                        if viewModel.offset.height > 0 && abs(viewModel.offset.height) > 60 {
-                            viewModel.close()
+                        if model.offset.height > 0 && abs(model.offset.height) > 60 {
+                            model.close()
                         } else {
                             withAnimation(Animation.easeInOut(duration: 0.25)) {
-                                viewModel.offset = .zero
+                                model.offset = .zero
                             }
                         }
                     }
             )
             .onLoad {
-                viewModel.height = geometry.size.height
-                viewModel.didLoad()
+                model.height = geometry.size.height
+                model.didLoad()
+            }
+        }
+    }
+}
+
+internal extension CLSheet {
+    class ViewModel: ObservableObject {
+        
+        @Published var isShowing: Bool = false
+        @Published var showBackground: Bool = false
+        @Published var offset = CGSize.zero
+        @Published var height: CGFloat = 0
+        
+        func didLoad() {
+            
+            // Show the sheet with animation
+            withAnimation(Animation.interpolatingSpring(mass: 0.2, stiffness: 29.5, damping: 12, initialVelocity: 10)){
+                isShowing = true
+                showBackground = true
+            }
+        }
+        
+        /// Closes / dismisses the sheet
+        func close() {
+            withAnimation(Animation.easeInOut(duration: 0.25)) {
+                offset.height = height
+                showBackground = false
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.28) {
+                CUSheet.clearAll()
             }
         }
     }

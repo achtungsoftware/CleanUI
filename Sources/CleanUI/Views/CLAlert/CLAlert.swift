@@ -23,18 +23,18 @@ import SwiftPlus
 internal struct CLAlert<Content: View>: View {
     
     var content: Content
-    @StateObject private var viewModel: CLAlertViewModel = CLAlertViewModel()
+    @StateObject private var model: ViewModel = ViewModel()
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                if viewModel.isShowing {
+                if model.isShowing {
                     Color.black
                         .opacity(0.20)
                         .edgesIgnoringSafeArea(.all)
                         .transition(.opacity)
                         .onTapGesture {
-                            viewModel.close()
+                            model.close()
                         }
                     
                     VStack(spacing: 0) {
@@ -52,7 +52,33 @@ internal struct CLAlert<Content: View>: View {
             }
         }
         .onLoad {
-            viewModel.didLoad()
+            model.didLoad()
+        }
+    }
+}
+
+internal extension CLAlert {
+    class ViewModel: ObservableObject {
+        
+        @Published var isShowing: Bool = false
+        
+        func didLoad() {
+            
+            // Show the alert with animation
+            withAnimation(Animation.easeInOut(duration: 0.25)) {
+                isShowing = true
+            }
+        }
+        
+        /// Closes / dismisses the alert
+        func close() {
+            withAnimation(Animation.easeInOut(duration: 0.25)) {
+                isShowing = false
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.28) {
+                CUAlert.clearAll()
+            }
         }
     }
 }
