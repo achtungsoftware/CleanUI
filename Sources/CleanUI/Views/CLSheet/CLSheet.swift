@@ -59,7 +59,7 @@ internal struct CLSheet<Content: View>: View {
                         }
                         .transition(.move(edge: .bottom))
                         .frame(width: geometry.size.width.maxValue(500))
-                        .background(.regularMaterial)
+                        .background(Color.alert)
                         .cornerRadius(12, corners: [.topLeft, .topRight])
                         .offset(x: 0, y: model.offset.height > 0 ? model.offset.height : 0)
                         .ignoresSafeArea(edges: .bottom)

@@ -22,6 +22,6 @@ public struct MenuButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .opacity(configuration.isPressed ? 0.6 : 1)
+            .background(configuration.isPressed ? Color.accent2 : Color.clear)
     }
 }
