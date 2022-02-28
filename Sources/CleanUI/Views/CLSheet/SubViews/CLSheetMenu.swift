@@ -49,10 +49,6 @@ public struct CLSheetMenu: View {
                             .padding(.horizontal)
                             .padding(.bottom, 16)
                             .padding(.top, 16)
-                            
-                            if index < menuItems.count - 1 {
-                                Divider()
-                            }
                         }
                         .contentShape(Rectangle())
                     }
