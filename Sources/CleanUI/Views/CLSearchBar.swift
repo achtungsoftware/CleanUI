@@ -26,17 +26,19 @@ public struct CLSearchBar: UIViewRepresentable {
     var placeholder: String
     @Binding var isEditing: Bool
     let becomeFirstResponder: Bool
+    let onSubmit: () -> Void
     
     /// - Parameters:
     ///   - text: The search text
     ///   - placeholder: The placeholder
     ///   - isEditing: A `Binding<Bool>` which indicates if the ``CLSearchBar`` is in focus
     ///   - becomeFirstResponder: Should this `UISearchBar` automatically focus?, default is `false`
-    public init(text: Binding<String>, placeholder: String, isEditing: Binding<Bool>, becomeFirstResponder: Bool = false) {
+    public init(text: Binding<String>, placeholder: String, isEditing: Binding<Bool>, becomeFirstResponder: Bool = false, onSubmit: @escaping () -> Void = {}) {
         self._text = text
         self.placeholder = placeholder
         self._isEditing = isEditing
         self.becomeFirstResponder = becomeFirstResponder
+        self.onSubmit = onSubmit
     }
     
     public func makeUIView(context: UIViewRepresentableContext<CLSearchBar>) -> UISearchBar {
@@ -58,21 +60,27 @@ public struct CLSearchBar: UIViewRepresentable {
     }
     
     public func makeCoordinator() -> CLSearchBar.Coordinator {
-        return Coordinator(text: $text, isEditing: $isEditing)
+        return Coordinator(self, text: $text, isEditing: $isEditing)
     }
     
     public class Coordinator: NSObject, UISearchBarDelegate {
         
+        let parent: CLSearchBar
         @Binding var text: String
         @Binding var isEditing: Bool
         
-        init(text: Binding<String>, isEditing: Binding<Bool>) {
+        init(_ parent: CLSearchBar, text: Binding<String>, isEditing: Binding<Bool>) {
+            self.parent = parent
             _text = text
             _isEditing = isEditing
         }
         
         public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             text = searchText
+        }
+        
+        public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            parent.onSubmit()
         }
         
         public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
