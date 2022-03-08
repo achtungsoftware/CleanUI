@@ -70,7 +70,7 @@ public class CUAlertMessages {
             if let tabbar = findUITabBarController() {
                 c3 = NSLayoutConstraint(item: infoCardController.view!, attribute: .bottom, relatedBy: .equal, toItem: controller.view, attribute: .bottom, multiplier: 1, constant: -(tabbar.tabBar.frame.height + 8))
             }else {
-                c3 = NSLayoutConstraint(item: infoCardController.view!, attribute: .bottom, relatedBy: .equal, toItem: controller.view, attribute: .bottom, multiplier: 1, constant: 0)
+                c3 = NSLayoutConstraint(item: infoCardController.view!, attribute: .bottom, relatedBy: .equal, toItem: controller.view, attribute: .bottom, multiplier: 1, constant: -8)
             }
             
             controller.view.addConstraints([c1, c2, c3])
