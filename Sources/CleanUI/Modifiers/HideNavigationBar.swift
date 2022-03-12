@@ -30,3 +30,11 @@ public struct HideNavigationBar: ViewModifier {
             .navigationBarTitle("")
     }
 }
+
+public extension View {
+    /// Applies the view modifier ``HideNavigationBar`` to a view
+    /// - Returns: The view with the ``HideNavigationBar`` modifier
+    func hideNavigationBar() -> some View {
+        modifier(HideNavigationBar())
+    }
+}

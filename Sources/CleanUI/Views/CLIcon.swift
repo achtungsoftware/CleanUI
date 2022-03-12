@@ -26,7 +26,7 @@ public struct CLIcon: View {
     }
     
     public enum Offset {
-        case leading(CGFloat), trailing(CGFloat), bottom(CGFloat), top(CGFloat)
+        case leading(Double), trailing(Double), bottom(Double), top(Double)
     }
     
     var image: String
@@ -36,6 +36,7 @@ public struct CLIcon: View {
     var size: CLIcon.Size
     var isImageOverlay: Bool
     var offset: CLIcon.Offset
+    var tapAction: (() -> Void)?
     
     /// - Parameters:
     ///   - image: Image name from asset catalog
@@ -45,7 +46,8 @@ public struct CLIcon: View {
     ///   - newBadge: Should a ``CLNewBadge`` overlay the Icon?
     ///   - isImageOverlay: If true the ``CLIcon`` gets a shadow for better readability
     ///   - offset: Define an offset for the ``CLIcon``, default is none -> `.leading(0)`
-    public init(_ image: String = "", systemImage: String = "", frameworkImage: String = "", size: CLIcon.Size = .medium, newBadge: Bool? = nil, isImageOverlay: Bool = false, offset: CLIcon.Offset = .leading(0)){
+    ///   - tapAction: If a tap action is provided, the CLIcon becomes a ``Button``, default is nil
+    public init(_ image: String = "", systemImage: String = "", frameworkImage: String = "", size: CLIcon.Size = .medium, newBadge: Bool? = nil, isImageOverlay: Bool = false, offset: CLIcon.Offset = .leading(0), tapAction: (() -> Void)? = nil){
         self.image = image
         self.size = size
         self.systemImage = systemImage
@@ -53,6 +55,7 @@ public struct CLIcon: View {
         self.isImageOverlay = isImageOverlay
         self.offset = offset
         self.frameworkImage = frameworkImage
+        self.tapAction = tapAction
         
         self._sideSize = State(initialValue: self.size == .small ? 22 : self.size == .medium ? 26 : self.size == .textSize ? 16 : 30)
     }
@@ -60,12 +63,22 @@ public struct CLIcon: View {
     @State var sideSize: CGFloat = 0
     
     public var body: some View {
+        if let tapAction = tapAction {
+            Button(action: tapAction) {
+                icon
+            }
+            .buttonStyle(.plain)
+        }else {
+            icon
+        }
+    }
+    
+    private var icon: some View {
         ZStack {
             if !image.isEmpty {
                 Image(image)
                     .resizable()
                     .frame(width: sideSize, height: sideSize)
-                    .offset(offset.toCGSize())
                     .if(isImageOverlay) { view in
                         view
                             .defaultShadow()
@@ -74,7 +87,6 @@ public struct CLIcon: View {
                 ImageProvider.image(frameworkImage)
                     .resizable()
                     .frame(width: sideSize, height: sideSize)
-                    .offset(offset.toCGSize())
                     .if(isImageOverlay) { view in
                         view
                             .defaultShadow()
@@ -82,7 +94,6 @@ public struct CLIcon: View {
             } else {
                 Image(systemName: systemImage)
                     .font(.system(size: systemImage != "" ? sideSize - 4 : sideSize))
-                    .offset(offset.toCGSize())
                     .if(isImageOverlay) { view in
                         view
                             .defaultShadow()
@@ -94,6 +105,7 @@ public struct CLIcon: View {
                     .offset(x: sideSize / 3, y: -sideSize / 3)
             }
         }
+        .offset(offset.toCGSize())
     }
 }
 
@@ -104,7 +116,11 @@ struct CLIcon_Previews: PreviewProvider {
             CLIcon(systemImage: "clock", size: .small)
             CLIcon(systemImage: "clock", size: .medium)
             CLIcon(systemImage: "clock", size: .large)
-            CLIcon(systemImage: "clock", newBadge: true)
+            CLIcon(systemImage: "clock", newBadge: true, offset: .trailing(16))
+            
+            CLIcon(systemImage: "clock", newBadge: true) {
+                print("Hello")
+            }
         }
     }
 }

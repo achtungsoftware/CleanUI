@@ -33,47 +33,6 @@ public extension View {
         }
     }
     
-    /// Applies the view modifier ``OnLoad`` to a view
-    /// - Parameter action: The action gets called only once on appear. Gets not called if already appeared
-    /// - Returns: The view with the ``OnLoad`` modifier
-    func onLoad(perform action: @escaping (() -> Void)) -> some View {
-        modifier(OnLoad(perform: action))
-    }
-    
-    /// Applies the view modifier ``HideNavigationBar`` to a view
-    /// - Returns: The view with the ``HideNavigationBar`` modifier
-    func hideNavigationBar() -> some View {
-        modifier(HideNavigationBar())
-    }
-    
-    /// Applies the view modifier ``OnRotate`` to a view
-    /// - Parameter action: The on rotate action
-    /// - Returns: The view with the ``OnRotate`` modifier
-    func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void) -> some View {
-        modifier(OnRotate(action: action))
-    }
-    
-    /// Applies the view modifier ``PinchToZoom`` to a view
-    /// - Returns: The view with the ``PinchToZoom`` modifier
-    func pinchToZoom() -> some View {
-        modifier(PinchToZoom())
-    }
-    
-    /// Applies the view modifier ``NavigationBar`` to a view
-    /// - Returns: The view with the ``NavigationBar`` modifier
-    func navigationBar(_ title: String = "", subTitle: String = "", bigTitle: Bool = false, customTitle: AnyView? = nil, buttons: AnyView? = nil, searchBar: NavigationBarSearchField? = nil) -> some View {
-        modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchBar: searchBar))
-    }
-    
-    /// Adds a ``PreviewContextMenu`` to a `View`.
-    /// - Parameters:
-    ///   - targetView: Defines the target navigation and preview `View`
-    ///   - menu: The `UIMenu` to show, can be `nil`, default is `nil`
-    /// - Returns: The new PreviewContextMenu combined with the wrapped parent `View`
-    func previewContextMenu<Preview: View>(@ViewBuilder targetView: @escaping () -> Preview, menu: @escaping () -> UIMenu? = {nil}) -> some View {
-        return PreviewContextMenu(content: {self}, targetView: targetView, menu: menu)
-    }
-    
     /// Applies the frameworks default shadow to a view
     /// - Returns: The view with the default shadow
     func defaultShadow() -> some View {

@@ -18,30 +18,6 @@
 import SwiftUI
 import Combine
 
-/// The ``NavigationBarSearchField`` is an ObservableObject model for applying to an ``NavigationBar``
-public class NavigationBarSearchField: ObservableObject, Equatable, Identifiable {
-    
-    public static func == (lhs: NavigationBarSearchField, rhs: NavigationBarSearchField) -> Bool {
-        lhs.id == rhs.id
-    }
-    
-    public let id = UUID()
-    
-    @Published public var isEditing: Bool = false
-    @Published public var showSearchResults: Bool = false
-    @Published public var query: String = ""
-    @Published public var show: Bool = false
-    var hasSearchBar: Bool
-    var isDiscrete: Bool
-    
-    /// - Parameters:
-    ///   - hasSearchBar: If false, the ``NavigationBar`` acts like it has no search field, default is true
-    ///   - isDiscrete: When this is true, the ``NavigationBar`` gets a search button which needs to be pressed for the search bar to unhide, default is false
-    public init(_ hasSearchBar: Bool = true, isDiscrete: Bool = false){
-        self.hasSearchBar = hasSearchBar
-        self.isDiscrete = isDiscrete
-    }
-}
 
 /// The ``NavigationBar`` modifier applies a ``NavigationBar`` to the view and removes the default UINavigationBar.
 /// Use only on ``CLNavigationView``
@@ -52,22 +28,23 @@ public struct NavigationBar: ViewModifier {
     var bigTitle: Bool
     var customTitle: AnyView?
     var buttons: AnyView?
-    @ObservedObject var searchBar: NavigationBarSearchField
+    @ObservedObject var searchField: NavigationBar.SearchField
     
+    /// Show a CleanUI ``NavigationBar``
     /// - Parameters:
     ///   - title: The navigation bar title
     ///   - subTitle: The navigation bar subtitle
     ///   - bigTitle: Should the navigation bar title be big? default is `false
     ///   - customTitle: Lets you apply a custom title view, which replaces the default title
     ///   - buttons: The trailing buttons
-    ///   - searchBar: When a ``NavigationBarSearchField`` is applied, the NavigationBar gets a search ability
-    public init(title: String, subTitle: String, bigTitle: Bool, customTitle: AnyView?, buttons: AnyView?, searchBar: NavigationBarSearchField?) {
+    ///   - searchField: When a ``NavigationBar.SearchField`` is applied, the NavigationBar gets a search ability
+    public init(title: String, subTitle: String, bigTitle: Bool, customTitle: AnyView?, buttons: AnyView?, searchField: NavigationBar.SearchField?) {
         self.title = title
         self.subTitle = subTitle
         self.buttons = buttons
         self.bigTitle = bigTitle
         self.customTitle = customTitle
-        self.searchBar = searchBar ?? NavigationBarSearchField(false)
+        self.searchField = searchField ?? NavigationBar.SearchField(false)
     }
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -85,10 +62,10 @@ public struct NavigationBar: ViewModifier {
             
             ZStack {
                 VStack(spacing: 0) {
-                    if(!searchBarShowSearchResultsWithAnimation){
+                    if !searchBarShowSearchResultsWithAnimation {
                         ZStack {
                             HStack {
-                                if(isPresentedStatic){
+                                if isPresentedStatic {
                                     Button(action: {
                                         presentationMode.wrappedValue.dismiss()
                                     }){
@@ -97,14 +74,14 @@ public struct NavigationBar: ViewModifier {
                                     }
                                 }
                                 
-                                if(bigTitle && customTitle == nil){
+                                if bigTitle && customTitle == nil {
                                     VStack(alignment: .leading, spacing: 0) {
                                         Text(title)
                                             .font(.title2)
                                             .fontWeight(.bold)
                                             .lineLimit(1)
                                         
-                                        if(!subTitle.isEmpty){
+                                        if !subTitle.isEmpty {
                                             Text(subTitle)
                                                 .font(.caption2)
                                                 .fontWeight(.medium)
@@ -118,17 +95,17 @@ public struct NavigationBar: ViewModifier {
                                 Spacer()
                             }
                             
-                            if(!bigTitle){
+                            if !bigTitle {
                                 HStack {
                                     Spacer()
-                                    if(customTitle != nil){
+                                    if customTitle != nil {
                                         customTitle
                                     }else {
                                         VStack(spacing: 0) {
                                             Text(title)
                                                 .font(.headline)
                                                 .lineLimit(1)
-                                            if(!subTitle.isEmpty){
+                                            if !subTitle.isEmpty {
                                                 Text(subTitle)
                                                     .font(.caption2)
                                                     .fontWeight(.medium)
@@ -145,13 +122,13 @@ public struct NavigationBar: ViewModifier {
                             HStack {
                                 Spacer()
                                 
-                                if buttons != nil || searchBar.isDiscrete {
+                                if buttons != nil || searchField.isDiscrete {
                                     HStack(spacing: 16) {
                                         Group {
-                                            if searchBar.isDiscrete {
+                                            if searchField.isDiscrete {
                                                 Button(action: {
                                                     withAnimation(.easeInOut(duration: 0.25)) {
-                                                        searchBar.show.toggle()
+                                                        searchField.show.toggle()
                                                     }
                                                 }){
                                                     CLIcon(frameworkImage: "Search_Icon", size: .small)
@@ -168,22 +145,22 @@ public struct NavigationBar: ViewModifier {
                         }
                         .padding(.top, 12)
                         .padding(.horizontal)
-                        .if(!searchBar.hasSearchBar) { view in
+                        .if(!searchField.hasSearchBar) { view in
                             view
                                 .padding(.bottom, 8)
                         }
                     }
                     
-                    if(searchBar.hasSearchBar && !searchBar.isDiscrete || searchBar.isDiscrete && searchBar.show){
+                    if searchField.hasSearchBar && !searchField.isDiscrete || searchField.isDiscrete && searchField.show {
                         HStack(spacing: 0) {
-                            CLSearchBar(text: $searchBar.query, placeholder: CULanguage.getStringCleanUI("search"), isEditing: $searchBar.isEditing)
+                            CLSearchBar(text: $searchField.query, placeholder: CULanguage.getStringCleanUI("search"), isEditing: $searchField.isEditing)
                             
-                            if(searchBarShowSearchResultsWithAnimation){
+                            if searchBarShowSearchResultsWithAnimation {
                                 Button(action: {
                                     withAnimation(.easeInOut(duration: 0.25)) {
-                                        searchBar.isEditing = false
-                                        searchBar.showSearchResults = false
-                                        searchBar.query = ""
+                                        searchField.isEditing = false
+                                        searchField.showSearchResults = false
+                                        searchField.query = ""
                                     }
                                     
                                     // Close Keyboard
@@ -243,18 +220,91 @@ public struct NavigationBar: ViewModifier {
             }
         }
         .hideNavigationBar()
-        .onChange(of: searchBar.isEditing) { value in
+        .onChange(of: searchField.isEditing) { value in
             withAnimation(.easeInOut(duration: 0.25)) {
                 searchBarIsEditingWithAnimation = value
-                if(value){
-                    searchBar.showSearchResults = true
+                if value {
+                    searchField.showSearchResults = true
                 }
             }
         }
-        .onChange(of: searchBar.showSearchResults) { value in
+        .onChange(of: searchField.showSearchResults) { value in
             withAnimation(.easeInOut(duration: 0.25)) {
                 searchBarShowSearchResultsWithAnimation = value
             }
+        }
+    }
+}
+
+extension NavigationBar {    
+    /// The ``NavigationBar.SearchField`` is an ObservableObject model for applying to an ``NavigationBar``
+    public class SearchField: ObservableObject, Equatable, Identifiable {
+        
+        public static func == (lhs: SearchField, rhs: SearchField) -> Bool {
+            lhs.id == rhs.id
+        }
+        
+        public let id = UUID()
+        
+        @Published public var isEditing: Bool = false
+        @Published public var showSearchResults: Bool = false
+        @Published public var query: String = ""
+        @Published public var show: Bool = false
+        var hasSearchBar: Bool
+        var isDiscrete: Bool
+        
+        /// - Parameters:
+        ///   - hasSearchBar: If false, the ``NavigationBar`` acts like it has no search field, default is true
+        ///   - isDiscrete: When this is true, the ``NavigationBar`` gets a search button which needs to be pressed for the search bar to unhide, default is false
+        public init(_ hasSearchBar: Bool = true, isDiscrete: Bool = false){
+            self.hasSearchBar = hasSearchBar
+            self.isDiscrete = isDiscrete
+        }
+    }
+}
+
+public extension View {
+    /// Show a CleanUI ``NavigationBar``
+    /// - Parameters:
+    ///   - title: The navigation bar title
+    ///   - subTitle: The navigation bar subtitle
+    ///   - bigTitle: Should the navigation bar title be big? default is `false
+    ///   - customTitle: Lets you apply a custom title view, which replaces the default title
+    ///   - buttons: The trailing buttons
+    ///   - searchField: When a ``NavigationBar.SearchField`` is applied, the NavigationBar gets a search ability
+    func navigationBar(_ title: String = "", subTitle: String = "", bigTitle: Bool = false, customTitle: AnyView? = nil, buttons: AnyView? = nil, searchField: NavigationBar.SearchField? = nil) -> some View {
+        modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchField: searchField))
+    }
+}
+
+struct NavigationBar_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            List {
+                Text("Default")
+            }
+            .navigationBar("Default")
+        }
+        
+        NavigationView {
+            List {
+                Text("Big")
+            }
+            .navigationBar("Big", bigTitle: true)
+        }
+        
+        NavigationView {
+            List {
+                Text("With Subtitle")
+            }
+            .navigationBar("With Subtitle", subTitle: "Subtitle")
+        }
+        
+        NavigationView {
+            List {
+                Text("With SearchField")
+            }
+            .navigationBar("With SearchField", searchField: NavigationBar.SearchField())
         }
     }
 }

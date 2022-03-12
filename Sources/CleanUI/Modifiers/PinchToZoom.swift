@@ -165,3 +165,11 @@ public struct PinchToZoom: ViewModifier {
             .overlay(PinchZoom(scale: $scale, anchor: $anchor, offset: $offset, isPinching: $isPinching))
     }
 }
+
+public extension View {
+    /// Applies the view modifier ``PinchToZoom`` to a view
+    /// - Returns: The view with the ``PinchToZoom`` modifier
+    func pinchToZoom() -> some View {
+        modifier(PinchToZoom())
+    }
+}

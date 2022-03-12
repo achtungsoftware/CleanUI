@@ -40,3 +40,12 @@ public struct OnLoad: ViewModifier {
             }
     }
 }
+
+public extension View {
+    /// Applies the view modifier ``OnLoad`` to a view
+    /// - Parameter action: The action gets called only once on appear. Gets not called if already appeared
+    /// - Returns: The view with the ``OnLoad`` modifier
+    func onLoad(perform action: @escaping (() -> Void)) -> some View {
+        modifier(OnLoad(perform: action))
+    }
+}

@@ -35,3 +35,12 @@ public struct OnRotate: ViewModifier {
             }
     }
 }
+
+public extension View {
+    /// Applies the view modifier ``OnRotate`` to a view
+    /// - Parameter action: The on rotate action
+    /// - Returns: The view with the ``OnRotate`` modifier
+    func onRotate(perform action: @escaping (UIDeviceOrientation) -> Void) -> some View {
+        modifier(OnRotate(action: action))
+    }
+}
