@@ -19,7 +19,7 @@ import SwiftUI
 import Combine
 
 /// This is extension is mainly to provide a fullscreen back gesture.
-extension UINavigationController: UIViewControllerTransitioningDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+extension UINavigationController: UIGestureRecognizerDelegate {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
