@@ -33,7 +33,7 @@ public struct CLUrlImage: View {
     public init(urlString: String?, fallbackImage: UIImage?, contentMode: ContentMode = .fill) {
         urlImageModel = UrlImageModel(urlString: urlString)
         self.contentMode = contentMode
-        self.fallbackImage = fallbackImage ?? UIColor.accent.imageWithColor(width: 100, height: 100)
+        self.fallbackImage = fallbackImage ?? UIColor.accent.imageWithColor(width: 1, height: 1)
     }
     
     public var body: some View {
