@@ -48,7 +48,7 @@ public struct CLRichText: View {
             .fixedSize(horizontal: false, vertical: true)
             .overlay(
                 GeometryReader { geometry in
-                    RichTextViewOverlay(string: string, font: font, maxLayoutWidth: geometry.maxWidth, textViewStore: textViewStore, foregroundColor: foregroundColor, attributes: attributes)
+                    TextViewOverlay(string: string, font: font, maxLayoutWidth: geometry.maxWidth, textViewStore: textViewStore, foregroundColor: foregroundColor, attributes: attributes)
                         .frame(height: textViewStore.height)
                 }
                     .frame(height: textViewStore.height)
@@ -56,162 +56,164 @@ public struct CLRichText: View {
     }
 }
 
-struct RichTextViewOverlay: UIViewRepresentable {
-    var string: String
-    var font: Font
-    var maxLayoutWidth: CGFloat
-    var textViewStore: TextViewStore
-    var foregroundColor: Color
-    var attributes: [Attribute]
-    
-    @State var attributedText = NSMutableAttributedString()
-    let textView = UTextView()
-    
-    func makeUIView(context: Context) -> UTextView {
+internal extension CLRichText {
+    struct TextViewOverlay: UIViewRepresentable {
+        var string: String
+        var font: Font
+        var maxLayoutWidth: CGFloat
+        var textViewStore: TextViewStore
+        var foregroundColor: Color
+        var attributes: [Attribute]
         
-        // Add tap gesture recognizer to TextView
-        let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.onTap(_:)))
-        tap.delegate = context.coordinator
-        textView.addGestureRecognizer(tap)
+        @State var attributedText = NSMutableAttributedString()
+        let textView = UTextView()
         
-        textView.delegate = context.coordinator
+        func makeUIView(context: Context) -> UTextView {
+            
+            // Add tap gesture recognizer to TextView
+            let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.onTap(_:)))
+            tap.delegate = context.coordinator
+            textView.addGestureRecognizer(tap)
+            
+            textView.delegate = context.coordinator
+            
+            textView.font = font.toUIFont()
+            textView.isSelectable = true
+            textView.isUserInteractionEnabled = true
+            textView.isEditable = false
+            textView.isScrollEnabled = false
+            textView.backgroundColor = .clear
+            textView.textContainerInset = .zero
+            textView.textContainer.lineFragmentPadding = 0
+            textView.adjustsFontForContentSizeCategory = true
+            textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+            
+            return textView
+        }
         
-        textView.font = font.toUIFont()
-        textView.isSelectable = true
-        textView.isUserInteractionEnabled = true
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.backgroundColor = .clear
-        textView.textContainerInset = .zero
-        textView.textContainer.lineFragmentPadding = 0
-        textView.adjustsFontForContentSizeCategory = true
-        textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        
-        return textView
-    }
-    
-    func updateUIView(_ uiView: UTextView, context: Context) {
-        
-        attributedText.mutableString.setString(string)
-        
-        attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(foregroundColor), range: NSRange(location: 0, length: attributedText.length))
-        attributedText.addAttribute(NSAttributedString.Key.font, value: font.toUIFont(), range: NSRange(location: 0, length: attributedText.length))
-        
-        
-        for attribute in attributes {
-            switch attribute {
-            case .links(_):
-                let links = string.getLinks()
-                
-                for (foundedLink, range) in links {
-                    var multipleAttributes = [NSAttributedString.Key : Any]()
-                    multipleAttributes[NSAttributedString.Key.customLink] = foundedLink
-                    multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.link
-                    attributedText.addAttributes(multipleAttributes, range: range)
-                }
-            case .hashtags(_):
-                let mentions = string.getMentions()
-                
-                for (foundedMention, range) in mentions {
-                    var multipleAttributes = [NSAttributedString.Key : Any]()
-                    multipleAttributes[NSAttributedString.Key.mention] = foundedMention.dropFirst()
-                    multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.link
-                    attributedText.addAttributes(multipleAttributes, range: range)
-                }
-            case .mentions(_):
-                let hashtags = string.getHashtags()
-                
-                for (foundedHashtag, range) in hashtags {
-                    var multipleAttributes = [NSAttributedString.Key : Any]()
-                    multipleAttributes[NSAttributedString.Key.hashtag] = foundedHashtag.dropFirst()
-                    multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.link
-                    attributedText.addAttributes(multipleAttributes, range: range)
+        func updateUIView(_ uiView: UTextView, context: Context) {
+            
+            attributedText.mutableString.setString(string)
+            
+            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(foregroundColor), range: NSRange(location: 0, length: attributedText.length))
+            attributedText.addAttribute(NSAttributedString.Key.font, value: font.toUIFont(), range: NSRange(location: 0, length: attributedText.length))
+            
+            
+            for attribute in attributes {
+                switch attribute {
+                case .links(_):
+                    let links = string.getLinks()
+                    
+                    for (foundedLink, range) in links {
+                        var multipleAttributes = [NSAttributedString.Key : Any]()
+                        multipleAttributes[NSAttributedString.Key.customLink] = foundedLink
+                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.link
+                        attributedText.addAttributes(multipleAttributes, range: range)
+                    }
+                case .hashtags(_):
+                    let mentions = string.getMentions()
+                    
+                    for (foundedMention, range) in mentions {
+                        var multipleAttributes = [NSAttributedString.Key : Any]()
+                        multipleAttributes[NSAttributedString.Key.mention] = foundedMention.dropFirst()
+                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.link
+                        attributedText.addAttributes(multipleAttributes, range: range)
+                    }
+                case .mentions(_):
+                    let hashtags = string.getHashtags()
+                    
+                    for (foundedHashtag, range) in hashtags {
+                        var multipleAttributes = [NSAttributedString.Key : Any]()
+                        multipleAttributes[NSAttributedString.Key.hashtag] = foundedHashtag.dropFirst()
+                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.link
+                        attributedText.addAttributes(multipleAttributes, range: range)
+                    }
                 }
             }
+            
+            uiView.attributedText = attributedText
+            uiView.maxLayoutWidth = maxLayoutWidth
+            textViewStore.didUpdateTextView(uiView)
         }
         
-        uiView.attributedText = attributedText
-        uiView.maxLayoutWidth = maxLayoutWidth
-        textViewStore.didUpdateTextView(uiView)
-    }
-    
-    
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
-    }
-    
-    final class Coordinator: NSObject, UITextViewDelegate, UIGestureRecognizerDelegate {
         
-        var parent: RichTextViewOverlay
-        var heightSet: Bool = false
-        
-        init(_ parent: RichTextViewOverlay) {
-            self.parent = parent
+        func makeCoordinator() -> Coordinator {
+            return Coordinator(self)
         }
         
-        @objc func onTap(_ sender: UITapGestureRecognizer) {
-            let textView = sender.view as! UITextView
-            let layoutManager = textView.layoutManager
+        final class Coordinator: NSObject, UITextViewDelegate, UIGestureRecognizerDelegate {
             
-            // location of tap in textView coordinates and taking the inset into account
-            var location = sender.location(in: textView)
-            location.x -= textView.textContainerInset.left;
-            location.y -= textView.textContainerInset.top;
+            var parent: TextViewOverlay
+            var heightSet: Bool = false
             
-            // character index at tap location
-            let characterIndex = layoutManager.characterIndex(for: location, in: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+            init(_ parent: TextViewOverlay) {
+                self.parent = parent
+            }
             
-            // if index is valid then do something.
-            if characterIndex < textView.textStorage.length {
+            @objc func onTap(_ sender: UITapGestureRecognizer) {
+                let textView = sender.view as! UITextView
+                let layoutManager = textView.layoutManager
                 
-                // Tap on Link
-                let linkAttribute = NSAttributedString.Key.customLink
-                let linkAttributeValue = textView.attributedText?.attribute(linkAttribute, at: characterIndex, effectiveRange: nil)
-                if let linkValue = linkAttributeValue {
-                    for attribute in parent.attributes {
-                        switch attribute {
-                        case .links(let action):
-                            if let action = action {
-                                action(linkValue as! String)
+                // location of tap in textView coordinates and taking the inset into account
+                var location = sender.location(in: textView)
+                location.x -= textView.textContainerInset.left;
+                location.y -= textView.textContainerInset.top;
+                
+                // character index at tap location
+                let characterIndex = layoutManager.characterIndex(for: location, in: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+                
+                // if index is valid then do something.
+                if characterIndex < textView.textStorage.length {
+                    
+                    // Tap on Link
+                    let linkAttribute = NSAttributedString.Key.customLink
+                    let linkAttributeValue = textView.attributedText?.attribute(linkAttribute, at: characterIndex, effectiveRange: nil)
+                    if let linkValue = linkAttributeValue {
+                        for attribute in parent.attributes {
+                            switch attribute {
+                            case .links(let action):
+                                if let action = action {
+                                    action(linkValue as! String)
+                                }
+                            default:
+                                break
                             }
-                        default:
-                            break
                         }
                     }
-                }
-                
-                // Tap on Mention
-                let mentionAttribute = NSAttributedString.Key.mention
-                let mentionAttributeValue = textView.attributedText?.attribute(mentionAttribute, at: characterIndex, effectiveRange: nil)
-                if let mentionValue = mentionAttributeValue {
-                    for attribute in parent.attributes {
-                        switch attribute {
-                        case .mentions(let action):
-                            if let action = action {
-                                action(mentionValue as! String)
+                    
+                    // Tap on Mention
+                    let mentionAttribute = NSAttributedString.Key.mention
+                    let mentionAttributeValue = textView.attributedText?.attribute(mentionAttribute, at: characterIndex, effectiveRange: nil)
+                    if let mentionValue = mentionAttributeValue {
+                        for attribute in parent.attributes {
+                            switch attribute {
+                            case .mentions(let action):
+                                if let action = action {
+                                    action(mentionValue as! String)
+                                }
+                            default:
+                                break
                             }
-                        default:
-                            break
                         }
                     }
-                }
-                
-                // Tap on Hashtag
-                let hashtagAttribute = NSAttributedString.Key.hashtag
-                let hashtagAttributeValue = textView.attributedText?.attribute(hashtagAttribute, at: characterIndex, effectiveRange: nil)
-                if let hashtagValue = hashtagAttributeValue {
-                    for attribute in parent.attributes {
-                        switch attribute {
-                        case .hashtags(let action):
-                            if let action = action {
-                                action(hashtagValue as! String)
+                    
+                    // Tap on Hashtag
+                    let hashtagAttribute = NSAttributedString.Key.hashtag
+                    let hashtagAttributeValue = textView.attributedText?.attribute(hashtagAttribute, at: characterIndex, effectiveRange: nil)
+                    if let hashtagValue = hashtagAttributeValue {
+                        for attribute in parent.attributes {
+                            switch attribute {
+                            case .hashtags(let action):
+                                if let action = action {
+                                    action(hashtagValue as! String)
+                                }
+                            default:
+                                break
                             }
-                        default:
-                            break
                         }
                     }
+                    
                 }
-                
             }
         }
     }

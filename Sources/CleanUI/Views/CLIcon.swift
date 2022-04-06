@@ -21,14 +21,6 @@ import Combine
 /// Returns a very dynamic and customizable ``CLIcon``
 public struct CLIcon: View {
     
-    public enum Size {
-        case textSize, small, medium, large
-    }
-    
-    public enum Offset {
-        case leading(Double), trailing(Double), bottom(Double), top(Double)
-    }
-    
     var image: String
     var systemImage: String
     var frameworkImage: String
@@ -106,6 +98,16 @@ public struct CLIcon: View {
             }
         }
         .offset(offset.toCGSize())
+    }
+}
+
+public extension CLIcon {
+    enum Size {
+        case textSize, small, medium, large
+    }
+    
+    enum Offset {
+        case leading(Double), trailing(Double), bottom(Double), top(Double)
     }
 }
 

@@ -38,7 +38,7 @@ public struct CLTextWithNewBadge: View {
             HStack(spacing: 0) {
                 Text(string)
                     .foregroundColor(.clear)
-                if(newBadge){
+                if newBadge {
                     CLNewBadge()
                         .offset(x: -2, y: -6)
                 }

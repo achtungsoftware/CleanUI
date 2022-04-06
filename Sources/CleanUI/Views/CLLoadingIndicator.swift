@@ -21,11 +21,6 @@ import Combine
 /// A ``CLLoadingIndicator`` for indicating unknown progress
 public struct CLLoadingIndicator: View {
     
-    public enum Style {
-        case standard(_ tint: Color = Color.defaultText)
-        case knoggl
-    }
-    
     var style: CLLoadingIndicator.Style
     var withDelay: Bool
     var isImageOverlay: Bool
@@ -40,7 +35,7 @@ public struct CLLoadingIndicator: View {
         self.isImageOverlay = isImageOverlay
     }
     
-    @State private var show: Bool = false
+    @StateObject private var model: ViewModel = ViewModel()
     
     public var body: some View {
         ZStack {
@@ -50,7 +45,7 @@ public struct CLLoadingIndicator: View {
                     .frame(width: 40, height: 40, alignment: .center)
             }
             
-            if show {
+            if model.show {
                 switch style {
                 case .standard(let tint):
                     ProgressView()
@@ -66,12 +61,23 @@ public struct CLLoadingIndicator: View {
             if withDelay {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                     withAnimation {
-                        show = true
+                        model.show = true
                     }
                 }
             }else {
-                show = true
+                model.show = true
             }
         }
+    }
+}
+
+public extension CLLoadingIndicator {
+    enum Style {
+        case standard(_ tint: Color = Color.defaultText)
+        case knoggl
+    }
+ 
+    class ViewModel: ObservableObject {
+        @Published var show: Bool = false
     }
 }

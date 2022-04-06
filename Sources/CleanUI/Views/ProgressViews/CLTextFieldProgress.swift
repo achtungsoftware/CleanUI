@@ -48,7 +48,7 @@ public struct CLTextFieldProgress: View {
                 .foregroundColor(Color.primaryColor)
                 .rotationEffect(Angle(degrees: 270.0))
             
-            if(remainingCharacters < 0){
+            if remainingCharacters < 0 {
                 ZStack {
                     Circle()
                         .stroke(lineWidth: 2.0)

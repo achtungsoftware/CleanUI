@@ -21,14 +21,6 @@ import Combine
 /// A ``CLCircularProgress`` for indacting any type of progress
 public struct CLCircularProgress: View {
     
-    public enum Size {
-        case small, medium, big
-    }
-    
-    public enum Tint {
-        case light, dark, auto, knoggl
-    }
-    
     var progress: CGFloat
     var size: CLCircularProgress.Size
     var tint: CLCircularProgress.Tint
@@ -67,5 +59,15 @@ public struct CLCircularProgress: View {
             )
         }
         .frame(width: size == .small ? 16 : size == .medium ? 24 : 30, height: size == .small ? 16 : size == .medium ? 24 : 30)
+    }
+}
+
+public extension CLCircularProgress {
+    enum Size {
+        case small, medium, big
+    }
+    
+    enum Tint {
+        case light, dark, auto, knoggl
     }
 }

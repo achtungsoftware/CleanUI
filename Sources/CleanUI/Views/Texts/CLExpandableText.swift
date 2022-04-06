@@ -59,8 +59,8 @@ public struct CLExpandableText: View {
     
     public var body: some View {
         VStack(alignment: .leading) {
-            if(richText){
-                if(expanded || string.count < characterLimit){
+            if richText {
+                if expanded || string.count < characterLimit {
                     CLRichText(string, font: font, foregroundColor: foregroundColor, attributes: attributes)
                         .font(font)
                         .multilineTextAlignment(.leading)
@@ -81,7 +81,7 @@ public struct CLExpandableText: View {
                     .frame(maxWidth: .infinity, alignment: .topLeading)
             }
             
-            if(string.count > characterLimit) {
+            if string.count > characterLimit {
                 Button(action: {
                     if(alternativeExpandButtonAction == nil){
                         withAnimation(Animation.easeInOut(duration: 0.2)){
@@ -100,7 +100,7 @@ public struct CLExpandableText: View {
             }
             
         }
-        .onChange(of: string){ value in
+        .onChange(of: string) { value in
             shortString = String(value.trim().prefix(characterLimit) + String(value.count > self.characterLimit ? "..." : ""))
         }
     }
