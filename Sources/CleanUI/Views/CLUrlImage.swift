@@ -33,24 +33,13 @@ public struct CLUrlImage: View {
     public init(urlString: String, fallbackImage: UIImage? = nil, contentMode: ContentMode = .fill) {
         model = ViewModel(urlString: urlString)
         self.contentMode = contentMode
-        self.fallbackImage = fallbackImage
+        self.fallbackImage = fallbackImage ?? UIColor.accent.imageWithColor(width: 1, height: 1)
     }
+    
     public var body: some View {
-        ZStack {
-            if model.isLoading {
-                Color.accent
-            }else {
-                if let image = model.image {
-                    Image(uiImage: image)
-                        .resizable()
-                        .aspectRatio(contentMode: contentMode)
-                }else {
-                    Image(uiImage: fallbackImage!)
-                        .resizable()
-                        .aspectRatio(contentMode: contentMode)
-                }
-            }
-        }
+        Image(uiImage: model.image ?? fallbackImage!)
+            .resizable()
+            .aspectRatio(contentMode: contentMode)
     }
 }
 
@@ -58,7 +47,6 @@ public extension CLUrlImage {
     class ViewModel: ObservableObject {
         
         @Published public var image: UIImage?
-        @Published public var isLoading: Bool = true
         var urlString: String = ""
         var imageCache = Cache.getImageCache()
         
@@ -71,7 +59,6 @@ public extension CLUrlImage {
             if self.loadImageFromCache() {
                 return
             }
-            
             self.loadImageFromUrl()
         }
         
@@ -80,8 +67,7 @@ public extension CLUrlImage {
                 return false
             }
             
-            image = cacheImage
-            isLoading = false
+            self.image = cacheImage
             
             return true
         }
@@ -111,7 +97,6 @@ public extension CLUrlImage {
             
             SPThreadHelper.async.main.run {
                 self.image = loadedImage
-                self.isLoading = false
             }
         }
     }
