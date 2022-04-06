@@ -22,7 +22,6 @@ import SwiftPlus
 /// Returns an ``CLUrlImage`` which fetches a image from an url, displays and caches it, if needed
 public struct CLUrlImage: View {
     
-    @ObservedObject var model: ViewModel
     var fallbackImage: UIImage?
     var contentMode: ContentMode
     
@@ -31,10 +30,13 @@ public struct CLUrlImage: View {
     ///   - fallbackImage: The fallback image, in case the url image could not be fetched
     ///   - aspectRatio: The `contentMode`, default is `.fill`
     public init(urlString: String, fallbackImage: UIImage?, contentMode: ContentMode = .fill) {
-        model = ViewModel(urlString: urlString)
         self.contentMode = contentMode
         self.fallbackImage = fallbackImage ?? UIColor.accent.imageWithColor(width: 1, height: 1)
+        
+        self._model = StateObject(wrappedValue: ViewModel(urlString: urlString))
     }
+    
+    @StateObject var model: ViewModel
     
     public var body: some View {
         Image(uiImage: ((model.image ?? fallbackImage) ?? fallbackImage)!)
