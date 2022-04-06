@@ -35,18 +35,23 @@ public struct CLUrlImage: View {
         self.contentMode = contentMode
         self.fallbackImage = fallbackImage
     }
-    
-    let loadingImage: UIImage = UIColor.accent.imageWithColor(width: 1, height: 1)
-    
     public var body: some View {
-        Image(uiImage: image)
-            .resizable()
-            .aspectRatio(contentMode: contentMode)
+        ZStack {
+            if model.isLoading {
+                Color.accent
+            }else {
+                if let image = model.image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: contentMode)
+                }else {
+                    Image(uiImage: fallbackImage!)
+                        .resizable()
+                        .aspectRatio(contentMode: contentMode)
+                }
+            }
+        }
     }
-    
-    var image: UIImage {
-         model.isLoading ? loadingImage : model.image != nil ? model.image! : fallbackImage != nil ? fallbackImage! : loadingImage
-     }
 }
 
 public extension CLUrlImage {
@@ -63,8 +68,6 @@ public extension CLUrlImage {
         }
         
         public func loadImage() {
-            isLoading = true
-            
             if self.loadImageFromCache() {
                 return
             }
