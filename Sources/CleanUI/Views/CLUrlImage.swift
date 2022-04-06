@@ -29,19 +29,24 @@ public struct CLUrlImage: View {
     ///   - urlString: The url string to the image
     ///   - fallbackImage: The fallback image, in case the url image could not be fetched
     ///   - aspectRatio: The `contentMode`, default is `.fill`
-    public init(urlString: String, fallbackImage: UIImage?, contentMode: ContentMode = .fill) {
+    public init(urlString: String, fallbackImage: UIImage? = nil, contentMode: ContentMode = .fill) {
         self.contentMode = contentMode
-        self.fallbackImage = fallbackImage ?? UIColor.accent.imageWithColor(width: 1, height: 1)
+        self.fallbackImage = fallbackImage
         
         self._model = StateObject(wrappedValue: ViewModel(urlString: urlString))
     }
     
     @StateObject var model: ViewModel
+    let loadingImage: UIImage = UIColor.accent.imageWithColor(width: 1, height: 1)
     
     public var body: some View {
-        Image(uiImage: ((model.image ?? fallbackImage) ?? fallbackImage)!)
+        Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: contentMode)
+    }
+    
+    var image: UIImage {
+        model.isLoading ? loadingImage : model.image != nil ? model.image! : fallbackImage != nil ? fallbackImage! : loadingImage
     }
 }
 
@@ -49,6 +54,7 @@ public extension CLUrlImage {
     class ViewModel: ObservableObject {
         
         @Published public var image: UIImage?
+        @Published public var isLoading: Bool = false
         var urlString: String = ""
         var imageCache = Cache.getImageCache()
         
@@ -58,9 +64,12 @@ public extension CLUrlImage {
         }
         
         public func loadImage() {
+            isLoading = true
+            
             if self.loadImageFromCache() {
                 return
             }
+            
             self.loadImageFromUrl()
         }
         
@@ -69,7 +78,8 @@ public extension CLUrlImage {
                 return false
             }
             
-            self.image = cacheImage
+            image = cacheImage
+            isLoading = false
             
             return true
         }
@@ -99,6 +109,7 @@ public extension CLUrlImage {
             
             SPThreadHelper.async.main.run {
                 self.image = loadedImage
+                self.isLoading = false
             }
         }
     }
