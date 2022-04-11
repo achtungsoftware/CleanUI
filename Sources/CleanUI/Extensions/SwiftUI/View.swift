@@ -61,6 +61,26 @@ public extension View {
         )
             .onPreferenceChange(SizePreferenceKey.self, perform: onChange)
     }
+    
+    /// Adds an action to perform when `UIApplication` will enter foreground
+    /// - Parameter action: The action to perform
+    /// - Returns: The same `View` with the logic added
+    func willEnterForeground(perform action: @escaping () -> Void) -> some View {
+        self
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { value in
+                action()
+            }
+    }
+    
+    /// Adds an action to perform when `UIApplication` did enter background
+    /// - Parameter action: The action to perform
+    /// - Returns: The same `View` with the logic added
+    func didEnterBackground(perform action: @escaping () -> Void) -> some View {
+        self
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification)) { value in
+                action()
+            }
+    }
 }
 
 internal struct SizePreferenceKey: PreferenceKey {
