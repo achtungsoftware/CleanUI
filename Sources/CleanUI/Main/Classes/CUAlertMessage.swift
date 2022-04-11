@@ -76,6 +76,8 @@ public class CUAlertMessages {
             controller.view.addConstraints([c1, c2, c3])
             infoCardController.view.translatesAutoresizingMaskIntoConstraints = false
             
+            messages.append(CUAlertModel(id: id, view: infoCardController.view))
+            
             infoCardController.view.layoutIfNeeded()
             
             UIView.animate(withDuration:0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [UIView.AnimationOptions.curveEaseIn], animations: { () -> Void in
@@ -86,7 +88,6 @@ public class CUAlertMessages {
                 (value: Bool) in
             })
             
-            messages.append(CUAlertModel(id: id, view: infoCardController.view))
             CUVibrate.light.vibrate()
         }
     }

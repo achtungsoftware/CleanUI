@@ -57,8 +57,6 @@ public class CUInAppNotification {
             notificationView.view.isUserInteractionEnabled = true
             notificationView.view.backgroundColor = .clear
             
-            
-            
             let c1 = NSLayoutConstraint(item: notificationView.view!, attribute: .leading, relatedBy: .equal, toItem: controller.view, attribute: .leading, multiplier: 1, constant: 8)
             let c2 = NSLayoutConstraint(item: notificationView.view!, attribute: .trailing, relatedBy: .equal, toItem: controller.view, attribute: .trailing, multiplier: 1, constant: -8)
             let c3 = NSLayoutConstraint(item: notificationView.view!, attribute: .top, relatedBy: .equal, toItem: controller.view, attribute: .top, multiplier: 1, constant: 8)
@@ -66,17 +64,17 @@ public class CUInAppNotification {
             controller.view.addConstraints([c1, c2, c3])
             notificationView.view.translatesAutoresizingMaskIntoConstraints = false
             
+            notifications.append(CUAlertModel(id: id, view: notificationView.view))
+            
             notificationView.view.layoutIfNeeded()
             
             UIView.animate(withDuration:0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [UIView.AnimationOptions.curveEaseInOut], animations: { () -> Void in
                 
                 notificationView.view.layoutIfNeeded()
-                notificationView.view.frame.origin.y = 200
+                notificationView.view.frame.origin.y = 8
             },  completion: {
                 (value: Bool) in
             })
-            
-            notifications.append(CUAlertModel(id: id, view: notificationView.view))
             
             vibration.vibrate()
         }
