@@ -76,9 +76,11 @@ public class CUAlertMessages {
             controller.view.addConstraints([c1, c2, c3])
             infoCardController.view.translatesAutoresizingMaskIntoConstraints = false
             
+            infoCardController.view.layoutIfNeeded()
             
             UIView.animate(withDuration:0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [UIView.AnimationOptions.curveEaseIn], animations: { () -> Void in
                 
+                infoCardController.view.layoutIfNeeded()
                 infoCardController.view.frame.origin.y = -200
             },  completion: {
                 (value: Bool) in
@@ -143,5 +145,18 @@ struct CLAlertMessageView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
             CUAlertMessage.clearSingle(id)
         }
+    }
+}
+
+struct CLAlertMessageView_Previews: PreviewProvider {
+    static var previews: some View {
+        List {
+            Button(action: {
+                CUAlertMessage.show("Test")
+            }){
+                Text("Show")
+            }
+        }
+        .preferredColorScheme(.dark)
     }
 }

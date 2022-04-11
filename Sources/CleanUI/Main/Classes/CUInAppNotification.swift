@@ -54,21 +54,23 @@ public class CUInAppNotification {
         if let controller = CUStd.getMainUIWindow()?.rootViewController {
             let notificationView = UIHostingController(rootView: CLInAppNotificationView(id: id, title: title, subTitle: body, trailingView: trailingView, tapAction: tapAction))
             controller.view.addSubview(notificationView.view)
-            notificationView.view.translatesAutoresizingMaskIntoConstraints = false
             notificationView.view.isUserInteractionEnabled = true
             notificationView.view.backgroundColor = .clear
             
             
             
-            let c1 = NSLayoutConstraint(item: notificationView.view!, attribute: .leading, relatedBy: .equal, toItem: controller.view, attribute: .leading, multiplier: 1, constant: 10)
-            let c2 = NSLayoutConstraint(item: notificationView.view!, attribute: .trailing, relatedBy: .equal, toItem: controller.view, attribute: .trailing, multiplier: 1, constant: -10)
-            let c3 = NSLayoutConstraint(item: notificationView.view!, attribute: .top, relatedBy: .equal, toItem: controller.view, attribute: .top, multiplier: 1, constant: 0)
+            let c1 = NSLayoutConstraint(item: notificationView.view!, attribute: .leading, relatedBy: .equal, toItem: controller.view, attribute: .leading, multiplier: 1, constant: 8)
+            let c2 = NSLayoutConstraint(item: notificationView.view!, attribute: .trailing, relatedBy: .equal, toItem: controller.view, attribute: .trailing, multiplier: 1, constant: -8)
+            let c3 = NSLayoutConstraint(item: notificationView.view!, attribute: .top, relatedBy: .equal, toItem: controller.view, attribute: .top, multiplier: 1, constant: 8)
             
             controller.view.addConstraints([c1, c2, c3])
+            notificationView.view.translatesAutoresizingMaskIntoConstraints = false
             
+            notificationView.view.layoutIfNeeded()
             
-            UIView.animate(withDuration:0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [UIView.AnimationOptions.curveEaseIn], animations: { () -> Void in
+            UIView.animate(withDuration:0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [UIView.AnimationOptions.curveEaseInOut], animations: { () -> Void in
                 
+                notificationView.view.layoutIfNeeded()
                 notificationView.view.frame.origin.y = 200
             },  completion: {
                 (value: Bool) in
@@ -91,77 +93,74 @@ struct CLInAppNotificationView: View {
     
     @State private var show: Bool = true
     @State private var offset: CGSize = .zero
-    
     @State private var screenSize: CGSize = .zero
     
     var body: some View {
-        if show {
-                ZStack {
-                    Color.clear
-                        .readSize { value in
-                            screenSize = value
-                        }
+        ZStack(alignment: .top) {
+            Color.clear
+                .readSize { value in
+                    screenSize = value
+                }
+            
+            if show {
+                HStack {
                     
-                    HStack {
-                        
-                        if let trailingView = trailingView {
-                            trailingView
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text(title)
-                                    .font(.subheadline)
-                                    .foregroundColor(Color.defaultText)
-                                    .fontWeight(.bold)
-                                    .lineLimit(1)
-                                Spacer()
-                            }
-                            HStack {
-                                Text(subTitle)
-                                    .lineLimit(1)
-                                    .font(.subheadline)
-                                    .foregroundColor(Color.defaultText)
-                                Spacer()
-                            }
-                        }
+                    if let trailingView = trailingView {
+                        trailingView
                     }
-                    .padding(16)
-                    .frame(width: screenSize.width.maxValue(500))
-                    .background(
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(.regularMaterial)
-                    )
-                    .offset(y: offset.height < 0 ? offset.height : 0)
-                    .transition(.move(edge: .top).combined(with: .opacity))
-                    .highPriorityGesture (
-                        DragGesture(coordinateSpace: .global)
-                            .onChanged { gesture in
-                                offset = gesture.translation
-                            }
-                            .onEnded { g in
-                                if (g.predictedEndTranslation.height < -30) {
-                                    close()
-                                } else {
-                                    withAnimation(Animation.easeInOut(duration: 0.3)) {
-                                        offset = .zero
-                                    }
-                                }
-                            }
-                    )
-                    .onTapGesture {
-                        if let tapAction = tapAction {
-                            tapAction()
+                    
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text(title)
+                                .font(.subheadline)
+                                .foregroundColor(Color.defaultText)
+                                .fontWeight(.bold)
+                                .lineLimit(1)
+                            Spacer()
                         }
-                    }
-                    .onLoad {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                            close()
+                        HStack {
+                            Text(subTitle)
+                                .lineLimit(1)
+                                .font(.subheadline)
+                                .foregroundColor(Color.defaultText)
+                            Spacer()
                         }
                     }
                 }
-        }else {
-            EmptyView()
+                .padding(16)
+                .frame(width: screenSize.width.maxValue(500))
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.regularMaterial)
+                )
+                .highPriorityGesture (
+                    DragGesture(coordinateSpace: .global)
+                        .onChanged { gesture in
+                            offset = gesture.translation
+                        }
+                        .onEnded { g in
+                            if (g.predictedEndTranslation.height < -30) {
+                                close()
+                            } else {
+                                withAnimation(Animation.easeInOut(duration: 0.3)) {
+                                    offset = .zero
+                                }
+                            }
+                        }
+                )
+                .offset(y: offset.height < 0 ? offset.height : 0)
+                .transition(.move(edge: .top).combined(with: .opacity))
+                .onTapGesture {
+                    if let tapAction = tapAction {
+                        tapAction()
+                    }
+                }
+                .onLoad {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        close()
+                    }
+                }
+            }
         }
     }
     
@@ -173,5 +172,18 @@ struct CLInAppNotificationView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
             CUInAppNotification.clearSingle(id)
         }
+    }
+}
+
+struct CLInAppNotificationView_Previews: PreviewProvider {
+    static var previews: some View {
+        List {
+            Button(action: {
+                CUInAppNotification.show(title: "Test Title", body: "Test Body")
+            }){
+                Text("Show")
+            }
+        }
+        .preferredColorScheme(.dark)
     }
 }
