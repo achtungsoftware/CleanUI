@@ -98,4 +98,8 @@ public extension Color {
     static var alert: Color {
         ColorProvider.color("Alert")
     }
+    
+    static var blackOpacity: Color {
+        Color.black.opacity(0.45)
+    }
 }

@@ -30,7 +30,7 @@ public struct IconRoundOverImageButtonStyle: ButtonStyle {
             .foregroundColor(.white)
             .background(
                 Circle()
-                    .fill(Color.black.opacity(0.75))
+                    .fill(Color.blackOpacity)
             )
     }
 }
