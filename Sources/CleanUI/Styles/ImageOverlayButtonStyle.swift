@@ -28,10 +28,7 @@ public struct ImageOverlayButtonStyle: ButtonStyle {
             .font(.subheadline)
             .padding(.vertical, 6)
             .padding(.horizontal, 10)
-            .background(
-                Color.black
-                    .opacity(0.6)
-            )
+            .background(Color.blackOpacity)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .foregroundColor(Color.white)
     }
