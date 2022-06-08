@@ -107,7 +107,17 @@ public struct CLExpandableText: View {
 
 struct CLExpandableText_Previews: PreviewProvider {
     static var previews: some View {
-        CLExpandableText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
-            .padding()
+        CLExpandableText("Hallo #knogglHashtag www.knoggl.com @knogglMention", attributes: [
+            .links { linkString in
+                CUAlertMessage.show("Link: " + linkString)
+            },
+            .hashtags { hashtagString in
+                CUAlertMessage.show("Hashtag: " + hashtagString)
+            },
+            .mentions { mentionString in
+                CUAlertMessage.show("Mention: " + mentionString)
+            },
+        ])
+        .padding()
     }
 }

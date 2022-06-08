@@ -71,7 +71,7 @@ public extension Color {
         ColorProvider.color("GrayText")
     }
     
-    static var link: Color {
+    static var defaultLink: Color {
         ColorProvider.color("Link")
     }
     

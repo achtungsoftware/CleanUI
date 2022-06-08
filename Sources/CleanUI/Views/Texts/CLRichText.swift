@@ -58,6 +58,7 @@ public struct CLRichText: View {
 
 internal extension CLRichText {
     struct TextViewOverlay: UIViewRepresentable {
+        
         var string: String
         var font: Font
         var maxLayoutWidth: CGFloat
@@ -107,25 +108,25 @@ internal extension CLRichText {
                     for (foundedLink, range) in links {
                         var multipleAttributes = [NSAttributedString.Key : Any]()
                         multipleAttributes[NSAttributedString.Key.customLink] = foundedLink
-                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.link
+                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.defaultLink
                         attributedText.addAttributes(multipleAttributes, range: range)
                     }
                 case .hashtags(_):
-                    let mentions = string.getMentions()
-                    
-                    for (foundedMention, range) in mentions {
-                        var multipleAttributes = [NSAttributedString.Key : Any]()
-                        multipleAttributes[NSAttributedString.Key.mention] = foundedMention.dropFirst()
-                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.link
-                        attributedText.addAttributes(multipleAttributes, range: range)
-                    }
-                case .mentions(_):
                     let hashtags = string.getHashtags()
                     
                     for (foundedHashtag, range) in hashtags {
                         var multipleAttributes = [NSAttributedString.Key : Any]()
                         multipleAttributes[NSAttributedString.Key.hashtag] = foundedHashtag.dropFirst()
-                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.link
+                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.defaultLink
+                        attributedText.addAttributes(multipleAttributes, range: range)
+                    }
+                case .mentions(_):
+                    let mentions = string.getMentions()
+                    
+                    for (foundedMention, range) in mentions {
+                        var multipleAttributes = [NSAttributedString.Key : Any]()
+                        multipleAttributes[NSAttributedString.Key.mention] = foundedMention.dropFirst()
+                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.defaultLink
                         attributedText.addAttributes(multipleAttributes, range: range)
                     }
                 }
@@ -156,8 +157,8 @@ internal extension CLRichText {
                 
                 // location of tap in textView coordinates and taking the inset into account
                 var location = sender.location(in: textView)
-                location.x -= textView.textContainerInset.left;
-                location.y -= textView.textContainerInset.top;
+                location.x -= textView.textContainerInset.left
+                location.y -= textView.textContainerInset.top
                 
                 // character index at tap location
                 let characterIndex = layoutManager.characterIndex(for: location, in: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
@@ -173,7 +174,7 @@ internal extension CLRichText {
                             switch attribute {
                             case .links(let action):
                                 if let action = action {
-                                    action(linkValue as! String)
+                                    action(linkValue as? String ?? "")
                                 }
                             default:
                                 break
@@ -189,7 +190,7 @@ internal extension CLRichText {
                             switch attribute {
                             case .mentions(let action):
                                 if let action = action {
-                                    action(mentionValue as! String)
+                                    action(mentionValue as? String ?? "")
                                 }
                             default:
                                 break
@@ -205,7 +206,7 @@ internal extension CLRichText {
                             switch attribute {
                             case .hashtags(let action):
                                 if let action = action {
-                                    action(hashtagValue as! String)
+                                    action(hashtagValue as? String ?? "")
                                 }
                             default:
                                 break
@@ -216,5 +217,22 @@ internal extension CLRichText {
                 }
             }
         }
+    }
+}
+
+struct CLRichText_Previews: PreviewProvider {
+    static var previews: some View {
+        CLRichText("Hallo #knogglHashtag www.knoggl.com @knogglMention", attributes: [
+            .links { linkString in
+                CUAlertMessage.show("Link: " + linkString)
+            },
+            .hashtags { hashtagString in
+                CUAlertMessage.show("Hashtag: " + hashtagString)
+            },
+            .mentions { mentionString in
+                CUAlertMessage.show("Mention: " + mentionString)
+            },
+        ])
+        .padding()
     }
 }

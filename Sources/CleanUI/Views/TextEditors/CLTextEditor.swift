@@ -59,7 +59,7 @@ public struct CLTextEditor: View {
                 .allowsHitTesting(false)
                 .frame(minHeight: minHeight)
             
-            if(text.isEmpty){
+            if text.isEmpty {
                 Text(placeholder)
                     .foregroundColor(.gray)
                     .opacity(0.6)
@@ -70,15 +70,15 @@ public struct CLTextEditor: View {
         .overlay(
             UTextViewOverlay(text: $text, font: .callout, maxLayoutWidth: UIScreen.main.bounds.size.width, textViewStore: textViewStore, keyboardType: keyboardType, attributes: attributes)
         )
-        .onChange(of: text, perform: { value in
-            if(characterLimit != 0){
-                if(value.count > characterLimit){
+        .onChange(of: text) { value in
+            if characterLimit != 0 {
+                if value.count > characterLimit {
                     DispatchQueue.main.async {
                         text = String(text.dropLast(value.count - characterLimit))
                     }
                 }
             }
-        })
+        }
     }
 }
 
@@ -127,19 +127,19 @@ struct UTextViewOverlay: UIViewRepresentable {
                 let links = text.getLinks()
                 
                 for (_, range) in links {
-                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
+                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.defaultLink, range: range)
                 }
             case .hashtags(_):
-                let mentions = text.getMentions()
-                
-                for (_, range) in mentions {
-                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
-                }
-            case .mentions(_):
                 let hashtags = text.getHashtags()
                 
                 for (_, range) in hashtags {
-                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.link, range: range)
+                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.defaultLink, range: range)
+                }
+            case .mentions(_):
+                let mentions = text.getMentions()
+                
+                for (_, range) in mentions {
+                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.defaultLink, range: range)
                 }
             }
         }

@@ -88,7 +88,7 @@ public extension UIColor {
         ColorProvider.uiColor("GrayText")
     }
     
-    static var link: UIColor {
+    static var defaultLink: UIColor {
         ColorProvider.uiColor("Link")
     }
     
