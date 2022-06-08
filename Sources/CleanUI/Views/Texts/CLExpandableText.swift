@@ -35,13 +35,13 @@ public struct CLExpandableText: View {
     /// - Parameters:
     ///   - string: The `String` to show
     ///   - characterLimit: The character limit; If the `string` is longer than the character limit, a show more / show less button gets shown
-    ///   - font: The `Font
+    ///   - font: The `Font, default is `.subheadline`
     ///   - richText: Should the Text be an ``CLRichText``?
     ///   - foregroundColor: The Text color
     ///   - alternativeExpandButtonAction: If you provide an action here, the default action for the show more button gets overwritten
     ///   - attributes: The attributes which should be highlighted for the ``CLRichText``, default is `[.links, .hashtags, .mentions]
     ///   - expandButtonColor: Set the foregroundColor for the expand button, default is `Color.grayText`
-    public init(_ string: String, characterLimit: Int = 150, font: Font = .callout, richText: Bool = true, foregroundColor: Color = Color.defaultText, alternativeExpandButtonAction: (() -> Void)? = nil, attributes: [Attribute] = [.links(), .hashtags(), .mentions()], expandButtonColor: Color = Color.grayText) {
+    public init(_ string: String, characterLimit: Int = 150, font: Font = .subheadline, richText: Bool = true, foregroundColor: Color = Color.defaultText, alternativeExpandButtonAction: (() -> Void)? = nil, attributes: [Attribute] = [.links(), .hashtags(), .mentions()], expandButtonColor: Color = Color.grayText) {
         self.characterLimit = characterLimit
         self.string = string
         self.font = font
@@ -58,7 +58,7 @@ public struct CLExpandableText: View {
     @State private var expanded: Bool = false
     
     public var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 6) {
             if richText {
                 if expanded || string.count < characterLimit {
                     CLRichText(string, font: font, foregroundColor: foregroundColor, attributes: attributes)
@@ -92,16 +92,22 @@ public struct CLExpandableText: View {
                     }
                 }) {
                     Text(CULanguage.getStringCleanUI(expanded ? "showless" : "showmore"))
-                        .font(.subheadline)
+                        .font(font)
                         .foregroundColor(expandButtonColor)
                 }
                 .buttonStyle(.plain)
-                .padding(.vertical, 5)
             }
             
         }
         .onChange(of: string) { value in
             shortString = String(value.trim().prefix(characterLimit) + String(value.count > self.characterLimit ? "..." : ""))
         }
+    }
+}
+
+struct CLExpandableText_Previews: PreviewProvider {
+    static var previews: some View {
+        CLExpandableText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.")
+            .padding()
     }
 }

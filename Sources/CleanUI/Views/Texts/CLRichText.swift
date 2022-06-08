@@ -29,10 +29,10 @@ public struct CLRichText: View {
     
     /// - Parameters:
     ///   - string: The String that should be shown
-    ///   - font: The `Font`, default is `.callout`
+    ///   - font: The `Font`, default is `.subheadline`
     ///   - foregroundColor: The text color, default is `Color.defaultText`
     ///   - attributes: The attributes which should be highlighted, default is `[.links, .hashtags, .mentions]
-    public init(_ string: String, font: Font = .callout, foregroundColor: Color = Color.defaultText, attributes: [Attribute] = [.links(), .hashtags(), .mentions()]){
+    public init(_ string: String, font: Font = .subheadline, foregroundColor: Color = Color.defaultText, attributes: [Attribute] = [.links(), .hashtags(), .mentions()]){
         self.string = string
         self.font = font
         self.foregroundColor = foregroundColor
