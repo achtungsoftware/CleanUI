@@ -21,31 +21,31 @@ import Combine
 /// RoundedButtonStyle: ButtonStyle
 public struct RoundedButtonStyle: ButtonStyle {
     
-    var buttonTheme: PrimaryButtonTheme
+    var style: PrimaryButtonStyle.Style
     var withOpacity: Bool
     
     /// - Parameters:
-    ///   - buttonTheme: The button theme, default is `.primary
+    ///   - style: The button style, default is `.primary
     ///   - withOpacity: Should the button background have a fixed opacity? Default is `false`
-    public init(buttonTheme: PrimaryButtonTheme = .primary, withOpacity: Bool = false){
-        self.buttonTheme = buttonTheme
+    public init(style: PrimaryButtonStyle.Style = .primary, withOpacity: Bool = false){
+        self.style = style
         self.withOpacity = withOpacity
     }
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding(14)
-            .font(.body.bold())
+            .font(.callout.bold())
             .frame(maxWidth: .infinity)
-            .if(buttonTheme == .primary || buttonTheme == .staticDark || buttonTheme == .staticLight || buttonTheme == .secondary){ view in
+            .if(style == .primary || style == .staticDark || style == .staticLight || style == .secondary){ view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 26)
-                            .fill(buttonTheme == .primary ? Color.primaryColor : buttonTheme == .staticDark ? Color.accentStaticDark : buttonTheme == .secondary ? Color.accent3 : Color.white)
+                            .fill(style == .primary ? Color.primaryColor : style == .staticDark ? Color.accentStaticDark : style == .secondary ? Color.accent3 : Color.white)
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }
-            .if(buttonTheme == .imageOverlay){ view in
+            .if(style == .imageOverlay){ view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 26)
@@ -53,16 +53,58 @@ public struct RoundedButtonStyle: ButtonStyle {
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }
-            .if(buttonTheme == .materialDark || buttonTheme == .materialLight){ view in
+            .if(style == .materialDark || style == .materialLight){ view in
                 view
                     .background(
-                        CLBlurView(buttonTheme == .materialDark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight)
+                        CLBlurView(style == .materialDark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight)
                             .cornerRadius(26)
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }
             .shadow(color: Color.black.opacity(0.04), radius: 8)
-            .foregroundColor(buttonTheme == .primary ? .white : buttonTheme == .staticDark || buttonTheme == .materialDark ? Color.white : buttonTheme == .secondary ? Color.defaultText: Color.black)
+            .foregroundColor(style == .primary ? .white : style == .staticDark || style == .materialDark ? Color.white : style == .secondary ? Color.primaryColor : Color.black)
             .scaleEffect(configuration.isPressed ? 0.97: 1)
+    }
+}
+
+struct RoundedButtonStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(RoundedButtonStyle())
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(RoundedButtonStyle(style: .imageOverlay))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(RoundedButtonStyle(style: .staticLight))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(RoundedButtonStyle(style: .staticDark))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(RoundedButtonStyle(style: .materialDark))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(RoundedButtonStyle(style: .materialLight))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(RoundedButtonStyle(style: .secondary))
+        }
+        .padding()
     }
 }

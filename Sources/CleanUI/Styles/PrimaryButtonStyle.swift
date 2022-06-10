@@ -22,46 +22,31 @@ import Combine
 public struct PrimaryButtonStyle: ButtonStyle {
 
     
-    var buttonTheme: PrimaryButtonTheme
+    var style: Style
     var withOpacity: Bool
     
     /// - Parameters:
-    ///   - buttonTheme: The button theme, default is `.primary`
+    ///   - style: The button style, default is `.primary`
     ///   - withOpacity: Should the button background have a fixed opacity? Default is false`
-    public init(buttonTheme: PrimaryButtonTheme = .primary, withOpacity: Bool = false){
-        self.buttonTheme = buttonTheme
+    public init(style: Style = .primary, withOpacity: Bool = false){
+        self.style = style
         self.withOpacity = withOpacity
     }
-    
-    @Environment(\.colorScheme) var colorScheme
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding(12)
-            .font(.callout)
+            .font(.callout.bold())
             .frame(maxWidth: .infinity)
-            .if(buttonTheme == .primary && colorScheme == .dark) { view in
+            .if(style == .primary || style == .staticDark || style == .staticLight || style == .secondary){ view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 11)
-                            .fill(Color.primaryColor)
-                            .opacity(0.3)
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 11)
-                            .strokeBorder(Color.primaryColor, lineWidth: 0.5)
-                            .opacity(0.6)
-                    )
-            }
-            .if(buttonTheme == .primary && colorScheme != .dark || buttonTheme == .staticDark || buttonTheme == .staticLight || buttonTheme == .secondary){ view in
-                view
-                    .background(
-                        RoundedRectangle(cornerRadius: 11)
-                            .fill(buttonTheme == .primary ? Color.primaryColor : buttonTheme == .staticDark ? Color.accentStaticDark : buttonTheme == .secondary ? Color.accent3 : Color.white)
+                            .fill(style == .primary ? Color.primaryColor : style == .staticDark ? Color.accentStaticDark : style == .secondary ? Color.accent3 : Color.white)
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }
-            .if(buttonTheme == .imageOverlay){ view in
+            .if(style == .imageOverlay){ view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 11)
@@ -69,16 +54,70 @@ public struct PrimaryButtonStyle: ButtonStyle {
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }
-            .if(buttonTheme == .materialDark || buttonTheme == .materialLight){ view in
+            .if(style == .materialDark || style == .materialLight){ view in
                 view
                     .background(
-                        CLBlurView(buttonTheme == .materialDark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight)
+                        CLBlurView(style == .materialDark ? .systemUltraThinMaterialDark : .systemUltraThinMaterialLight)
                             .cornerRadius(11)
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }
             .shadow(color: Color.black.opacity(0.04), radius: 8)
-            .foregroundColor(buttonTheme == .primary ? .white : buttonTheme == .staticDark || buttonTheme == .materialDark ? Color.white : buttonTheme == .secondary ? Color.defaultText: Color.black)
+            .foregroundColor(style == .primary ? .white : style == .staticDark || style == .materialDark ? Color.white : style == .secondary ? Color.primaryColor : Color.black)
             .scaleEffect(configuration.isPressed ? 0.97: 1)
+    }
+}
+
+public extension PrimaryButtonStyle {
+    enum Style {
+        case primary
+        case imageOverlay
+        case staticLight
+        case staticDark
+        case materialDark
+        case materialLight
+        case secondary
+    }
+}
+
+struct PrimaryButtonStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(PrimaryButtonStyle())
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(PrimaryButtonStyle(style: .imageOverlay))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(PrimaryButtonStyle(style: .staticLight))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(PrimaryButtonStyle(style: .staticDark))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(PrimaryButtonStyle(style: .materialDark))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(PrimaryButtonStyle(style: .materialLight))
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(PrimaryButtonStyle(style: .secondary))
+        }
+        .padding()
     }
 }

@@ -21,42 +21,77 @@ import Combine
 /// SecondaryButtonStyle: ButtonStyle
 public struct SecondaryButtonStyle: ButtonStyle {
     
-    var size: SecondaryButtonSize
+    var size: Size
+    var style: Style
     
-    /// - Parameter size: The button size, default is `.normal
-    public init(size: SecondaryButtonSize = .normal){
+    public init(size: Size = .normal, style: Style = .normal){
         self.size = size
+        self.style = style
     }
-    
-    @Environment(\.colorScheme) var colorScheme
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .font(size == .normal ? .subheadline.weight(.medium) : .footnote)
             .padding(.horizontal, size == .normal ? 13.0 : 8)
             .padding(.vertical, 6.0)
-            .foregroundColor(.white)
-            .if(colorScheme == .dark) { view in
+            .foregroundColor(style == .normal ? .white : Color.primaryColor)
+            .if(style == .normal) { view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color.primaryColor)
-                            .opacity(0.3)
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .strokeBorder(Color.primaryColor, lineWidth: 0.5)
-                            .opacity(0.6)
                     )
             }
-            .if(colorScheme != .dark) { view in
+            .if(style == .alternative) { view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.primaryColor)
+                            .fill(Color.accent3)
                     )
             }
             .scaledToFill()
             .scaleEffect(configuration.isPressed ? 0.95: 1)
+    }
+}
+
+public extension SecondaryButtonStyle {
+    enum Style {
+        case normal
+        case alternative
+    }
+    
+    enum Size {
+        case small
+        case normal
+    }
+}
+
+struct SecondaryButtonStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        HStack {
+            VStack {
+                Button(action: {}) {
+                    Text("Button")
+                }
+                .buttonStyle(SecondaryButtonStyle())
+                
+                Button(action: {}) {
+                    Text("Button")
+                }
+                .buttonStyle(SecondaryButtonStyle(size: .small))
+            }
+            
+            VStack {
+                Button(action: {}) {
+                    Text("Button")
+                }
+                .buttonStyle(SecondaryButtonStyle(style: .alternative))
+                
+                Button(action: {}) {
+                    Text("Button")
+                }
+                .buttonStyle(SecondaryButtonStyle(size: .small, style: .alternative))
+            }
+        }
     }
 }

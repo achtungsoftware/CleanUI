@@ -57,7 +57,7 @@ public struct CLSheetConfirmView: View {
             }) {
                 Text(CULanguage.getStringCleanUI("cancel"))
             }
-            .buttonStyle(PrimaryButtonStyle(buttonTheme: .secondary))
+            .buttonStyle(PrimaryButtonStyle(style: .secondary))
             
             Button(action: {
                 confirmAction()
