@@ -66,6 +66,25 @@ public extension SecondaryButtonStyle {
     }
 }
 
+public extension ButtonStyle where Self == SecondaryButtonStyle {
+    
+    static var knogglSecondary: SecondaryButtonStyle {
+        SecondaryButtonStyle()
+    }
+    
+    static var knogglSecondaryAlternative: SecondaryButtonStyle {
+        SecondaryButtonStyle(style: .alternative)
+    }
+    
+    static var knogglSecondarySmall: SecondaryButtonStyle {
+        SecondaryButtonStyle(size: .small)
+    }
+    
+    static var knogglSecondaryAlternativeSmall: SecondaryButtonStyle {
+        SecondaryButtonStyle(size: .small, style: .alternative)
+    }
+}
+
 struct SecondaryButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
@@ -73,24 +92,24 @@ struct SecondaryButtonStyle_Previews: PreviewProvider {
                 Button(action: {}) {
                     Text("Button")
                 }
-                .buttonStyle(SecondaryButtonStyle())
+                .buttonStyle(.knogglSecondary)
                 
                 Button(action: {}) {
                     Text("Button")
                 }
-                .buttonStyle(SecondaryButtonStyle(size: .small))
+                .buttonStyle(.knogglSecondarySmall)
             }
             
             VStack {
                 Button(action: {}) {
                     Text("Button")
                 }
-                .buttonStyle(SecondaryButtonStyle(style: .alternative))
+                .buttonStyle(.knogglSecondaryAlternative)
                 
                 Button(action: {}) {
                     Text("Button")
                 }
-                .buttonStyle(SecondaryButtonStyle(size: .small, style: .alternative))
+                .buttonStyle(.knogglSecondaryAlternativeSmall)
             }
         }
     }

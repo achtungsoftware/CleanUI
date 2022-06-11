@@ -66,3 +66,12 @@ internal extension CLNewBadge {
         @Published var animationAmount: CGFloat = 1
     }
 }
+
+struct CLNewBadge_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            CLNewBadge()
+            CLNewBadge(true)
+        }
+    }
+}

@@ -19,17 +19,10 @@ import SwiftUI
 
 public struct CLText: View {
     
-    public enum CLTextType {
-        case name
-        case body
-        case sub
-        case tiny
-    }
-    
     var text: String
-    var type: CLTextType
+    var type: TextType
     
-    public init(_ text: String, type: CLTextType = .body) {
+    public init(_ text: String, type: TextType = .body) {
         self.text = text
         self.type = type
     }
@@ -54,6 +47,15 @@ public struct CLText: View {
             }
         }
         .foregroundColor(Color.defaultText)
+    }
+}
+
+public extension CLText {
+    enum TextType {
+        case name
+        case body
+        case sub
+        case tiny
     }
 }
 

@@ -39,3 +39,12 @@ public struct CLBlurView: UIViewRepresentable {
         
     }
 }
+
+struct CLBlurView_Previews: PreviewProvider {
+    static var previews: some View {
+        ZStack {
+            CLKnogglGradient()
+            CLBlurView(.systemMaterialDark)
+        }
+    }
+}

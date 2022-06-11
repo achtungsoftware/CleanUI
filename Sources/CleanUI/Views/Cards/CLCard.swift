@@ -49,6 +49,5 @@ struct CLCard_Previews: PreviewProvider {
             }
         }
         .listStyle(.plain)
-        .preferredColorScheme(.dark)
     }
 }

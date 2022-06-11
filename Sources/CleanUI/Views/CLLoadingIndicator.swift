@@ -81,3 +81,14 @@ public extension CLLoadingIndicator {
         @Published var show: Bool = false
     }
 }
+
+struct CLLoadingIndicator_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack(spacing: 16) {
+            CLLoadingIndicator()
+            CLLoadingIndicator(style: .knoggl)
+            CLLoadingIndicator(style: .standard(.defaultRed))
+            CLLoadingIndicator(isImageOverlay: true)
+        }
+    }
+}

@@ -46,3 +46,9 @@ public struct CLTextWithNewBadge: View {
         }
     }
 }
+
+struct CLTextWithNewBadge_Previews: PreviewProvider {
+    static var previews: some View {
+        CLTextWithNewBadge("Hallo", newBadge: true)
+    }
+}

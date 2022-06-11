@@ -33,3 +33,12 @@ public struct ImageOverlayButtonStyle: ButtonStyle {
             .foregroundColor(Color.white)
     }
 }
+
+struct ImageOverlayButtonStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        Button(action: {}){
+            Text("Button")
+        }
+        .buttonStyle(ImageOverlayButtonStyle())
+    }
+}

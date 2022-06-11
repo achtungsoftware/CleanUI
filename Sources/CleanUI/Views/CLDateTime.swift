@@ -82,3 +82,11 @@ public struct CLDateTime: View {
         }
     }
 }
+
+struct CLDateTime_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            CLDateTime("2022-06-11T10:56:45")
+        }
+    }
+}

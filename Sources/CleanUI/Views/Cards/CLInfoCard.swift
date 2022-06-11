@@ -116,8 +116,8 @@ public struct CLInfoCard: View {
         .overlay(
             ZStack(alignment: .topLeading) {
                 RoundedRectangle(cornerRadius: 6)
-                    .strokeBorder(Color.defaultBorder, lineWidth: 0.5)
-                    .opacity(0.6)
+                    .strokeBorder(Color.defaultBorder, lineWidth: 0.3)
+                    .opacity(0.5)
                 
                 Rectangle()
                     .fill(type == .error ? Color.defaultRed : type == .info ? Color.primaryColor : Color.green)
@@ -129,8 +129,13 @@ public struct CLInfoCard: View {
 }
 
 struct CLInfoCard_Previews: PreviewProvider {
+    static let text: String = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
     static var previews: some View {
-        CLInfoCard("Info", subTitle: "Lorem", type: .info)
-            .padding()
+        VStack {
+            CLInfoCard("Info", subTitle: text)
+            CLInfoCard("Info", subTitle: text, type: .error)
+            CLInfoCard("Info", subTitle: text, type: .success)
+        }
+        .padding()
     }
 }

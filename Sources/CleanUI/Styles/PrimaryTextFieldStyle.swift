@@ -37,12 +37,30 @@ public struct PrimaryTextFieldStyle: TextFieldStyle {
                     .fill(isTransparent ? .clear : Color.accent4)
                     .shadow(color: Color.black.opacity(0.02), radius: 8)
             )
-            .if(isTransparent){ view in
-                view
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 11)
-                            .strokeBorder(Color.defaultBorder, lineWidth: 0.4)
-                    )
-            }
+            .overlay(isTransparent ? RoundedRectangle(cornerRadius: 11).strokeBorder(Color.defaultBorder, lineWidth: 0.3) : nil)
+    }
+}
+
+public extension TextFieldStyle where Self == PrimaryTextFieldStyle {
+    
+    static var knoggl: PrimaryTextFieldStyle {
+        PrimaryTextFieldStyle()
+    }
+    
+    static var knogglTransparent: PrimaryTextFieldStyle {
+        PrimaryTextFieldStyle(isTransparent: true)
+    }
+}
+
+struct PrimaryTextFieldStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            TextField("Title", text: Binding.constant(""))
+                .textFieldStyle(.knoggl)
+                .padding()
+            TextField("Title", text: Binding.constant(""))
+                .textFieldStyle(.knogglTransparent)
+                .padding()
+        }
     }
 }

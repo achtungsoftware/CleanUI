@@ -80,13 +80,24 @@ public extension PrimaryButtonStyle {
     }
 }
 
+public extension ButtonStyle where Self == PrimaryButtonStyle {
+    
+    static var knoggl: PrimaryButtonStyle {
+        PrimaryButtonStyle()
+    }
+    
+    static var knogglAlternative: PrimaryButtonStyle {
+        PrimaryButtonStyle(style: .secondary)
+    }
+}
+
 struct PrimaryButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(PrimaryButtonStyle())
+            .buttonStyle(.knoggl)
             
             Button(action: {}) {
                 Text("Button")
@@ -116,7 +127,7 @@ struct PrimaryButtonStyle_Previews: PreviewProvider {
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(PrimaryButtonStyle(style: .secondary))
+            .buttonStyle(.knogglAlternative)
         }
         .padding()
     }

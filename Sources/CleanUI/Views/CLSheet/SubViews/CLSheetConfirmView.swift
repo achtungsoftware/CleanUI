@@ -57,7 +57,7 @@ public struct CLSheetConfirmView: View {
             }) {
                 Text(CULanguage.getStringCleanUI("cancel"))
             }
-            .buttonStyle(PrimaryButtonStyle(style: .secondary))
+            .buttonStyle(.knogglAlternative)
             
             Button(action: {
                 confirmAction()
@@ -65,9 +65,17 @@ public struct CLSheetConfirmView: View {
             }) {
                 Text(CULanguage.getStringCleanUI("continue"))
             }
-            .buttonStyle(PrimaryButtonStyle())
+            .buttonStyle(.knoggl)
         }
         .padding()
         .foregroundColor(Color.defaultText)
+    }
+}
+
+struct CLSheetConfirmView_Previews: PreviewProvider {
+    static var previews: some View {
+        CLSheetConfirmView("Title", subTitle: "Subtitle") {
+            CUAlertMessage.show("Tapped")
+        }
     }
 }

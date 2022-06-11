@@ -67,13 +67,24 @@ public struct RoundedButtonStyle: ButtonStyle {
     }
 }
 
+public extension ButtonStyle where Self == RoundedButtonStyle {
+    
+    static var knogglRounded: RoundedButtonStyle {
+        RoundedButtonStyle()
+    }
+    
+    static var knogglRoundedAlternative: RoundedButtonStyle {
+        RoundedButtonStyle(style: .secondary)
+    }
+}
+
 struct RoundedButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(RoundedButtonStyle())
+            .buttonStyle(.knogglRounded)
             
             Button(action: {}) {
                 Text("Button")
@@ -103,7 +114,7 @@ struct RoundedButtonStyle_Previews: PreviewProvider {
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(RoundedButtonStyle(style: .secondary))
+            .buttonStyle(.knogglRoundedAlternative)
         }
         .padding()
     }

@@ -96,3 +96,9 @@ public struct CLSearchBar: UIViewRepresentable {
         }
     }
 }
+
+struct CLSearchBar_Previews: PreviewProvider {
+    static var previews: some View {
+        CLSearchBar(text: Binding.constant(""), placeholder: "Placeholder", isEditing: Binding.constant(false))
+    }
+}

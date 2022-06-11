@@ -43,3 +43,18 @@ public struct ChatTextFieldStyle: TextFieldStyle {
             )
     }
 }
+
+public extension TextFieldStyle where Self == ChatTextFieldStyle {
+
+    static var knogglChat: ChatTextFieldStyle {
+        ChatTextFieldStyle()
+    }
+}
+
+struct ChatTextFieldStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        TextField("Title", text: Binding.constant(""))
+            .textFieldStyle(.knogglChat)
+            .padding()
+    }
+}

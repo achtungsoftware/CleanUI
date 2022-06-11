@@ -21,19 +21,15 @@ import Combine
 /// Returns a ``CLDescriptiveNumber`` with a number and an description, aligned vertically
 public struct CLDescriptiveNumber: View {
     
-    public enum Size {
-        case normal, small
-    }
-    
     var number: Int
     var description: String
-    var size: CLDescriptiveNumber.Size
+    var size: Size
     
     /// - Parameters:
     ///   - number: The number which will be described
     ///   - description: The description for the number
     ///   - size: The size, default is `.normal
-    public init(_ number: Int, description: String, size: CLDescriptiveNumber.Size = .normal) {
+    public init(_ number: Int, description: String, size: Size = .normal) {
         self.number = number
         self.description = description
         self.size = size
@@ -47,6 +43,23 @@ public struct CLDescriptiveNumber: View {
             
             Text(description)
                 .font(size == .small ? .caption : .footnote)
+        }
+    }
+}
+
+public extension CLDescriptiveNumber {
+    enum Size {
+        case normal, small
+    }
+}
+
+struct CLDescriptiveNumber_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack(spacing: 16) {
+            CLDescriptiveNumber(214312, description: "Number", size: .small)
+            CLDescriptiveNumber(2332, description: "Number", size: .normal)
+            CLDescriptiveNumber(214312, description: "Number", size: .small)
+            CLDescriptiveNumber(2332, description: "Number", size: .normal)
         }
     }
 }

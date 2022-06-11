@@ -35,3 +35,11 @@ public struct IconRoundOverImageButtonStyle: ButtonStyle {
     }
 }
 
+struct IconRoundOverImageButtonStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        Button(action: {}){
+            CLIcon(systemImage: "xmark", size: .small)
+        }
+        .buttonStyle(IconRoundOverImageButtonStyle())
+    }
+}

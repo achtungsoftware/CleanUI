@@ -139,7 +139,7 @@ struct CLIcon_Previews: PreviewProvider {
             CLIcon(systemImage: "clock", newBadge: true, offset: .trailing(16))
             
             CLIcon(systemImage: "clock", newBadge: true) {
-                print("Hello")
+                CUAlertMessage.show("Tapped")
             }
         }
     }
