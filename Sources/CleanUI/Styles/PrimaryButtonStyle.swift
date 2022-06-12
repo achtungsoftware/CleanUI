@@ -38,11 +38,11 @@ public struct PrimaryButtonStyle: ButtonStyle {
             .padding(12)
             .font(.callout.bold())
             .frame(maxWidth: .infinity)
-            .if(style == .primary || style == .staticDark || style == .staticLight || style == .secondary){ view in
+            .if(style == .primary || style == .staticDark || style == .staticLight || style == .secondary || style == .secondary2){ view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 11)
-                            .fill(style == .primary ? Color.primaryColor : style == .staticDark ? Color.accentStaticDark : style == .secondary ? Color.accent3 : Color.white)
+                            .fill(style == .primary ? Color.primaryColor : style == .staticDark ? Color.accentStaticDark : style == .secondary ? Color.accent3 : style == .secondary2 ? Color.accent5 : .white)
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }
@@ -63,7 +63,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
                     )
             }
             .shadow(color: Color.black.opacity(0.04), radius: 8)
-            .foregroundColor(style == .primary ? .white : style == .staticDark || style == .materialDark ? Color.white : style == .secondary ? Color.primaryColor : Color.black)
+            .foregroundColor(style == .primary ? .white : style == .staticDark || style == .materialDark ? Color.white : style == .secondary || style == .secondary2 ? Color.primaryColor : Color.black)
             .scaleEffect(configuration.isPressed ? 0.97: 1)
     }
 }
@@ -77,6 +77,7 @@ public extension PrimaryButtonStyle {
         case materialDark
         case materialLight
         case secondary
+        case secondary2
     }
 }
 
@@ -88,6 +89,10 @@ public extension ButtonStyle where Self == PrimaryButtonStyle {
     
     static var knogglAlternative: PrimaryButtonStyle {
         PrimaryButtonStyle(style: .secondary)
+    }
+    
+    static var knogglAlternative2: PrimaryButtonStyle {
+        PrimaryButtonStyle(style: .secondary2)
     }
 }
 
@@ -128,6 +133,11 @@ struct PrimaryButtonStyle_Previews: PreviewProvider {
                 Text("Button")
             }
             .buttonStyle(.knogglAlternative)
+            
+            Button(action: {}) {
+                Text("Button")
+            }
+            .buttonStyle(.knogglAlternative2)
         }
         .padding()
     }

@@ -80,6 +80,10 @@ public extension UIColor {
         ColorProvider.uiColor("Accent4")
     }
     
+    static var accent5: UIColor {
+        ColorProvider.uiColor("Accent5")
+    }
+    
     static var defaultText: UIColor {
         ColorProvider.uiColor("DefaultText")
     }

@@ -63,6 +63,10 @@ public extension Color {
         ColorProvider.color("Accent4")
     }
     
+    static var accent5: Color {
+        ColorProvider.color("Accent5")
+    }
+    
     static var defaultText: Color {
         ColorProvider.color("DefaultText")
     }
