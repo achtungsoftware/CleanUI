@@ -50,7 +50,22 @@ public extension Int {
         numFormatter.minimumFractionDigits = 0
         numFormatter.maximumFractionDigits = 1
         
-        return numFormatter.string(from: NSNumber (value:value))!
+        return numFormatter.string(from: NSNumber (value:value)) ?? "0"
     }
 }
 
+struct IntAbbreviate_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack(spacing: 16) {
+            Text("\(800.abbreviate())")
+            Text("\(999.abbreviate())")
+            Text("\(1001.abbreviate())")
+            Text("\(1200.abbreviate())")
+            Text("\(3424432.abbreviate())")
+            Text("\(34444.abbreviate())")
+            Text("\(543654375.abbreviate())")
+            Text("\(6543653465346.abbreviate())")
+            Text("\(140750.abbreviate())")
+        }
+    }
+}
