@@ -43,7 +43,7 @@ public struct CLScrollOffsetReader<Content: View>: View {
     }
 }
 
-public final class CUScrollOffsetReaderUIViewControllerRepresentable: UIViewControllerRepresentable {
+public struct CUScrollOffsetReaderUIViewControllerRepresentable: UIViewControllerRepresentable {
     
     let offsetChanged: (CGPoint?) -> Void
     let subViewReaderHostingController: CUScrollOffsetReaderUIViewController
