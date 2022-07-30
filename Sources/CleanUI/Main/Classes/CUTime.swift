@@ -36,11 +36,14 @@ public class CUTime {
     /// - Parameter dateStr: The ISO8601 timestamp String
     /// - Returns: The server (UTC)  ISO8601 timestamp String
     public static func localToServerTime(dateStr: String) -> String? {
+        
+        let timestamp = CUTime.verifiyDateTimeString(timestamp: dateStr)
+        
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         dateFormatter.calendar = Calendar.current
         dateFormatter.timeZone = TimeZone.current
         
-        if let date = dateFormatter.date(from: dateStr) {
+        if let date = dateFormatter.date(from: timestamp) {
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
             
@@ -53,10 +56,13 @@ public class CUTime {
     /// - Parameter dateStr: The (UTC)  ISO8601 timestamp String
     /// - Returns: The local ISO8601 timestamp String
     public static func serverToLocalTime(dateStr: String) -> String? {
+        
+        let timestamp = CUTime.verifiyDateTimeString(timestamp: dateStr)
+        
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         
-        if let date = dateFormatter.date(from: dateStr) {
+        if let date = dateFormatter.date(from: timestamp) {
             dateFormatter.timeZone = TimeZone.current
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
             
@@ -70,9 +76,12 @@ public class CUTime {
     /// - Parameter timestamp: The ISO8601 timestamp String
     /// - Returns: The Date
     public static func timestampStringToDate(timestamp: String) -> Date? {
+        
+        let useTimestamp = CUTime.verifiyDateTimeString(timestamp: timestamp)
+        
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
-        if let date = dateFormatter.date(from: timestamp) {
+        if let date = dateFormatter.date(from: useTimestamp) {
             return date
         }
         
@@ -83,13 +92,24 @@ public class CUTime {
     /// - Parameter timestamp: The ISO8601 timestamp String
     /// - Returns: The human readable time format String
     public static func timestampToHumanReadable(timestamp: String) -> String? {
+        
+        let useTimestamp = CUTime.verifiyDateTimeString(timestamp: timestamp)
+        
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
-        if let date = dateFormatter.date(from: timestamp) {
+        if let date = dateFormatter.date(from: useTimestamp) {
             dateFormatter.dateFormat = CULanguage.getString("dateformat")
             
             return dateFormatter.string(from: date)
         }
         return nil
+    }
+    
+    public static func verifiyDateTimeString(timestamp: String) -> String {
+        if timestamp.count == 19 {
+            return timestamp.replacingOccurrences(of: " ", with: "T", options: .literal, range: nil)
+        }else {
+            return timestamp
+        }
     }
 }

@@ -87,6 +87,7 @@ struct CLDateTime_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             CLDateTime("2022-06-11T10:56:45")
+            CLDateTime("2022-05-11 00:54:06")
         }
     }
 }

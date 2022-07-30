@@ -19,10 +19,8 @@ import XCTest
 @testable import CleanUI
 
 final class CleanUITests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(CleanUI().text, "Hello, World!")
+    func test_CUTime() throws {
+        XCTAssertEqual(CUTime.verifiyDateTimeString(timestamp: "2022-06-11T10:56:45"), "2022-06-11T10:56:45")
+        XCTAssertEqual(CUTime.verifiyDateTimeString(timestamp: "2022-05-11 00:54:06"), "2022-05-11T00:54:06")
     }
 }
