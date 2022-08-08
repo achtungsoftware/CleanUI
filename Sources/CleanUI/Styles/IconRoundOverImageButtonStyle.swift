@@ -21,25 +21,70 @@ import Combine
 /// IconRoundOverImageButtonStyle: ButtonStyle
 public struct IconRoundOverImageButtonStyle: ButtonStyle {
     
-    public init() {}
+    let blackOpacity: Bool
+    
+    public init(blackOpacity: Bool = true) {
+        self.blackOpacity = blackOpacity
+    }
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .font(.subheadline)
             .frame(width: 28, height: 28)
-            .foregroundColor(.white)
-            .background(
-                Circle()
-                    .fill(Color.blackOpacity)
-            )
+            .if(blackOpacity) { view in
+                view
+                    .foregroundColor(.white)
+                    .background(
+                        Circle()
+                            .fill(Color.blackOpacity)
+                    )
+            }
+            .if(!blackOpacity) { view in
+                view
+                    .foregroundColor(.secondary)
+                    .background(
+                        CLBlurView(.systemMaterialLight)
+                            .clipShape(Circle())
+                    )
+            }
     }
 }
 
 struct IconRoundOverImageButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
-        Button(action: {}){
-            CLIcon(systemImage: "xmark", size: .small)
+        ZStack {
+            CLUrlImage(urlString: "https://www.tescomaonlineshop.de/files/test.jpg?1566566588", contentMode: .fit)
+            
+            HStack {
+                Button(action: {}){
+                    CLIcon(systemImage: "xmark", size: .small)
+                }
+                .buttonStyle(IconRoundOverImageButtonStyle(blackOpacity: false))
+                Button(action: {}){
+                    CLIcon(systemImage: "xmark", size: .small)
+                }
+                .buttonStyle(IconRoundOverImageButtonStyle())
+                Button(action: {}){
+                    CLIcon(systemImage: "xmark", size: .small)
+                }
+                .buttonStyle(IconRoundOverImageButtonStyle())
+                Button(action: {}){
+                    CLIcon(systemImage: "xmark", size: .small)
+                }
+                .buttonStyle(IconRoundOverImageButtonStyle())
+                Button(action: {}){
+                    CLIcon(systemImage: "xmark", size: .small)
+                }
+                .buttonStyle(IconRoundOverImageButtonStyle())
+                Button(action: {}){
+                    CLIcon(systemImage: "xmark", size: .small)
+                }
+                .buttonStyle(IconRoundOverImageButtonStyle())
+                Button(action: {}){
+                    CLIcon(systemImage: "xmark", size: .small)
+                }
+                .buttonStyle(IconRoundOverImageButtonStyle())
+            }
         }
-        .buttonStyle(IconRoundOverImageButtonStyle())
     }
 }
