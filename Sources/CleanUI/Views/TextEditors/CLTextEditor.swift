@@ -115,38 +115,39 @@ struct UTextViewOverlay: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UTextView, context: Context) {
-        
-        attributedText.mutableString.setString(text)
-        
-        attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(Color.defaultText), range: NSRange(location: 0, length: attributedText.length))
-        attributedText.addAttribute(NSAttributedString.Key.font, value: font.toUIFont(), range: NSRange(location: 0, length: attributedText.length))
-        
-        for attribute in attributes {
-            switch attribute {
-            case .links(_):
-                let links = text.getLinks()
-                
-                for (_, range) in links {
-                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.defaultLink, range: range)
-                }
-            case .hashtags(_):
-                let hashtags = text.getHashtags()
-                
-                for (_, range) in hashtags {
-                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.defaultLink, range: range)
-                }
-            case .mentions(_):
-                let mentions = text.getMentions()
-                
-                for (_, range) in mentions {
-                    attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.defaultLink, range: range)
+        DispatchQueue.main.async {
+            attributedText.mutableString.setString(text)
+            
+            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(Color.defaultText), range: NSRange(location: 0, length: attributedText.length))
+            attributedText.addAttribute(NSAttributedString.Key.font, value: font.toUIFont(), range: NSRange(location: 0, length: attributedText.length))
+            
+            for attribute in attributes {
+                switch attribute {
+                case .links(_):
+                    let links = text.getLinks()
+                    
+                    for (_, range) in links {
+                        attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.defaultLink, range: range)
+                    }
+                case .hashtags(_):
+                    let hashtags = text.getHashtags()
+                    
+                    for (_, range) in hashtags {
+                        attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.defaultLink, range: range)
+                    }
+                case .mentions(_):
+                    let mentions = text.getMentions()
+                    
+                    for (_, range) in mentions {
+                        attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.defaultLink, range: range)
+                    }
                 }
             }
+            
+            uiView.textStorage.setAttributedString(attributedText)
+            uiView.maxLayoutWidth = maxLayoutWidth
+            textViewStore.didUpdateTextView(uiView)
         }
-        
-        uiView.textStorage.setAttributedString(attributedText)
-        uiView.maxLayoutWidth = maxLayoutWidth
-        textViewStore.didUpdateTextView(uiView)
     }
     
     func makeCoordinator() -> Coordinator {
@@ -161,7 +162,7 @@ struct UTextViewOverlay: UIViewRepresentable {
         }
         
         func textViewDidChange(_ textView: UITextView) {
-            if(parent.text != textView.attributedText.string) {
+            if parent.text != textView.attributedText.string {
                 parent.text = textView.attributedText.string
             }
         }
@@ -192,7 +193,7 @@ class TextViewStore: ObservableObject {
     var heightSet: Bool = false
     
     func didUpdateTextView(_ textView: UTextView) {
-        if(!heightSet){
+        if !heightSet {
             height = textView.intrinsicContentSize.height
             heightSet = true
         }
