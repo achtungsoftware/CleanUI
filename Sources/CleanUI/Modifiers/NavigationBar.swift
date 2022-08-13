@@ -97,10 +97,11 @@ public struct NavigationBar: ViewModifier {
                             
                             if !bigTitle {
                                 HStack {
-                                    Spacer()
                                     if customTitle != nil {
                                         customTitle
                                     }else {
+                                        Spacer()
+                                        
                                         VStack(spacing: 0) {
                                             Text(title)
                                                 .font(.headline)
@@ -114,8 +115,9 @@ public struct NavigationBar: ViewModifier {
                                                 
                                             }
                                         }
+                                        
+                                        Spacer()
                                     }
-                                    Spacer()
                                 }
                             }
                             
@@ -305,6 +307,18 @@ struct NavigationBar_Previews: PreviewProvider {
                 Text("With SearchField")
             }
             .navigationBar("With SearchField", searchField: NavigationBar.SearchField())
+        }
+        
+        NavigationView {
+            List {
+                Text("With SearchField")
+            }
+            .navigationBar(customTitle: AnyView(
+                HStack {
+                    Text("Hallo Custom")
+                    Spacer()
+                }
+            ))
         }
     }
 }
