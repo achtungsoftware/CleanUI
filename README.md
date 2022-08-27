@@ -1,5 +1,5 @@
 # CleanUI
-CleanUI is a collection of Swift and SwiftUI helpers. CleanUI views have a ``CL`` prefix. CleanUI helper classes have a ``CL`` prefix. CleanUI is ripped out of the Knoggl iOS App to make a reusable framework, which can be worked on without directly changing things inside of the Knoggl iOS App.
+CleanUI is a collection of Swift and SwiftUI helpers. CleanUI views have a ``CL`` prefix. CleanUI helper classes have a ``CU`` prefix. CleanUI is ripped out of the Knoggl iOS App to make a reusable framework, which can be worked on without directly changing things inside of the Knoggl iOS App.
 
 # Examples
 The following list of examples is just a small list to show what CleanUI can do.
@@ -114,4 +114,53 @@ CLScrollView(offsetChanged: {
 }
 ```
 
-There is so much more in CleanUI. Just browse through the project to find everything CleanUI has to offer.
+### CLDateTime
+CLDateTime gives you a human readable represantation of a ``ISO8601`` date string.
+```swift
+// Without T seperator
+CLDateTime("2022-05-11 00:54:06")
+
+// With T seperator
+CLDateTime("2022-06-11T10:56:45")
+```
+
+### CLUrlImage
+CLUrlImage downloads the given image and displays it.
+```swift
+CLUrlImage("MY_IMAGE_URL_STRING")
+
+// You can set a fallback image
+CLUrlImage("MY_IMAGE_URL_STRING", fallbackImage: MY_UIIMAGE)
+```
+
+## Modifiers
+CleanUI has some pretty cool SwiftUI modifiers.
+
+### OnLoad (.onLoad)
+The OnLoad modifiers is pretty much the same as .onAppear with the difference that .onLoad only is called once.
+```swift
+MyView()
+    .onLoad {
+        // Gets called only on the first onAppear
+        print("Hallo, Welt!")
+    }
+```
+
+### OnRotate (.onRotate)
+OnRotate fires everytime the device rotates and returns the current ``UIDeviceOrientation``.
+```swift
+MyView()
+    .onRotate { rotation in
+        // Do something with the rotation
+    }
+```
+
+### PinchToZoom (.pinchToZoom)
+The PinchToZoom modifier allows pinching the view its attached to.
+```swift
+MyView()
+    .pinchToZoom()
+```
+
+# Summary
+There is so much more in CleanUI. Just browse through the project to find everything CleanUI has to offer. Feel free to contribute!
