@@ -33,7 +33,7 @@ CUSheet.clearAll()
 ### CUAlertMessage
 ```swift
 // Shows an alert message with the given title, subTitle and type
-CUSheet.show(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info)
+CUAlertMessage.show(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info)
 ```
 
 ### CUNavigation
