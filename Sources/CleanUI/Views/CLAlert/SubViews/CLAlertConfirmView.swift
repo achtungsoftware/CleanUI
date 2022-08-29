@@ -37,44 +37,44 @@ public struct CLAlertConfirmView: View {
     
     public var body: some View {
         VStack(spacing: 16) {
-            VStack {
+            VStack(spacing: 4) {
                 Text(title)
-                    .font(.title3.bold())
-                    .padding(.bottom, 8)
+                    .font(.headline)
                 
                 if !subTitle.isEmpty {
                     Text(subTitle)
                         .font(.subheadline)
+                        .foregroundColor(.grayText)
                 }
             }
             
-            Divider()
-            
-            HStack {
+            VStack(spacing: 8) {
                 Button(action: {
                     CUAlert.clearAll()
-                }, label: {
+                }) {
                     Text(CULanguage.getStringCleanUI("cancel"))
-                        .fontWeight(.medium)
                         .frame(maxWidth: .infinity)
-                        .padding(.bottom, 5)
-                })
-                
-                Divider()
-                    .frame(height: 25)
+                }
+                .buttonStyle(.knogglSecondaryAlternative)
                 
                 Button(action: {
                     confirmAction()
                     CUAlert.clearAll()
-                }, label: {
+                }) {
                     Text(CULanguage.getStringCleanUI("continue"))
-                        .fontWeight(.medium)
                         .frame(maxWidth: .infinity)
-                        .padding(.bottom, 5)
-                })
+                }
+                .buttonStyle(.knogglSecondary)
             }
             .font(.subheadline)
             .foregroundColor(Color.defaultText)
         }
+    }
+}
+
+struct CLAlertConfirmView_Previews: PreviewProvider {
+    static var previews: some View {
+        CLAlert(content: CLAlertConfirmView("This is a Title", subTitle: "This is aSubtitle", confirmAction: {}))
+            .background(.gray)
     }
 }

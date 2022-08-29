@@ -41,13 +41,13 @@ internal struct CLAlert<Content: View>: View {
                         content
                     }
                     .frame(width: Double(geometry.size.width - 64).maxValue(500))
-                    .transition(.move(edge: .top).combined(with: .opacity))
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 12)
                             .fill(Color.alert)
                     )
                     .padding(16)
+                    .transition(.move(edge: .top).combined(with: .opacity))
                 }
             }
         }

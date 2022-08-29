@@ -49,7 +49,6 @@ public struct SecondaryButtonStyle: ButtonStyle {
                             .fill(Color.accent3)
                     )
             }
-            .scaledToFill()
             .scaleEffect(configuration.isPressed ? 0.95: 1)
     }
 }

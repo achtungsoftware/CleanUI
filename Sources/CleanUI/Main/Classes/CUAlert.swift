@@ -85,12 +85,20 @@ public class CUAlert {
     }
 }
 
-struct CUAlert_Previews: PreviewProvider {
+struct CLAlert_Previews: PreviewProvider {
     static var previews: some View {
-        Button(action: {
-            CUAlert.show(Text("Hallo, Welt!"))
-        }) {
-            Text("Show CUAlert")
+        List {
+            Button(action: {
+                CUAlert.show(Text("Hallo, Welt!"))
+            }){
+                Text("Show simple")
+            }
+            
+            Button(action: {
+                CUAlert.show(CLAlertConfirmView("Title", subTitle: "Subtitle", confirmAction: {}))
+            }){
+                Text("Show CLAlertConfirmView")
+            }
         }
     }
 }
