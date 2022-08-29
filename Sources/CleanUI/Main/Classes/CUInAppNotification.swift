@@ -23,7 +23,7 @@ public class CUInAppNotification {
     
     public static let shared: CUInAppNotification = CUInAppNotification()
     
-    /// Adds a new in app notification to the ``CUGlobal/inAppNotifications`` array, and shows it
+    /// Shows a new Notification View coming from the top
     /// - Parameters:
     ///   - title: The title `String` for the notification
     ///   - body: The body `String` for the notification

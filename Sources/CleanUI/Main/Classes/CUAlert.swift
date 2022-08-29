@@ -23,7 +23,7 @@ public class CUAlert {
     
     public static let shared: CUAlert = CUAlert()
     
-    /// Adds a new alert to the ``CUGlobal/alerts`` array, and shows it
+    /// Shows a ``CLAlert``
     /// - Parameters:
     ///   - content: The content `View` for the Alert
     public static func show<Content: View>(_ content: Content){

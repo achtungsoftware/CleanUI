@@ -24,7 +24,7 @@ public class CUAlertMessage {
     
     public static let shared: CUAlertMessage = CUAlertMessage()
     
-    /// Adds a new alert message to the ``CUGlobal/alertMessages`` array, and shows it
+    /// Shows a ``CUAlertMessage``
     /// - Parameters:
     ///   - title: The title label to show
     ///   - title: The subtitle label to show

@@ -23,7 +23,7 @@ public class CUSheet {
     
     public static let shared: CUSheet = CUSheet()
     
-    /// Adds a new sheet to the ``CUGlobal/sheets`` array, and shows it
+    /// Shows an ``CLSheet``
     /// - Parameters:
     ///   - content: The content `View` for the Sheet
     public static func show<Content: View>(_ content: Content){

@@ -28,9 +28,6 @@ public struct CLTextEditor: View {
     var characterLimit: Int
     var attributes: [Attribute]
     
-    @StateObject private var textViewStore = TextViewStore()
-    
-    
     /// - Parameters:
     ///   - text: The text to modify
     ///   - placeholder: The placeholder
@@ -48,6 +45,8 @@ public struct CLTextEditor: View {
         
         UITextView.appearance().backgroundColor = .clear
     }
+    
+    @StateObject private var textViewStore = TextViewStore()
     
     public var body: some View {
         ZStack(alignment: .topLeading) {
@@ -189,6 +188,7 @@ class UTextView: UITextView {
 }
 
 class TextViewStore: ObservableObject {
+    
     @Published var height: CGFloat?
     var heightSet: Bool = false
     
@@ -197,5 +197,21 @@ class TextViewStore: ObservableObject {
             height = textView.intrinsicContentSize.height
             heightSet = true
         }
+    }
+}
+
+struct CLTextEditorPreview: View {
+    @State var text = ""
+    var body: some View {
+        VStack {
+            CLTextEditor($text, placeholder: "Hallo, Welt!")
+                .background(.gray.opacity(0.2))
+        }
+    }
+}
+
+struct CLTextEditor_Previews: PreviewProvider {
+    static var previews: some View {
+        CLTextEditorPreview()
     }
 }
