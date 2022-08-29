@@ -21,19 +21,21 @@ import Combine
 /// ``CUAlert`` allows to show and hide Alerts
 public class CUAlert {
     
+    public static let shared: CUAlert = CUAlert()
+    
     /// Adds a new alert to the ``CUGlobal/alerts`` array, and shows it
     /// - Parameters:
     ///   - content: The content `View` for the Alert
     public static func show<Content: View>(_ content: Content){
-        CUGlobal.alerts.add(content)
+        CUAlert.shared.add(content)
     }
     
     /// Clears / dismisses all ``CUAlert``'s
     public static func clearAll(){
-        CUGlobal.alerts.clearAll()
+        CUAlert.shared.clearAll()
     }
     
-    var alerts: [CUAlertModel] = []
+    public var alerts: [CUAlertModel] = []
     
     private func clearAll() {
         if !alerts.isEmpty {
@@ -80,5 +82,15 @@ public class CUAlert {
         }, completion: {_ in
             view.removeFromSuperview()
         })
+    }
+}
+
+struct CUAlert_Previews: PreviewProvider {
+    static var previews: some View {
+        Button(action: {
+            CUAlert.show(Text("Hallo, Welt!"))
+        }) {
+            Text("Show CUAlert")
+        }
     }
 }

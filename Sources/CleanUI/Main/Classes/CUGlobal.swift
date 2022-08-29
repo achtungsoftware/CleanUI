@@ -26,16 +26,4 @@ public struct CUGlobal {
     /// always return this `mainWindow` variable, to prevent that we search for the `UIWindow` multiple
     /// times and accidentally return the wrong `UIWindow`.
     public static var mainWindow: UIWindow? = nil
-    
-    /// Stores the global ``CUAlert`` array
-    public static var alerts: CUAlert = CUAlert()
-    
-    /// Stores the global ``CUSheet`` array
-    public static var sheets: CUSheet = CUSheet() 
-    
-    /// Stores the global ``CUInAppNotification`` array
-    public static var inAppNotifications: CUInAppNotification = CUInAppNotification()
-    
-    /// Stores the global ``CUAlertMessages`` array
-    public static var alertMessages: CUAlertMessages = CUAlertMessages()
 }

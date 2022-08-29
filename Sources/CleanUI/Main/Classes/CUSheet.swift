@@ -21,21 +21,23 @@ import Combine
 /// ``CUSheet`` allows to show and hide Sheets
 public class CUSheet {
     
+    public static let shared: CUSheet = CUSheet()
+    
     /// Adds a new sheet to the ``CUGlobal/sheets`` array, and shows it
     /// - Parameters:
     ///   - content: The content `View` for the Sheet
     public static func show<Content: View>(_ content: Content){
-        CUGlobal.sheets.add(content)
+        CUSheet.shared.add(content)
     }
     
     /// Clears / dismisses all ``CUSheet``'s
-    public static func clearAll(){
-        CUGlobal.sheets.clearAll()
+    public static func clearAll() {
+        CUSheet.shared.clearAll()
     }
     
-    var alerts: [CUAlertModel] = []
+    public var alerts: [CUAlertModel] = []
     
-    private func clearAll() {
+    public func clearAll() {
         if !alerts.isEmpty {
             for alert in alerts {
                 alert.view.removeFromSuperview()
@@ -44,7 +46,7 @@ public class CUSheet {
         alerts = []
     }
     
-    private func add<Content: View>(_ content: Content) {
+    public func add<Content: View>(_ content: Content) {
         
         clearAll()
         
@@ -84,7 +86,7 @@ public class CUSheet {
 
 public struct CLSheetMenuItem: Identifiable {
     
-    public init(title: String, show: Bool, action: @escaping () -> Void, icon: CLIcon? = nil, foregroundColor: Color? = nil){
+    public init(title: String, show: Bool, action: @escaping () -> Void, icon: CLIcon? = nil, foregroundColor: Color? = nil) {
         self.title = title
         self.show = show
         self.action = action
@@ -98,4 +100,21 @@ public struct CLSheetMenuItem: Identifiable {
     public var action: () -> Void
     public var icon: CLIcon?
     public var foregroundColor: Color?
+}
+
+struct CLSheet_Previews: PreviewProvider {
+    static var previews: some View {
+        List {
+            Button(action: {
+                CUSheet.show(VStack {
+                    Text("Hallo, Welt!")
+                    Text("Hallo, Welt!")
+                    Text("Hallo, Welt!")
+                    Text("Hallo, Welt!")
+                })
+            }){
+                Text("Show")
+            }
+        }
+    }
 }

@@ -22,28 +22,26 @@ import Combine
 /// screen. ``CUAlertMessage`` uses ``CLInfoCard``'s.
 public class CUAlertMessage {
     
+    public static let shared: CUAlertMessage = CUAlertMessage()
+    
     /// Adds a new alert message to the ``CUGlobal/alertMessages`` array, and shows it
     /// - Parameters:
     ///   - title: The title label to show
     ///   - title: The subtitle label to show
     ///   - type: The ``CLInfoCard/InfoCardType`` alert type, default is `.info`
     public static func show(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info) {
-        CUGlobal.alertMessages.add(title, subTitle: subTitle, type: type)
+        CUAlertMessage.shared.add(title, subTitle: subTitle, type: type)
     }
     
     /// Clears a single message
     /// - Parameter id: The id for the message
     public static func clearSingle(_ id: UUID) {
-        CUGlobal.alertMessages.clearSingle(id)
+        CUAlertMessage.shared.clearSingle(id)
     }
-}
-
-/// This class handles all alert messages
-public class CUAlertMessages {
     
-    var messages: [CUAlertModel] = []
+    public var messages: [CUAlertModel] = []
     
-    func clearSingle(_ id: UUID) {
+    public func clearSingle(_ id: UUID) {
         for message in messages {
             if message.id == id {
                 message.view.removeFromSuperview()
@@ -51,7 +49,7 @@ public class CUAlertMessages {
         }
     }
     
-    func add(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info) {
+    public func add(_ title: String, subTitle: String = "", type: CLInfoCard.InfoCardType = .info) {
         
         let id: UUID = UUID()
         
@@ -158,6 +156,5 @@ struct CLAlertMessageView_Previews: PreviewProvider {
                 Text("Show")
             }
         }
-        .preferredColorScheme(.dark)
     }
 }

@@ -21,6 +21,8 @@ import Combine
 /// ``CUInAppNotification`` allows to show and hide in app notifications
 public class CUInAppNotification {
     
+    public static let shared: CUInAppNotification = CUInAppNotification()
+    
     /// Adds a new in app notification to the ``CUGlobal/inAppNotifications`` array, and shows it
     /// - Parameters:
     ///   - title: The title `String` for the notification
@@ -28,18 +30,18 @@ public class CUInAppNotification {
     ///   - tapAction: The tap action, default is `nil`
     ///   - vibration: The `CUVibrate` vibration type, if no vibration needed use `.none`. Default is, `.oldSchool`
     public static func show(title: String, body: String, tapAction: (() -> ())? = nil, vibration: CUVibrate = .oldSchool, trailingView: AnyView? = nil) {
-        CUGlobal.inAppNotifications.add(title: title, body: body, tapAction: tapAction, vibration: vibration, trailingView: trailingView)
+        CUInAppNotification.shared.add(title: title, body: body, tapAction: tapAction, vibration: vibration, trailingView: trailingView)
     }
     
     /// Clears a single notification
     /// - Parameter id: The id for the notification
     public static func clearSingle(_ id: UUID) {
-        CUGlobal.inAppNotifications.clearSingle(id)
+        CUInAppNotification.shared.clearSingle(id)
     }
     
-    var notifications: [CUAlertModel] = []
+    public var notifications: [CUAlertModel] = []
     
-    func clearSingle(_ id: UUID) {
+    public func clearSingle(_ id: UUID) {
         for noti in notifications {
             if noti.id == id {
                 noti.view.removeFromSuperview()
@@ -47,7 +49,7 @@ public class CUInAppNotification {
         }
     }
     
-    func add(title: String, body: String, tapAction: (() -> ())?, vibration: CUVibrate, trailingView: AnyView?) {
+    public func add(title: String, body: String, tapAction: (() -> ())?, vibration: CUVibrate, trailingView: AnyView?) {
         
         let id: UUID = UUID()
         
@@ -182,6 +184,5 @@ struct CLInAppNotificationView_Previews: PreviewProvider {
                 Text("Show")
             }
         }
-        .preferredColorScheme(.dark)
     }
 }
