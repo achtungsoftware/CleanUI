@@ -47,7 +47,7 @@ internal struct CLAlert<Content: View>: View {
                             .fill(Color.alert)
                     )
                     .padding(16)
-                    .transition(.move(edge: .top).combined(with: .opacity))
+                    .transition(.scale.combined(with: .opacity))
                 }
             }
         }
