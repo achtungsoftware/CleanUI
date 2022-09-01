@@ -21,13 +21,6 @@ import Combine
 /// This class handles all sorts of programmatic navigation
 public class CUNavigation {
     
-    public enum BottomSheetSize {
-        case halfDontAllowFull
-        case fullDontAllowHalf
-        case fullAllowHalf
-        case halfAllowFull
-    }
-    
     /// Trys to pop to the rootViewController / View inside of the current UINavigationController
     /// - Parameter animated: Animated, default `true`
     public static func popToRootView(_ animated: Bool = true) {
@@ -51,27 +44,35 @@ public class CUNavigation {
         if let rootViewController = CUStd.getMainUIWindow()?.rootViewController {
             
             // Search for the UINavigationController
-            for vc in rootViewController.children {
+            for rootViewControllerChild in rootViewController.children {
                 
                 // Did we find a UITabBarController? Search in the current
                 // selected tab for an UINavigationController
-                if let tabBarController = vc as? UITabBarController {
+                if let tabBarController = rootViewControllerChild as? UITabBarController {
+                    
+                    // Get the current tab index from the UITabBarController
                     let currentTabIndex = tabBarController.selectedIndex
-                    let currentTabViewController = vc.children[currentTabIndex]
-                    for vc2 in currentTabViewController.children {
-                        if(vc2 is UINavigationController) {
-                            if let navigationController = vc2 as? UINavigationController {
+                    
+                    // Get the current tab root viewController
+                    let currentTabViewController = rootViewControllerChild.children[currentTabIndex]
+                    
+                    // Search in currentTabViewController for UINavigationController
+                    for currentTabViewControllerChild in currentTabViewController.children {
+                        if currentTabViewControllerChild is UINavigationController {
+                            if let navigationController = currentTabViewControllerChild as? UINavigationController {
                                 return navigationController
                             }
                         }
                     }
-                }else { // Without UITabBarController
+                }else {
                     // Check if the first viewController is a UINavigationController
-                    if let navigationController = vc as? UINavigationController {
+                    if let navigationController = rootViewControllerChild as? UINavigationController {
                         return navigationController
-                    }else { // Continue search in subviews
-                        for vc2 in vc.children {
-                            if let navigationController = vc2 as? UINavigationController {
+                    }else {
+                        
+                        // Continue search in subviews for UINavigationController
+                        for rootViewControllerChildChild in rootViewControllerChild.children {
+                            if let navigationController = rootViewControllerChildChild as? UINavigationController {
                                 return navigationController
                             }
                         }
@@ -80,7 +81,6 @@ public class CUNavigation {
             }
         }
         
-        print("CUNavigation.getCurrentNavigationController() -> CURRENT UINAVIGATIONCONTROLLER NOT FOUND!")
         return nil
     }
     
@@ -115,6 +115,15 @@ public class CUNavigation {
             let sheetHostingController = SheetHostingController(rootView: view, detents: detents)
             rootViewController.present(sheetHostingController, animated: true)
         }
+    }
+}
+
+extension CUNavigation {
+    public enum BottomSheetSize {
+        case halfDontAllowFull
+        case fullDontAllowHalf
+        case fullAllowHalf
+        case halfAllowFull
     }
 }
 
