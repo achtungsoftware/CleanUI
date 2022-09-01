@@ -1,3 +1,7 @@
+[![Swift](https://img.shields.io/badge/Swift-5.5-brightgreen.svg?colorA=orange&colorB=4F4F4F)](https://swift.org)
+[![iOS](https://img.shields.io/badge/iOS-15-brightgreen.svg?colorA=orange&colorB=4F4F4F)](https://www.apple.com/ios)
+[![Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-brightgreen.svg?colorA=orange&colorB=4F4F4F)](https://www.apache.org/licenses/LICENSE-2.0)
+
 # CleanUI
 CleanUI is a collection of Swift and SwiftUI helpers. CleanUI views have a ``CL`` prefix. CleanUI helper classes have a ``CU`` prefix. CleanUI is ripped out of the Knoggl iOS App to make a reusable framework, which can be worked on without directly changing things inside of the Knoggl iOS App.
 
