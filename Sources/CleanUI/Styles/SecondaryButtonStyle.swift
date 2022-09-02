@@ -31,6 +31,7 @@ public struct SecondaryButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
+            .lineLimit(1)
             .font(size == .normal ? .subheadline.weight(.medium) : .footnote)
             .padding(.horizontal, size == .normal ? 13.0 : 8)
             .padding(.vertical, 6.0)
