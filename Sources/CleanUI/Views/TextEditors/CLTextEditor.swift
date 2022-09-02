@@ -50,22 +50,17 @@ public struct CLTextEditor: View {
     
     public var body: some View {
         ZStack(alignment: .topLeading) {
-            Text(text)
-                .foregroundColor(Color.red)
-                .allowsHitTesting(false)
-                .frame(maxWidth: .infinity, minHeight: minHeight, alignment: .topLeading)
-            
             if text.isEmpty {
                 Text(placeholder)
                     .foregroundColor(.gray)
                     .opacity(0.6)
                     .allowsHitTesting(false)
             }
+            
+            TextViewOverlay(text: $text, font: .callout, maxLayoutWidth: UIScreen.main.bounds.size.width, textViewStore: textViewStore, keyboardType: keyboardType, attributes: attributes)
+                .frame(maxWidth: .infinity, minHeight: minHeight, alignment: .topLeading)
         }
         .font(.callout)
-        .overlay(
-            TextViewOverlay(text: $text, font: .callout, maxLayoutWidth: UIScreen.main.bounds.size.width, textViewStore: textViewStore, keyboardType: keyboardType, attributes: attributes)
-        )
         .onChange(of: text) { value in
             if characterLimit != 0 {
                 if value.count > characterLimit {
@@ -104,7 +99,7 @@ struct TextViewOverlay: UIViewRepresentable {
         textView.keyboardType = keyboardType
         textView.textContainer.lineFragmentPadding = 0
         textView.adjustsFontForContentSizeCategory = true
-        textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        textView.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         
         return textView
     }
