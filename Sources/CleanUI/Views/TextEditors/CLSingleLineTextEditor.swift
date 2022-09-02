@@ -63,7 +63,7 @@ public struct CLSingleLineTextEditor: View {
         .font(.callout)
         .frame(maxWidth: .infinity, alignment: .bottomLeading)
         .overlay(
-            UTextViewOverlay(text: $text, font: .callout, maxLayoutWidth: UIScreen.main.bounds.size.width, textViewStore: textViewStore, keyboardType: keyboardType, isScrollEnabled: true, attributes: attributes)
+            TextViewOverlay(text: $text, font: .callout, maxLayoutWidth: UIScreen.main.bounds.size.width, textViewStore: textViewStore, keyboardType: keyboardType, isScrollEnabled: true, attributes: attributes)
         )
         .padding(10)
         .foregroundColor(Color.defaultText)
@@ -72,8 +72,8 @@ public struct CLSingleLineTextEditor: View {
                 .strokeBorder(Color.defaultBorder, lineWidth: 0.4)
         )
         .onChange(of: text) { value in
-            if(characterLimit != 0){
-                if(value.count > characterLimit){
+            if characterLimit != 0 {
+                if value.count > characterLimit {
                     DispatchQueue.main.async {
                         text = String(text.dropLast(value.count - characterLimit))
                     }

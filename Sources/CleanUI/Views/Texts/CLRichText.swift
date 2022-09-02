@@ -67,9 +67,9 @@ internal extension CLRichText {
         var attributes: [Attribute]
         
         @State var attributedText = NSMutableAttributedString()
-        let textView = UTextView()
+        let textView = TextView()
         
-        func makeUIView(context: Context) -> UTextView {
+        func makeUIView(context: Context) -> TextView {
             
             // Add tap gesture recognizer to TextView
             let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.onTap(_:)))
@@ -92,7 +92,7 @@ internal extension CLRichText {
             return textView
         }
         
-        func updateUIView(_ uiView: UTextView, context: Context) {
+        func updateUIView(_ uiView: TextView, context: Context) {
             DispatchQueue.main.async {
                 attributedText.mutableString.setString(string)
                 

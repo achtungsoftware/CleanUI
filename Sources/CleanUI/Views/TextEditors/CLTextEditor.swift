@@ -56,7 +56,7 @@ public struct CLTextEditor: View {
                 .multilineTextAlignment(.leading)
                 .fixedSize(horizontal: false, vertical: true)
                 .allowsHitTesting(false)
-                .frame(minHeight: minHeight)
+                .frame(minHeight: minHeight, alignment: .topLeading)
             
             if text.isEmpty {
                 Text(placeholder)
@@ -67,7 +67,7 @@ public struct CLTextEditor: View {
         }
         .font(.callout)
         .overlay(
-            UTextViewOverlay(text: $text, font: .callout, maxLayoutWidth: UIScreen.main.bounds.size.width, textViewStore: textViewStore, keyboardType: keyboardType, attributes: attributes)
+            TextViewOverlay(text: $text, font: .callout, maxLayoutWidth: UIScreen.main.bounds.size.width, textViewStore: textViewStore, keyboardType: keyboardType, attributes: attributes)
         )
         .onChange(of: text) { value in
             if characterLimit != 0 {
@@ -81,7 +81,7 @@ public struct CLTextEditor: View {
     }
 }
 
-struct UTextViewOverlay: UIViewRepresentable {
+struct TextViewOverlay: UIViewRepresentable {
     
     @Binding var text: String
     var font: Font
@@ -91,10 +91,10 @@ struct UTextViewOverlay: UIViewRepresentable {
     var isScrollEnabled: Bool = false
     var attributes: [Attribute]
     
-    let textView = UTextView()
+    let textView = TextView()
     @State var attributedText = NSMutableAttributedString()
     
-    func makeUIView(context: Context) -> UTextView {
+    func makeUIView(context: Context) -> TextView {
         textView.delegate = context.coordinator
         
         textView.font = font.toUIFont()
@@ -108,12 +108,11 @@ struct UTextViewOverlay: UIViewRepresentable {
         textView.textContainer.lineFragmentPadding = 0
         textView.adjustsFontForContentSizeCategory = true
         textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        textView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         
         return textView
     }
     
-    func updateUIView(_ uiView: UTextView, context: Context) {
+    func updateUIView(_ uiView: TextView, context: Context) {
         DispatchQueue.main.async {
             attributedText.mutableString.setString(text)
             
@@ -154,9 +153,9 @@ struct UTextViewOverlay: UIViewRepresentable {
     }
     
     final class Coordinator: NSObject, UITextViewDelegate {
-        var parent: UTextViewOverlay
+        var parent: TextViewOverlay
         
-        init(_ parent: UTextViewOverlay) {
+        init(_ parent: TextViewOverlay) {
             self.parent = parent
         }
         
@@ -168,7 +167,7 @@ struct UTextViewOverlay: UIViewRepresentable {
     }
 }
 
-class UTextView: UITextView {
+class TextView: UITextView {
     var maxLayoutWidth: CGFloat = 0 {
         didSet {
             guard maxLayoutWidth != oldValue else { return }
@@ -192,7 +191,7 @@ class TextViewStore: ObservableObject {
     @Published var height: CGFloat?
     var heightSet: Bool = false
     
-    func didUpdateTextView(_ textView: UTextView) {
+    func didUpdateTextView(_ textView: TextView) {
         if !heightSet {
             height = textView.intrinsicContentSize.height
             heightSet = true
@@ -212,6 +211,12 @@ struct CLTextEditorPreview: View {
 
 struct CLTextEditor_Previews: PreviewProvider {
     static var previews: some View {
-        CLTextEditorPreview()
+        VStack {
+            ScrollView {
+                CLTextEditorPreview()
+            }
+            
+            Text("Footer")
+        }
     }
 }
