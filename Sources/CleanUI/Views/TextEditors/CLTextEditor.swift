@@ -51,12 +51,9 @@ public struct CLTextEditor: View {
     public var body: some View {
         ZStack(alignment: .topLeading) {
             Text(text)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(Color.clear)
-                .multilineTextAlignment(.leading)
-                .fixedSize(horizontal: false, vertical: true)
+                .foregroundColor(Color.red)
                 .allowsHitTesting(false)
-                .frame(minHeight: minHeight, alignment: .topLeading)
+                .frame(maxWidth: .infinity, minHeight: minHeight, alignment: .topLeading)
             
             if text.isEmpty {
                 Text(placeholder)
