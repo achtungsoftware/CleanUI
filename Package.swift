@@ -15,7 +15,7 @@ let package = Package(
             targets: ["CleanUI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/knoggl/SwiftPlus.git", .upToNextMajor(from: "1.1.1"))
+        .package(url: "https://github.com/knoggl/SwiftPlus.git", .upToNextMajor(from: "1.2.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
