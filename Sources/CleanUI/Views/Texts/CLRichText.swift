@@ -93,49 +93,47 @@ internal extension CLRichText {
         }
         
         func updateUIView(_ uiView: TextView, context: Context) {
-            DispatchQueue.main.async {
-                attributedText.mutableString.setString(string)
-                
-                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(foregroundColor), range: NSRange(location: 0, length: attributedText.length))
-                attributedText.addAttribute(NSAttributedString.Key.font, value: font.toUIFont(), range: NSRange(location: 0, length: attributedText.length))
-                
-                
-                for attribute in attributes {
-                    switch attribute {
-                    case .links(_):
-                        let links = string.getLinks()
-                        
-                        for (foundedLink, range) in links {
-                            var multipleAttributes = [NSAttributedString.Key : Any]()
-                            multipleAttributes[NSAttributedString.Key.customLink] = foundedLink
-                            multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.defaultLink
-                            attributedText.addAttributes(multipleAttributes, range: range)
-                        }
-                    case .hashtags(_):
-                        let hashtags = string.getHashtags()
-                        
-                        for (foundedHashtag, range) in hashtags {
-                            var multipleAttributes = [NSAttributedString.Key : Any]()
-                            multipleAttributes[NSAttributedString.Key.hashtag] = foundedHashtag.dropFirst()
-                            multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.defaultLink
-                            attributedText.addAttributes(multipleAttributes, range: range)
-                        }
-                    case .mentions(_):
-                        let mentions = string.getMentions()
-                        
-                        for (foundedMention, range) in mentions {
-                            var multipleAttributes = [NSAttributedString.Key : Any]()
-                            multipleAttributes[NSAttributedString.Key.mention] = foundedMention.dropFirst()
-                            multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.defaultLink
-                            attributedText.addAttributes(multipleAttributes, range: range)
-                        }
+            attributedText.mutableString.setString(string)
+            
+            attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(foregroundColor), range: NSRange(location: 0, length: attributedText.length))
+            attributedText.addAttribute(NSAttributedString.Key.font, value: font.toUIFont(), range: NSRange(location: 0, length: attributedText.length))
+            
+            
+            for attribute in attributes {
+                switch attribute {
+                case .links(_):
+                    let links = string.getLinks()
+                    
+                    for (foundedLink, range) in links {
+                        var multipleAttributes = [NSAttributedString.Key : Any]()
+                        multipleAttributes[NSAttributedString.Key.customLink] = foundedLink
+                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.defaultLink
+                        attributedText.addAttributes(multipleAttributes, range: range)
+                    }
+                case .hashtags(_):
+                    let hashtags = string.getHashtags()
+                    
+                    for (foundedHashtag, range) in hashtags {
+                        var multipleAttributes = [NSAttributedString.Key : Any]()
+                        multipleAttributes[NSAttributedString.Key.hashtag] = foundedHashtag.dropFirst()
+                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.defaultLink
+                        attributedText.addAttributes(multipleAttributes, range: range)
+                    }
+                case .mentions(_):
+                    let mentions = string.getMentions()
+                    
+                    for (foundedMention, range) in mentions {
+                        var multipleAttributes = [NSAttributedString.Key : Any]()
+                        multipleAttributes[NSAttributedString.Key.mention] = foundedMention.dropFirst()
+                        multipleAttributes[NSAttributedString.Key.foregroundColor] = UIColor.defaultLink
+                        attributedText.addAttributes(multipleAttributes, range: range)
                     }
                 }
-                
-                uiView.attributedText = attributedText
-                uiView.maxLayoutWidth = maxLayoutWidth
-                textViewStore.didUpdateTextView(uiView)
             }
+            
+            uiView.attributedText = attributedText
+            uiView.maxLayoutWidth = maxLayoutWidth
+            textViewStore.didUpdateTextView(uiView)
         }
         
         
