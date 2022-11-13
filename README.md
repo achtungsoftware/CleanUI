@@ -141,7 +141,7 @@ CLUrlImage("MY_IMAGE_URL_STRING", fallbackImage: MY_UIIMAGE)
 CleanUI has some pretty cool SwiftUI modifiers.
 
 ### OnLoad (.onLoad)
-The OnLoad modifiers is pretty much the same as .onAppear with the difference that .onLoad only is called once.
+The OnLoad modifier is pretty much the same as .onAppear with the difference, that .onLoad is called only once.
 ```swift
 MyView()
     .onLoad {
