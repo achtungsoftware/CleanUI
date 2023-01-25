@@ -16,12 +16,16 @@
 //
 
 import SwiftUI
+import CleanUI
 
 @main
 struct TestProjectApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onLoad {
+                    CUGlobal.fullWidthBackGestureRecognizerEnabled = false
+                }
         }
     }
 }

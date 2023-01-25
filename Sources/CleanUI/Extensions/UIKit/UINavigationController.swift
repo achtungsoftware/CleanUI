@@ -24,14 +24,16 @@ extension UINavigationController: UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        interactivePopGestureRecognizer?.delegate = self
-        setupFullWidthBackGesture()
+        if CUGlobal.fullWidthBackGestureRecognizerEnabled {
+            interactivePopGestureRecognizer?.delegate = self
+            setupFullWidthBackGesture()
+        }
     }
     
     open override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        // Removes the back button text in NaviagtionBar
+        // Removes the back button text in NavigationBar
         navigationBar.topItem?.backButtonDisplayMode = .minimal
     }
     

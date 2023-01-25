@@ -26,4 +26,6 @@ public struct CUGlobal {
     /// always return this `mainWindow` variable, to prevent that we search for the `UIWindow` multiple
     /// times and accidentally return the wrong `UIWindow`.
     public static var mainWindow: UIWindow? = nil
+    
+    public static var fullWidthBackGestureRecognizerEnabled: Bool = true
 }
