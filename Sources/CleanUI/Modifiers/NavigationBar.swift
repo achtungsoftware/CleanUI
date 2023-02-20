@@ -40,7 +40,7 @@ public struct NavigationBar: ViewModifier {
     ///   - buttons: The trailing buttons
     ///   - searchField: When a ``NavigationBar.SearchField`` is applied, the
     ///   - backgroundColor: The background color of the navigation bar
-    public init(title: String, subTitle: String, bigTitle: Bool, customTitle: AnyView?, buttons: AnyView?, searchField: NavigationBar.SearchField?, backgroundColor: Color = .background) {
+    public init(title: String, subTitle: String, bigTitle: Bool, customTitle: AnyView?, buttons: AnyView?, searchField: NavigationBar.SearchField?, backgroundColor: Color) {
         self.title = title
         self.subTitle = subTitle
         self.buttons = buttons
@@ -277,8 +277,8 @@ public extension View {
     ///   - customTitle: Lets you apply a custom title view, which replaces the default title
     ///   - buttons: The trailing buttons
     ///   - searchField: When a ``NavigationBar.SearchField`` is applied, the NavigationBar gets a search ability
-    func navigationBar(_ title: String = "", subTitle: String = "", bigTitle: Bool = false, customTitle: AnyView? = nil, buttons: AnyView? = nil, searchField: NavigationBar.SearchField? = nil) -> some View {
-        modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchField: searchField))
+    func navigationBar(_ title: String = "", subTitle: String = "", bigTitle: Bool = false, customTitle: AnyView? = nil, buttons: AnyView? = nil, searchField: NavigationBar.SearchField? = nil, backgroundColor: Color = Color.background) -> some View {
+        modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchField: searchField, backgroundColor: backgroundColor))
     }
 }
 
