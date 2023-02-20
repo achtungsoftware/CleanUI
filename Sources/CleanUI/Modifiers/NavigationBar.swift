@@ -28,6 +28,7 @@ public struct NavigationBar: ViewModifier {
     var bigTitle: Bool
     var customTitle: AnyView?
     var buttons: AnyView?
+    var backgroundColor: Color
     @ObservedObject var searchField: NavigationBar.SearchField
     
     /// Show a CleanUI ``NavigationBar``
@@ -37,14 +38,16 @@ public struct NavigationBar: ViewModifier {
     ///   - bigTitle: Should the navigation bar title be big? default is `false
     ///   - customTitle: Lets you apply a custom title view, which replaces the default title
     ///   - buttons: The trailing buttons
-    ///   - searchField: When a ``NavigationBar.SearchField`` is applied, the NavigationBar gets a search ability
-    public init(title: String, subTitle: String, bigTitle: Bool, customTitle: AnyView?, buttons: AnyView?, searchField: NavigationBar.SearchField?) {
+    ///   - searchField: When a ``NavigationBar.SearchField`` is applied, the
+    ///   - backgroundColor: The background color of the navigation bar
+    public init(title: String, subTitle: String, bigTitle: Bool, customTitle: AnyView?, buttons: AnyView?, searchField: NavigationBar.SearchField?, backgroundColor: Color = .background) {
         self.title = title
         self.subTitle = subTitle
         self.buttons = buttons
         self.bigTitle = bigTitle
         self.customTitle = customTitle
         self.searchField = searchField ?? NavigationBar.SearchField(false)
+        self.backgroundColor = backgroundColor
     }
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -180,7 +183,7 @@ public struct NavigationBar: ViewModifier {
                 }
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 45, maxHeight: nil, alignment: .topLeading)
-            .background(Color.background)
+            .background(backgroundColor)
             .overlay(
                 VStack {
                     Spacer()
