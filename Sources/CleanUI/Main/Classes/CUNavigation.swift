@@ -21,6 +21,9 @@ import Combine
 /// This class handles all sorts of programmatic navigation
 public class CUNavigation {
     
+    /// Gets called once on next push with ``pushToSwiftUiView(_:animated:enableBackNavigation:)``
+    public static var onNextPush: (() -> Void)? = nil
+    
     /// Trys to pop to the rootViewController / View inside of the current UINavigationController
     /// - Parameter animated: Animated, default `true`
     public static func popToRootView(_ animated: Bool = true) {
@@ -88,12 +91,17 @@ public class CUNavigation {
     /// - Parameter animated: Animated, default `true`
     /// - Parameter enableBackNavigation: Enable or disbale back swipe gesture, default `true`
     public static func pushToSwiftUiView<Content: View>(_ view: Content, animated: Bool = true, enableBackNavigation: Bool = true){
+        
+        onNextPush?()
+        
         if let navigationController = self.getCurrentNavigationController() {
             let viewController = UIHostingController(rootView: view)
             viewController.navigationItem.largeTitleDisplayMode = .never
             navigationController.pushViewController(viewController, animated: animated)
             navigationController.interactivePopGestureRecognizer?.isEnabled = enableBackNavigation
         }
+        
+        onNextPush = nil
     }
     
     /// Pushes to a native UISheetPresentationController
