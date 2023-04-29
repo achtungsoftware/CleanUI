@@ -59,26 +59,36 @@ public struct CLExpandableText: View {
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            if richText {
-                if expanded || string.count < characterLimit {
-                    CLRichText(string, font: font, foregroundColor: foregroundColor, attributes: attributes)
-                        .font(font)
-                        .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .frame(maxWidth: .infinity, alignment: .topLeading)
+            Group {
+                if richText {
+                    if expanded || string.count < characterLimit {
+                        CLRichText(string, font: font, foregroundColor: foregroundColor, attributes: attributes)
+                            .font(font)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .topLeading)
+                    }else {
+                        CLRichText(shortString, font: font, foregroundColor: foregroundColor, attributes: attributes)
+                            .font(font)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .topLeading)
+                    }
                 }else {
-                    CLRichText(shortString, font: font, foregroundColor: foregroundColor, attributes: attributes)
-                        .font(font)
-                        .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .frame(maxWidth: .infinity, alignment: .topLeading)
+                    if string.count > characterLimit {
+                        Text(string.trim().prefix(characterLimit) + "...")
+                            .foregroundColor(foregroundColor)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .topLeading)
+                    }else {
+                        Text(expanded ? string : String(string.trim().prefix(characterLimit)))
+                            .foregroundColor(foregroundColor)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .topLeading)
+                    }
                 }
-            }else {
-                Text(expanded || string.count < characterLimit ? string : String(string.trim().prefix(characterLimit) + String(string.count > characterLimit ? "..." : "")))
-                    .foregroundColor(foregroundColor)
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: .infinity, alignment: .topLeading)
             }
             
             if string.count > characterLimit {
