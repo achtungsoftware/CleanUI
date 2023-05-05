@@ -35,12 +35,12 @@ public struct SecondaryButtonStyle: ButtonStyle {
             .font(size == .normal ? .subheadline.weight(.medium) : .footnote)
             .padding(.horizontal, size == .normal ? 13.0 : 8)
             .padding(.vertical, 6.0)
-            .foregroundColor(style == .normal ? .white : Color.primaryColor)
+            .foregroundColor(style == .normal ? .white : Color.accentColor)
             .if(style == .normal) { view in
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.primaryColor)
+                            .fill(Color.accentColor)
                     )
             }
             .if(style == .alternative) { view in

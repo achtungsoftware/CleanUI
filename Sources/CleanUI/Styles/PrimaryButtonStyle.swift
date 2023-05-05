@@ -42,7 +42,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
                 view
                     .background(
                         RoundedRectangle(cornerRadius: 11)
-                            .fill(style == .primary ? Color.primaryColor : style == .staticDark ? Color.accentStaticDark : style == .secondary ? Color.accent3 : style == .secondary2 ? Color.accent5 : .white)
+                            .fill(style == .primary ? Color.accentColor : style == .staticDark ? Color.accentStaticDark : style == .secondary ? Color.accent3 : style == .secondary2 ? Color.accent5 : .white)
                             .opacity(withOpacity ? 0.6 : 1)
                     )
             }
@@ -63,7 +63,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
                     )
             }
             .shadow(color: Color.black.opacity(0.04), radius: 8)
-            .foregroundColor(style == .primary ? .white : style == .staticDark || style == .materialDark ? Color.white : style == .secondary || style == .secondary2 ? Color.primaryColor : Color.black)
+            .foregroundColor(style == .primary ? .white : style == .staticDark || style == .materialDark ? Color.white : style == .secondary || style == .secondary2 ? Color.accentColor : Color.black)
             .scaleEffect(configuration.isPressed ? 0.97: 1)
     }
 }
