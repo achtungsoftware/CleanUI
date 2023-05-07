@@ -28,4 +28,6 @@ public struct CUGlobal {
     public static var mainWindow: UIWindow? = nil
     
     public static var fullWidthBackGestureRecognizerEnabled: Bool = true
+    
+    public static var alertBackgroundColor: Color? = nil
 }

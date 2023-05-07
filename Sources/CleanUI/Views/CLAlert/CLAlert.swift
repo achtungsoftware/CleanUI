@@ -44,7 +44,7 @@ internal struct CLAlert<Content: View>: View {
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.alert)
+                            .fill(CUGlobal.alertBackgroundColor != nil ? CUGlobal.alertBackgroundColor! : Color.alert)
                     )
                     .padding(16)
                     .transition(.scale.combined(with: .opacity))
