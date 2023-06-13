@@ -280,8 +280,8 @@ public extension View {
     ///   - customTitle: Lets you apply a custom title view, which replaces the default title
     ///   - buttons: The trailing buttons
     ///   - searchField: When a ``NavigationBar.SearchField`` is applied, the NavigationBar gets a search ability
-    func navigationBar(_ title: String = "", subTitle: String = "", bigTitle: Bool = false, customTitle: AnyView? = nil, buttons: AnyView? = nil, searchField: NavigationBar.SearchField? = nil, backgroundColor: Color = Color.background) -> some View {
-        modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchField: searchField, backgroundColor: backgroundColor, canGoBack: true))
+    func navigationBar(_ title: String = "", subTitle: String = "", bigTitle: Bool = false, customTitle: AnyView? = nil, buttons: AnyView? = nil, searchField: NavigationBar.SearchField? = nil, backgroundColor: Color = Color.background, canGoBack: Bool = true) -> some View {
+        modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchField: searchField, backgroundColor: backgroundColor, canGoBack: canGoBack))
     }
 }
 
