@@ -29,6 +29,7 @@ public struct NavigationBar: ViewModifier {
     var customTitle: AnyView?
     var buttons: AnyView?
     var backgroundColor: Color
+    var canGoBack: Bool
     @ObservedObject var searchField: NavigationBar.SearchField
     
     /// Show a CleanUI ``NavigationBar``
@@ -40,7 +41,8 @@ public struct NavigationBar: ViewModifier {
     ///   - buttons: The trailing buttons
     ///   - searchField: When a ``NavigationBar.SearchField`` is applied, the
     ///   - backgroundColor: The background color of the navigation bar
-    public init(title: String, subTitle: String, bigTitle: Bool, customTitle: AnyView?, buttons: AnyView?, searchField: NavigationBar.SearchField?, backgroundColor: Color) {
+    ///   - canGoBack: Show back button?
+    public init(title: String, subTitle: String, bigTitle: Bool, customTitle: AnyView?, buttons: AnyView?, searchField: NavigationBar.SearchField?, backgroundColor: Color, canGoBack: Bool) {
         self.title = title
         self.subTitle = subTitle
         self.buttons = buttons
@@ -48,6 +50,7 @@ public struct NavigationBar: ViewModifier {
         self.customTitle = customTitle
         self.searchField = searchField ?? NavigationBar.SearchField(false)
         self.backgroundColor = backgroundColor
+        self.canGoBack = canGoBack
     }
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -68,7 +71,7 @@ public struct NavigationBar: ViewModifier {
                     if !searchBarShowSearchResultsWithAnimation {
                         ZStack {
                             HStack {
-                                if isPresentedStatic {
+                                if isPresentedStatic && canGoBack {
                                     Button(action: {
                                         presentationMode.wrappedValue.dismiss()
                                     }){
@@ -278,7 +281,7 @@ public extension View {
     ///   - buttons: The trailing buttons
     ///   - searchField: When a ``NavigationBar.SearchField`` is applied, the NavigationBar gets a search ability
     func navigationBar(_ title: String = "", subTitle: String = "", bigTitle: Bool = false, customTitle: AnyView? = nil, buttons: AnyView? = nil, searchField: NavigationBar.SearchField? = nil, backgroundColor: Color = Color.background) -> some View {
-        modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchField: searchField, backgroundColor: backgroundColor))
+        modifier(NavigationBar(title: title, subTitle: subTitle, bigTitle: bigTitle, customTitle: customTitle, buttons: buttons, searchField: searchField, backgroundColor: backgroundColor, canGoBack: true))
     }
 }
 
