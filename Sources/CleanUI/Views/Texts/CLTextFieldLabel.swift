@@ -22,17 +22,19 @@ import Combine
 public struct CLTextFieldLabel: View {
     
     var label: String
+    var foregroundColor: Color
     
     /// - Parameter label: The label `String
-    public init(_ label: String) {
+    public init(_ label: String, foregroundColor: Color = Color.grayText) {
         self.label = label
+        self.foregroundColor = foregroundColor
     }
     
     public var body: some View {
         HStack {
             Text(label)
                 .font(.subheadline)
-                .foregroundColor(Color.grayText)
+                .foregroundColor(foregroundColor)
             
             Spacer()
         }
