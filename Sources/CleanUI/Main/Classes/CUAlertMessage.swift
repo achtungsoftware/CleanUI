@@ -78,13 +78,9 @@ public class CUAlertMessage {
             
             infoCardController.view.layoutIfNeeded()
             
-            UIView.animate(withDuration:0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [UIView.AnimationOptions.curveEaseIn], animations: { () -> Void in
-                
-                infoCardController.view.layoutIfNeeded()
-                infoCardController.view.frame.origin.y = -200
-            },  completion: {
-                (value: Bool) in
-            })
+            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [.curveEaseIn], animations: { () -> Void in
+                infoCardController.view.frame.origin.y = infoCardController.view.frame.origin.y - infoCardController.view.frame.height
+            }, completion: { _ in })
             
             CUVibrate.light.vibrate()
         }
@@ -149,12 +145,21 @@ struct CLAlertMessageView: View {
 
 struct CLAlertMessageView_Previews: PreviewProvider {
     static var previews: some View {
-        List {
-            Button(action: {
-                CUAlertMessage.show("Test")
-            }){
-                Text("Show")
+        TabView {
+            NavigationView {
+                List {
+                    Button(action: {
+                        CUAlertMessage.show("Test", type: .error)
+                    }){
+                        Text("Show")
+                    }
+                }
+                .navigationTitle("Test")
             }
+            .tabItem {
+                Image(systemName: "circle")
+            }
+            .tag(0)
         }
     }
 }
